@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ────────────────────────────────────────────────────────────
+   BLOOKET CALCULATOR — PREMIUM DARK THEME
+   Design language: deep navy ▸ violet glow ▸ gold accents
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Core palette ── */
+  --background: #0a0e1a;
+  --foreground: #e2e8f0;
+  --surface: rgba(15, 20, 40, 0.65);
+  --surface-strong: rgba(20, 25, 50, 0.85);
+  --line: rgba(139, 92, 246, 0.18);
+
+  /* ── Accent glows ── */
+  --glow-violet: #8b5cf6;
+  --glow-indigo: #6366f1;
+  --glow-gold: #f59e0b;
+  --glow-cyan: #22d3ee;
+  --glow-rose: #f43f5e;
+
+  /* ── Card surface ── */
+  --card-bg: rgba(15, 18, 35, 0.72);
+  --card-border: rgba(139, 92, 246, 0.15);
+  --card-hover-border: rgba(139, 92, 246, 0.35);
+
+  /* ── Text hierarchy ── */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: #a78bfa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+  --font-display: var(--font-space-grotesk);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.08), transparent),
+    radial-gradient(ellipse 50% 35% at 10% 90%, rgba(245, 158, 11, 0.04), transparent);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: #f1f5f9;
+}
+
+a,
+button,
+input,
+select,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ────────────────────────────────────────────────────────────
+   GLASS PANELS
+   ──────────────────────────────────────────────────────────── */
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 18, 35, 0.75),
+    rgba(20, 24, 50, 0.65)
+  );
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.06),
+    0 8px 32px -8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* ────────────────────────────────────────────────────────────
+   TOKEN SLIDER — Premium track with gradient glow
+   ──────────────────────────────────────────────────────────── */
+
+.range-track {
+  width: 100%;
+  appearance: none;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.3),
+    rgba(99, 102, 241, 0.5) 40%,
+    rgba(245, 158, 11, 0.4) 100%
+  );
+  cursor: pointer;
+  box-shadow:
+    0 0 12px rgba(139, 92, 246, 0.15),
+    inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.range-track:hover {
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.25),
+    inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.range-track::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  border: 3px solid rgba(15, 18, 35, 0.9);
+  box-shadow:
+    0 0 16px rgba(139, 92, 246, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.range-track::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 24px rgba(139, 92, 246, 0.7),
+    0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.range-track::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid rgba(15, 18, 35, 0.9);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  box-shadow:
+    0 0 16px rgba(139, 92, 246, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+/* ────────────────────────────────────────────────────────────
+   METRIC RING (conic gauge)
+   ──────────────────────────────────────────────────────────── */
+
+.metric-ring {
+  --ring-angle: 0deg;
+  --ring-accent: var(--glow-violet);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, rgba(10, 14, 26, 0.95) 57%, transparent 58%),
+    conic-gradient(var(--ring-accent) var(--ring-angle), rgba(255, 255, 255, 0.04) 0deg);
+}
+
+.metric-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--ring-accent) 40%, transparent);
+  opacity: 0.8;
+}
+
+/* ────────────────────────────────────────────────────────────
+   CONFETTI BURST
+   ──────────────────────────────────────────────────────────── */
+
+.confetti-burst {
+  position: relative;
+  width: 10rem;
+  height: 5rem;
+}
+
+.confetti-burst span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.45rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #a78bfa, #f43f5e);
+  transform:
+    rotate(calc(var(--confetti-index) * 22.5deg)) translateY(calc(var(--confetti-index) * -0.14rem));
+  animation: confetti-pop 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+.confetti-burst span:nth-child(3n) {
+  background: linear-gradient(180deg, #22d3ee, #6366f1);
+}
+
+.confetti-burst span:nth-child(4n) {
+  background: linear-gradient(180deg, #f59e0b, #f43f5e);
+}
+
+@keyframes confetti-pop {
+  0% {
+    opacity: 0;
+    transform:
+      rotate(calc(var(--confetti-index) * 22.5deg)) translateY(0) scale(0.4);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      rotate(calc(var(--confetti-index) * 22.5deg)) translateY(calc(-0.85rem - (var(--confetti-index) * 0.26rem))) translateX(calc((var(--confetti-index) - 8) * 0.32rem)) scale(1);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   ANIMATED GRADIENT BORDER
+   Use on premium card containers
+   ──────────────────────────────────────────────────────────── */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.12),
+    rgba(99, 102, 241, 0.08),
+    rgba(245, 158, 11, 0.06)
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.3),
+    rgba(99, 102, 241, 0.15),
+    rgba(245, 158, 11, 0.2),
+    rgba(139, 92, 246, 0.3)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 6s ease infinite;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ────────────────────────────────────────────────────────────
+   SUBTLE GLOW PULSE (ambient effect)
+   ──────────────────────────────────────────────────────────── */
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.glow-pulse {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+/* ────────────────────────────────────────────────────────────
+   SCROLLBAR (premium feel)
+   ──────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 14, 26, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* ────────────────────────────────────────────────────────────
+   NUMBER INPUT SPINNER HIDE
+   ──────────────────────────────────────────────────────────── */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
