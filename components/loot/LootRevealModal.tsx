@@ -186,14 +186,14 @@ export default function LootRevealModal({
                           background: `radial-gradient(circle at top, ${pack.themeColor}, transparent 60%)`,
                         }}
                       />
-                      <div className="relative aspect-square">
+                      <div className="relative aspect-square flex items-center justify-center">
                         <Image
                           src={item.imageUrl}
                           alt={item.name}
-                          fill
+                          width={400}
+                          height={400}
                           loading="lazy"
-                          className="object-contain p-5"
-                          sizes="(max-width: 768px) 45vw, 18vw"
+                          className="object-contain p-5 w-full h-full"
                         />
                       </div>
                     </div>

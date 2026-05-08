@@ -76,13 +76,13 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
                 background: `radial-gradient(circle at top, ${pack.themeColor}, transparent 60%)`,
               }}
             />
-            <div className="relative aspect-square">
+            <div className="relative aspect-square flex items-center justify-center">
               <Image
                 src={blook.imageUrl}
                 alt={blook.name}
-                fill
-                className="object-contain p-8"
-                sizes="(max-width: 1024px) 90vw, 40vw"
+                width={800}
+                height={800}
+                className="object-contain p-8 w-full h-full"
               />
             </div>
           </div>

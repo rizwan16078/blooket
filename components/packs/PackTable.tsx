@@ -73,13 +73,13 @@ export default function PackTable({ pack, blooks }: PackTableProps) {
             className="group/row focus-visible:bg-white/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-500/40 focus-visible:outline-offset-[-4px]"
           >
             <TableCell>
-              <div className="relative size-12 overflow-hidden rounded-xl bg-white/[0.03]">
+              <div className="relative size-12 flex items-center justify-center overflow-hidden rounded-xl bg-white/[0.03]">
                 <Image
                   src={blook.imageUrl}
                   alt={blook.name}
-                  fill
-                  className="object-contain p-2.5"
-                  sizes="48px"
+                  width={48}
+                  height={48}
+                  className="object-contain p-2.5 w-full h-full"
                 />
               </div>
             </TableCell>

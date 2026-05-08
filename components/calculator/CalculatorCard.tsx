@@ -333,13 +333,13 @@ function PackGridCard({
         <p className="px-1 pb-2 text-center font-sans text-sm font-black tracking-wide text-white drop-shadow-md">
           {pack.name}
         </p>
-        <div className="relative aspect-[0.92] w-full overflow-hidden rounded-xl bg-white/[0.03]">
+        <div className="relative aspect-[0.92] flex items-center justify-center w-full overflow-hidden rounded-xl bg-white/[0.03]">
           <Image
             src={pack.imageUrl}
             alt={`${pack.name} Pack`}
-            fill
-            sizes="(max-width: 768px) 45vw, 22vw"
-            className={`object-cover transition ${
+            width={400}
+            height={435}
+            className={`object-cover w-full h-full transition ${
               isSelected
                 ? "brightness-110"
                 : !isAffordable

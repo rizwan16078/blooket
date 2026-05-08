@@ -51,13 +51,13 @@ export default function PackGrid() {
                   <LockIcon className="h-4 w-4" />
                 </div>
               ) : (
-                <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-white/[0.03]">
+                <div className="relative h-14 w-14 flex items-center justify-center overflow-hidden rounded-xl bg-white/[0.03]">
                   <Image
                     src={pack.imageUrl}
                     alt={pack.name}
-                    fill
-                    className="object-contain p-2"
-                    sizes="56px"
+                    width={56}
+                    height={56}
+                    className="object-contain p-2 w-full h-full"
                   />
                 </div>
               )}

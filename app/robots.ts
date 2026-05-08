@@ -6,6 +6,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: [
+        "/*?pack=",
+        "/*?blook=",
+        "/*?tokens=",
+        "/*?autorun=",
+        "/*?packId=",
+        "/*?blookId=",
+      ],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
   };
