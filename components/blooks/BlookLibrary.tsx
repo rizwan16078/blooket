@@ -83,15 +83,15 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col items-center justify-center py-16 text-center"
         >
-          <div className="rounded-2xl border-4 border-sky-200/50 bg-white p-8 shadow-lg">
-            <p className="mb-2 text-2xl font-black text-slate-900">No Blooks found! 😢</p>
-            <p className="mb-6 text-slate-500">Try adjusting your search or filters to find what you&apos;re looking for.</p>
+          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 shadow-lg">
+            <p className="mb-2 text-2xl font-black text-white">No Blooks found! 😢</p>
+            <p className="mb-6 text-white/40">Try adjusting your search or filters to find what you&apos;re looking for.</p>
             <button
               onClick={() => {
                 setSearchQuery("");
                 setActiveFilter("All");
               }}
-              className="inline-flex h-10 items-center justify-center rounded-xl bg-blue-500 px-6 font-black text-white shadow-[0_4px_0_0_rgba(29,78,216,1)] transition-all hover:bg-blue-600 active:translate-y-1 active:shadow-none"
+              className="inline-flex h-10 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-6 font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
             >
               Reset Filters
             </button>
@@ -121,13 +121,13 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                         { scroll: false },
                       );
                     }}
-                    className="w-full group rounded-[1.6rem] border-4 border-sky-100 bg-white p-3 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                    className="w-full group rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-left shadow-sm transition hover:-translate-y-1 hover:border-white/[0.1] hover:shadow-lg"
                     style={{
                       contentVisibility: "auto",
                       containIntrinsicSize: "200px",
                     }}
                   >
-                    <div className="relative overflow-hidden rounded-[1.2rem] bg-sky-50">
+                    <div className="relative overflow-hidden rounded-xl bg-white/[0.03]">
                       <div
                         className="absolute inset-0 opacity-20"
                         style={{
@@ -147,11 +147,11 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                     </div>
 
                     <div className="mt-3">
-                      <p className="text-sm font-black text-slate-900">{blook.name}</p>
-                      <p className="mt-1 text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+                      <p className="text-sm font-black text-white">{blook.name}</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-white/35">
                         {blook.rarity}
                       </p>
-                      <p className="mt-2 text-xs text-slate-500">{pack.name} Pack</p>
+                      <p className="mt-2 text-xs text-white/30">{pack.name} Pack</p>
                     </div>
                   </button>
                 </motion.div>
@@ -180,7 +180,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
               </DialogHeader>
 
               <div className="mt-6 grid gap-6 md:grid-cols-[0.92fr_1.08fr]">
-                <div className="relative overflow-hidden rounded-[1.8rem] bg-sky-50">
+                <div className="relative overflow-hidden rounded-xl bg-white/[0.03]">
                   <div
                     className="absolute inset-0 opacity-25"
                     style={{
@@ -199,35 +199,35 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-3xl bg-sky-50 p-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                       Rarity
                     </p>
-                    <p className="mt-2 text-lg font-black text-slate-900">
+                    <p className="mt-2 text-lg font-black text-white">
                       {activeBlook.rarity}
                     </p>
                   </div>
-                  <div className="rounded-3xl bg-sky-50 p-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                       Drop rate
                     </p>
-                    <p className="mt-2 text-lg font-black text-slate-900">
+                    <p className="mt-2 text-lg font-black text-white">
                       {formatPercent(activeBlook.dropRate)}
                     </p>
                   </div>
-                  <div className="rounded-3xl bg-sky-50 p-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                       Estimated tokens
                     </p>
-                    <p className="mt-2 text-lg font-black text-slate-900">
+                    <p className="mt-2 text-lg font-black text-white">
                       {formatTokenLabel(calculateEstimatedTokensForBlook(activeBlook, activePack))}
                     </p>
                   </div>
-                  <div className="rounded-3xl bg-sky-50 p-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                       Sell value
                     </p>
-                    <p className="mt-2 text-lg font-black text-slate-900">
+                    <p className="mt-2 text-lg font-black text-white">
                       {formatTokenLabel(activeBlook.sellValue)}
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                   onClick={() => {
                     router.push(`/?packId=${activePack.id}&blookId=${activeBlook.id}&tokens=500`);
                   }}
-                  className="inline-flex h-12 items-center justify-center rounded-xl bg-green-500 px-5 text-sm font-black text-white shadow-[0_4px_0_0_rgba(21,128,61,1)] transition-all hover:bg-green-600 active:translate-y-1 active:shadow-none"
+                  className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
                 >
                   Try My Luck
                 </button>
@@ -248,7 +248,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                 <button
                   type="button"
                   onClick={() => router.push(`/blooks/${activeBlook.id}`)}
-                  className="inline-flex h-12 items-center justify-center rounded-xl bg-blue-500 px-5 text-sm font-black text-white shadow-[0_4px_0_0_rgba(29,78,216,1)] transition-all hover:bg-blue-600 active:translate-y-1 active:shadow-none"
+                  className="inline-flex h-12 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 text-sm font-bold text-white transition-all hover:bg-white/[0.06] active:scale-[0.97]"
                 >
                   Open SEO Page
                 </button>

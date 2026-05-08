@@ -9,6 +9,7 @@ import { buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
+  title: "Blooket Calculator — Exact Pack Odds & Drop Rates",
   description:
     "See your real Blooket chances before you spend tokens with exact probability math, duplicate refund modeling, and worker-based simulations.",
   alternates: {
@@ -98,6 +99,12 @@ export default function Home() {
 
           <div className="relative mx-auto grid max-w-[92rem] items-start gap-6 xl:grid-cols-[minmax(0,1fr)_280px]">
             <div className="min-w-0">
+              <h1 className="mb-6 font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
+                Blooket Calculator
+                <span className="mt-2 block text-xl font-medium text-violet-300">
+                  Exact pack odds, drop rates &amp; loot simulations
+                </span>
+              </h1>
               <Suspense fallback={<CalculatorCardFallback />}>
                 <CalculatorCard />
               </Suspense>

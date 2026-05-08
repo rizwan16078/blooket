@@ -30,26 +30,26 @@ function rarityBadgeClasses(rarity: Blook["rarity"]) {
   const style = RARITY_DESIGN[rarity];
 
   if (style.color === "amber") {
-    return "border-amber-300 bg-amber-100 text-amber-700";
+    return "border-amber-500/30 bg-amber-500/10 text-amber-400";
   }
 
   if (style.color === "violet") {
-    return "border-violet-300 bg-violet-100 text-violet-700";
+    return "border-violet-500/30 bg-violet-500/10 text-violet-400";
   }
 
   if (style.color === "teal") {
-    return "border-teal-300 bg-teal-100 text-teal-700";
+    return "border-teal-500/30 bg-teal-500/10 text-teal-400";
   }
 
   if (style.color === "sky") {
-    return "border-teal-600 bg-[#2a424a] text-emerald-400";
+    return "border-sky-500/30 bg-sky-500/10 text-sky-400";
   }
 
   if (style.color === "emerald") {
-    return "border-emerald-300 bg-emerald-100 text-emerald-700";
+    return "border-emerald-500/30 bg-emerald-500/10 text-emerald-400";
   }
 
-  return "border-slate-300 bg-[#112328] text-white";
+  return "border-white/10 bg-white/[0.04] text-white/50";
 }
 
 export default function LootRevealModal({
@@ -70,7 +70,7 @@ export default function LootRevealModal({
       <DialogContent className="max-h-[92vh] overflow-hidden">
         <div className="relative">
           {isSelling ? (
-            <div className="absolute inset-0 z-20 flex items-center justify-center bg-sky-500/75 backdrop-blur-sm">
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 backdrop-blur-sm">
               <div className="flex flex-col items-center gap-4 text-center">
                 <motion.div
                   animate={prefersReducedMotion ? undefined : { rotate: 360 }}
@@ -79,12 +79,12 @@ export default function LootRevealModal({
                       ? undefined
                       : { duration: 1.2, ease: "linear", repeat: Infinity }
                   }
-                  className="flex h-16 w-16 items-center justify-center rounded-full bg-yellow-300 text-yellow-700 shadow-[0_4px_0_0_rgba(202,138,4,1)]"
+                  className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-amber-900 shadow-lg shadow-amber-500/30"
                 >
                   $
                 </motion.div>
                 <div>
-                  <p className="font-sans text-xl font-black tracking-wide text-white drop-shadow-md">
+                  <p className="font-sans text-xl font-black tracking-wide text-white">
                     Selling duplicates...
                   </p>
                   <p className="mt-2 text-sm text-white/90">
@@ -98,10 +98,10 @@ export default function LootRevealModal({
           <div className="max-h-[92vh] overflow-y-auto p-6 sm:p-8">
             <DialogHeader className="pr-12">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-[#2a424a] px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-emerald-400">
+                <span className="rounded-full bg-violet-500/10 border border-violet-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-violet-400">
                   {pack.name} run
                 </span>
-                <span className="rounded-full bg-yellow-100 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-700">
+                <span className="rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-amber-400">
                   Hunting {targetBlook ? targetBlook.name : targetRarity}
                 </span>
               </div>
@@ -113,32 +113,32 @@ export default function LootRevealModal({
             </DialogHeader>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-4">
-              <div className="rounded-3xl bg-[#152a30] p-4">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Expected sell-back
                 </p>
                 <p className="mt-2 text-lg font-black text-white">
                   {result ? formatTokenLabel(result.expectedTokens) : "Pending"}
                 </p>
               </div>
-              <div className="rounded-3xl bg-[#152a30] p-4">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   P10 best case
                 </p>
                 <p className="mt-2 text-lg font-black text-white">
                   {result ? formatTokenLabel(result.p10BestCase) : "Pending"}
                 </p>
               </div>
-              <div className="rounded-3xl bg-[#152a30] p-4">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   P90 worst case
                 </p>
                 <p className="mt-2 text-lg font-black text-white">
                   {result ? formatTokenLabel(result.p90WorstCase) : "Pending"}
                 </p>
               </div>
-              <div className="rounded-3xl bg-[#152a30] p-4">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Reruns left
                 </p>
                 <p className="mt-2 text-lg font-black text-white">
@@ -177,9 +177,9 @@ export default function LootRevealModal({
                           }
                     }
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="rounded-[1.6rem] border-4 border-[#2a424a] bg-[#1e353c] p-3 shadow-lg"
+                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 shadow-lg"
                   >
-                    <div className="relative overflow-hidden rounded-[1.2rem] bg-[#152a30]">
+                    <div className="relative overflow-hidden rounded-xl bg-white/[0.03]">
                       <div
                         className="absolute inset-0 opacity-25"
                         style={{
@@ -212,11 +212,11 @@ export default function LootRevealModal({
                     </div>
 
                     {duplicate ? (
-                      <div className="mt-3 rounded-2xl bg-yellow-100 px-3 py-2">
-                        <p className="text-[11px] font-black uppercase tracking-[0.2em] text-amber-700">
+                      <div className="mt-3 rounded-xl bg-amber-500/10 border border-amber-500/20 px-3 py-2">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-400">
                           Duplicate
                         </p>
-                        <p className="mt-1 text-sm text-amber-800">
+                        <p className="mt-1 text-sm text-amber-300/80">
                           Sell for {formatTokenLabel(sourceBlook?.sellValue ?? 0)}
                         </p>
                       </div>
@@ -227,14 +227,14 @@ export default function LootRevealModal({
             </motion.div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-white/35">
                 Duplicate sell values stay in-session only for the rerun economy loop.
               </p>
               <button
                 type="button"
                 disabled={!result?.rerunAllowed || isSelling}
                 onClick={onRerun}
-                className="inline-flex h-12 items-center justify-center rounded-xl bg-teal-700 px-5 text-sm font-black text-white shadow-[0_4px_0_0_rgba(15,118,110,1)] transition-all hover:bg-teal-600 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-55"
+                className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-55"
               >
                 Sell Duplicates & Re-roll
               </button>

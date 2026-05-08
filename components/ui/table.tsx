@@ -21,7 +21,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b [&_tr]:border-sky-100", className)}
+      className={cn("[&_tr]:border-b [&_tr]:border-white/[0.06]", className)}
       {...props}
     />
   );
@@ -42,7 +42,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "border-t border-sky-100 bg-sky-50 font-medium [&>tr]:last:border-b-0",
+        "border-t border-white/[0.06] bg-white/[0.02] font-medium [&>tr]:last:border-b-0",
         className,
       )}
       {...props}
@@ -55,7 +55,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-sky-100 transition-colors hover:bg-sky-50/80",
+        "border-b border-white/[0.06] transition-colors hover:bg-white/[0.02]",
         className,
       )}
       {...props}
@@ -68,7 +68,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-12 px-4 text-left align-middle text-[11px] font-black uppercase tracking-[0.22em] text-slate-500",
+        "h-12 px-4 text-left align-middle text-[11px] font-bold uppercase tracking-[0.22em] text-white/30",
         className,
       )}
       {...props}
@@ -93,7 +93,7 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-4 text-sm text-slate-500", className)}
+      className={cn("mt-4 text-sm text-white/35", className)}
       {...props}
     />
   );

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 
+import { siteUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "About",
+  title: "About the Project",
   description:
     "Learn about the Blooket Calculator — an open, production-grade probability engine for Blooket pack drop rates.",
+  alternates: {
+    canonical: `${siteUrl}/about`,
+  },
 };
 
 const PRINCIPLES = [
@@ -103,19 +108,19 @@ const TIMELINE = [
 
 export default function AboutPage() {
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-sky-400 to-sky-500">
+    <main className="relative overflow-hidden">
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_46%),radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.12),transparent_32%),radial-gradient(circle_at_80%_15%,rgba(139,92,246,0.18),transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 
         <div className="max-w-3xl space-y-5">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-white drop-shadow-sm">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-violet-500/10 border border-violet-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-violet-400">
             About the project
           </div>
-          <h1 className="font-sans text-5xl font-black tracking-wide text-white drop-shadow-md sm:text-6xl">
+          <h1 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
             Built for Players Who Want to Know
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-white/90">
+          <p className="max-w-2xl text-lg leading-8 text-white/50">
             The Blooket Calculator exists because players deserve real
             probability data before spending tokens — not vague rarity labels.
           </p>
@@ -126,10 +131,10 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
         <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
           <div className="space-y-2">
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-500">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
               Core principles
             </p>
-            <h2 className="font-sans text-3xl font-black tracking-wide text-slate-900 sm:text-4xl">
+            <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
               What makes this different
             </h2>
           </div>
@@ -138,7 +143,7 @@ export default function AboutPage() {
             {PRINCIPLES.map((principle) => (
               <div
                 key={principle.title}
-                className="group rounded-[1.6rem] border-4 border-sky-100 bg-sky-50 p-6 transition hover:-translate-y-0.5"
+                className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition hover:-translate-y-0.5 hover:border-white/[0.1]"
               >
                 <div
                   className="flex h-12 w-12 items-center justify-center rounded-xl transition group-hover:scale-110"
@@ -149,10 +154,10 @@ export default function AboutPage() {
                 >
                   {principle.icon}
                 </div>
-                <h3 className="mt-4 text-base font-black text-slate-900">
+                <h3 className="mt-4 text-base font-black text-white">
                   {principle.title}
                 </h3>
-                <p className="mt-2 text-sm leading-7 text-slate-500">
+                <p className="mt-2 text-sm leading-7 text-white/40">
                   {principle.description}
                 </p>
               </div>
@@ -165,10 +170,10 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
         <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
           <div className="space-y-2">
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-500">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
               Roadmap
             </p>
-            <h2 className="font-sans text-3xl font-black tracking-wide text-slate-900 sm:text-4xl">
+            <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
               What&apos;s coming next
             </h2>
           </div>
@@ -178,7 +183,7 @@ export default function AboutPage() {
               <div key={item.version} className="relative flex gap-6 pb-8 last:pb-0">
                 {/* Timeline line */}
                 {index < TIMELINE.length - 1 && (
-                  <div className="absolute left-[1.15rem] top-10 h-[calc(100%-2rem)] w-px bg-gradient-to-b from-cyan-500/40 to-transparent" />
+                  <div className="absolute left-[1.15rem] top-10 h-[calc(100%-2rem)] w-px bg-gradient-to-b from-violet-500/40 to-transparent" />
                 )}
 
                 {/* Dot */}
@@ -186,24 +191,24 @@ export default function AboutPage() {
                   <div
                     className={`h-3 w-3 rounded-full ${
                       index === 0
-                        ? "bg-sky-500 shadow-lg shadow-sky-200"
-                        : "bg-sky-200"
+                        ? "bg-violet-500 shadow-lg shadow-violet-500/30"
+                        : "bg-white/10"
                     }`}
                   />
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 rounded-2xl border-4 border-sky-100 bg-sky-50 p-5">
+                <div className="flex-1 rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-sky-700">
+                    <span className="rounded-full bg-violet-500/10 border border-violet-500/20 px-3 py-1 text-xs font-bold text-violet-400">
                       {item.version}
                     </span>
-                    <span className="text-xs text-slate-500">{item.date}</span>
+                    <span className="text-xs text-white/35">{item.date}</span>
                   </div>
-                  <h3 className="mt-2 text-base font-black text-slate-900">
+                  <h3 className="mt-2 text-base font-black text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-500">
+                  <p className="mt-1 text-sm leading-6 text-white/40">
                     {item.description}
                   </p>
                 </div>

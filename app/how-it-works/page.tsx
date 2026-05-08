@@ -109,19 +109,19 @@ export default function HowItWorksPage() {
   const [expandedFormula, setExpandedFormula] = useState<number | null>(null);
 
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-sky-400 to-sky-500">
+    <main className="relative overflow-hidden">
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_46%),radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.12),transparent_32%),radial-gradient(circle_at_80%_15%,rgba(139,92,246,0.18),transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 
         <div className="max-w-3xl space-y-5">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-white drop-shadow-sm">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-violet-500/10 border border-violet-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-violet-400">
             Under the hood
           </div>
-          <h1 className="font-sans text-5xl font-black tracking-wide text-white drop-shadow-md sm:text-6xl">
+          <h1 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
             How the Odds Engine Works
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-white/90">
+          <p className="max-w-2xl text-lg leading-8 text-white/50">
             No black boxes. Every number you see is traceable to a single
             formula. Here&apos;s the complete breakdown.
           </p>
@@ -136,10 +136,10 @@ export default function HowItWorksPage() {
                 key={step.number}
                 type="button"
                 onClick={() => setActiveStep(index)}
-                className={`group w-full rounded-2xl border p-5 text-left transition-all duration-300 ${
+                className={`group w-full rounded-xl border p-5 text-left transition-all duration-300 ${
                   activeStep === index
-                    ? "border-sky-300 bg-white shadow-lg"
-                    : "border-sky-100 bg-white/85 hover:border-sky-200 hover:bg-white"
+                    ? "border-violet-500/25 bg-white/[0.04] shadow-lg shadow-violet-500/5"
+                    : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.1] hover:bg-white/[0.03]"
                 }`}
               >
                 <div className="flex items-start gap-4">
@@ -171,12 +171,12 @@ export default function HowItWorksPage() {
                     </p>
                     <p
                       className={`mt-1 text-base font-semibold transition-colors ${
-                        activeStep === index ? "text-slate-900" : "text-slate-600"
+                        activeStep === index ? "text-white" : "text-white/60"
                       }`}
                     >
                       {step.title}
                     </p>
-                    <p className="mt-1 text-sm leading-6 text-slate-500">
+                    <p className="mt-1 text-sm leading-6 text-white/35">
                       {step.description}
                     </p>
                   </div>
@@ -220,12 +220,12 @@ export default function HowItWorksPage() {
                   >
                     Step {STEPS[activeStep].number}
                   </p>
-                  <h2 className="mt-2 font-sans text-3xl font-black tracking-wide text-slate-900">
+                  <h2 className="mt-2 font-sans text-3xl font-black tracking-wide text-white">
                     {STEPS[activeStep].title}
                   </h2>
                 </div>
 
-                <p className="text-base leading-8 text-slate-500">
+                <p className="text-base leading-8 text-white/40">
                   {STEPS[activeStep].detail}
                 </p>
 
@@ -239,7 +239,7 @@ export default function HowItWorksPage() {
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         activeStep === index
                           ? "w-8"
-                          : "w-1.5 bg-sky-200 hover:bg-sky-300"
+                          : "w-1.5 bg-white/10 hover:bg-white/20"
                       }`}
                       style={{
                         background:
@@ -260,13 +260,13 @@ export default function HowItWorksPage() {
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
         <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
           <div className="space-y-2">
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-sky-500">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
               The math
             </p>
-            <h2 className="font-sans text-3xl font-black tracking-wide text-slate-900 sm:text-4xl">
+            <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
               Binomial probability in three steps
             </h2>
-            <p className="max-w-3xl text-base leading-8 text-slate-500">
+            <p className="max-w-3xl text-base leading-8 text-white/40">
               Every probability in the calculator traces back to this exact
               formula. No approximations, no random sampling for the main
               display.
@@ -281,20 +281,20 @@ export default function HowItWorksPage() {
                 onClick={() =>
                   setExpandedFormula(expandedFormula === index ? null : index)
                 }
-                className={`group rounded-[1.6rem] border p-6 text-left transition-all ${
+                className={`group rounded-xl border p-6 text-left transition-all ${
                   expandedFormula === index
-                    ? "border-sky-300 bg-sky-50"
-                    : "border-sky-100 bg-white hover:border-sky-200"
+                    ? "border-violet-500/25 bg-violet-500/[0.06]"
+                    : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.1]"
                 }`}
               >
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/35">
                   {step.label}
                 </p>
-                <p className="mt-3 font-mono text-xl font-semibold text-sky-600">
+                <p className="mt-3 font-mono text-xl font-semibold text-violet-400">
                   {step.formula}
                 </p>
                 <p
-                  className={`mt-3 text-sm leading-7 text-slate-500 transition-all ${
+                  className={`mt-3 text-sm leading-7 text-white/40 transition-all ${
                     expandedFormula === index
                       ? "max-h-40 opacity-100"
                       : "max-h-0 overflow-hidden opacity-0"
@@ -302,7 +302,7 @@ export default function HowItWorksPage() {
                 >
                   {step.description}
                 </p>
-                <p className="mt-3 text-xs text-sky-500/70 transition group-hover:text-sky-600">
+                <p className="mt-3 text-xs text-violet-400/50 transition group-hover:text-violet-400">
                   {expandedFormula === index ? "Click to collapse" : "Click to expand"}
                 </p>
               </button>

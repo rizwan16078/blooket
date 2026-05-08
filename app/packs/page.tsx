@@ -52,16 +52,19 @@ export default function PacksPage() {
         }
       `}</style>
 
-      <main className="mx-auto flex-1 w-full max-w-7xl bg-gradient-to-b from-sky-400 to-sky-500 px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+      <main className="mx-auto flex-1 w-full max-w-7xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
         <section className="space-y-5">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-white/85 drop-shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
             Loot Economics Knowledge Center
           </p>
-          <h1 className="max-w-5xl font-sans text-4xl font-black tracking-wide text-white drop-shadow-md sm:text-5xl">
+          <h1 className="max-w-5xl font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
+            Blooket Pack Drop Rates & Odds Tables
+          </h1>
+          <p className="max-w-4xl text-lg font-medium leading-8 text-white/80">
             Authority-grade pack tables, deep links, and simulator launch paths for
             every indexed pack.
-          </h1>
-          <p className="max-w-4xl text-base leading-8 text-white/90">
+          </p>
+          <p className="max-w-4xl text-base leading-8 text-white/50">
             `/packs` now acts as the hub layer for loot economics research: every pack
             table is crawlable, hash-linkable, and powered directly from the same
             constants that drive the hero engine, sell values, and library surfaces.
@@ -69,25 +72,25 @@ export default function PacksPage() {
         </section>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-[1.75rem] border-4 border-sky-200/50 bg-white p-5 shadow-lg">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
               Total datasets
             </p>
-            <p className="mt-2 text-2xl font-black text-slate-900">{PACKS.length}</p>
+            <p className="mt-2 text-2xl font-black text-white">{PACKS.length}</p>
           </div>
-          <div className="rounded-[1.75rem] border-4 border-sky-200/50 bg-white p-5 shadow-lg">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
               Live simulator packs
             </p>
-            <p className="mt-2 text-2xl font-black text-slate-900">
+            <p className="mt-2 text-2xl font-black text-white">
               {UNLOCKED_PACKS.length}
             </p>
           </div>
-          <div className="rounded-[1.75rem] border-4 border-sky-200/50 bg-white p-5 shadow-lg">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
               Archived references
             </p>
-            <p className="mt-2 text-2xl font-black text-slate-900">
+            <p className="mt-2 text-2xl font-black text-white">
               {LOCKED_PACKS.length}
             </p>
           </div>

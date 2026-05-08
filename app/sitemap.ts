@@ -21,6 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.95,
     },
+    {
+      url: `${siteUrl}/unblocked`,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     ...PACKS.map((pack) => ({
       url: `${siteUrl}${pack.route}`,
       changeFrequency: "weekly" as const,

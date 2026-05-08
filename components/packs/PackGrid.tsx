@@ -17,10 +17,10 @@ export default function PackGrid() {
       {PACKS.map((pack) => (
         <article
           key={pack.id}
-          className={`group relative overflow-hidden rounded-[2rem] border-4 p-5 text-left transition ${
+          className={`group relative overflow-hidden rounded-xl border p-5 text-left transition ${
             pack.isLocked
-              ? "border-sky-100 bg-white grayscale"
-              : "border-sky-200/50 bg-white hover:-translate-y-1"
+              ? "border-white/[0.04] bg-white/[0.01] grayscale"
+              : "border-white/[0.06] bg-white/[0.02] hover:-translate-y-1"
           }`}
           style={{
             boxShadow: pack.isLocked
@@ -40,18 +40,18 @@ export default function PackGrid() {
           <div className={`relative ${pack.isLocked ? "blur-[1px]" : ""}`}>
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-2">
-                <span className="text-xs font-black uppercase tracking-[0.26em] text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-[0.26em] text-white/35">
                   {pack.isLocked ? "Seasonal lock" : "Live pack"}
                 </span>
-                <h2 className="font-sans text-2xl font-black tracking-wide text-slate-900">{pack.name}</h2>
+                <h2 className="font-sans text-2xl font-black tracking-wide text-white">{pack.name}</h2>
               </div>
 
               {pack.isLocked ? (
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-red-500 text-white shadow-[0_4px_0_0_rgba(185,28,28,1)]">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-rose-500/80 text-white">
                   <LockIcon className="h-4 w-4" />
                 </div>
               ) : (
-                <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-sky-50">
+                <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-white/[0.03]">
                   <Image
                     src={pack.imageUrl}
                     alt={pack.name}
@@ -63,29 +63,29 @@ export default function PackGrid() {
               )}
             </div>
 
-            <p className="mt-4 text-sm leading-7 text-slate-500">{pack.summary}</p>
+            <p className="mt-4 text-sm leading-7 text-white/40">{pack.summary}</p>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl bg-sky-50 px-4 py-3">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-4 py-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Cost per pull
                 </p>
-                <p className="mt-2 text-base font-black text-slate-900">
+                <p className="mt-2 text-base font-black text-white">
                   {formatTokenLabel(pack.costPerPull)}
                 </p>
               </div>
-              <div className="rounded-2xl bg-sky-50 px-4 py-3">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-4 py-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Effective cost
                 </p>
-                <p className="mt-2 text-base font-black text-slate-900">
+                <p className="mt-2 text-base font-black text-white">
                   {formatTokenLabel(pack.effectiveCost)}
                 </p>
               </div>
             </div>
 
             <div className="mt-5 flex items-center justify-between">
-              <span className="text-sm text-slate-500">
+              <span className="text-sm text-white/35">
                 {pack.isLocked ? "Currently unavailable" : "Try this pack"}
               </span>
               <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ export default function PackGrid() {
                   asChild
                   size="icon-sm"
                   variant="ghost"
-                  className="rounded-full bg-sky-100 text-slate-600 hover:bg-sky-200 hover:text-slate-900"
+                  className="rounded-full bg-white/[0.04] text-white/50 hover:bg-white/[0.08] hover:text-white"
                 >
                   <Link
                     href={`/packs#${pack.id}`}
@@ -112,10 +112,10 @@ export default function PackGrid() {
                   onClick={() => {
                     router.push(`/?packId=${pack.id}&tokens=500`);
                   }}
-                  className={`rounded-xl px-3 font-black ${
+                  className={`rounded-xl px-3 font-bold ${
                     pack.isLocked
-                      ? "bg-slate-200 text-slate-500"
-                      : "bg-green-500 text-white shadow-[0_4px_0_0_rgba(21,128,61,1)] hover:bg-green-600"
+                      ? "bg-white/[0.04] text-white/30"
+                      : "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/15 hover:brightness-110"
                   }`}
                 >
                   {pack.isLocked ? "Locked" : "Launch"}

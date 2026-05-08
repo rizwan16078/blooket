@@ -34,7 +34,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 z-50 bg-sky-900/30 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm",
         className,
       )}
       {...props}
@@ -56,7 +56,7 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "fixed left-1/2 top-1/2 z-50 w-[min(96vw,64rem)] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] border-4 border-sky-200/60 bg-white p-0 shadow-2xl outline-none",
+          "fixed left-1/2 top-1/2 z-50 w-[min(96vw,64rem)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/[0.08] bg-[#0d1220] p-0 shadow-2xl outline-none",
           className,
         )}
         {...props}
@@ -64,7 +64,7 @@ function DialogContent({
         {children}
         {showClose ? (
           <DialogPrimitive.Close
-            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-slate-500 transition hover:bg-sky-200 hover:text-slate-900"
+            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.04] text-white/50 transition hover:bg-white/[0.08] hover:text-white"
             aria-label="Close dialog"
           >
             <XIcon className="h-4 w-4" />
@@ -88,7 +88,7 @@ function DialogTitle({
 }: React.ComponentProps<typeof DialogPrimitive.Title>) {
   return (
     <DialogPrimitive.Title
-      className={cn("font-sans text-2xl font-black tracking-wide text-slate-900", className)}
+      className={cn("font-sans text-2xl font-black tracking-wide text-white", className)}
       {...props}
     />
   );
@@ -100,7 +100,7 @@ function DialogDescription({
 }: React.ComponentProps<typeof DialogPrimitive.Description>) {
   return (
     <DialogPrimitive.Description
-      className={cn("text-sm leading-7 text-slate-500", className)}
+      className={cn("text-sm leading-7 text-white/40", className)}
       {...props}
     />
   );

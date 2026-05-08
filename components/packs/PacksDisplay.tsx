@@ -65,15 +65,15 @@ export default function PacksDisplay() {
               animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center justify-center py-16 text-center"
             >
-              <div className="rounded-2xl border-4 border-[#2a424a] bg-[#1e353c] p-8 shadow-lg">
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 shadow-lg">
                 <p className="mb-2 text-2xl font-black text-white">No Packs found! 😢</p>
-                <p className="mb-6 text-slate-400">Try adjusting your search or filters to find what you&apos;re looking for.</p>
+                <p className="mb-6 text-white/40">Try adjusting your search or filters to find what you&apos;re looking for.</p>
                 <button
                   onClick={() => {
                     setSearchQuery("");
                     setActiveFilter("All");
                   }}
-                  className="inline-flex h-10 items-center justify-center rounded-xl bg-blue-500 px-6 font-black text-white shadow-[0_4px_0_0_rgba(29,78,216,1)] transition-all hover:bg-blue-600 active:translate-y-1 active:shadow-none"
+                  className="inline-flex h-10 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-6 font-bold text-white shadow-lg shadow-violet-500/15 transition-all hover:brightness-110 active:scale-[0.97]"
                 >
                   Reset Filters
                 </button>

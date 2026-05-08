@@ -55,9 +55,9 @@ export default function PackNavSidebar({
   return (
     <>
       <div className="lg:hidden">
-        <Card className="rounded-[1.8rem] border-4 border-sky-200/50 bg-white text-slate-800 shadow-xl">
-          <CardHeader className="border-b border-sky-100 px-5 py-5">
-            <CardTitle className="font-sans text-lg font-black text-slate-900">Pack Index</CardTitle>
+        <Card className="rounded-xl border border-white/[0.06] bg-white/[0.02] text-white shadow-xl">
+          <CardHeader className="border-b border-white/[0.06] px-5 py-5">
+            <CardTitle className="font-sans text-lg font-black text-white">Pack Index</CardTitle>
           </CardHeader>
           <CardContent className="px-5 pb-5 pt-0">
             <Accordion type="single" collapsible defaultValue="packs">
@@ -73,12 +73,12 @@ export default function PackNavSidebar({
                         className={cn(
                           "flex items-center justify-between rounded-2xl border px-3 py-3 text-sm transition",
                           activeId === pack.id
-                            ? "border-sky-300 bg-sky-100 text-sky-700"
-                            : "border-sky-100 bg-white text-slate-600 hover:border-sky-200 hover:text-slate-900",
+                            ? "border-violet-500/25 bg-violet-500/[0.06] text-violet-400"
+                            : "border-white/[0.06] bg-white/[0.02] text-white/60 hover:border-white/[0.1] hover:text-white",
                         )}
                       >
                         <span>{pack.name}</span>
-                        <span className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                           {pack.isLocked ? "Locked" : "Live"}
                         </span>
                       </a>
@@ -89,7 +89,7 @@ export default function PackNavSidebar({
               <AccordionItem value="notes">
                 <AccordionTrigger>Hub snapshot</AccordionTrigger>
                 <AccordionContent>
-                  <div className="grid gap-2 text-sm text-slate-500">
+                  <div className="grid gap-2 text-sm text-white/40">
                     <p>{packs.length} total pack datasets are indexed on this route.</p>
                     <p>{liveCount} packs route directly into the hero engine.</p>
                     <p>{lockedCount} packs stay available as archived economics references.</p>
@@ -107,10 +107,10 @@ export default function PackNavSidebar({
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="hidden lg:block lg:sticky lg:top-28"
       >
-        <Card className="rounded-[2rem] border-4 border-sky-200/50 bg-white text-slate-800 shadow-xl">
-          <CardHeader className="border-b border-sky-100 px-5 py-5">
-            <CardTitle className="font-sans text-xl font-black text-slate-900">Pack Navigation Index</CardTitle>
-            <p className="text-sm leading-7 text-slate-500">
+        <Card className="rounded-2xl border border-white/[0.06] bg-white/[0.02] text-white shadow-xl">
+          <CardHeader className="border-b border-white/[0.06] px-5 py-5">
+            <CardTitle className="font-sans text-xl font-black text-white">Pack Navigation Index</CardTitle>
+            <p className="text-sm leading-7 text-white/40">
               Deep-link into any pack dataset, audit the drop table, then jump back into
               the simulation engine.
             </p>
@@ -125,22 +125,22 @@ export default function PackNavSidebar({
                   className={cn(
                     "group flex items-center justify-between rounded-2xl border px-3 py-3 transition",
                     activeId === pack.id
-                      ? "border-sky-300 bg-sky-100 text-sky-700 shadow-sm"
-                      : "border-sky-100 bg-white text-slate-600 hover:border-sky-200 hover:text-slate-900",
+                      ? "border-violet-500/25 bg-violet-500/[0.06] text-violet-400 shadow-sm"
+                      : "border-white/[0.06] bg-white/[0.02] text-white/60 hover:border-white/[0.1] hover:text-white",
                   )}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex size-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
+                    <span className="inline-flex size-8 items-center justify-center rounded-full bg-violet-500/10 text-violet-400">
                       <LinkIcon className="size-3.5" />
                     </span>
                     <div>
                       <p className="text-sm font-bold">{pack.name}</p>
-                      <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                         {pack.isLocked ? "Locked archive" : "Live simulator"}
                       </p>
                     </div>
                   </div>
-                  <span className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                     #{pack.id}
                   </span>
                 </a>
@@ -148,17 +148,17 @@ export default function PackNavSidebar({
             </div>
 
             <div className="mt-4 grid gap-3">
-              <div className="rounded-2xl bg-sky-50 px-4 py-3">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-4 py-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Live packs
                 </p>
-                <p className="mt-2 text-xl font-black text-slate-900">{liveCount}</p>
+                <p className="mt-2 text-xl font-black text-white">{liveCount}</p>
               </div>
-              <div className="rounded-2xl bg-sky-50 px-4 py-3">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-slate-500">
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-4 py-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
                   Archived packs
                 </p>
-                <p className="mt-2 text-xl font-black text-slate-900">{lockedCount}</p>
+                <p className="mt-2 text-xl font-black text-white">{lockedCount}</p>
               </div>
             </div>
           </CardContent>

@@ -107,28 +107,30 @@ export default function PackExperiencePage({
         }}
       />
 
-      <main className="relative overflow-hidden bg-gradient-to-b from-[#112328] to-[#112328]">
+      <main className="relative overflow-hidden">
         <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 pb-20 pt-8 sm:px-6 lg:px-8">
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_46%),radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.12),transparent_32%),radial-gradient(circle_at_80%_15%,rgba(139,92,246,0.18),transparent_34%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 
           <div className="grid flex-1 items-start gap-10 pt-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:pt-16">
             <div className="flex max-w-2xl flex-col gap-8">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#2a424a] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-white drop-shadow-sm">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-violet-500/10 border border-violet-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-violet-400">
                 Production-grade odds engine
               </div>
 
-              <div className="space-y-5">
-                <p className="text-sm font-black uppercase tracking-[0.28em] text-white/80 drop-shadow-sm">
-                  Blooket calculator
-                </p>
-                <h1 className="max-w-3xl font-sans text-5xl font-black tracking-wide text-white drop-shadow-md sm:text-6xl lg:text-7xl">
-                  See Your Real Blooket Chances Before You Spend Tokens
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-white/90 sm:text-xl">
-                  Instant probability calculations powered by exact math not
-                  guesses.
-                </p>
-              </div>
+                <div className="space-y-5">
+                  <p className="text-sm font-bold uppercase tracking-[0.28em] text-violet-400">
+                    Blooket calculator
+                  </p>
+                  <h1 className="max-w-3xl font-sans text-5xl font-black tracking-wide text-white sm:text-6xl lg:text-7xl">
+                    {contentPack.name} Pack
+                    <span className="mt-2 block text-3xl text-violet-300 sm:text-4xl lg:text-5xl">
+                      Odds Calculator
+                    </span>
+                  </h1>
+                  <p className="max-w-2xl text-lg leading-8 text-white/50 sm:text-xl">
+                    Exact drop rates, Legendary &amp; Chroma probabilities, and duplicate refund math for the {contentPack.name} Pack — before you spend a single token.
+                  </p>
+                </div>
 
               <div className="grid gap-3 text-sm text-white sm:grid-cols-3">
                 <div className="glass-panel rounded-2xl px-4 py-4">
@@ -143,24 +145,24 @@ export default function PackExperiencePage({
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-3xl border-4 border-[#2a424a] bg-[#1e353c] px-5 py-4 shadow-lg">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4 shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">
                     Default pack
                   </p>
                   <p className="mt-2 text-xl font-black text-white">
                     {contentPack.name}
                   </p>
                 </div>
-                <div className="rounded-3xl border-4 border-[#2a424a] bg-[#1e353c] px-5 py-4 shadow-lg">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4 shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">
                     Effective cost
                   </p>
                   <p className="mt-2 text-xl font-black text-white">
                     {contentPack.effectiveCost.toFixed(3)} tokens
                   </p>
                 </div>
-                <div className="rounded-3xl border-4 border-[#2a424a] bg-[#1e353c] px-5 py-4 shadow-lg">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4 shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">
                     Last updated
                   </p>
                   <p className="mt-2 text-xl font-black text-white">
@@ -169,7 +171,7 @@ export default function PackExperiencePage({
                 </div>
               </div>
 
-              <p className="max-w-xl text-sm leading-7 text-white/85">
+              <p className="max-w-xl text-sm leading-7 text-white/50">
                 {contentPack.summary}
               </p>
             </div>
@@ -186,37 +188,37 @@ export default function PackExperiencePage({
           <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-3xl space-y-4">
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-500">
+                <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
                   What is the {contentPack.name} Pack?
                 </p>
                 <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
                   Understanding the {contentPack.name} Blooket box before you
                   spend.
                 </h2>
-                <p className="text-base leading-8 text-slate-400">
+                <p className="text-base leading-8 text-white/40">
                   {contentPack.detail}
                 </p>
               </div>
 
               <div className="grid gap-3 text-sm text-white sm:grid-cols-2 lg:w-[24rem]">
-                <div className="rounded-2xl bg-[#152a30] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/30">
                     Pack price
                   </p>
                   <p className="mt-2 text-lg font-black text-white">
                     {contentPack.price} tokens
                   </p>
                 </div>
-                <div className="rounded-2xl bg-[#152a30] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/30">
                     Avg sell-back
                   </p>
                   <p className="mt-2 text-lg font-black text-white">
                     {contentPack.avgSellValue.toFixed(3)} tokens
                   </p>
                 </div>
-                <div className="rounded-2xl bg-[#152a30] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/30">
                     Epic+ per box
                   </p>
                   <p className="mt-2 text-lg font-black text-white">
@@ -227,8 +229,8 @@ export default function PackExperiencePage({
                     )}
                   </p>
                 </div>
-                <div className="rounded-2xl bg-[#152a30] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/30">
                     Legendary floor
                   </p>
                   <p className="mt-2 text-lg font-black text-white">
@@ -242,7 +244,7 @@ export default function PackExperiencePage({
               {contentPack.notes.map((note) => (
                 <div
                   key={note}
-                  className="rounded-2xl bg-[#152a30] p-4 text-sm leading-7 text-slate-400"
+                  className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4 text-sm leading-7 text-white/40"
                 >
                   {note}
                 </div>
@@ -253,7 +255,7 @@ export default function PackExperiencePage({
               {contentPack.featuredBlooks.map((blook) => (
                 <div
                   key={blook.name}
-                  className="rounded-full bg-[#1e353c] px-4 py-2 text-sm font-bold text-white shadow-sm"
+                  className="rounded-full bg-white/[0.03] border border-white/[0.06] px-4 py-2 text-sm font-bold text-white shadow-sm"
                 >
                   {blook.name} · {blook.rarity} · {formatPercent(blook.dropRate)}
                 </div>
@@ -263,22 +265,22 @@ export default function PackExperiencePage({
 
           <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
             <div className="flex flex-col gap-2">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-500">
+              <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
                 Drop rates table
               </p>
               <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
                 Server-rendered odds for the {contentPack.name} Pack
               </h2>
-              <p className="max-w-3xl text-base leading-8 text-slate-400">
+              <p className="max-w-3xl text-base leading-8 text-white/40">
                 These rates are rendered in HTML for crawlability and matched
                 against the exact client calculator. Duplicate refund math uses
                 the precomputed average sell-back value shown below.
               </p>
             </div>
 
-            <div className="mt-8 overflow-hidden rounded-[1.6rem] border-4 border-[#2a424a]">
+            <div className="mt-8 overflow-hidden rounded-xl border border-white/[0.06]">
               <table className="w-full border-collapse text-left">
-                <thead className="bg-[#152a30] text-sm uppercase tracking-[0.18em] text-slate-400">
+                <thead className="bg-white/[0.02] text-sm uppercase tracking-[0.18em] text-white/30">
                   <tr>
                     <th className="px-4 py-4 sm:px-6">Rarity</th>
                     <th className="px-4 py-4 sm:px-6">Drop rate</th>
@@ -293,7 +295,7 @@ export default function PackExperiencePage({
                     return (
                       <tr
                         key={row.key}
-                        className="border-t border-[#2a424a] text-sm text-white"
+                        className="border-t border-white/[0.06] text-sm text-white"
                       >
                         <td className="px-4 py-4 sm:px-6">{row.label}</td>
                         <td className="px-4 py-4 sm:px-6">{formatPercent(rate)}</td>
@@ -304,7 +306,7 @@ export default function PackExperiencePage({
                       </tr>
                     );
                   })}
-                  <tr className="border-t border-[#2a424a] bg-[#152a30] text-sm text-white">
+                  <tr className="border-t border-white/[0.06] bg-white/[0.02] text-sm text-white">
                     <td className="px-4 py-4 font-semibold sm:px-6">
                       Avg duplicate sell-back
                     </td>
@@ -330,7 +332,7 @@ export default function PackExperiencePage({
               </table>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-slate-400">
+            <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/30">
               <span>
                 Source:
                 {" "}
@@ -355,7 +357,7 @@ export default function PackExperiencePage({
 
           <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
             <div className="flex flex-col gap-2">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-500">
+              <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
                 FAQ
               </p>
               <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
@@ -367,12 +369,12 @@ export default function PackExperiencePage({
               {faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-[1.6rem] border-4 border-[#2a424a] bg-[#152a30] px-5 py-4"
+                  className="group rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4"
                 >
                   <summary className="cursor-pointer list-none pr-6 text-base font-black text-white">
                     {faq.question}
                   </summary>
-                  <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-400">
+                  <p className="mt-3 max-w-4xl text-sm leading-7 text-white/40">
                     {faq.answer}
                   </p>
                 </details>

@@ -23,18 +23,18 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-sky-400 to-sky-500">
+    <main className="relative overflow-hidden">
       <section className="mx-auto max-w-7xl px-4 pb-24 pt-12 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_46%),radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.12),transparent_32%),radial-gradient(circle_at_80%_15%,rgba(139,92,246,0.18),transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 
         <div className="max-w-3xl space-y-5">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-white drop-shadow-sm">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-violet-500/10 border border-violet-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-violet-400">
             Get in touch
           </div>
-          <h1 className="font-sans text-5xl font-black tracking-wide text-white drop-shadow-md sm:text-6xl">
+          <h1 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
             Found a Bug? Have a Suggestion?
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-white/90">
+          <p className="max-w-2xl text-lg leading-8 text-white/50">
             Whether it&apos;s a data correction, feature idea, or just feedback —
             we want to hear it.
           </p>
@@ -48,10 +48,10 @@ export default function ContactPage() {
                 <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-500/15 text-4xl">
                   ✓
                 </div>
-                <h2 className="mt-6 font-sans text-2xl font-black tracking-wide text-slate-900">
+                <h2 className="mt-6 font-sans text-2xl font-black tracking-wide text-white">
                   Message Sent
                 </h2>
-                <p className="mt-3 max-w-sm text-base text-slate-500">
+                <p className="mt-3 max-w-sm text-base text-white/40">
                   Thanks for reaching out. We&apos;ll get back to you as soon as
                   we can.
                 </p>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                     setEmail("");
                     setMessage("");
                   }}
-                  className="mt-8 rounded-xl bg-blue-500 px-6 py-3 text-sm font-black text-white shadow-[0_4px_0_0_rgba(29,78,216,1)] transition-all hover:bg-blue-600 active:translate-y-1 active:shadow-none"
+                  className="mt-8 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
                 >
                   Send Another
                 </button>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Topic Selector */}
                 <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700">
+                  <label className="text-sm font-bold text-white/60">
                     Topic
                   </label>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
@@ -82,10 +82,10 @@ export default function ContactPage() {
                         key={t.value}
                         type="button"
                         onClick={() => setTopic(t.value)}
-                        className={`rounded-2xl border px-3 py-3 text-center text-sm transition ${
+                        className={`rounded-xl border px-3 py-3 text-center text-sm transition ${
                           topic === t.value
-                            ? "border-sky-300 bg-sky-100 text-sky-700"
-                            : "border-sky-100 bg-white text-slate-500 hover:border-sky-200 hover:text-slate-700"
+                            ? "border-violet-500/25 bg-violet-500/10 text-violet-400"
+                            : "border-white/[0.06] bg-white/[0.02] text-white/50 hover:border-white/[0.1] hover:text-white/70"
                         }`}
                       >
                         <span className="block text-lg">{t.icon}</span>
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
                 {/* Name */}
                 <div className="space-y-2">
-                  <label htmlFor="contact-name" className="text-sm font-bold text-slate-700">
+                  <label htmlFor="contact-name" className="text-sm font-bold text-white/60">
                     Name
                   </label>
                   <input
@@ -106,14 +106,14 @@ export default function ContactPage() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
-                    className="w-full rounded-2xl border-4 border-sky-100 bg-white px-4 py-4 text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-sky-300"
+                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-base text-white placeholder:text-white/25 outline-none transition focus:border-violet-500/40"
                     required
                   />
                 </div>
 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label htmlFor="contact-email" className="text-sm font-bold text-slate-700">
+                  <label htmlFor="contact-email" className="text-sm font-bold text-white/60">
                     Email
                   </label>
                   <input
@@ -122,14 +122,14 @@ export default function ContactPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border-4 border-sky-100 bg-white px-4 py-4 text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-sky-300"
+                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-base text-white placeholder:text-white/25 outline-none transition focus:border-violet-500/40"
                     required
                   />
                 </div>
 
                 {/* Message */}
                 <div className="space-y-2">
-                  <label htmlFor="contact-message" className="text-sm font-bold text-slate-700">
+                  <label htmlFor="contact-message" className="text-sm font-bold text-white/60">
                     Message
                   </label>
                   <textarea
@@ -145,7 +145,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-green-500 px-6 py-4 text-base font-black text-white shadow-[0_4px_0_0_rgba(21,128,61,1)] transition-all hover:bg-green-600 active:translate-y-1 active:shadow-none"
+                  className="w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4 text-base font-bold text-white shadow-lg shadow-emerald-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
                 >
                   Send Message
                 </button>
@@ -155,38 +155,38 @@ export default function ContactPage() {
 
           {/* Info Cards */}
           <div className="space-y-4">
-            <div className="rounded-[1.6rem] border-4 border-sky-200/50 bg-white p-6 shadow-lg">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-lg">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                 </svg>
               </div>
-              <h3 className="mt-4 text-base font-black text-slate-900">
+              <h3 className="mt-4 text-base font-black text-white">
                 Data Corrections
               </h3>
-              <p className="mt-2 text-sm leading-7 text-slate-500">
+              <p className="mt-2 text-sm leading-7 text-white/40">
                 Found a drop rate that doesn&apos;t match your testing? Let us
                 know with the pack name, rarity, and your observed data. We take
                 every correction seriously.
               </p>
             </div>
 
-            <div className="rounded-[1.6rem] border-4 border-sky-200/50 bg-white p-6 shadow-lg">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-lg">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
                 </svg>
               </div>
-              <h3 className="mt-4 text-base font-black text-slate-900">
+              <h3 className="mt-4 text-base font-black text-white">
                 Feature Requests
               </h3>
-              <p className="mt-2 text-sm leading-7 text-slate-500">
+              <p className="mt-2 text-sm leading-7 text-white/40">
                 Want a specific pack added? Need a new metric? We prioritize
                 features based on community demand.
               </p>
             </div>
 
-            <div className="rounded-[1.6rem] border-4 border-sky-200/50 bg-white p-6 shadow-lg">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 shadow-lg">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
@@ -194,10 +194,10 @@ export default function ContactPage() {
                   <path d="M12 16h.01" />
                 </svg>
               </div>
-              <h3 className="mt-4 text-base font-black text-slate-900">
+              <h3 className="mt-4 text-base font-black text-white">
                 Response Time
               </h3>
-              <p className="mt-2 text-sm leading-7 text-slate-500">
+              <p className="mt-2 text-sm leading-7 text-white/40">
                 We typically respond within 48 hours. Data corrections are
                 prioritized and may ship in the same day.
               </p>

@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { siteName, siteUrl } from "@/lib/site";
+import { buildOrganizationSchema, buildWebSiteSchema, buildSiteNavigationSchema, serializeJsonLd } from "@/lib/schema";
 
 import "./globals.css";
 
@@ -29,9 +30,19 @@ export const metadata: Metadata = {
     "Production-grade Blooket pack odds calculator with exact probability math, duplicate refund modeling, and server-rendered pack guides.",
   openGraph: {
     title: siteName,
+    siteName: siteName,
     description:
       "Exact Blooket pack odds with real-time probability updates and crawlable pack data.",
+    url: siteUrl,
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/icon.svg`,
+        width: 800,
+        height: 600,
+        alt: "Blooket Calculator",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -55,6 +66,20 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildOrganizationSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildWebSiteSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildSiteNavigationSchema()) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#0a0e1a] text-slate-100">
         <Navbar />
         <Toaster />
