@@ -285,11 +285,11 @@ function buildQueryString({
   blookId: string | null;
 }) {
   const params = new URLSearchParams();
-  params.set("packId", packId);
+  params.set("pack", packId);
   params.set("tokens", String(tokens));
 
   if (blookId) {
-    params.set("blookId", blookId);
+    params.set("blook", blookId);
   }
 
   return params.toString();
@@ -456,9 +456,9 @@ export default function CalculatorCard() {
     }
     hasHydratedRef.current = true;
 
-    const urlPackId = searchParams.get("packId");
+    const urlPackId = searchParams.get("pack") || searchParams.get("packId");
     const urlTokens = searchParams.get("tokens");
-    const urlBlookId = searchParams.get("blookId");
+    const urlBlookId = searchParams.get("blook") || searchParams.get("blookId");
 
     const nextPackId =
       urlPackId && getPackById(urlPackId as PackSlug)

@@ -130,7 +130,7 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
             </div>
 
             <Link
-              href={`/?packId=${pack.id}&blookId=${blook.id}&tokens=500`}
+              href={`/?pack=${pack.id}&blook=${blook.id}&tokens=500`}
               className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
             >
               Try My Luck

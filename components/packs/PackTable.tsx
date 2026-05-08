@@ -105,7 +105,7 @@ export default function PackTable({ pack, blooks }: PackTableProps) {
                 size="sm"
                 className="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-3 font-bold text-white shadow-lg shadow-violet-500/15 hover:brightness-110"
               >
-                <Link href={`/?packId=${pack.id}&autoRun=false`}>Open in Hero Engine</Link>
+                <Link href={`/?pack=${pack.id}&autorun=false`}>Open in Hero Engine</Link>
               </Button>
             </TableCell>
           </TableRow>

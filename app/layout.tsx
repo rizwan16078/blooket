@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: siteName,
     description:
       "Exact Blooket pack odds with real-time probability updates and crawlable pack data.",
-    url: siteUrl,
+
     type: "website",
     images: [
       {

@@ -110,7 +110,7 @@ export default function PackGrid() {
                     pack.isLocked ? `${pack.name} pack locked` : `Try ${pack.name} pack`
                   }
                   onClick={() => {
-                    router.push(`/?packId=${pack.id}&tokens=500`);
+                    router.push(`/?pack=${pack.id}&tokens=500`);
                   }}
                   className={`rounded-xl px-3 font-bold ${
                     pack.isLocked

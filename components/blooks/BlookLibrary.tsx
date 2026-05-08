@@ -26,11 +26,11 @@ function modalQuery(pathname: string, packId: string, blookId: string | null) {
   const params = new URLSearchParams();
 
   if (packId) {
-    params.set("packId", packId);
+    params.set("pack", packId);
   }
 
   if (blookId) {
-    params.set("blookId", blookId);
+    params.set("blook", blookId);
   }
 
   return params.toString() ? `${pathname}?${params.toString()}` : pathname;
@@ -41,7 +41,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const activeBlookId = searchParams.get("blookId") ?? initialBlookId;
+  const activeBlookId = searchParams.get("blook") ?? searchParams.get("blookId") ?? initialBlookId;
   const activeBlook = activeBlookId
     ? BLOOKS.find((blook) => blook.id === activeBlookId) ?? null
     : null;
@@ -165,7 +165,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
         open={Boolean(activeBlook)}
         onOpenChange={(open) => {
           if (!open) {
-            router.replace(modalQuery(pathname, searchParams.get("packId") ?? "", null), {
+            router.replace(modalQuery(pathname, searchParams.get("pack") ?? searchParams.get("packId") ?? "", null), {
               scroll: false,
             });
           }
@@ -238,7 +238,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                 <button
                   type="button"
                   onClick={() => {
-                    router.push(`/?packId=${activePack.id}&blookId=${activeBlook.id}&tokens=500`);
+                    router.push(`/?pack=${activePack.id}&blook=${activeBlook.id}&tokens=500`);
                   }}
                   className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:brightness-110 active:scale-[0.97]"
                 >

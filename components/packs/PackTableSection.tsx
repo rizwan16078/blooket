@@ -87,7 +87,7 @@ export default function PackTableSection({
                   size="sm"
                   className="mt-2 w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/15 hover:brightness-110"
                 >
-                  <Link href={`/?packId=${pack.id}&autoRun=false`}>
+                  <Link href={`/?pack=${pack.id}&autorun=false`}>
                     Open in Hero Engine
                   </Link>
                 </Button>
