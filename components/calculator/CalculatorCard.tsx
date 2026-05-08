@@ -2,8 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import confetti from "canvas-confetti";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLocalStorage } from "usehooks-ts";
 
@@ -135,7 +133,7 @@ function GaugeRing({
           strokeWidth="10"
         />
         {/* Filled arc */}
-        <motion.circle
+        <circle
           cx="56"
           cy="56"
           r={radius}
@@ -143,14 +141,12 @@ function GaugeRing({
           stroke={accent}
           strokeLinecap="round"
           strokeWidth="10"
-          initial={false}
-          animate={{
-            strokeDashoffset: mounted ? progressOffset : circumference,
-          }}
-          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           strokeDasharray={circumference}
-          strokeDashoffset={progressOffset}
-          style={{ filter: `drop-shadow(0 0 6px ${accent})` }}
+          strokeDashoffset={mounted ? progressOffset : circumference}
+          style={{
+            filter: `drop-shadow(0 0 6px ${accent})`,
+            transition: "stroke-dashoffset 0.6s cubic-bezier(0.33, 1, 0.68, 1)",
+          }}
         />
       </svg>
 
@@ -193,11 +189,11 @@ function OutputPanel({
   const tone = toneConfig(probability);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+    <div
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] shadow-lg backdrop-blur-sm"
+      style={{
+        animation: `fadeSlideIn 0.4s ease-out ${index * 0.08}s both`,
+      }}
     >
       {/* Top accent line */}
       <div
@@ -256,7 +252,7 @@ function OutputPanel({
           </HydrationValue>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -337,8 +333,10 @@ function PackGridCard({
           <Image
             src={pack.imageUrl}
             alt={`${pack.name} Pack`}
-            width={400}
-            height={435}
+            width={192}
+            height={209}
+            sizes="(max-width: 640px) 140px, 192px"
+            loading="lazy"
             className={`object-cover w-full h-full transition ${
               isSelected
                 ? "brightness-110"
@@ -537,12 +535,14 @@ export default function CalculatorCard() {
       highestProbability >= CONFETTI_THRESHOLD &&
       previousPeakRef.current < CONFETTI_THRESHOLD
     ) {
-      confetti({
-        particleCount: 120,
-        spread: 72,
-        startVelocity: 30,
-        scalar: 0.9,
-        origin: { y: 0.32 },
+      import("canvas-confetti").then(({ default: confetti }) => {
+        confetti({
+          particleCount: 120,
+          spread: 72,
+          startVelocity: 30,
+          scalar: 0.9,
+          origin: { y: 0.32 },
+        });
       });
     }
 
