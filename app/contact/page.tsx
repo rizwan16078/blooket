@@ -43,6 +43,7 @@ export default function ContactPage() {
         <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_0.8fr]">
           {/* Form */}
           <div className="glass-panel rounded-[2rem] p-6 sm:p-8">
+            <h2 className="sr-only">Contact Form</h2>
             {submitted ? (
               <div className="flex min-h-[400px] flex-col items-center justify-center text-center">
                 <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-500/15 text-4xl">

@@ -66,6 +66,7 @@ export default async function BlooksPage({ searchParams }: BlooksPageProps) {
       </div>
 
       <section className="mt-8">
+        <h2 className="sr-only">Interactive Blook Library</h2>
         <Suspense fallback={<BlookLibraryFallback />}>
           <BlookLibrary initialBlookId={resolvedSearchParams.blookId ?? null} />
         </Suspense>

@@ -402,9 +402,9 @@ export default function CalculatorClient({
         </div>
 
         <div className="mt-8 space-y-2">
-          <h3 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
+          <h2 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
             {formatTokens(tokens)} tokens
-          </h3>
+          </h2>
           <p className="text-sm text-white/40">
             Deterministic odds on the main thread, Monte Carlo runs off it.
           </p>

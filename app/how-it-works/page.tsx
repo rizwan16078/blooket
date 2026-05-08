@@ -127,6 +127,8 @@ export default function HowItWorksPage() {
           </p>
         </div>
 
+        <h2 className="sr-only">Interactive Guide</h2>
+
         {/* Interactive Step Explorer */}
         <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
           {/* Step List */}

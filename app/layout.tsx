@@ -23,8 +23,15 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
+    default: `${siteName} — Pack Odds & Drop Rates`,
     template: `%s | ${siteName}`,
+  },
+  keywords: ["blooket calculator", "blooket pack odds", "blooket drop rates", "blooket box simulator"],
+  alternates: {
+    languages: {
+      "en-US": "/en-US",
+      "x-default": "/",
+    },
   },
   description:
     "Production-grade Blooket pack odds calculator with exact probability math, duplicate refund modeling, and server-rendered pack guides.",

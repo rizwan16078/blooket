@@ -49,10 +49,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.24em] text-white/40">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/40 mb-5">
               Pack Calculators
-            </h3>
-            <ul className="mt-5 space-y-3">
+            </p>
+            <ul className="space-y-3">
               {PACKS.slice(0, 5).map((pack) => (
                 <li key={pack.slug}>
                   <Link
@@ -85,10 +85,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.24em] text-white/40">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/40 mb-5">
               Resources
-            </h3>
-            <ul className="mt-5 space-y-3">
+            </p>
+            <ul className="space-y-3">
               {RESOURCES.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -103,9 +103,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.24em] text-white/40">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/40">
               Stay Updated
-            </h3>
+            </p>
             <p className="mt-5 text-sm leading-6 text-white/50">
               Get notified when new packs are added or odds get updated.
             </p>

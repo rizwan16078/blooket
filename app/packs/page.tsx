@@ -71,6 +71,7 @@ export default function PacksPage() {
           </p>
         </section>
 
+        <h2 className="sr-only">Pack Database Statistics</h2>
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
@@ -96,6 +97,7 @@ export default function PacksPage() {
           </div>
         </div>
 
+        <h2 className="sr-only">Available Packs & Odds Tables</h2>
         <PacksDisplay />
       </main>
     </>
