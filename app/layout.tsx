@@ -57,6 +57,13 @@ export const metadata: Metadata = {
     description:
       "Exact Blooket pack odds with real-time probability updates and crawlable pack data.",
   },
+  verification: {
+    google: "VgPxVDfXDX0pCFb4XqboGAhQhmVMylB7XN-EAmUQ7MY",
+    yandex: "a7e0778332167731",
+    other: {
+      "msvalidate.01": "2B1BC6D0939A71E8F71442B1F50A9065",
+    },
+  },
 };
 
 export const viewport: Viewport = {
