@@ -8,17 +8,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${siteUrl}/`,
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${siteUrl}/packs`,
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.95,
     },
     {
       url: `${siteUrl}/blooks`,
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.95,
     },
     {

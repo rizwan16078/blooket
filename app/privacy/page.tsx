@@ -3,7 +3,7 @@ import Link from "next/link";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Blooket Calculator",
+  title: "Privacy Policy",
   description: `Privacy policy for ${siteName}. Learn what minimal data we collect and how the calculator stores your pack settings locally.`,
   keywords: [
     "blooket calculator privacy",

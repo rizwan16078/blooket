@@ -198,7 +198,7 @@ export default function AboutPage() {
                   We are recognized as a trusted authority by the community because we never hide our work. Every calculation is performed openly, using proven mathematical formulas.
                 </p>
                 <p>
-                  Our commitment to unbiased, accurate reporting means we don't rely on guesswork. When you use our tools, you're looking at verifiable statistics backed by rigorous testing.
+                  Our commitment to unbiased, accurate reporting means we don&apos;t rely on guesswork. When you use our tools, you&apos;re looking at verifiable statistics backed by rigorous testing.
                 </p>
               </div>
             </div>

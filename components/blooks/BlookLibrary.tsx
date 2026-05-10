@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useMemo, useState } from "react";
@@ -112,16 +113,17 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                   transition={{ duration: 0.2 }}
                   key={blook.id}
                 >
-                  <button
-                    type="button"
+                  <Link
+                    href={`/blooks/${blook.id}`}
                     aria-label={`Open ${blook.name} library modal`}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       router.replace(
                         modalQuery(pathname, blook.packId, blook.id),
                         { scroll: false },
                       );
                     }}
-                    className="w-full group rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-left shadow-sm transition hover:-translate-y-1 hover:border-white/[0.1] hover:shadow-lg"
+                    className="block w-full group rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-left shadow-sm transition hover:-translate-y-1 hover:border-white/[0.1] hover:shadow-lg"
                     style={{
                       contentVisibility: "auto",
                       containIntrinsicSize: "200px",
@@ -140,6 +142,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                           alt={blook.name}
                           width={400}
                           height={400}
+                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                           loading="lazy"
                           className="object-contain p-5 w-full h-full"
                         />
@@ -153,7 +156,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                       </p>
                       <p className="mt-2 text-xs text-white/30">{pack.name} Pack</p>
                     </div>
-                  </button>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -193,6 +196,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                       alt={activeBlook.name}
                       width={800}
                       height={800}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-contain p-8 w-full h-full"
                     />
                   </div>

@@ -44,6 +44,9 @@ export default function ContactPage() {
             <p>
               Our team typically reviews and verifies all corrections within 48 hours. For feature requests or mathematical questions about our binomial probability engine, please be as detailed as possible in your message so we can give you the best response.
             </p>
+            <p>
+              The Blooket Calculator is an independent, community-driven tool created to provide players with exact, transparent odds. We rely on active players like you to help keep our drop rate tables and pack data accurate. Whenever a new pack is released or drop rates change, your reports ensure that the calculator remains the most reliable probability tool for the community. Whether you are suggesting a new visual feature, reporting an obscure bug, or sharing your token spending strategies, we value every single submission.
+            </p>
           </div>
         </div>
 

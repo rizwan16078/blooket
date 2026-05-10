@@ -37,9 +37,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Space Grotesk", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: var(--font-space), "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-plex), "IBM Plex Mono", monospace;
+  --font-display: var(--font-space), "Space Grotesk", system-ui, sans-serif;
 }
 
 * {
@@ -49,7 +49,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: var(--font-space), "Space Grotesk", system-ui, sans-serif;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
     radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.08), transparent),

@@ -192,6 +192,7 @@ export default function LootRevealModal({
                           alt={item.name}
                           width={400}
                           height={400}
+                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                           loading="lazy"
                           className="object-contain p-5 w-full h-full"
                         />

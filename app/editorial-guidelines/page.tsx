@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Editorial & Data Standards | Blooket Calculator",
+  title: "Editorial & Data Standards",
   description: "Our rigorous editorial standards for publishing accurate, verified, and unbiased Blooket probability data and drop rate information.",
   keywords: [
     "blooket editorial guidelines",

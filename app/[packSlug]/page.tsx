@@ -7,6 +7,7 @@ import {
   buildInitialCalculatorState,
   type SearchParamRecord,
 } from "@/lib/search-params";
+import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 type PackPageProps = {
@@ -33,7 +34,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${matchedPack.name} Box Odds Calculator`,
+    title: `${matchedPack.name} Pack Drop Rates & Odds Calculator`,
     description: `Check exact ${matchedPack.name} Pack odds in Blooket, including Epic+, Legendary, and Chroma probabilities with duplicate refund math.`,
     keywords: [
       `blooket ${matchedPack.name.toLowerCase()} pack`,
@@ -70,14 +71,26 @@ export default async function PackPage({
   );
   const contentPack = getPackBySlug(matchedPack.slug);
 
+  const breadcrumbs = buildBreadcrumbSchema([
+    { name: "Home", item: siteUrl },
+    { name: "Packs", item: `${siteUrl}/packs` },
+    { name: `${matchedPack.name} Pack`, item: `${siteUrl}${matchedPack.route}` },
+  ]);
+
   return (
-    <PackExperiencePage
-      contentPack={contentPack}
-      initialState={{
-        ...initialState,
-        packSlug: matchedPack.slug,
-      }}
-      pageMode="pack"
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }}
+      />
+      <PackExperiencePage
+        contentPack={contentPack}
+        initialState={{
+          ...initialState,
+          packSlug: matchedPack.slug,
+        }}
+        pageMode="pack"
+      />
+    </>
   );
 }

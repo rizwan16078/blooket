@@ -6,7 +6,7 @@ import { siteUrl } from "@/lib/site";
 import { PACKS } from "@/lib/packs";
 
 export const metadata: Metadata = {
-  title: "Blooket Calculator Unblocked — Free Pack Odds Tool",
+  title: { absolute: "Blooket Calculator Unblocked — Free Pack Odds Tool" },
   description:
     "Use the Blooket Calculator unblocked — no login, no download, no school filter required. Calculate exact Blooket pack odds and drop rates instantly.",
   keywords: [

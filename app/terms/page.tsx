@@ -3,7 +3,7 @@ import Link from "next/link";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms of Use & Disclaimers | Blooket Calculator",
+  title: "Terms of Use & Disclaimers",
   description: `Terms of use for ${siteName}. Understand the scope, limitations, and disclaimers of the probability data provided by this independent fan tool.`,
   keywords: [
     "blooket calculator terms",

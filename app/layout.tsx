@@ -7,7 +7,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteName, siteUrl } from "@/lib/site";
 import { buildOrganizationSchema, buildWebSiteSchema, buildSiteNavigationSchema, serializeJsonLd } from "@/lib/schema";
 
+import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
+const ibmPlexMono = IBM_Plex_Mono({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-plex" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -39,6 +44,11 @@ export const metadata: Metadata = {
     description:
       "Exact Blooket pack odds with real-time probability updates and crawlable pack data.",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/rss.xml", title: "Blooket Calculator RSS Feed" }],
+    },
+  },
   verification: {
     google: "VgPxVDfXDX0pCFb4XqboGAhQhmVMylB7XN-EAmUQ7MY",
     yandex: "a7e0778332167731",
@@ -60,16 +70,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased font-sans"
+      className={`h-full antialiased font-sans ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
     >
       <head>
-        {/* Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
+        {/* Fonts injected via next/font/google */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildOrganizationSchema()) }}

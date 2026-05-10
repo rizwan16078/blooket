@@ -5,7 +5,7 @@ import { siteUrl } from "@/lib/site";
 import { PACKS } from "@/lib/packs";
 
 export const metadata: Metadata = {
-  title: "HTML Sitemap | Blooket Calculator",
+  title: "HTML Sitemap",
   description: "A complete directory of all pages, pack calculators, and resources on the Blooket Calculator website for easy navigation and discovery.",
   keywords: [
     "blooket calculator sitemap",

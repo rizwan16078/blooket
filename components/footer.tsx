@@ -15,6 +15,7 @@ const RESOURCES = [
   { href: "/html-sitemap", label: "HTML Sitemap" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Use" },
+  { href: "/unblocked", label: "Blooket Unblocked" },
 ];
 
 export default function Footer() {
@@ -148,7 +149,7 @@ export default function Footer() {
               </form>
             )}
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="https://facebook.com/blooketcalculator"
                 target="_blank"
@@ -269,7 +270,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=dummy-id" alt="DMCA.com Protection Status" width="100" height="20" />
+                <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=dummy-id" alt="DMCA.com Protection Status" width="100" height="20" loading="lazy" />
               </a>
               <a href="mailto:contact@blooketcalculator.com" className="text-xs text-white/40 transition hover:text-white/70">
                 contact@blooketcalculator.com

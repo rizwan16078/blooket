@@ -79,11 +79,16 @@ export default function PackTable({ pack, blooks }: PackTableProps) {
                   alt={blook.name}
                   width={48}
                   height={48}
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                   className="object-contain p-2.5 w-full h-full"
                 />
               </div>
             </TableCell>
-            <TableCell className="font-medium text-white">{blook.name}</TableCell>
+            <TableCell className="font-medium text-white">
+              <Link href={`/blooks/${blook.id}`} className="hover:underline hover:text-violet-300 transition-colors">
+                {blook.name}
+              </Link>
+            </TableCell>
             <TableCell>
               <span
                 className={`inline-flex rounded-full border px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] ${rarityBadgeClasses(
@@ -105,7 +110,7 @@ export default function PackTable({ pack, blooks }: PackTableProps) {
                 size="sm"
                 className="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-3 font-bold text-white shadow-lg shadow-violet-500/15 hover:brightness-110"
               >
-                <Link href={`/?pack=${pack.id}&autorun=false`}>Open in Hero Engine</Link>
+                <Link href={`/?pack=${pack.id}&autorun=false`} aria-label={`Calculate odds for ${pack.name} pack`}>Calculate Odds</Link>
               </Button>
             </TableCell>
           </TableRow>

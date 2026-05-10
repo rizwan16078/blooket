@@ -57,6 +57,7 @@ export default function PackGrid() {
                     alt={pack.name}
                     width={56}
                     height={56}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                     className="object-contain p-2 w-full h-full"
                   />
                 </div>
@@ -107,7 +108,7 @@ export default function PackGrid() {
                   size="sm"
                   disabled={pack.isLocked}
                   aria-label={
-                    pack.isLocked ? `${pack.name} pack locked` : `Try ${pack.name} pack`
+                    pack.isLocked ? `${pack.name} pack locked` : `Calculate odds for ${pack.name} pack`
                   }
                   onClick={() => {
                     router.push(`/?pack=${pack.id}&tokens=500`);
@@ -118,7 +119,7 @@ export default function PackGrid() {
                       : "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/15 hover:brightness-110"
                   }`}
                 >
-                  {pack.isLocked ? "Locked" : "Launch"}
+                  {pack.isLocked ? "Locked" : "Calculate Odds"}
                 </Button>
               </div>
             </div>

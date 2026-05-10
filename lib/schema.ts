@@ -28,6 +28,9 @@ export function buildSoftwareSchema(pack: Pack) {
     name: `${pack.name} Blooket Calculator`,
     applicationCategory: "EducationalApplication",
     operatingSystem: "All",
+    author: {
+      "@id": `${siteUrl}/#organization`,
+    },
     description:
       "Interactive Blooket calculator with exact probability math, dupe refund modeling, and pack-specific drop rate tables.",
     offers: {
@@ -48,6 +51,7 @@ export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
     name: "Blooket Calculator",
     url: siteUrl,
     logo: `${siteUrl}/icon.svg`,
@@ -59,8 +63,12 @@ export function buildWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
     name: "Blooket Calculator",
     url: siteUrl,
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -107,4 +115,22 @@ export function buildSiteNavigationSchema() {
 
 export function serializeJsonLd(value: unknown) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
+export type BreadcrumbItem = {
+  name: string;
+  item: string;
+};
+
+export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.item,
+    })),
+  };
 }
