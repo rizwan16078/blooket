@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Blooket Calculator Unblocked — Free Pack Odds Tool",
   description:
     "Use the Blooket Calculator unblocked — no login, no download, no school filter required. Calculate exact Blooket pack odds and drop rates instantly.",
+  keywords: [
+    "blooket calculator unblocked",
+    "blooket unblocked school",
+    "blooket odds tool free",
+    "blooket calculator no login",
+    "blooket pack odds unblocked",
+  ],
   alternates: {
     canonical: `${siteUrl}/unblocked`,
     languages: {

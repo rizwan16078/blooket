@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   title: "Blooket Calculator — Exact Pack Odds & Drop Rates",
   description:
     "See your real Blooket chances before you spend tokens with exact probability math, duplicate refund modeling, and worker-based simulations.",
+  keywords: [
+    "blooket calculator",
+    "blooket pack odds",
+    "blooket drop rates",
+    "blooket box simulator",
+    "blooket probability",
+  ],
   alternates: {
     canonical: siteUrl,
     languages: {

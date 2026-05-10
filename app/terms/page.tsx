@@ -3,8 +3,13 @@ import Link from "next/link";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms of Use & Disclaimers",
-  description: `Terms of use for ${siteName}. Understand the limitations and disclaimers of the probability data provided.`,
+  title: "Terms of Use & Disclaimers | Blooket Calculator",
+  description: `Terms of use for ${siteName}. Understand the scope, limitations, and disclaimers of the probability data provided by this independent fan tool.`,
+  keywords: [
+    "blooket calculator terms",
+    "blooket calculator disclaimer",
+    "blooket fan tool terms",
+  ],
   alternates: {
     canonical: `${siteUrl}/terms`,
     languages: {
@@ -134,9 +139,9 @@ export default function TermsPage() {
 
             <div className="h-px bg-white/[0.06]" />
 
-            <section>
+            <section id="contact">
               <h2 className="font-sans text-xl font-black text-white">
-                Contact
+                Contact Information
               </h2>
               <p className="mt-3 text-sm leading-7 text-white/40">
                 Questions about these terms? Reach out via our{" "}

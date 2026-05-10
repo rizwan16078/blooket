@@ -5,8 +5,13 @@ import { siteUrl } from "@/lib/site";
 import { PACKS } from "@/lib/packs";
 
 export const metadata: Metadata = {
-  title: "HTML Sitemap",
-  description: "A complete list of all pages on the Blooket Calculator website.",
+  title: "HTML Sitemap | Blooket Calculator",
+  description: "A complete directory of all pages, pack calculators, and resources on the Blooket Calculator website for easy navigation and discovery.",
+  keywords: [
+    "blooket calculator sitemap",
+    "blooket calculator pages",
+    "blooket calculator directory",
+  ],
   alternates: {
     canonical: `${siteUrl}/html-sitemap`,
     languages: {
@@ -31,6 +36,9 @@ export default function HTMLSitemapPage() {
           </h1>
           <p className="text-lg leading-8 text-white/50">
             Find every page, calculator, and resource on our platform.
+          </p>
+          <p className="text-base leading-8 text-white/40">
+            The Blooket Calculator provides exact probability tools for every Blooket pack. Use this sitemap to navigate to any pack’s odds calculator, browse the full Blook library, read our editorial policies, or contact the team. All pages are server-rendered for fast, crawlable access.
           </p>
         </div>
 

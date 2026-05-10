@@ -34,10 +34,17 @@ export default function ContactPage() {
           <h1 className="font-sans text-5xl font-black tracking-wide text-white sm:text-6xl">
             Found a Bug? Have a Suggestion?
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-white/50">
-            Whether it&apos;s a data correction, feature idea, or just feedback —
-            we want to hear it.
+          <p className="max-w-3xl text-lg leading-8 text-white/50">
+            Reach out to the Blooket Calculator team for data corrections, feature requests, or general inquiries.
           </p>
+          <div className="mt-6 flex flex-col space-y-4 text-base leading-8 text-white/40 max-w-3xl">
+            <p>
+              We take data accuracy seriously. If you have spotted a discrepancy in our drop rates, pack costs, or sell values compared to the live game, please let us know. Be sure to specify the exact pack or blook you are reporting.
+            </p>
+            <p>
+              Our team typically reviews and verifies all corrections within 48 hours. For feature requests or mathematical questions about our binomial probability engine, please be as detailed as possible in your message so we can give you the best response.
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_0.8fr]">

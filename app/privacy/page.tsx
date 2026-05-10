@@ -3,8 +3,13 @@ import Link from "next/link";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy & Data Use",
-  description: `Privacy policy for ${siteName}. Learn what data we collect (almost none) and how the calculator stores your settings.`,
+  title: "Privacy Policy | Blooket Calculator",
+  description: `Privacy policy for ${siteName}. Learn what minimal data we collect and how the calculator stores your pack settings locally.`,
+  keywords: [
+    "blooket calculator privacy",
+    "blooket calculator data policy",
+    "blooket no tracking",
+  ],
   alternates: {
     canonical: `${siteUrl}/privacy`,
     languages: {
@@ -141,9 +146,9 @@ export default function PrivacyPage() {
 
             <div className="h-px bg-white/[0.06]" />
 
-            <section>
+            <section id="contact">
               <h2 className="font-sans text-xl font-black text-white">
-                Contact
+                Privacy Questions Contact
               </h2>
               <p className="mt-3 text-sm leading-7 text-white/40">
                 Questions about privacy? Reach out via our{" "}

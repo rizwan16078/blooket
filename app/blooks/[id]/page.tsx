@@ -33,12 +33,19 @@ export async function generateMetadata({
   return {
     title: `${blook.name} Blook`,
     description: blook.description,
+    keywords: [
+      `blooket ${blook.name.toLowerCase()}`,
+      `${blook.name.toLowerCase()} blook`,
+      `how to get ${blook.name.toLowerCase()}`,
+      `${blook.name.toLowerCase()} drop rate`,
+      `${blook.name.toLowerCase()} sell value`,
+    ],
     alternates: {
       canonical: `${siteUrl}/blooks/${blook.id}`,
-    languages: {
-      "en-US": `${siteUrl}/blooks/${blook.id}`,
-      "x-default": `${siteUrl}/blooks/${blook.id}`,
-    },
+      languages: {
+        "en-US": `${siteUrl}/blooks/${blook.id}`,
+        "x-default": `${siteUrl}/blooks/${blook.id}`,
+      },
     },
   };
 }

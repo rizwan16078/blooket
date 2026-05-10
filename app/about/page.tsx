@@ -3,9 +3,15 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About the Project",
+  title: "About the Blooket Calculator Project",
   description:
-    "Learn about the Blooket Calculator — an open, production-grade probability engine for Blooket pack drop rates.",
+    "Learn about the Blooket Calculator — an open, production-grade probability engine for Blooket pack drop rates built by players for players.",
+  keywords: [
+    "about blooket calculator",
+    "blooket probability engine",
+    "blooket calculator team",
+    "blooket pack transparency",
+  ],
   alternates: {
     canonical: `${siteUrl}/about`,
     languages: {

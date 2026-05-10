@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -10,29 +9,11 @@ import { buildOrganizationSchema, buildWebSiteSchema, buildSiteNavigationSchema,
 
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${siteName} — Pack Odds & Drop Rates`,
     template: `%s | ${siteName}`,
-  },
-  keywords: ["blooket calculator", "blooket pack odds", "blooket drop rates", "blooket box simulator"],
-  alternates: {
-    languages: {
-      "en-US": "/en-US",
-      "x-default": "/",
-    },
   },
   description:
     "Production-grade Blooket pack odds calculator with exact probability math, duplicate refund modeling, and server-rendered pack guides.",
@@ -79,13 +60,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className="h-full antialiased font-sans"
     >
       <head>
-        {/* Preconnect to required origins for faster font delivery */}
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildOrganizationSchema()) }}

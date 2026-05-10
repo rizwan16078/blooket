@@ -3,9 +3,15 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "How the Odds Engine Works",
+  title: "How the Odds Engine Works | Blooket Calculator",
   description:
-    "Learn exactly how the Blooket Calculator computes probabilities using binomial math, effective cost modeling, and Monte Carlo simulation.",
+    "Learn exactly how the Blooket Calculator computes probabilities using binomial math, effective cost modeling, and Monte Carlo simulation in a web worker.",
+  keywords: [
+    "blooket odds engine",
+    "blooket probability math",
+    "blooket binomial formula",
+    "blooket monte carlo simulation",
+  ],
   alternates: {
     canonical: `${siteUrl}/how-it-works`,
     languages: {

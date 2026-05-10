@@ -35,12 +35,19 @@ export async function generateMetadata({
   return {
     title: `${matchedPack.name} Box Odds Calculator`,
     description: `Check exact ${matchedPack.name} Pack odds in Blooket, including Epic+, Legendary, and Chroma probabilities with duplicate refund math.`,
+    keywords: [
+      `blooket ${matchedPack.name.toLowerCase()} pack`,
+      `blooket ${matchedPack.name.toLowerCase()} box`,
+      `${matchedPack.name.toLowerCase()} box odds`,
+      `${matchedPack.name.toLowerCase()} pack drop rates`,
+      `${matchedPack.name.toLowerCase()} pack chroma`,
+    ],
     alternates: {
       canonical: `${siteUrl}${matchedPack.route}`,
-    languages: {
-      "en-US": `${siteUrl}${matchedPack.route}`,
-      "x-default": `${siteUrl}${matchedPack.route}`,
-    },
+      languages: {
+        "en-US": `${siteUrl}${matchedPack.route}`,
+        "x-default": `${siteUrl}${matchedPack.route}`,
+      },
     },
   };
 }

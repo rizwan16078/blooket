@@ -6,9 +6,16 @@ import { BLOOKS } from "@/lib/constants";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blooket Blook Library — All Rarities, Drop Rates & Sell Values",
+  title: "Blooket Blook Library — Rarities, Odds & Sell Values",
   description:
     "Browse every Blooket blook with rarity, drop rate, and sell value data. Deep-link into the odds calculator for any blook in the library.",
+  keywords: [
+    "blooket blooks",
+    "blooket blook list",
+    "blooket blook rarities",
+    "blooket blook drop rates",
+    "blooket sell values",
+  ],
   alternates: {
     canonical: `${siteUrl}/blooks`,
     languages: {

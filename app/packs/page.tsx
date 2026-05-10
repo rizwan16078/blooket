@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Blooket Pack Drop Rates & Odds Tables",
   description:
     "Explore server-rendered Blooket pack drop rate tables, sell values, and direct simulator launch links from the loot economics authority hub.",
+  keywords: [
+    "blooket packs",
+    "blooket pack drop rates",
+    "blooket odds tables",
+    "blooket loot economics",
+    "blooket pack sell values",
+  ],
   alternates: {
     canonical: `${siteUrl}/packs`,
     languages: {
