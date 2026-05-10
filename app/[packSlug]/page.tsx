@@ -37,6 +37,10 @@ export async function generateMetadata({
     description: `Check exact ${matchedPack.name} Pack odds in Blooket, including Epic+, Legendary, and Chroma probabilities with duplicate refund math.`,
     alternates: {
       canonical: `${siteUrl}${matchedPack.route}`,
+    languages: {
+      "en-US": `${siteUrl}${matchedPack.route}`,
+      "x-default": `${siteUrl}${matchedPack.route}`,
+    },
     },
   };
 }

@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import BackToTop from "@/components/shared/BackToTop";
 import { Toaster } from "@/components/ui/toaster";
 import { siteName, siteUrl } from "@/lib/site";
 import { buildOrganizationSchema, buildWebSiteSchema, buildSiteNavigationSchema, serializeJsonLd } from "@/lib/schema";
@@ -103,6 +104,7 @@ export default function RootLayout({
         <Toaster />
         {children}
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

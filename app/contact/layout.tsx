@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     "Report a data correction, request a feature, or send feedback about the Blooket Calculator.",
   alternates: {
     canonical: `${siteUrl}/contact`,
+    languages: {
+      "en-US": `${siteUrl}/contact`,
+      "x-default": `${siteUrl}/contact`,
+    },
   },
 };
 

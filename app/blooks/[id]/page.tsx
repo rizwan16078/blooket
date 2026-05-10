@@ -35,6 +35,10 @@ export async function generateMetadata({
     description: blook.description,
     alternates: {
       canonical: `${siteUrl}/blooks/${blook.id}`,
+    languages: {
+      "en-US": `${siteUrl}/blooks/${blook.id}`,
+      "x-default": `${siteUrl}/blooks/${blook.id}`,
+    },
     },
   };
 }

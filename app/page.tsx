@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     "See your real Blooket chances before you spend tokens with exact probability math, duplicate refund modeling, and worker-based simulations.",
   alternates: {
     canonical: siteUrl,
+    languages: {
+      "en-US": siteUrl,
+      "x-default": siteUrl,
+    },
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Pack } from "@/lib/packs";
+import { siteUrl } from "@/lib/site";
 
 export type FaqEntry = {
   question: string;
@@ -48,8 +49,8 @@ export function buildOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Blooket Calculator",
-    url: "https://calculatorblooket.com",
-    logo: "https://calculatorblooket.com/icon.svg",
+    url: siteUrl,
+    logo: `${siteUrl}/icon.svg`,
     description: "Production-grade Blooket pack odds calculator with exact probability math.",
   };
 }
@@ -59,12 +60,12 @@ export function buildWebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Blooket Calculator",
-    url: "https://calculatorblooket.com",
+    url: siteUrl,
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://calculatorblooket.com/packs?search={search_term_string}"
+        urlTemplate: `${siteUrl}/packs?search={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
@@ -80,25 +81,25 @@ export function buildSiteNavigationSchema() {
         "@type": "SiteNavigationElement",
         position: 1,
         name: "Calculator",
-        url: "https://calculatorblooket.com/"
+        url: `${siteUrl}/`
       },
       {
         "@type": "SiteNavigationElement",
         position: 2,
         name: "Packs",
-        url: "https://calculatorblooket.com/packs"
+        url: `${siteUrl}/packs`
       },
       {
         "@type": "SiteNavigationElement",
         position: 3,
         name: "Blook Library",
-        url: "https://calculatorblooket.com/blooks"
+        url: `${siteUrl}/blooks`
       },
       {
         "@type": "SiteNavigationElement",
         position: 4,
         name: "How It Works",
-        url: "https://calculatorblooket.com/how-it-works"
+        url: `${siteUrl}/how-it-works`
       }
     ]
   };

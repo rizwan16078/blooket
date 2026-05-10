@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     "Browse every Blooket blook with rarity, drop rate, and sell value data. Deep-link into the odds calculator for any blook in the library.",
   alternates: {
     canonical: `${siteUrl}/blooks`,
+    languages: {
+      "en-US": `${siteUrl}/blooks`,
+      "x-default": `${siteUrl}/blooks`,
+    },
   },
 };
 

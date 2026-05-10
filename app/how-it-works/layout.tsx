@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     "Learn exactly how the Blooket Calculator computes probabilities using binomial math, effective cost modeling, and Monte Carlo simulation.",
   alternates: {
     canonical: `${siteUrl}/how-it-works`,
+    languages: {
+      "en-US": `${siteUrl}/how-it-works`,
+      "x-default": `${siteUrl}/how-it-works`,
+    },
   },
 };
 

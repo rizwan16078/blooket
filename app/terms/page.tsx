@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: `Terms of use for ${siteName}. Understand the limitations and disclaimers of the probability data provided.`,
   alternates: {
     canonical: `${siteUrl}/terms`,
+    languages: {
+      "en-US": `${siteUrl}/terms`,
+      "x-default": `${siteUrl}/terms`,
+    },
   },
 };
 

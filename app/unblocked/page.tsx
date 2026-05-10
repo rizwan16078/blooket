@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     "Use the Blooket Calculator unblocked — no login, no download, no school filter required. Calculate exact Blooket pack odds and drop rates instantly.",
   alternates: {
     canonical: `${siteUrl}/unblocked`,
+    languages: {
+      "en-US": `${siteUrl}/unblocked`,
+      "x-default": `${siteUrl}/unblocked`,
+    },
   },
 };
 

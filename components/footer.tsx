@@ -10,6 +10,9 @@ const RESOURCES = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
+  { href: "/team", label: "Authors & Team" },
+  { href: "/editorial-guidelines", label: "Editorial Guidelines" },
+  { href: "/html-sitemap", label: "HTML Sitemap" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Use" },
 ];
@@ -147,7 +150,7 @@ export default function Footer() {
 
             <div className="mt-6 flex gap-3">
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/blooketcalculator"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/50 transition hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20"
@@ -158,7 +161,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/blooketcalculator"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/50 transition hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20"
@@ -169,7 +172,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://twitter.com/blooketcalc"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/50 transition hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20"
@@ -180,7 +183,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://discord.com"
+                href="https://discord.gg/blooketcalculator"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/50 transition hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20"
@@ -205,7 +208,19 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <a 
+                href="https://www.dmca.com/Protection/Status.aspx?ID=dummy-id" 
+                title="DMCA.com Protection Status" 
+                className="dmca-badge"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=dummy-id" alt="DMCA.com Protection Status" width="100" height="20" />
+              </a>
+              <a href="mailto:contact@blooketcalculator.com" className="text-xs text-white/40 transition hover:text-white/70">
+                contact@blooketcalculator.com
+              </a>
               <Link
                 href="/privacy"
                 className="text-xs text-white/40 transition hover:text-white/70"

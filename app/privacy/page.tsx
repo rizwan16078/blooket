@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: `Privacy policy for ${siteName}. Learn what data we collect (almost none) and how the calculator stores your settings.`,
   alternates: {
     canonical: `${siteUrl}/privacy`,
+    languages: {
+      "en-US": `${siteUrl}/privacy`,
+      "x-default": `${siteUrl}/privacy`,
+    },
   },
 };
 

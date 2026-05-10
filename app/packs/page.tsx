@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     "Explore server-rendered Blooket pack drop rate tables, sell values, and direct simulator launch links from the loot economics authority hub.",
   alternates: {
     canonical: `${siteUrl}/packs`,
+    languages: {
+      "en-US": `${siteUrl}/packs`,
+      "x-default": `${siteUrl}/packs`,
+    },
   },
 };
 

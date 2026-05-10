@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/", label: "Calculator" },
@@ -34,9 +35,9 @@ export default function Navbar() {
           href="/"
           className="group flex items-center gap-3 transition-opacity hover:opacity-90"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 shadow-lg shadow-violet-500/20">
-            <span className="text-xl font-black text-white" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>B</span>
-            <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 transition group-hover:opacity-100" />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl shadow-lg shadow-violet-500/20 bg-gradient-to-br from-violet-500 to-indigo-600">
+            <Image src="/logo.svg" alt="Blooket Calculator Logo" width={40} height={40} className="rounded-2xl" priority />
+            <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 transition group-hover:opacity-100 pointer-events-none" />
           </div>
           <span className="font-sans text-lg font-black tracking-wide text-white/95">
             Blooket Calculator
