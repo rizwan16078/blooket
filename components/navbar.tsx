@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "/", label: "Calculator" },
   { href: "/packs", label: "Packs" },
   { href: "/blooks", label: "Blook Library" },
+  { href: "/blog", label: "Blog" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

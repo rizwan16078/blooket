@@ -1,0 +1,116 @@
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { Metadata } from "next";
+import { ChevronLeft, Calendar, Calculator } from "lucide-react";
+import { blogPosts } from "@/data/blog";
+import { siteName } from "@/lib/site";
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata(props: PageProps<'/blog/[slug]'>): Promise<Metadata> {
+  const { slug } = await props.params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  return {
+    title: `${post.title} | ${siteName}`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      images: [post.imageUrl],
+    },
+  };
+}
+
+export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
+  const { slug } = await props.params;
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <article className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+      <div className="mb-8">
+        <Link 
+          href="/blog" 
+          className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-emerald-400 transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4 mr-1" />
+          Back to all guides
+        </Link>
+      </div>
+
+      <header className="mb-10">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="bg-[#1a2333] border border-slate-700 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+            {post.category}
+          </span>
+          <div className="flex items-center gap-1.5 text-slate-400 text-sm">
+            <Calendar className="w-4 h-4" />
+            <time dateTime={post.date}>{post.date}</time>
+          </div>
+        </div>
+
+        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+          {post.title}
+        </h1>
+
+        <p className="text-xl text-slate-300 leading-relaxed mb-8">
+          {post.excerpt}
+        </p>
+
+        <div className="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+          <Image
+            src={post.imageUrl}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          {post.hasCalculator && (
+            <div className="absolute bottom-4 right-4 bg-emerald-400/90 backdrop-blur-md text-teal-950 px-4 py-2 rounded-lg font-bold flex items-center gap-2 shadow-lg">
+              <Calculator className="w-5 h-5" />
+              Free Calculator Available
+            </div>
+          )}
+        </div>
+      </header>
+
+      <div className="prose prose-lg prose-invert prose-emerald max-w-none prose-headings:font-bold prose-a:text-emerald-400 hover:prose-a:text-emerald-300 prose-img:rounded-xl">
+        {post.content}
+      </div>
+      
+      {post.hasCalculator && (
+        <div className="mt-16 p-8 bg-[#0f1629] border border-slate-700 rounded-2xl text-center">
+          <h3 className="text-2xl font-bold text-white mb-4">Stop Guessing, Start Calculating</h3>
+          <p className="text-slate-300 mb-6 max-w-lg mx-auto">
+            Use our exact probability models to find out exactly how many tokens you need for your target Blook.
+          </p>
+          <Link 
+            href="/"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-[#0a0e1a] bg-emerald-400 hover:bg-emerald-500 transition-colors shadow-lg"
+          >
+            <Calculator className="w-5 h-5 mr-2" />
+            Open Pack Calculator
+          </Link>
+        </div>
+      )}
+    </article>
+  );
+}

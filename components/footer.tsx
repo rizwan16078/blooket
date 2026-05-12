@@ -264,13 +264,17 @@ export default function Footer() {
 
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a 
-                href="https://www.dmca.com/Protection/Status.aspx?ID=dummy-id" 
+                href="https://www.dmca.com/Protection/Status.aspx" 
                 title="DMCA.com Protection Status" 
-                className="dmca-badge"
+                className="inline-flex items-center gap-1.5 rounded-md bg-white/[0.05] border border-white/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white/50 transition hover:text-white/70 hover:border-white/[0.12]"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=dummy-id" alt="DMCA.com Protection Status" width="100" height="20" loading="lazy" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-500">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                DMCA Protected
               </a>
               <a href="mailto:contact@blooketcalculator.com" className="text-xs text-white/40 transition hover:text-white/70">
                 contact@blooketcalculator.com
