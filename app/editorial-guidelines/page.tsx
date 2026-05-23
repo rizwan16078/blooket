@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { siteUrl } from "@/lib/site";
 
@@ -36,6 +37,9 @@ export default function EditorialGuidelinesPage() {
           <p className="text-lg leading-8 text-white/50">
             Our commitment to accuracy, transparency, and mathematical rigor.
           </p>
+          <p className="text-sm leading-7 text-white/40">
+            See also the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> and the <Link href="/updates" className="text-emerald-400 hover:text-emerald-300">change log</Link> for live implementation details.
+          </p>
         </div>
 
         <article className="mt-12 glass-panel rounded-[2rem] p-6 sm:p-8 text-white/70 space-y-6 prose prose-invert prose-violet">
@@ -45,11 +49,11 @@ export default function EditorialGuidelinesPage() {
           </p>
           <h2 className="text-2xl font-black text-white mt-8">2. Transparent Methodologies</h2>
           <p>
-            Every calculation on our site is based on the binomial formula P(≥1) = 1 − (1 − p)ⁿ. We show our work, and we provide clear explanations for how probabilities are determined. Our formulas and assumptions are documented in the How It Works page, which is kept up to date with any engine changes.
+            Every calculation on our site is based on the binomial formula P(≥1) = 1 − (1 − p)ⁿ. We show our work, and we provide clear explanations for how probabilities are determined. Our formulas and assumptions are documented in the How It Works page and the Methodology page, which are kept up to date with engine and content changes.
           </p>
           <h2 className="text-2xl font-black text-white mt-8">3. Corrections and Updates</h2>
           <p>
-            If Blooket changes its drop rates or introduces new packs, we strive to update our calculator as swiftly as possible. When a significant change occurs, we clearly note the update in our change logs and update the relevant pages. We acknowledge corrections publicly and never quietly alter data without noting the change.
+            If Blooket changes its drop rates or introduces new packs, we strive to update our calculator as swiftly as possible. When a significant change occurs, we note the update in our change log and refresh the relevant pages. We avoid quietly inventing new data, and we try to make source and update dates visible on major editorial surfaces.
           </p>
           <h2 className="text-2xl font-black text-white mt-8">4. No Affiliation</h2>
           <p>

@@ -4,8 +4,8 @@ import { ArrowUpRight, Link2, Sparkles } from "lucide-react";
 const quickLinks = [
   { href: "/blooks", label: "All Blook Library" },
   { href: "/packs", label: "Pack Data Center" },
-  { href: "/how-it-works", label: "How The Odds Work" },
-  { href: "/about", label: "About The Engine" },
+  { href: "/guides", label: "Guides & Glossary" },
+  { href: "/methodology", label: "Methodology" },
 ];
 
 const packShortcuts = [

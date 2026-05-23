@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { ChevronLeft, Calendar, Calculator } from "lucide-react";
+import ContentMeta from "@/components/content/ContentMeta";
 import { blogPosts } from "@/data/blog";
-import { siteName } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -25,12 +26,17 @@ export async function generateMetadata(props: PageProps<'/blog/[slug]'>): Promis
   return {
     title: `${post.title} | ${siteName}`,
     description: post.excerpt,
+    alternates: {
+      canonical: `${siteUrl}/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
-      publishedTime: post.date,
-      images: [post.imageUrl],
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+      url: `${siteUrl}/blog/${post.slug}`,
+      images: [`${siteUrl}${post.imageUrl}`],
     },
   };
 }
@@ -73,6 +79,13 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         <p className="text-xl text-slate-300 leading-relaxed mb-8">
           {post.excerpt}
         </p>
+
+        <ContentMeta
+          publishedAt={post.publishedAt}
+          updatedAt={post.updatedAt}
+          sources={post.sources}
+          note="Editorial posts now link back into the calculator, guide hub, and pack tables so each article supports the wider Blooket topic cluster."
+        />
 
         <div className="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
           <Image

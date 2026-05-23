@@ -9,10 +9,9 @@ const NAV_LINKS = [
   { href: "/", label: "Calculator" },
   { href: "/packs", label: "Packs" },
   { href: "/blooks", label: "Blook Library" },
+  { href: "/guides", label: "Guides" },
   { href: "/blog", label: "Blog" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/methodology", label: "Methodology" },
 ];
 
 function isLinkActive(pathname: string, href: string) {

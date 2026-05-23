@@ -106,8 +106,14 @@ export function buildSiteNavigationSchema() {
       {
         "@type": "SiteNavigationElement",
         position: 4,
-        name: "How It Works",
-        url: `${siteUrl}/how-it-works`
+        name: "Guides",
+        url: `${siteUrl}/guides`
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 5,
+        name: "Methodology",
+        url: `${siteUrl}/methodology`
       }
     ]
   };

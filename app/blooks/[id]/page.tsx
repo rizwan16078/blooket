@@ -162,30 +162,34 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
               <section>
                 <h2 className="text-2xl font-bold text-white mb-3">About the {blook.name}</h2>
                 <p className="leading-relaxed">
-                  The {blook.name} is a highly sought-after {blook.rarity.toLowerCase()} blook in the world of Blooket. 
-                  As part of the {pack.name} Pack, it features unique artwork that stands out during gameplay. 
-                  Players often try to unlock the {blook.name} to show off their collection and impress their friends. 
-                  Whether you are a collector or a competitive player, adding this blook to your inventory is a great achievement.
+                  {blook.name} is indexed on this site as a {blook.rarity.toLowerCase()} blook from the {pack.name} Pack.
+                  Its listed drop rate on the current pack table is {formatPercent(blook.dropRate)}, and
+                  its sell value is {formatTokenLabel(blook.sellValue)}. This page exists so you can
+                  move from the broad pack table into a specific entity page without losing the
+                  probability context.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-bold text-white mb-3">How to Get the {blook.name}</h2>
                 <p className="leading-relaxed">
-                  To get the {blook.name}, you need to open {pack.name} Packs using in-game tokens. 
-                  Since it has a drop rate of {formatPercent(blook.dropRate)}, you will need to open an estimated {formatTokenLabel(calculateEstimatedTokensForBlook(blook, pack))} tokens worth of packs on average to guarantee unlocking it. 
-                  The exact number of tokens depends on your luck, but using our Blooket Calculator can help you plan your token spending strategies efficiently. 
-                  Remember to save up your tokens from daily rewards and matches to maximize your chances!
+                  To get the {blook.name}, you need to open {pack.name} Packs using in-game tokens.
+                  Based on the listed drop rate, the raw expectation works out to about{" "}
+                  {formatTokenLabel(calculateEstimatedTokensForBlook(blook, pack))} worth of openings.
+                  That number is not a guarantee. It is a planning anchor. The actual result can land
+                  earlier or much later, which is why the calculator is more useful than a single
+                  average.
                 </p>
               </section>
               
               <section>
                 <h2 className="text-2xl font-bold text-white mb-3">Is the {blook.name} Worth It?</h2>
                 <p className="leading-relaxed">
-                  Absolutely! With a sell value of {formatTokenLabel(blook.sellValue)}, the {blook.name} holds great value. 
-                  If you happen to get duplicates, you can always sell them back for tokens to reinvest in other packs. 
-                  Given its {blook.rarity.toLowerCase()} rarity status, it remains a popular choice among the community. 
-                  Many players consider the {blook.name} one of the best blooks in the {pack.name} Pack due to its distinctive appearance and the prestige associated with obtaining it.
+                  Whether the {blook.name} is worth chasing depends on your goal. If you want one
+                  specific collector target, this page gives you the pack, rarity, and budget context.
+                  If you only care about maximizing odds for the rarity tier, it is smarter to compare
+                  pack-level value in the calculator and the pack guides before committing all your
+                  tokens to one chase.
                 </p>
               </section>
             </div>

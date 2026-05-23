@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { siteUrl } from "@/lib/site";
 
@@ -154,7 +155,7 @@ export default function AboutPage() {
                 The Blooket Calculator began as a simple side project among friends who were frustrated by the lack of clear probability data in educational gaming. We noticed players spending countless tokens without understanding the true mathematical odds behind the packs they were opening.
               </p>
               <p>
-                What started as a spreadsheet quickly evolved into a fully functional web application, driven by our passion for transparency and open data. Today, we serve thousands of players, educators, and math enthusiasts who want to see the numbers behind the mechanics.
+                What started as a spreadsheet evolved into a structured web reference focused on pack odds, blook pages, and transparent calculator logic. We keep the scope narrow on purpose: current collection mechanics, pack tables, and the math needed to plan a token budget responsibly.
               </p>
             </div>
           </article>
@@ -170,10 +171,10 @@ export default function AboutPage() {
             </div>
             <div className="space-y-4 text-white/50 leading-8 text-base">
               <p>
-                We build robust, mathematically sound calculators that demystify digital drop rates. We aggregate community data, verify it against statistical models, and present it in an accessible, interactive format.
+                We build mathematically sound tools that turn pack odds into usable decisions. That means converting raw drop rates into budget-aware probability, documenting our assumptions, and keeping the supporting content close to the calculator instead of hiding it in vague marketing copy.
               </p>
               <p>
-                Our platform acts as a bridge between complex binomial probabilities and everyday gamers, ensuring that everyone can make informed decisions before they play.
+                The project also acts as an editorial hub. Alongside the calculator, we maintain pack tables, blook pages, rarity guides, and methodology notes so the site can answer both the math question and the follow-up “what do I do with this information?” question.
               </p>
             </div>
           </article>
@@ -195,23 +196,37 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4 text-white/50 leading-8 text-base">
                 <p>
-                  We are recognized as a trusted authority by the community because we never hide our work. Every calculation is performed openly, using proven mathematical formulas.
+                  We try to earn trust the boring way: by showing our assumptions, keeping pack data crawlable, and separating official product behavior from community-sourced pack references.
                 </p>
                 <p>
-                  Our commitment to unbiased, accurate reporting means we don&apos;t rely on guesswork. When you use our tools, you&apos;re looking at verifiable statistics backed by rigorous testing.
+                  You can inspect the formulas on the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, review update history on the <Link href="/updates" className="text-emerald-400 hover:text-emerald-300">change log</Link>, and cross-check our editorial policies in the <Link href="/editorial-guidelines" className="text-emerald-400 hover:text-emerald-300">editorial guidelines</Link>.
                 </p>
               </div>
             </div>
-            <div className="relative h-64 lg:h-auto min-h-[400px] flex items-center justify-center bg-white/[0.02] border-l border-white/[0.06]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22800%22%20viewBox%3D%220%200%201200%20800%22%3E%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22%231e1e2f%22%2F%3E%3Ctext%20x%3D%22600%22%20y%3D%22400%22%20font-family%3D%22sans-serif%22%20font-size%3D%2248%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ETeam%20Photos%20in%20Workspace%3C%2Ftext%3E%3C%2Fsvg%3E"
-                alt="Team photos in workspace"
-                className="absolute inset-0 h-full w-full object-cover object-center opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#070a14] via-transparent to-transparent lg:hidden" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent lg:hidden" />
-              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#070a14] via-transparent to-transparent" />
+            <div className="border-l border-white/[0.06] bg-white/[0.02] p-6 sm:p-12">
+              <div className="space-y-4">
+                <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/35">
+                  Evidence checklist
+                </p>
+                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+                  <h3 className="text-lg font-black text-white">Documented formulas</h3>
+                  <p className="mt-2 text-sm leading-7 text-white/50">
+                    The site explains its binomial probability model and duplicate-refund handling in a dedicated methodology surface.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+                  <h3 className="text-lg font-black text-white">Visible update trail</h3>
+                  <p className="mt-2 text-sm leading-7 text-white/50">
+                    Pack data refreshes and major editorial changes are logged so readers can see when the site was last touched.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+                  <h3 className="text-lg font-black text-white">Clear scope boundaries</h3>
+                  <p className="mt-2 text-sm leading-7 text-white/50">
+                    We do not pretend every collector term belongs in the live calculator. Pages like Mysticals and Hidden Blooks explain the taxonomy without fabricating pack odds.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </article>

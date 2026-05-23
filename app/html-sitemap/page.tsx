@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { blogPosts } from "@/data/blog";
+import { guideEntries } from "@/data/guides";
 import { siteUrl } from "@/lib/site";
 import { PACKS } from "@/lib/packs";
 
@@ -48,6 +50,10 @@ export default function HTMLSitemapPage() {
               <h2 className="text-2xl font-black text-white mb-6">Core Pages</h2>
               <ul className="space-y-3">
                 <li><Link href="/" className="hover:text-violet-400 transition">Home</Link></li>
+                <li><Link href="/guides" className="hover:text-violet-400 transition">Guides & Glossary</Link></li>
+                <li><Link href="/blog" className="hover:text-violet-400 transition">Blog</Link></li>
+                <li><Link href="/methodology" className="hover:text-violet-400 transition">Methodology</Link></li>
+                <li><Link href="/updates" className="hover:text-violet-400 transition">Updates</Link></li>
                 <li><Link href="/about" className="hover:text-violet-400 transition">About Us</Link></li>
                 <li><Link href="/contact" className="hover:text-violet-400 transition">Contact Us</Link></li>
                 <li><Link href="/how-it-works" className="hover:text-violet-400 transition">How It Works</Link></li>
@@ -72,6 +78,32 @@ export default function HTMLSitemapPage() {
                   <li key={pack.slug}>
                     <Link href={pack.route} className="hover:text-violet-400 transition">
                       {pack.name} Pack
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="sm:col-span-2">
+              <h2 className="text-2xl font-black text-white mb-6">Guides</h2>
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {guideEntries.map((guide) => (
+                  <li key={guide.slug}>
+                    <Link href={`/guides/${guide.slug}`} className="hover:text-violet-400 transition">
+                      {guide.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="sm:col-span-2">
+              <h2 className="text-2xl font-black text-white mb-6">Blog Posts</h2>
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {blogPosts.map((post) => (
+                  <li key={post.slug}>
+                    <Link href={`/blog/${post.slug}`} className="hover:text-violet-400 transition">
+                      {post.title}
                     </Link>
                   </li>
                 ))}

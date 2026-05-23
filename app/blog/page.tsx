@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Metadata } from "next";
-import { siteName } from "@/lib/site";
 import BlogCard from "@/components/blog/BlogCard";
 import { blogPosts } from "@/data/blog";
 

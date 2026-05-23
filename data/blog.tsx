@@ -1,14 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React from "react";
+import Link from "next/link";
+
+type BlogSource = {
+  label: string;
+  href: string;
+};
 
 export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
+  publishedAt: string;
+  updatedAt: string;
   category: string;
   imageUrl: string;
   hasCalculator: boolean;
+  sources: BlogSource[];
   content: React.ReactNode;
 }
 
@@ -18,9 +27,21 @@ export const blogPosts: BlogPost[] = [
     title: "How to Farm Tokens Fast in Blooket: The Ultimate Strategy Guide",
     excerpt: "Grinding Blooket tokens can feel like an endless chore. Here is the mathematical breakdown of how to max out your daily limit in under 30 minutes.",
     date: "May 10, 2026",
+    publishedAt: "2026-05-10",
+    updatedAt: "2026-05-24",
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/farm-tokens.png",
+    sources: [
+      {
+        label: "Blooket Help: How to Earn Tokens/XP in Blooket",
+        href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP",
+      },
+      {
+        label: "Blooket Help: How to Collect Blooks",
+        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
+      },
+    ],
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
@@ -81,6 +102,22 @@ export const blogPosts: BlogPost[] = [
         <p>
           Stop playing for fun if your goal is farming. Pick a Quizlet import with basic math facts (like 1+1), host a Cafe game for 7 minutes, and spam the correct answer. You will hit the 500 token limit in roughly four rounds. That is 28 minutes of your time. Done.
         </p>
+
+        <p>
+          When you are ready to spend those tokens, move straight into the{" "}
+          <Link href="/" className="text-emerald-400 hover:text-emerald-300">
+            calculator
+          </Link>
+          , compare live pack tables in the{" "}
+          <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">
+            pack hub
+          </Link>
+          , and use the{" "}
+          <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">
+            token guide
+          </Link>{" "}
+          if you want the budgeting side spelled out.
+        </p>
       </div>
     )
   },
@@ -89,9 +126,21 @@ export const blogPosts: BlogPost[] = [
     title: "Blooket Tower Defense Strategies: How to Survive Round 100",
     excerpt: "Dying at round 45? Here is the cold, hard logic behind tower placement, upgrading sequences, and economic scaling in Blooket Tower Defense.",
     date: "May 9, 2026",
+    publishedAt: "2026-05-09",
+    updatedAt: "2026-05-24",
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/tower-defense.png",
+    sources: [
+      {
+        label: "Blooket Help Center",
+        href: "https://help.blooket.com/hc/en-us",
+      },
+      {
+        label: "Blooket Calculator Guides",
+        href: "https://www.calculatorblooket.com/guides",
+      },
+    ],
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
@@ -123,6 +172,20 @@ export const blogPosts: BlogPost[] = [
         <p>
           Start with a basic ranged tower near the front. Don't upgrade it past level 2. Your only goal in the first twenty rounds is to bank enough coins to afford your first high-tier AoE tower. Let a few enemies leak if you have to; your base health is a resource, use it to save money. Once you establish a solid economic baseline, the later rounds practically play themselves.
         </p>
+
+        <p>
+          This guide is more about mode strategy than pack math, but it still pairs well
+          with the site’s collecting content. If you are playing Tower Defense to fund
+          more openings, check the{" "}
+          <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">
+            best-pack guide
+          </Link>{" "}
+          and the{" "}
+          <Link href="/guides/how-to-sell-blooks" className="text-emerald-400 hover:text-emerald-300">
+            selling guide
+          </Link>{" "}
+          next.
+        </p>
       </div>
     )
   },
@@ -131,9 +194,21 @@ export const blogPosts: BlogPost[] = [
     title: "What is the Rarest Blook? The Statistical Reality of Drop Rates",
     excerpt: "Chasing the Mysticals? We break down the exact mathematical odds of pulling Blooket's rarest characters, and why your luck feels so bad.",
     date: "May 8, 2026",
+    publishedAt: "2026-05-08",
+    updatedAt: "2026-05-24",
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/rarest-blook.png",
+    sources: [
+      {
+        label: "Blooket Wiki: Blooks",
+        href: "https://blooket.fandom.com/wiki/Blooks",
+      },
+      {
+        label: "Blooket Help: Blooks Page Overview",
+        href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview",
+      },
+    ],
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
@@ -171,6 +246,22 @@ export const blogPosts: BlogPost[] = [
         <p>
           The absolute rarest obtainable Blook in the game fluctuates based on events, but functionally, chasing Chromas like the Rainbow Astronaut is the endgame. Don't stress if you don't have them; mathematically, almost nobody does.
         </p>
+
+        <p>
+          For the full rarity cluster, keep going with the{" "}
+          <Link href="/guides/chroma-blooks" className="text-emerald-400 hover:text-emerald-300">
+            Chroma hub
+          </Link>
+          , the{" "}
+          <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">
+            Legendary hub
+          </Link>
+          , and the{" "}
+          <Link href="/guides/mystical-blooks" className="text-emerald-400 hover:text-emerald-300">
+            Mystical explainer
+          </Link>
+          .
+        </p>
       </div>
     )
   },
@@ -179,9 +270,21 @@ export const blogPosts: BlogPost[] = [
     title: "Is the Blooket Calculator Accurate? Behind the Algorithms",
     excerpt: "Wondering if our pack simulator and odds calculator actually works? Here is a transparent breakdown of how we calculate exact token costs and drop probabilities.",
     date: "May 7, 2026",
+    publishedAt: "2026-05-07",
+    updatedAt: "2026-05-24",
     category: "CALCULATOR TOOLS",
     hasCalculator: true,
     imageUrl: "/images/blog/calculator-accurate.png",
+    sources: [
+      {
+        label: "Blooket Help: How to Collect Blooks",
+        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
+      },
+      {
+        label: "Methodology",
+        href: "https://www.calculatorblooket.com/methodology",
+      },
+    ],
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
@@ -217,6 +320,18 @@ export const blogPosts: BlogPost[] = [
         <p>
           So, is it accurate? Yes. It perfectly models the statistical reality of the game's mechanics. It won't guarantee you a drop, but it will guarantee you know exactly what you are walking into.
         </p>
+
+        <p>
+          If you want the full trust and sourcing layer, read the{" "}
+          <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">
+            methodology page
+          </Link>
+          . If you want to see those formulas applied pack by pack, jump into the{" "}
+          <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">
+            pack center
+          </Link>
+          .
+        </p>
       </div>
     )
   },
@@ -225,9 +340,21 @@ export const blogPosts: BlogPost[] = [
     title: "How to Get and Use the Blooket Odds Calculator",
     excerpt: "Stop wasting tokens blindly. Here is a quick, no-nonsense guide on how to access and utilize the Blooket Pack Calculator to optimize your spending.",
     date: "May 6, 2026",
+    publishedAt: "2026-05-06",
+    updatedAt: "2026-05-24",
     category: "CALCULATOR TOOLS",
     hasCalculator: true,
     imageUrl: "/images/blog/get-calculator.png",
+    sources: [
+      {
+        label: "Blooket Help: How to Collect Blooks",
+        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
+      },
+      {
+        label: "Blooket Help: How to Earn Tokens/XP in Blooket",
+        href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP",
+      },
+    ],
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
@@ -262,6 +389,22 @@ export const blogPosts: BlogPost[] = [
 
         <p>
           Stop relying on "feeling lucky" and start using the tool to plan your token farming. Select your pack, pick your target, and let the math dictate your gameplay.
+        </p>
+
+        <p>
+          If you want a faster onboarding path after this, read the{" "}
+          <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">
+            drop-rates guide
+          </Link>
+          , compare packs in the{" "}
+          <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">
+            best-pack guide
+          </Link>
+          , or go straight to the{" "}
+          <Link href="/" className="text-emerald-400 hover:text-emerald-300">
+            live calculator
+          </Link>
+          .
         </p>
       </div>
     )
