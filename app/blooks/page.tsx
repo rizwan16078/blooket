@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import BlookLibrary from "@/components/blooks/BlookLibrary";
 import { BLOOKS } from "@/lib/constants";
+import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -53,9 +54,21 @@ export default async function BlooksPage({ searchParams }: BlooksPageProps) {
 
   return (
     <main className="mx-auto flex-1 w-full max-w-7xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(
+            buildBreadcrumbSchema([
+              { name: "Home", item: siteUrl },
+              { name: "Blooks", item: `${siteUrl}/blooks` },
+            ]),
+          ),
+        }}
+      />
+
       <section className="space-y-5">
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
-          SEO Blook Library
+          Blook Library
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
           Blooket Blook Library
