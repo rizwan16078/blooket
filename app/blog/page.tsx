@@ -12,7 +12,7 @@ import BlogPagination from "@/components/blog/BlogPagination";
 import BlogToolbar from "@/components/blog/BlogToolbar";
 
 export const metadata: Metadata = {
-  title: `Blog — Guides, Strategies & Data | ${siteName}`,
+  title: "Blog — Guides, Strategies & Data",
   description:
     "Data-driven Blooket guides, pack odds analysis, token farming strategies, and calculator tools. Written by players, for players.",
   openGraph: {
