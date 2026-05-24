@@ -7,42 +7,42 @@ import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "All Chroma Blooks in Blooket — Drop Rates, Packs & Chase Odds",
+  title: "All Epic Blooks in Blooket — Drop Rates, Packs & Sell Values",
   description:
-    "Browse every Chroma blook in Blooket with pack, drop rate, and chase strategy. The complete Chroma hub for collectors and probability-minded players.",
+    "Browse every Epic blook in Blooket with pack, drop rate, and sell value. The complete Epic rarity hub for collectors and probability-minded players.",
   keywords: [
-    "chroma blooks",
-    "all chroma blooks",
-    "blooket chroma",
-    "rarest blooks",
-    "blooket chroma odds",
+    "epic blooks",
+    "all epic blooks",
+    "blooket epic",
+    "blooket epic odds",
+    "epic blooket drop rates",
   ],
   alternates: {
-    canonical: `${siteUrl}/blooks/chroma`,
+    canonical: `${siteUrl}/blooks/epic`,
     languages: {
-      "en-US": `${siteUrl}/blooks/chroma`,
-      "x-default": `${siteUrl}/blooks/chroma`,
+      "en-US": `${siteUrl}/blooks/epic`,
+      "x-default": `${siteUrl}/blooks/epic`,
     },
   },
   openGraph: {
-    title: `All Chroma Blooks | ${siteName}`,
+    title: `All Epic Blooks | ${siteName}`,
     description:
-      "Every Chroma blook with pack, drop rate, and chase strategy.",
+      "Every Epic blook with pack, drop rate, and sell value.",
     type: "website",
-    url: `${siteUrl}/blooks/chroma`,
+    url: `${siteUrl}/blooks/epic`,
   },
 };
 
 const breadcrumbs = buildBreadcrumbSchema([
   { name: "Home", item: siteUrl },
   { name: "Blooks", item: `${siteUrl}/blooks` },
-  { name: "Chroma", item: `${siteUrl}/blooks/chroma` },
+  { name: "Epic", item: `${siteUrl}/blooks/epic` },
 ]);
 
-const summary = getRaritySummary("Chroma");
-const chromaBlooks = getBlooksByRarity("Chroma");
+const summary = getRaritySummary("Epic");
+const epicBlooks = getBlooksByRarity("Epic");
 
-export default function ChromaBlooksPage() {
+export default function EpicBlooksPage() {
   return (
     <>
       <script
@@ -52,36 +52,35 @@ export default function ChromaBlooksPage() {
 
       <main className="mx-auto flex-1 w-full max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
         <section className="space-y-5">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-teal-400">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
             Rarity Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Chroma Blooks
-            <span className="mt-2 block text-xl font-medium text-teal-300">
-              The rarest pulls you can get from packs
+            All Epic Blooks
+            <span className="mt-2 block text-xl font-medium text-violet-300">
+              The fourth-rarest tier — above Rare, below Legendary
             </span>
           </h1>
           <p className="max-w-3xl text-base leading-8 text-white/50">
-            Chromas sit above Legendaries in the Blooket rarity ladder. They are
-            the rarest blooks obtainable from pack openings, with drop rates
-            ranging from {formatRateLabel(summary.lowestRate)} to{" "}
-            {formatRateLabel(summary.highestRate)}. This hub lists every Chroma
-            in the game with its pack and drop rate.
+            Epic blooks sit between Rare and Legendary in the Blooket rarity ladder.
+            They have drop rates ranging from {formatRateLabel(summary.lowestRate)} to{" "}
+            {formatRateLabel(summary.highestRate)} and sell for 75 tokens each.
+            This hub lists every Epic in the game with its pack and drop rate.
           </p>
         </section>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Total Chromas</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">{summary.count}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Total Epics</p>
+            <p className="mt-2 text-2xl font-black text-violet-400">{summary.count}</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Across Packs</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">{summary.packCount}</p>
+            <p className="mt-2 text-2xl font-black text-violet-400">{summary.packCount}</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Sell Value</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">300 tokens</p>
+            <p className="mt-2 text-2xl font-black text-violet-400">75 tokens</p>
           </div>
         </div>
 
@@ -89,7 +88,7 @@ export default function ChromaBlooksPage() {
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-white/[0.08]">
-                <th className="py-3 px-3 font-bold text-white/70">Chroma Blook</th>
+                <th className="py-3 px-3 font-bold text-white/70">Epic Blook</th>
                 <th className="py-3 px-3 font-bold text-white/70">Pack</th>
                 <th className="py-3 px-3 font-bold text-white/70">Drop Rate</th>
                 <th className="py-3 px-3 font-bold text-white/70">Sell Value</th>
@@ -97,7 +96,7 @@ export default function ChromaBlooksPage() {
               </tr>
             </thead>
             <tbody>
-              {chromaBlooks.map((blook) => {
+              {epicBlooks.map((blook) => {
                 const pack = PACK_MAP[blook.packId];
                 return (
                   <tr
@@ -105,7 +104,7 @@ export default function ChromaBlooksPage() {
                     className="border-b border-white/[0.04] transition hover:bg-white/[0.02]"
                   >
                     <td className="py-3 px-3 font-semibold text-white">
-                      <Link href={`/blooks/${blook.id}`} className="hover:text-teal-300">
+                      <Link href={`/blooks/${blook.id}`} className="hover:text-violet-300">
                         {blook.name}
                       </Link>
                     </td>
@@ -116,7 +115,7 @@ export default function ChromaBlooksPage() {
                         </Link>
                       ) : blook.packId}
                     </td>
-                    <td className="py-3 px-3 text-teal-300/80">
+                    <td className="py-3 px-3 text-violet-300/80">
                       {formatRateLabel(blook.dropRate)}
                     </td>
                     <td className="py-3 px-3 text-white/60">{blook.sellValue} tokens</td>
@@ -131,24 +130,24 @@ export default function ChromaBlooksPage() {
         </div>
 
         <section className="mt-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-white shadow-lg sm:p-8">
-          <h2 className="text-2xl font-bold text-white">Chroma hunting strategy</h2>
+          <h2 className="text-2xl font-bold text-white">Epic blook strategy</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-white/60">
             <p>
-              Chroma drop rates range from 0.01% to 0.08% per pull. At those rates,
-              even 1,000 tokens only gives you a modest chance. The{" "}
-              <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">
-                Chase Calculator
+              Epic drop rates range from 2% to 5% per pull, making them the most
+              accessible "glow" tier. At 75 tokens sell value, they provide solid
+              duplicate resell value. Use the{" "}
+              <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">
+                Pack Odds Calculator
               </Link>{" "}
-              shows exact token budgets for each Chroma.
+              to compare Epic rates across packs.
             </p>
             <p>
-              The Ice Monster Pack has the highest combined Chroma rate (0.15%)
-              across three Chromas, making it the best pack for Chroma hunting
-              per token. See the{" "}
-              <Link href="/guides/best-pack-for-chromas" className="text-emerald-400 hover:text-emerald-300">
-                Best Pack for Chromas guide
+              If you are chasing Epic+ probability (Epic, Legendary, or Chroma in
+              a single session), the{" "}
+              <Link href="/" className="text-emerald-400 hover:text-emerald-300">
+                main calculator
               </Link>{" "}
-              for the full breakdown.
+              shows your cumulative odds for any token budget.
             </p>
           </div>
         </section>
@@ -160,14 +159,14 @@ export default function ChromaBlooksPage() {
           <Link href="/blooks/legendary" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
             Legendary Hub
           </Link>
-          <Link href="/blooks/epic" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Epic Hub
+          <Link href="/blooks/chroma" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Chroma Hub
           </Link>
-          <Link href="/guides/chroma-blooks" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Chroma Guide
+          <Link href="/calculators/pack-odds" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Pack Odds
           </Link>
-          <Link href="/calculators/chase" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Chase Calculator
+          <Link href="/value-guide" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Value Guide
           </Link>
         </aside>
       </main>

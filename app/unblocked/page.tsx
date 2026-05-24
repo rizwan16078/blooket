@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
+import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 import { PACKS } from "@/lib/packs";
 
@@ -50,6 +50,17 @@ const faqEntries: FaqEntry[] = [
 export default function UnblockedPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(
+            buildBreadcrumbSchema([
+              { name: "Home", item: siteUrl },
+              { name: "Blooket Unblocked", item: `${siteUrl}/unblocked` },
+            ]),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

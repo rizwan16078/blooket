@@ -7,42 +7,42 @@ import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "All Chroma Blooks in Blooket — Drop Rates, Packs & Chase Odds",
+  title: "All Uncommon Blooks in Blooket — Drop Rates, Packs & Sell Values",
   description:
-    "Browse every Chroma blook in Blooket with pack, drop rate, and chase strategy. The complete Chroma hub for collectors and probability-minded players.",
+    "Browse every Uncommon blook in Blooket with pack, drop rate, and sell value. The complete Uncommon rarity hub for players tracking their collection.",
   keywords: [
-    "chroma blooks",
-    "all chroma blooks",
-    "blooket chroma",
-    "rarest blooks",
-    "blooket chroma odds",
+    "uncommon blooks",
+    "all uncommon blooks",
+    "blooket uncommon",
+    "blooket uncommon odds",
+    "uncommon blooket drop rates",
   ],
   alternates: {
-    canonical: `${siteUrl}/blooks/chroma`,
+    canonical: `${siteUrl}/blooks/uncommon`,
     languages: {
-      "en-US": `${siteUrl}/blooks/chroma`,
-      "x-default": `${siteUrl}/blooks/chroma`,
+      "en-US": `${siteUrl}/blooks/uncommon`,
+      "x-default": `${siteUrl}/blooks/uncommon`,
     },
   },
   openGraph: {
-    title: `All Chroma Blooks | ${siteName}`,
+    title: `All Uncommon Blooks | ${siteName}`,
     description:
-      "Every Chroma blook with pack, drop rate, and chase strategy.",
+      "Every Uncommon blook with pack, drop rate, and sell value.",
     type: "website",
-    url: `${siteUrl}/blooks/chroma`,
+    url: `${siteUrl}/blooks/uncommon`,
   },
 };
 
 const breadcrumbs = buildBreadcrumbSchema([
   { name: "Home", item: siteUrl },
   { name: "Blooks", item: `${siteUrl}/blooks` },
-  { name: "Chroma", item: `${siteUrl}/blooks/chroma` },
+  { name: "Uncommon", item: `${siteUrl}/blooks/uncommon` },
 ]);
 
-const summary = getRaritySummary("Chroma");
-const chromaBlooks = getBlooksByRarity("Chroma");
+const summary = getRaritySummary("Uncommon");
+const uncommonBlooks = getBlooksByRarity("Uncommon");
 
-export default function ChromaBlooksPage() {
+export default function UncommonBlooksPage() {
   return (
     <>
       <script
@@ -52,36 +52,35 @@ export default function ChromaBlooksPage() {
 
       <main className="mx-auto flex-1 w-full max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
         <section className="space-y-5">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-teal-400">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-400">
             Rarity Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Chroma Blooks
-            <span className="mt-2 block text-xl font-medium text-teal-300">
-              The rarest pulls you can get from packs
+            All Uncommon Blooks
+            <span className="mt-2 block text-xl font-medium text-emerald-300">
+              The second tier — above Common, below Rare
             </span>
           </h1>
           <p className="max-w-3xl text-base leading-8 text-white/50">
-            Chromas sit above Legendaries in the Blooket rarity ladder. They are
-            the rarest blooks obtainable from pack openings, with drop rates
-            ranging from {formatRateLabel(summary.lowestRate)} to{" "}
-            {formatRateLabel(summary.highestRate)}. This hub lists every Chroma
-            in the game with its pack and drop rate.
+            Uncommon blooks sit between Common and Rare in the Blooket rarity ladder.
+            They have drop rates ranging from {formatRateLabel(summary.lowestRate)} to{" "}
+            {formatRateLabel(summary.highestRate)} and sell for 5 tokens each.
+            This hub lists every Uncommon in the game with its pack and drop rate.
           </p>
         </section>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Total Chromas</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">{summary.count}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Total Uncommons</p>
+            <p className="mt-2 text-2xl font-black text-emerald-400">{summary.count}</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Across Packs</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">{summary.packCount}</p>
+            <p className="mt-2 text-2xl font-black text-emerald-400">{summary.packCount}</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Sell Value</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">300 tokens</p>
+            <p className="mt-2 text-2xl font-black text-emerald-400">5 tokens</p>
           </div>
         </div>
 
@@ -89,7 +88,7 @@ export default function ChromaBlooksPage() {
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-white/[0.08]">
-                <th className="py-3 px-3 font-bold text-white/70">Chroma Blook</th>
+                <th className="py-3 px-3 font-bold text-white/70">Uncommon Blook</th>
                 <th className="py-3 px-3 font-bold text-white/70">Pack</th>
                 <th className="py-3 px-3 font-bold text-white/70">Drop Rate</th>
                 <th className="py-3 px-3 font-bold text-white/70">Sell Value</th>
@@ -97,7 +96,7 @@ export default function ChromaBlooksPage() {
               </tr>
             </thead>
             <tbody>
-              {chromaBlooks.map((blook) => {
+              {uncommonBlooks.map((blook) => {
                 const pack = PACK_MAP[blook.packId];
                 return (
                   <tr
@@ -105,7 +104,7 @@ export default function ChromaBlooksPage() {
                     className="border-b border-white/[0.04] transition hover:bg-white/[0.02]"
                   >
                     <td className="py-3 px-3 font-semibold text-white">
-                      <Link href={`/blooks/${blook.id}`} className="hover:text-teal-300">
+                      <Link href={`/blooks/${blook.id}`} className="hover:text-emerald-300">
                         {blook.name}
                       </Link>
                     </td>
@@ -116,7 +115,7 @@ export default function ChromaBlooksPage() {
                         </Link>
                       ) : blook.packId}
                     </td>
-                    <td className="py-3 px-3 text-teal-300/80">
+                    <td className="py-3 px-3 text-emerald-300/80">
                       {formatRateLabel(blook.dropRate)}
                     </td>
                     <td className="py-3 px-3 text-white/60">{blook.sellValue} tokens</td>
@@ -131,24 +130,24 @@ export default function ChromaBlooksPage() {
         </div>
 
         <section className="mt-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-white shadow-lg sm:p-8">
-          <h2 className="text-2xl font-bold text-white">Chroma hunting strategy</h2>
+          <h2 className="text-2xl font-bold text-white">Uncommon blook strategy</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-white/60">
             <p>
-              Chroma drop rates range from 0.01% to 0.08% per pull. At those rates,
-              even 1,000 tokens only gives you a modest chance. The{" "}
-              <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">
-                Chase Calculator
+              Uncommon blooks are the most frequent non-Common pulls, with drop rates
+              between 10% and 25%. At only 5 tokens sell value, they are not worth
+              chasing individually but contribute to the duplicate resell loop. Use the{" "}
+              <Link href="/calculators/value" className="text-emerald-400 hover:text-emerald-300">
+                Value Calculator
               </Link>{" "}
-              shows exact token budgets for each Chroma.
+              to see how Uncommon sell values affect your effective pack cost.
             </p>
             <p>
-              The Ice Monster Pack has the highest combined Chroma rate (0.15%)
-              across three Chromas, making it the best pack for Chroma hunting
-              per token. See the{" "}
-              <Link href="/guides/best-pack-for-chromas" className="text-emerald-400 hover:text-emerald-300">
-                Best Pack for Chromas guide
+              If you are a new player wondering which pack gives the best odds for
+              your first non-Common blook, the{" "}
+              <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">
+                Best Pack to Open guide
               </Link>{" "}
-              for the full breakdown.
+              ranks packs by value for every rarity tier.
             </p>
           </div>
         </section>
@@ -157,17 +156,17 @@ export default function ChromaBlooksPage() {
           <Link href="/blooks" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
             All Blooks
           </Link>
-          <Link href="/blooks/legendary" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Legendary Hub
+          <Link href="/blooks/rare" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Rare Hub
           </Link>
           <Link href="/blooks/epic" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
             Epic Hub
           </Link>
-          <Link href="/guides/chroma-blooks" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Chroma Guide
+          <Link href="/calculators/value" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Value Calculator
           </Link>
-          <Link href="/calculators/chase" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
-            Chase Calculator
+          <Link href="/value-guide" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Value Guide
           </Link>
         </aside>
       </main>

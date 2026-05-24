@@ -159,6 +159,9 @@ export default function LegendaryBlooksPage() {
           <Link href="/blooks/chroma" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
             Chroma Hub
           </Link>
+          <Link href="/blooks/epic" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
+            Epic Hub
+          </Link>
           <Link href="/calculators/chase" className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white">
             Chase Calculator
           </Link>

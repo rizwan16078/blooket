@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import ContentMeta from "@/components/content/ContentMeta";
+import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,6 +26,18 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   return (
     <main className="mx-auto flex-1 w-full max-w-4xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(
+            buildBreadcrumbSchema([
+              { name: "Home", item: siteUrl },
+              { name: "Methodology", item: `${siteUrl}/methodology` },
+            ]),
+          ),
+        }}
+      />
+
       <header className="space-y-6">
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
           Trust Center

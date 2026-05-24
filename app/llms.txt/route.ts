@@ -72,7 +72,17 @@ export async function GET() {
 - /blooks → Complete database of all Blooks with drop rates
 - /blooks/chroma → Chroma rarity hub — all Chromas with rates and packs
 - /blooks/legendary → Legendary rarity hub — all Legendaries with rates and packs
+- /blooks/epic → Epic rarity hub — all Epics with rates and packs
+- /blooks/rare → Rare rarity hub — all Rares with rates and packs
+- /blooks/uncommon → Uncommon rarity hub — all Uncommons with rates and packs
+- /blooks/complete-list → All 172 blooks sorted by rarity with drop rates and sell values
 - /blooks/starter → Starter blooks you get before opening any pack
+- /faq → Comprehensive Blooket FAQ with 14 questions and calculator links
+- /guides/blooket-hack-alternative → Math-based strategy alternative to hack-seeking users
+- /guides/how-to-get-chroma-blooket → 7 strategies to get Chroma blooks with drop rates and token budgets
+- /guides/how-to-get-legendary-blooket → Pack comparison and drop math for Legendary hunting
+- /about/who-made-blooket → Blooket founder Tom Stewart, history, and timeline
+- /m/[term] → Misspelling landing pages (50 common Blooket misspellings → calculator)
 - /packs → Information on all Blooket boxes and packs
 - /value-guide → Full value guide with tier-filtered tables
 - /glossary → Every Blooket term, stat, and mechanic explained
@@ -92,7 +102,11 @@ export async function GET() {
 - ⭐ Legendary Blooks Hub — Second-rarest tier reference
 - ⭐ Value Guide — Sell values, drop rates, and tier filter
 - ⭐ Glossary — Every Blooket term explained
-- ⭐ Methodology — Source and modeling documentation
+- ⭐ Complete Blook List — All 172 blooks in one table
+- ⭐ FAQ — 14 common questions with calculator links
+- ⭐ Blooket Hack Alternative — Redirects hack-seeking users to legitimate strategy
+- ⭐ Who Made Blooket — Founder, history, and timeline
+- ⭐ Misspelling Pages — 50 landing pages capturing 1.4M monthly misspelling searches
 
 ## Essential Links
 

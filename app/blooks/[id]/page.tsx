@@ -196,6 +196,46 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
                 </p>
               </section>
             </div>
+
+            <aside className="mt-10">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-violet-400 mb-4">Related next steps</p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={pack.route}
+                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+                >
+                  {pack.name} Pack
+                </Link>
+                <Link
+                  href="/calculators/chase"
+                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+                >
+                  Chase Calculator
+                </Link>
+                {blook.rarity === "Chroma" && (
+                  <Link
+                    href="/blooks/chroma"
+                    className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+                  >
+                    All Chroma Blooks
+                  </Link>
+                )}
+                {blook.rarity === "Legendary" && (
+                  <Link
+                    href="/blooks/legendary"
+                    className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+                  >
+                    All Legendary Blooks
+                  </Link>
+                )}
+                <Link
+                  href="/value-guide"
+                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+                >
+                  Value Guide
+                </Link>
+              </div>
+            </aside>
           </div>
         </section>
       </main>

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { blogPosts } from "@/data/blog";
 import { guideEntries } from "@/data/guides";
+import { MISSPELLINGS } from "@/data/misspellings";
 import { BLOOKS } from "@/lib/constants";
 import { PACKS } from "@/lib/packs";
 import { siteUrl } from "@/lib/site";
@@ -86,9 +87,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${siteUrl}/blooks/epic`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/blooks/rare`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/blooks/uncommon`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/blooks/complete-list`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/blooks/starter`,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/faq`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/guides/blooket-hack-alternative`,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/guides/how-to-get-chroma-blooket`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/guides/how-to-get-legendary-blooket`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/about/who-made-blooket`,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteUrl}/glossary`,
@@ -127,6 +173,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: guide.updatedAt,
       changeFrequency: "monthly" as const,
       priority: guide.priority === "high" ? 0.76 : 0.68,
+    })),
+    ...MISSPELLINGS.map((m) => ({
+      url: `${siteUrl}/m/${m.term}`,
+      changeFrequency: "monthly" as const,
+      priority: m.volume >= 10000 ? 0.7 : m.volume >= 1000 ? 0.6 : 0.5,
     })),
     {
       url: `${siteUrl}/how-it-works`,

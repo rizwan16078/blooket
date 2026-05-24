@@ -13,7 +13,7 @@
 - **Goal:** Become the #1 website for Blooket pack odds, calculator tools, and strategy content — dominating search through programmatic SEO and topical authority.
 - **Framework:** Next.js 16.2.4 (App Router, Turbopack, React 19, TypeScript 5)
 - **Styling:** Tailwind CSS v4 + shadcn/ui components
-- **Deployment:** Static export (SSG) — all 278 pages pre-rendered at build time
+- **Deployment:** Static export (SSG) — all 332 pages pre-rendered at build time
 - **Site URL:** `https://www.calculatorblooket.com`
 
 ---
@@ -50,7 +50,9 @@ app/
 ├── icon.svg                          # Site icon
 │
 ├── [packSlug]/page.tsx               # Dynamic pack pages (/space-box-odds, etc.)
-├── about/page.tsx                    # About page
+├── about/
+│   ├── page.tsx                      # About page
+│   └── who-made-blooket/page.tsx     # Founder, history & timeline (720/mo)
 ├── best-blooket-calculator/page.tsx  # Editorial: why this calculator is best
 ├── blog/
 │   ├── page.tsx                      # Blog index
@@ -59,7 +61,11 @@ app/
 │   ├── page.tsx                      # Blook library index (dynamic)
 │   ├── [id]/page.tsx                # Individual blook detail pages (172 blooks)
 │   ├── chroma/page.tsx              # Chroma rarity hub
+│   ├── complete-list/page.tsx       # All 172 blooks sorted by rarity
+│   ├── epic/page.tsx                # Epic rarity hub
 │   ├── legendary/page.tsx           # Legendary rarity hub
+│   ├── rare/page.tsx                # Rare rarity hub
+│   ├── uncommon/page.tsx            # Uncommon rarity hub
 │   └── starter/page.tsx             # Starter blooks page
 ├── calculators/
 │   ├── page.tsx                      # Calculator hub
@@ -70,14 +76,20 @@ app/
 │   └── chase/page.tsx              # Chase probability calculator
 ├── contact/page.tsx
 ├── editorial-guidelines/page.tsx
+├── faq/page.tsx                      # Comprehensive FAQ (14 questions)
 ├── glossary/page.tsx                # 16-term glossary with cross-links
 ├── guides/
 │   ├── page.tsx                     # Guide index
 │   └── [slug]/page.tsx            # Individual guide pages (21 guides)
+│   └── blooket-hack-alternative/page.tsx  # Hack→strategy redirect (4.4K/mo)
+│   └── how-to-get-chroma-blooket/page.tsx  # Chroma hunting guide (1.3K/mo)
+│   └── how-to-get-legendary-blooket/page.tsx  # Legendary hunting guide (110/mo)
 ├── how-it-works/page.tsx
 ├── html-sitemap/page.tsx
 ├── is-blooket-plus-worth-it/page.tsx # Editorial
 ├── llms.txt/route.ts               # AI-consumable site map
+├── m/
+│   └── [term]/page.tsx              # Misspelling landing pages (50 pages, 1.4M/mo)
 ├── methodology/page.tsx
 ├── packs/page.tsx                   # Pack data center
 ├── privacy/page.tsx
@@ -238,7 +250,7 @@ Every page **must** include:
 
 ---
 
-## 7. Page Inventory (278 pages total)
+## 7. Page Inventory (332 pages total)
 
 ### 7.1 Calculator Pages (6)
 
@@ -251,14 +263,23 @@ Every page **must** include:
 | `/calculators/value` | Blooket Blook Value Calculator — Sell Values, Drop Rates & Token Cost | 0.9 |
 | `/calculators/chase` | Blooket Chase Calculator — Token Budget for Any Blook at 50%, 90% & 99% | 0.9 |
 
-### 7.2 Authority & Hub Pages (7)
+### 7.2 Authority & Hub Pages (17)
 
 | Route | Title | Priority |
 |---|---|---|
 | `/value-guide` | Blooket Value Guide — Sell Values, Drop Rates & Tier Filter | 0.9 |
+| `/blooks/complete-list` | All Blooks in Blooket — Complete Visual Library (172 Blooks) | 0.9 |
 | `/blooks/chroma` | All Chroma Blooks in Blooket — Drop Rates, Packs & Chase Odds | 0.9 |
 | `/blooks/legendary` | All Legendary Blooks in Blooket — Drop Rates, Packs & Chase Odds | 0.9 |
+| `/blooks/epic` | All Epic Blooks in Blooket — Drop Rates, Packs & Sell Values | 0.9 |
+| `/blooks/rare` | All Rare Blooks in Blooket — Drop Rates, Packs & Sell Values | 0.9 |
+| `/blooks/uncommon` | All Uncommon Blooks in Blooket — Drop Rates, Packs & Sell Values | 0.9 |
 | `/blooks/starter` | Blooket Starter Blooks — What You Get Before Opening Any Pack | 0.7 |
+| `/faq` | Blooket FAQ — Every Question Answered | 0.9 |
+| `/guides/blooket-hack-alternative` | Blooket "Hack": The Math-Based Strategy That Actually Works | 0.85 |
+| `/guides/how-to-get-chroma-blooket` | How to Get a Chroma in Blooket — 7 Proven Strategies (2026) | 0.9 |
+| `/guides/how-to-get-legendary-blooket` | How to Get Legendary Blooks in Blooket — Pack Comparison & Drop Math | 0.9 |
+| `/about/who-made-blooket` | Who Made Blooket? — Founder, History & Timeline | 0.8 |
 | `/glossary` | Blooket Glossary — Every Term, Stat & Mechanic Explained | 0.85 |
 | `/is-blooket-plus-worth-it` | Is Blooket Plus Worth It? — Honest Breakdown for 2026 | 0.85 |
 | `/best-blooket-calculator` | Best Blooket Calculator — Why This One Is Different | 0.85 |
@@ -269,6 +290,7 @@ Every page **must** include:
 |---|---|---|
 | `/[packSlug]` | ~15 packs | SoftwareApplication + FAQPage + BreadcrumbList |
 | `/blooks/[id]` | 172 blooks | Dataset + BreadcrumbList |
+| `/m/[term]` | 50 misspellings | BreadcrumbList |
 | `/guides/[slug]` | 21 guides | Article + BreadcrumbList |
 | `/blog/[slug]` | 33 blog posts | Article + BreadcrumbList |
 
@@ -405,7 +427,7 @@ npm install
 # Development server
 npm run dev
 
-# Production build (generates 278 static pages)
+# Production build (generates 332 static pages)
 npx next build
 
 # Lint
