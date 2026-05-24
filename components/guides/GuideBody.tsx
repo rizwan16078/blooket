@@ -846,6 +846,340 @@ export function getGuidePageContent(slug: string): GuidePageContent | null {
     };
   }
 
+  if (slug === "cumulative-probability") {
+    return {
+      note:
+        "Cumulative probability is the core math behind every calculator on this site. This guide explains it in plain language so you can reason about your own budgets.",
+      relatedLinks: [
+        { href: "/calculators/chase", label: "Chase Calculator" },
+        { href: "/guides/blooket-drop-rates", label: "Drop Rates guide" },
+        { href: "/methodology", label: "Read the methodology" },
+      ],
+      sources: [COMMUNITY_WIKI_PACKS, OFFICIAL_COLLECT],
+      body: (
+        <>
+          <Section title="The formula that matters">
+            <p>
+              Cumulative probability answers one question: &quot;If I open n packs, what is
+              the chance I get at least one of my target?&quot; The formula is{" "}
+              <strong className="text-white">P = 1 - (1 - p)^n</strong>, where p is the
+              single-pull rate and n is the number of opens.
+            </p>
+            <p>
+              This is not additive. A 1% rate over 100 pulls is not 100%. It is about
+              63.4%. Over 200 pulls it is about 86.6%. The curve rises quickly at first,
+              then slows down forever without ever reaching 100%.
+            </p>
+          </Section>
+
+          <Section title="Why most players get this wrong">
+            <BulletList
+              items={[
+                "Adding rates together (1% × 100 = 100%) — this is wrong and leads to guaranteed-expectation thinking.",
+                "Assuming that if you miss 50 times, the next pull is more likely — each pull is independent. The rate does not change.",
+                "Treating expected value as a guarantee — an expected 100 opens for one hit means on average, not in your specific session.",
+              ]}
+            />
+          </Section>
+
+          <Section title="How to use cumulative probability for budgeting">
+            <p>
+              The <BodyLink href="/calculators/chase">Chase Calculator</BodyLink> uses
+              this exact formula to show you the token budget needed for 50%, 90%, and 99%
+              probability. That gives you three planning anchors: the optimistic budget,
+              the realistic budget, and the &quot;almost certain&quot; budget.
+            </p>
+            <p>
+              If the 99% budget feels unreachable, that is useful information. It means
+              your target is rare enough that you should consider a different goal or a
+              different pack.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
+  if (slug === "blooket-pack-set") {
+    return {
+      note:
+        "Pack sets define the rarity ladder inside each pack. This guide explains how sets are structured and why structure matters for strategy.",
+      relatedLinks: [
+        { href: "/packs", label: "Browse all pack tables" },
+        { href: "/guides/best-blooket-pack-to-open", label: "Best pack rankings" },
+        { href: "/calculators/roi", label: "ROI Calculator" },
+      ],
+      sources: [COMMUNITY_WIKI_PACKS, OFFICIAL_COLLECT],
+      body: (
+        <>
+          <Section title="What a pack set is">
+            <p>
+              Every Blooket pack contains a fixed set of blooks arranged in a rarity
+              ladder: Common, Uncommon, Rare, Epic, Legendary, and sometimes Chroma.
+              The set determines which blooks you can possibly pull from that pack, and
+              the drop rates determine how likely each one is.
+            </p>
+          </Section>
+
+          <Section title="How sets differ">
+            <BulletList
+              items={[
+                "Some packs stop at Legendary (Bot, Dino, Breakfast) — these are the best for pure Legendary hunters.",
+                "Some packs include a Chroma (Space, Ice, Spooky) — these split the top-end budget between Legendary and Chroma.",
+                "Seasonal packs rotate in and out — their Chromas are only available while the pack is live.",
+                "Packs with rotation groups (like Space) cycle through multiple Chromas in one slot — only one is active at a time.",
+              ]}
+            />
+          </Section>
+
+          <Section title="Why set structure matters for strategy">
+            <p>
+              If you only care about Legendaries, a pack without a Chroma gives you a
+              higher relative share of the top-end probability. If you want a specific
+              Chroma, you need to check whether that pack is currently live and which
+              rotation variant is active.
+            </p>
+            <p>
+              The <BodyLink href="/calculators/roi">ROI Calculator</BodyLink> accounts
+              for set structure by comparing the probability per token for each rarity
+              target across all packs.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
+  if (slug === "blooket-rookie-mistakes") {
+    return {
+      note:
+        "These are the most common strategic errors new Blooket players make, based on community patterns and the probability math this site models.",
+      relatedLinks: [
+        { href: "/guides/blooket-tokens", label: "Token guide" },
+        { href: "/guides/best-blooket-pack-to-open", label: "Best pack guide" },
+        { href: "/calculators", label: "All calculators" },
+      ],
+      sources: [OFFICIAL_COLLECT, OFFICIAL_TOKENS, COMMUNITY_WIKI_PACKS],
+      body: (
+        <>
+          <Section title="Mistake 1: Chasing the rarest pack by name, not by rate">
+            <p>
+              New players hear &quot;Space Pack has the rarest blook&quot; and open Space
+              exclusively. But the Space Pack Chroma rate is split across rotation
+              variants. A pack with a single Chroma at 0.05% may give you a better chance
+              at <em>some</em> Chroma than Space does at the one you want.
+            </p>
+          </Section>
+
+          <Section title="Mistake 2: Ignoring duplicate refunds">
+            <p>
+              Every duplicate you sell reduces the effective cost of future opens. If you
+              ignore refunds, you overestimate how many tokens you need. The{" "}
+              <BodyLink href="/calculators/token-converter">Token Converter</BodyLink>{" "}
+              shows the difference between standard and refund-aware cost.
+            </p>
+          </Section>
+
+          <Section title="Mistake 3: Spending tokens the moment you earn them">
+            <p>
+              Opening packs one at a time as tokens trickle in feels exciting but prevents
+              you from comparing options. Saving up 200-500 tokens and then choosing the
+              best pack for your goal gives you a better outcome on average.
+            </p>
+          </Section>
+
+          <Section title="Mistake 4: Assuming more expensive means better">
+            <p>
+              25-token packs are not automatically better than 20-token packs. The extra
+              5 tokens per open means fewer attempts per budget. If the top-end rate is
+              similar, the cheaper pack gives you more chances.
+            </p>
+          </Section>
+
+          <Section title="Mistake 5: Trusting &quot;hot pack&quot; superstitions">
+            <p>
+              Pack openings are independent events. A &quot;lucky streak&quot; does not
+              mean a pack is running hot. A &quot;cold streak&quot; does not mean a
+              hit is due. Each pull has the exact same probability regardless of what
+              happened before. See the{" "}
+              <BodyLink href="/guides/blooket-streak-myths">Streak Myths guide</BodyLink>{" "}
+              for the full breakdown.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
+  if (slug === "blooket-badge-roadmap") {
+    return {
+      note:
+        "Badges track collection milestones in Blooket. This page maps the badge system to rarity tiers and pack data so you can plan your route.",
+      relatedLinks: [
+        { href: "/blooks", label: "Browse the Blook library" },
+        { href: "/guides/blook-score-explained", label: "Blook Score guide" },
+        { href: "/value-guide", label: "Value guide" },
+      ],
+      sources: [OFFICIAL_BLOOKS_PAGE, OFFICIAL_COLLECT],
+      body: (
+        <>
+          <Section title="How badges work">
+            <p>
+              Blooket awards badges for collection milestones — owning your first
+              Legendary, first Chroma, completing a pack set, and reaching Blook Score
+              thresholds. Badges are visible on your profile and serve as collection
+              goals.
+            </p>
+          </Section>
+
+          <Section title="Badge milestones by rarity tier">
+            <BulletList
+              items={[
+                "First Epic — achievable within a few sessions on any pack with Epic+ rates.",
+                "First Legendary — requires focused token spending. Use the Chase Calculator for budget planning.",
+                "First Chroma — the hardest standard badge. Requires significant token investment or luck.",
+                "Pack completion — owning every blook in a pack set. Easier on small packs like Breakfast.",
+                "Blook Score thresholds — based on rarity diversity, not raw count. Duplicates do not count.",
+              ]}
+            />
+          </Section>
+
+          <Section title="Planning your badge route">
+            <p>
+              If badges are your goal, prioritize breadth over depth. Owning one blook
+              from each rarity tier across multiple packs advances your score faster than
+              grinding one pack for duplicates. The{" "}
+              <BodyLink href="/blooks">Blook library</BodyLink> and{" "}
+              <BodyLink href="/value-guide">Value Guide</BodyLink> help you identify
+              the cheapest path to each rarity tier.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
+  if (slug === "blooket-streak-myths") {
+    return {
+      note:
+        "Pack openings are independent random events. Streaks exist in hindsight but have no predictive power. This guide explains why.",
+      relatedLinks: [
+        { href: "/guides/cumulative-probability", label: "Cumulative probability" },
+        { href: "/guides/blooket-rookie-mistakes", label: "Rookie mistakes" },
+        { href: "/methodology", label: "Methodology" },
+      ],
+      sources: [COMMUNITY_WIKI_PACKS],
+      body: (
+        <>
+          <Section title="Myth: A pack gets &quot;hot&quot; after several misses">
+            <p>
+              This is the classic gambler&apos;s fallacy. Each pack opening is an
+              independent event. The drop rate does not change based on previous results.
+              If you missed a Chroma 50 times in a row, the 51st open still has the same
+              Chroma rate as the first.
+            </p>
+          </Section>
+
+          <Section title="Myth: Opening packs fast increases your odds">
+            <p>
+              The speed of opening packs has zero effect on probability. Whether you open
+              25 packs in 5 seconds or 25 packs over 25 minutes, the cumulative
+              probability is identical. The math only cares about the number of opens,
+              not the timing.
+            </p>
+          </Section>
+
+          <Section title="Myth: Some accounts are luckier than others">
+            <p>
+              There is no evidence that Blooket assigns different probability tables to
+              different accounts. The drop rates are per-pack, not per-player. Any
+              perceived &quot;luck&quot; is normal variance across a small sample size.
+            </p>
+          </Section>
+
+          <Section title="What is actually real">
+            <p>
+              Streaks <em>do</em> happen — but only in hindsight. Over thousands of
+              opens, you will see clusters of hits and long dry spells. That is normal
+              statistical variance, not a pattern you can exploit. The{" "}
+              <BodyLink href="/guides/cumulative-probability">
+                Cumulative Probability guide
+              </BodyLink>{" "}
+              explains the real math behind multi-pull odds.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
+  if (slug === "sell-or-keep-blooks") {
+    return {
+      note:
+        "This guide covers the strategic decision of selling vs keeping blooks, including duplicate economics and Blook Score impact.",
+      relatedLinks: [
+        { href: "/guides/how-to-sell-blooks", label: "How to sell" },
+        { href: "/guides/blook-score-explained", label: "Blook Score guide" },
+        { href: "/calculators/value", label: "Value Calculator" },
+      ],
+      sources: [OFFICIAL_SELL, OFFICIAL_BLOOKS_PAGE],
+      body: (
+        <>
+          <Section title="The easy case: duplicate selling">
+            <p>
+              If you have more than one copy of a blook, selling duplicates is almost
+              always correct. Duplicates do not count toward Blook Score, and the tokens
+              from selling reduce your effective cost on future opens. The only exception
+              is if you expect the blook to become tradeable in a future update — but
+              currently, trading does not exist.
+            </p>
+          </Section>
+
+          <Section title="The hard case: selling your last copy">
+            <p>
+              Selling your last copy of a blook removes it from your collection. This
+              affects your Blook Score and your pack completion progress. The tokens you
+              get back are fixed by rarity:
+            </p>
+            <BulletList
+              items={[
+                "Common: 0 tokens (not worth selling)",
+                "Uncommon: 5 tokens",
+                "Rare: 10 tokens",
+                "Epic: 75 tokens",
+                "Legendary: 200 tokens",
+                "Chroma: 300 tokens (250 for Megalodon)",
+              ]}
+            />
+            <p>
+              Ask yourself: is 200 tokens worth losing a Legendary from your collection?
+              If you are chasing Blook Score or pack completion badges, the answer is
+              usually no. If you are purely token-optimizing for more pulls, it can be
+              yes — but only if you have a clear plan for those tokens.
+            </p>
+          </Section>
+
+          <Section title="The decision framework">
+            <BulletList
+              items={[
+                "If you have duplicates → sell them. No downside.",
+                "If you care about Blook Score → keep your last copy. Score rewards diversity.",
+                "If you care about pack completion → keep your last copy. You need it for the badge.",
+                "If you only care about token efficiency → selling a last-copy Epic (75 tokens) funds 3-4 more opens on a 20-token pack, which may yield something better.",
+                "If the blook is Chroma → almost never sell your last copy. 300 tokens is not worth losing the rarest tier from your collection.",
+              ]}
+            />
+            <p>
+              The <BodyLink href="/calculators/value">Value Calculator</BodyLink> shows
+              you the exact sell value and expected token cost for every blook, so you
+              can make this decision with real numbers instead of gut feelings.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
   if (slug === "how-the-blooket-market-works") {
     return {
       note:

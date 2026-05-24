@@ -259,6 +259,114 @@ export const guideEntries: GuideEntry[] = [
     ],
   },
   {
+    slug: "cumulative-probability",
+    title: "Cumulative Probability in Blooket",
+    excerpt:
+      "Most players misunderstand what multiple pulls actually do to your odds. Cumulative probability is the math that fixes that.",
+    description:
+      "Learn how cumulative probability works in Blooket, why 1% over 100 pulls is not 100%, and how to use the formula for real token budgets.",
+    category: "Game Mechanics",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "high",
+    keywords: [
+      "blooket cumulative probability",
+      "blooket probability over multiple pulls",
+      "blooket at least one chance",
+      "blooket odds math",
+    ],
+  },
+  {
+    slug: "blooket-pack-set",
+    title: "Blooket Pack Set Explained",
+    excerpt:
+      "Pack sets group blooks by theme and rarity ladder. Understanding sets helps you compare packs by structure, not just top-end rates.",
+    description:
+      "See how Blooket pack sets are structured, what makes a pack live vs seasonal, and how set composition affects your chasing strategy.",
+    category: "Pack Strategy",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "medium",
+    keywords: [
+      "blooket pack set",
+      "blooket pack composition",
+      "blooket pack structure",
+      "blooket rarity ladder",
+    ],
+  },
+  {
+    slug: "blooket-rookie-mistakes",
+    title: "Blooket Rookie Mistakes to Avoid",
+    excerpt:
+      "New players burn tokens on the wrong packs, ignore duplicate refunds, and chase feelings instead of probability. Here are the fixes.",
+    description:
+      "The most common Blooket mistakes new players make and how to avoid them using probability, budgeting, and the right calculator tools.",
+    category: "Pack Strategy",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "high",
+    keywords: [
+      "blooket mistakes",
+      "blooket rookie mistakes",
+      "blooket tips",
+      "blooket beginner guide",
+    ],
+  },
+  {
+    slug: "blooket-badge-roadmap",
+    title: "Blooket Badge Roadmap",
+    excerpt:
+      "Badges track collection milestones. This page maps the badge system to the pack and rarity data so you can plan your route.",
+    description:
+      "A roadmap of Blooket badges tied to rarity tiers, pack completion, and collection milestones with strategy tips for each.",
+    category: "Game Mechanics",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "medium",
+    keywords: [
+      "blooket badges",
+      "blooket badge roadmap",
+      "blooket collection milestones",
+      "blooket achievements",
+    ],
+  },
+  {
+    slug: "blooket-streak-myths",
+    title: "Blooket Streak Myths Debunked",
+    excerpt:
+      "Players swear by lucky streaks and hot packs, but the math says otherwise. Here is what is real and what is gambler's fallacy.",
+    description:
+      "Debunking the most common Blooket streak myths, including hot packs, unlucky streaks, and the gambler's fallacy in pack openings.",
+    category: "Game Mechanics",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "medium",
+    keywords: [
+      "blooket streak",
+      "blooket lucky streak",
+      "blooket hot pack",
+      "blooket gamblers fallacy",
+    ],
+  },
+  {
+    slug: "sell-or-keep-blooks",
+    title: "Sell or Keep Blooks — The Decision Framework",
+    excerpt:
+      "Selling duplicates is obvious, but selling your last copy of a blook is a real decision. This page gives you a framework.",
+    description:
+      "A decision framework for when to sell or keep Blooks, covering duplicate economics, Blook Score impact, and collection goals.",
+    category: "Game Mechanics",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "high",
+    keywords: [
+      "sell or keep blooks",
+      "blooket sell or keep",
+      "blooket duplicate strategy",
+      "blooket selling guide",
+    ],
+  },
+  {
     slug: "how-the-blooket-market-works",
     title: "How the Blooket Market Works",
     excerpt:

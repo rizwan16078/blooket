@@ -31,7 +31,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${blook.name} Blook Drop Rate & Value`,
+    title: `${blook.name} Blook — Drop Rate, Sell Value & Chase Odds`,
     description: blook.description,
     keywords: [
       `blooket ${blook.name.toLowerCase()}`,
@@ -39,6 +39,9 @@ export async function generateMetadata({
       `how to get ${blook.name.toLowerCase()}`,
       `${blook.name.toLowerCase()} drop rate`,
       `${blook.name.toLowerCase()} sell value`,
+      `${blook.name.toLowerCase()} chase odds`,
+      `${blook.name.toLowerCase()} ${blook.rarity.toLowerCase()}`,
+      `${blook.rarity.toLowerCase()} blooket odds`,
     ],
     alternates: {
       canonical: `${siteUrl}/blooks/${blook.id}`,
@@ -171,7 +174,7 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-white mb-3">How to Get the {blook.name}</h2>
+                <h2 className="text-2xl font-bold text-white mb-3">How to Get the {blook.name} — Chase Odds</h2>
                 <p className="leading-relaxed">
                   To get the {blook.name}, you need to open {pack.name} Packs using in-game tokens.
                   Based on the listed drop rate, the raw expectation works out to about{" "}
@@ -183,7 +186,7 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
               </section>
               
               <section>
-                <h2 className="text-2xl font-bold text-white mb-3">Is the {blook.name} Worth It?</h2>
+                <h2 className="text-2xl font-bold text-white mb-3">Is the {blook.name} Worth Chasing?</h2>
                 <p className="leading-relaxed">
                   Whether the {blook.name} is worth chasing depends on your goal. If you want one
                   specific collector target, this page gives you the pack, rarity, and budget context.

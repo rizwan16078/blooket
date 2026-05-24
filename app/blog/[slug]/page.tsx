@@ -6,6 +6,7 @@ import { ChevronLeft, Calendar, Calculator, Clock, Eye, User } from "lucide-reac
 import ContentMeta from "@/components/content/ContentMeta";
 import { blogPosts } from "@/data/blog";
 import { getBlogPostBySlug } from "@/lib/blog";
+import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -29,6 +30,10 @@ export async function generateMetadata(props: PageProps<'/blog/[slug]'>): Promis
     description: post.excerpt,
     alternates: {
       canonical: `${siteUrl}/blog/${post.slug}`,
+      languages: {
+        "en-US": `${siteUrl}/blog/${post.slug}`,
+        "x-default": `${siteUrl}/blog/${post.slug}`,
+      },
     },
     openGraph: {
       title: post.title,
@@ -50,7 +55,46 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    url: `${siteUrl}/blog/${post.slug}`,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    image: `${siteUrl}${post.imageUrl}`,
+    author: {
+      "@type": "Organization",
+      name: post.author.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blog/${post.slug}`,
+    },
+  };
+
+  const breadcrumbs = buildBreadcrumbSchema([
+    { name: "Home", item: siteUrl },
+    { name: "Blog", item: `${siteUrl}/blog` },
+    { name: post.title, item: `${siteUrl}/blog/${post.slug}` },
+  ]);
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
+      />
     <article className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
       <div className="mb-8">
         <Link 
@@ -148,5 +192,30 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         </div>
       )}
     </article>
+
+      <aside className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-16">
+        <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-violet-400 mb-4">Related next steps</p>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/calculators"
+            className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+          >
+            All Calculators
+          </Link>
+          <Link
+            href="/guides"
+            className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+          >
+            Guides
+          </Link>
+          <Link
+            href="/blooks"
+            className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
+          >
+            Blook Library
+          </Link>
+        </div>
+      </aside>
+    </>
   );
 }
