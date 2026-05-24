@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { ArrowDownAZ, ArrowUp, ArrowDown, TrendingUp } from "lucide-react";
 import { useCallback } from "react";
 import type { SortOption } from "@/types/blog";
@@ -18,7 +18,6 @@ interface BlogSortProps {
 }
 
 export default function BlogSort({ activeSort }: BlogSortProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const handleSort = useCallback(
@@ -30,9 +29,10 @@ export default function BlogSort({ activeSort }: BlogSortProps) {
         params.set("sort", sort);
       }
       params.delete("page");
-      router.push(`/blog?${params.toString()}`, { scroll: false });
+      const q = params.toString();
+      window.location.href = q ? `/blog?${q}` : "/blog";
     },
-    [router, searchParams]
+    [searchParams]
   );
 
   return (

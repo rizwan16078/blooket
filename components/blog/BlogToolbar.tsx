@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { LayoutGrid, List } from "lucide-react";
 import { useCallback } from "react";
 import type { ViewMode } from "@/types/blog";
@@ -11,7 +11,6 @@ interface BlogToolbarProps {
 }
 
 export default function BlogToolbar({ viewMode, total }: BlogToolbarProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const setViewMode = useCallback(
@@ -22,9 +21,10 @@ export default function BlogToolbar({ viewMode, total }: BlogToolbarProps) {
       } else {
         params.set("view", mode);
       }
-      router.push(`/blog?${params.toString()}`, { scroll: false });
+      const q = params.toString();
+      window.location.href = q ? `/blog?${q}` : "/blog";
     },
-    [router, searchParams]
+    [searchParams]
   );
 
   return (

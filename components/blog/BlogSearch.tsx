@@ -1,18 +1,23 @@
 "use client";
 
 import { Search, X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 
 export default function BlogSearch() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState(searchParams.get("search") ?? "");
   const debouncedQuery = useDebounce(query, 300);
+  const initialSearch = useRef(searchParams.get("search") ?? "");
 
   useEffect(() => {
+    // Skip navigation if the debounced query already matches the current URL
+    if (debouncedQuery.trim() === initialSearch.current.trim()) {
+      initialSearch.current = ""; // allow future changes to navigate
+      return;
+    }
     const params = new URLSearchParams(searchParams.toString());
     if (debouncedQuery.trim()) {
       params.set("search", debouncedQuery.trim());
@@ -21,8 +26,9 @@ export default function BlogSearch() {
       params.delete("search");
       params.delete("page");
     }
-    router.push(`/blog?${params.toString()}`, { scroll: false });
-  }, [debouncedQuery, router, searchParams]);
+    const q = params.toString();
+    window.location.href = q ? `/blog?${q}` : "/blog";
+  }, [debouncedQuery, searchParams]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
