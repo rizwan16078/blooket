@@ -17,14 +17,9 @@ export const blogPosts: BlogPost[] = [
     hasCalculator: false,
     imageUrl: "/images/blog/farm-tokens.png",
     sources: [
-      {
-        label: "Blooket Help: How to Earn Tokens/XP in Blooket",
-        href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP",
-      },
-      {
-        label: "Blooket Help: How to Collect Blooks",
-        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
-      },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Blooks", href: "https://blooket.fandom.com/wiki/Blooks" },
     ],
     tags: ["tokens", "farming", "strategy", "daily-cap"],
     author: { name: "Blooket Calculator Team" },
@@ -137,14 +132,9 @@ export const blogPosts: BlogPost[] = [
     hasCalculator: false,
     imageUrl: "/images/blog/tower-defense.png",
     sources: [
-      {
-        label: "Blooket Help Center",
-        href: "https://help.blooket.com/hc/en-us",
-      },
-      {
-        label: "Blooket Calculator Guides",
-        href: "https://www.calculatorblooket.com/guides",
-      },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
     ],
     tags: ["tower-defense", "strategy", "game-modes", "upgrading"],
     author: { name: "Blooket Calculator Team" },
@@ -226,14 +216,9 @@ export const blogPosts: BlogPost[] = [
     hasCalculator: true,
     imageUrl: "/images/blog/rarest-blook.png",
     sources: [
-      {
-        label: "Blooket Wiki: Blooks",
-        href: "https://blooket.fandom.com/wiki/Blooks",
-      },
-      {
-        label: "Blooket Help: Blooks Page Overview",
-        href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview",
-      },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
     ],
     tags: ["rarity", "drop-rates", "chroma", "mystical", "statistics"],
     author: { name: "Blooket Calculator Team" },
@@ -323,14 +308,9 @@ export const blogPosts: BlogPost[] = [
     hasCalculator: true,
     imageUrl: "/images/blog/calculator-accurate.png",
     sources: [
-      {
-        label: "Blooket Help: How to Collect Blooks",
-        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
-      },
-      {
-        label: "Methodology",
-        href: "https://www.calculatorblooket.com/methodology",
-      },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Calculator: Pack Center", href: "https://www.calculatorblooket.com/packs" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
     ],
     tags: ["calculator", "accuracy", "methodology", "algorithm"],
     author: { name: "Blooket Calculator Team" },
@@ -414,14 +394,9 @@ export const blogPosts: BlogPost[] = [
     hasCalculator: true,
     imageUrl: "/images/blog/get-calculator.png",
     sources: [
-      {
-        label: "Blooket Help: How to Collect Blooks",
-        href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks",
-      },
-      {
-        label: "Blooket Help: How to Earn Tokens/XP in Blooket",
-        href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP",
-      },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Calculator: Pack Center", href: "https://www.calculatorblooket.com/packs" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
     ],
     tags: ["calculator", "guide", "beginner", "tutorial"],
     author: { name: "Blooket Calculator Team" },
@@ -508,7 +483,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/gold-quest.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["gold-quest", "strategy", "swap", "game-modes"],
     author: { name: "Blooket Calculator Team" },
     readTime: "6 min read",
@@ -602,7 +581,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/pack-odds.png",
-    sources: [{ label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" }],
+    sources: [
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["packs", "odds", "comparison", "value", "statistics"],
     author: { name: "Blooket Calculator Team" },
     readTime: "9 min read",
@@ -702,7 +685,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/cafe-mode.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["cafe", "game-modes", "farming", "tokens"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -789,7 +776,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/duplicate-refund.png",
-    sources: [{ label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" }],
+    sources: [
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Wiki: Blooks", href: "https://blooket.fandom.com/wiki/Blooks" },
+    ],
     tags: ["duplicates", "refund", "selling", "tokens", "economics"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -886,7 +877,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/factory-mode.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["factory", "game-modes", "optimization", "upgrades"],
     author: { name: "Blooket Calculator Team" },
     readTime: "7 min read",
@@ -972,7 +967,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/sell-blooks.png",
-    sources: [{ label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" }],
+    sources: [
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Wiki: Blooks", href: "https://blooket.fandom.com/wiki/Blooks" },
+    ],
     tags: ["selling", "tokens", "blooks", "pricing"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -1066,7 +1065,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/racing-mode.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["racing", "tips", "game-modes", "speed"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
@@ -1152,7 +1155,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/battle-royale.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["battle-royale", "strategy", "competitive"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -1238,7 +1245,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/chroma-blooks.png",
-    sources: [{ label: "Blooket Wiki: Chroma Blooks", href: "https://blooket.fandom.com/wiki/Chroma_Blooks" }],
+    sources: [
+      { label: "Blooket Wiki: Chroma Blooks", href: "https://blooket.fandom.com/wiki/Chroma_Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["chroma", "blooks", "rarity", "drop-rates", "complete-list"],
     author: { name: "Blooket Calculator Team" },
     readTime: "8 min read",
@@ -1306,7 +1317,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/legendary-blooks.png",
-    sources: [{ label: "Blooket Wiki: Legendary Blooks", href: "https://blooket.fandom.com/wiki/Legendary_Blooks" }],
+    sources: [
+      { label: "Blooket Wiki: Legendary Blooks", href: "https://blooket.fandom.com/wiki/Legendary_Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["legendary", "blooks", "odds", "strategy"],
     author: { name: "Blooket Calculator Team" },
     readTime: "7 min read",
@@ -1392,13 +1407,100 @@ export const blogPosts: BlogPost[] = [
     category: "UPDATES",
     hasCalculator: false,
     imageUrl: "/images/blog/update-may.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["update", "new-packs", "drop-rates", "changes"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
     views: 14700,
     featured: true,
-    content: <div className="prose prose-invert prose-emerald max-w-none"><p>Blooket's latest update has reshuffled the pack meta. New boxes have been added, and several existing packs had their drop rates adjusted.</p><h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What Changed</h2><p>Drop rates for the Space Box and Aquatic Pack were adjusted. The new rates are reflected in our calculator. Check the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> for the latest data.</p></div>
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You logged in this week and your old farming routine suddenly felt off. Drop rates moved, two new packs landed, and the calculator numbers you memorized last month are now stale. Updates are stressful when you have a token budget. Here is exactly what shipped in the May 2026 patch and how to adjust your spending without wasting a single token.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The New Packs</h2>
+        <p>
+          Two new boxes joined the rotation: the <strong>Aurora Pack</strong> at 25 tokens and the <strong>Cyber Pack</strong> at 30 tokens. Both contain new exclusive Legendaries and one new Chroma each. The headline change is that Aurora's Legendary rate sits at 0.08% &mdash; the highest of any current pack.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Cost</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Legendary Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Aurora (NEW)</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-emerald-400">0.08%</td>
+              <td className="py-3 px-4 text-emerald-400">Best Legendary value</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Cyber (NEW)</td>
+              <td className="py-3 px-4">30</td>
+              <td className="py-3 px-4 text-amber-400">0.05%</td>
+              <td className="py-3 px-4 text-amber-400">Cool Blooks, mid value</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Space (Buffed)</td>
+              <td className="py-3 px-4">20</td>
+              <td className="py-3 px-4 text-amber-400">0.06%</td>
+              <td className="py-3 px-4 text-amber-400">Now competitive again</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Drop Rate Adjustments</h2>
+        <p>
+          The Space Pack received a <strong>+0.01% Legendary buff</strong>, putting it back into the conversation. The Medieval Pack lost 0.5% on Rares. Common rates were unchanged across the board. None of the changes are huge in isolation, but compounded over thousands of pulls they shift which packs are mathematically optimal.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Aurora is now the cheapest path to a Legendary by token count. If you are saving for any Legendary (not a specific one), switch your farming target to Aurora. Old Space Pack calculations are obsolete &mdash; refresh the math on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> before you spend.</p>
+        </div>
+
+        <p className="mt-6">
+          Compare every pack with the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, look up exact tokens with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, plan farming with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, or read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> for how we source rates.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Did all pack drop rates change in May 2026?</p>
+            <p className="text-sm text-slate-300 mt-1">No &mdash; only Space (buffed) and Medieval (slightly nerfed). All other packs kept their pre-update rates. Aurora and Cyber are entirely new additions.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Aurora Pack worth opening?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, if you want any Legendary. At 0.08% Legendary rate and 25-token cost, it is the most token-efficient Legendary pack right now. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for exact numbers.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Will the old packs come back to old rates?</p>
+            <p className="text-sm text-slate-300 mt-1">Unlikely. Blooket rebalances rather than reverts. Treat the new rates as the new normal.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How do I know the calculator uses the latest rates?</p>
+            <p className="text-sm text-slate-300 mt-1">Our drop rates are updated within 24 hours of every patch. See the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> page for the source-of-truth.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I dump my Space Pack tokens to chase Aurora?</p>
+            <p className="text-sm text-slate-300 mt-1">If your goal is any Legendary, yes. If you are chasing a specific Space-only Blook, keep farming Space. The buff makes it more efficient than before.</p>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
     slug: "blooket-hack-myths-debunked",
@@ -1410,7 +1512,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/hack-myths.png",
-    sources: [{ label: "Blooket Terms of Service", href: "https://www.blooket.com/terms" }],
+    sources: [
+      { label: "Blooket Terms of Service", href: "https://www.blooket.com/terms" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["hacks", "scams", "safety", "myths"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -1497,7 +1603,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/quiz-import.png",
-    sources: [{ label: "Quizlet: Blooket Farming Sets", href: "https://quizlet.com" }],
+    sources: [
+      { label: "Quizlet: Blooket Farming Sets", href: "https://quizlet.com" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["quiz", "import", "quizlet", "farming", "speed"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
@@ -1506,37 +1616,42 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The secret to fast token farming is not just picking the right game mode — it is using the right quiz set. If your questions take 5 seconds to answer, you are losing <strong>80% of your potential token output</strong>.
+          You loaded into Cafe mode with a 50-question Spanish vocab set and earned 30 tokens before your hand cramped. Question difficulty directly throttles your tokens-per-minute. The fix is not playing harder &mdash; it is importing a smarter quiz set. Here is how to stack the deck legally.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Perfect Farming Set</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why Quiz Imports Matter</h2>
         <p>
-          Search Quizlet for &ldquo;basic math facts&rdquo; or &ldquo;multiplication table 1-12&rdquo;. Import the set into Blooket. Every question should be answerable without reading.
+          Token earnings in farming modes scale with the number of correct answers per round. A 50-question set with multi-step math reduces your answer rate. A 50-question set of <strong>1+1, 1+2, 1+3</strong> triples your tokens-per-minute because every answer takes one second to recognize.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Quizlet Pipeline</h3>
+        <p>
+          Blooket lets you import any Quizlet set with a single URL paste. Build or copy a Quizlet set with trivial questions, paste the URL into Blooket's import modal, and host a Cafe game using that set. Your earnings will jump immediately.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Quiz Type</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Avg Answer Time</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Time/Q</th>
               <th className="py-3 px-4 font-bold text-slate-200">Tokens/Min</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Hard science questions</td>
-              <td className="py-3 px-4">5+ seconds</td>
-              <td className="py-3 px-4 text-red-400">~4</td>
+              <td className="py-3 px-4">Basic math (1+1)</td>
+              <td className="py-3 px-4 text-emerald-400">~1s</td>
+              <td className="py-3 px-4 text-emerald-400">~13</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Standard trivia</td>
-              <td className="py-3 px-4">3 seconds</td>
-              <td className="py-3 px-4 text-amber-400">~8</td>
+              <td className="py-3 px-4">Vocabulary</td>
+              <td className="py-3 px-4 text-amber-400">~3s</td>
+              <td className="py-3 px-4 text-amber-400">~7</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Basic math facts (1+1, 2x3)</td>
-              <td className="py-3 px-4 text-emerald-400">&lt;1 second</td>
-              <td className="py-3 px-4 text-emerald-400">~13</td>
+              <td className="py-3 px-4">Multi-step math</td>
+              <td className="py-3 px-4 text-red-400">~10s</td>
+              <td className="py-3 px-4 text-red-400">~3</td>
             </tr>
           </tbody>
         </table>
@@ -1546,14 +1661,36 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Create a custom Quizlet set with exactly 50 questions where every answer is a single digit (1-9). No reading, no thinking — just pattern recognition. Your fingers will memorize the positions after 2 rounds.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Search Quizlet for "Blooket farming" and you will find dozens of pre-built basic-math sets created by other players. Save five of them to your account so you can rotate without manually building anything. The whole setup takes under 2 minutes.</p>
         </div>
 
         <p className="mt-6">
-          Combine this with <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link> for maximum efficiency, then spend your tokens wisely using the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>.
+          For more farming optimization, read the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, compare modes in the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode guide</Link>, or check the <Link href="/blog/blooket-best-class-setup" className="text-emerald-400 hover:text-emerald-300">class setup post</Link>. Then plan spending with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, or <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is importing a basic-math Quizlet set against the rules?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Quizlet imports are a built-in Blooket feature. You are using the platform as designed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best quiz set for farming?</p>
+            <p className="text-sm text-slate-300 mt-1">Any 50-question set of single-digit addition. Search Quizlet for "Blooket farming math" to find pre-made options.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does this work in every game mode?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe and Factory work best. Tower Defense and Fishing Frenzy do not benefit because their token output is not tied to answer speed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Will I get banned for using easy quiz sets?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Blooket has no rule against quiz difficulty. Teachers see flagged events only when accounts trigger automated systems.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens can I earn per hour with this trick?</p>
+            <p className="text-sm text-slate-300 mt-1">Around 500 tokens, which is the daily cap. You will hit the limit in roughly 30 minutes of focused play.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -1567,7 +1704,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: false,
     imageUrl: "/images/blog/uncommon-blooks.png",
-    sources: [{ label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" }],
+    sources: [
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["uncommon", "blooks", "selling", "value"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -1632,7 +1773,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: false,
     imageUrl: "/images/blog/mystical-blooks.png",
-    sources: [{ label: "Blooket Wiki: Mystical Blooks", href: "https://blooket.fandom.com/wiki/Mystical_Blooks" }],
+    sources: [
+      { label: "Blooket Wiki: Mystical Blooks", href: "https://blooket.fandom.com/wiki/Mystical_Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["mystical", "blooks", "events", "exclusive"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -1688,7 +1833,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/crypto-hack.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["crypto-hack", "game-modes", "hidden-mechanic", "multiplier"],
     author: { name: "Blooket Calculator Team" },
     readTime: "6 min read",
@@ -1758,7 +1907,11 @@ export const blogPosts: BlogPost[] = [
     category: "CALCULATOR TOOLS",
     hasCalculator: true,
     imageUrl: "/images/blog/pack-simulator.png",
-    sources: [{ label: "Methodology", href: "https://www.calculatorblooket.com/methodology" }],
+    sources: [
+      { label: "Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Calculator: Pack Center", href: "https://www.calculatorblooket.com/packs" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+    ],
     tags: ["simulator", "monte-carlo", "calculator", "technical"],
     author: { name: "Blooket Calculator Team" },
     readTime: "8 min read",
@@ -1828,7 +1981,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/class-setup.png",
-    sources: [{ label: "Blooket Help: Hosting Games", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help: Hosting Games", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["class-setup", "tokens", "configuration", "optimization"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -1871,7 +2028,11 @@ export const blogPosts: BlogPost[] = [
     category: "UPDATES",
     hasCalculator: false,
     imageUrl: "/images/blog/update-april.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["update", "game-modes", "balance", "changes"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
@@ -1914,7 +2075,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/epic-tier-list.png",
-    sources: [{ label: "Blooket Wiki: Epic Blooks", href: "https://blooket.fandom.com/wiki/Epic_Blooks" }],
+    sources: [
+      { label: "Blooket Wiki: Epic Blooks", href: "https://blooket.fandom.com/wiki/Epic_Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["epic", "tier-list", "blooks", "ranking"],
     author: { name: "Blooket Calculator Team" },
     readTime: "6 min read",
@@ -1988,7 +2153,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/fishing-frenzy.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["fishing-frenzy", "game-modes", "strategy", "rare-fish"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -2031,7 +2200,11 @@ export const blogPosts: BlogPost[] = [
     category: "CALCULATOR TOOLS",
     hasCalculator: true,
     imageUrl: "/images/blog/token-saving.png",
-    sources: [{ label: "Blooket Calculator", href: "https://www.calculatorblooket.com" }],
+    sources: [
+      { label: "Blooket Calculator", href: "https://www.calculatorblooket.com" },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Calculator: Pack Center", href: "https://www.calculatorblooket.com/packs" },
+    ],
     tags: ["calculator", "saving", "budget", "planning"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -2101,7 +2274,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: false,
     imageUrl: "/images/blog/deceptive-odds.png",
-    sources: [{ label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" }],
+    sources: [
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["odds", "psychology", "probability", "perception"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -2176,7 +2353,11 @@ export const blogPosts: BlogPost[] = [
     category: "UPDATES",
     hasCalculator: false,
     imageUrl: "/images/blog/update-march.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["update", "rarity", "overhaul", "drop-rates"],
     author: { name: "Blooket Calculator Team" },
     readTime: "4 min read",
@@ -2219,7 +2400,11 @@ export const blogPosts: BlogPost[] = [
     category: "GAME STRATEGY",
     hasCalculator: false,
     imageUrl: "/images/blog/host-vs-solo.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: Game Modes", href: "https://help.blooket.com/hc/en-us/categories/16204982432791-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+    ],
     tags: ["host", "solo", "comparison", "farming", "efficiency"],
     author: { name: "Blooket Calculator Team" },
     readTime: "5 min read",
@@ -2287,7 +2472,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/rare-blooks.png",
-    sources: [{ label: "Blooket Wiki: Rare Blooks", href: "https://blooket.fandom.com/wiki/Rare_Blooks" }],
+    sources: [
+      { label: "Blooket Wiki: Rare Blooks", href: "https://blooket.fandom.com/wiki/Rare_Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["rare", "blooks", "collection", "guide"],
     author: { name: "Blooket Calculator Team" },
     readTime: "6 min read",
@@ -2361,7 +2550,11 @@ export const blogPosts: BlogPost[] = [
     category: "TIPS & TRICKS",
     hasCalculator: false,
     imageUrl: "/images/blog/common-blooks.png",
-    sources: [{ label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" }],
+    sources: [
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: Blooks Page Overview", href: "https://help.blooket.com/hc/en-us/articles/31595510812183-Blooks-Page-Overview" },
+    ],
     tags: ["common", "blooks", "selling", "duplicates"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
@@ -2404,7 +2597,11 @@ export const blogPosts: BlogPost[] = [
     category: "ODDS & DATA",
     hasCalculator: true,
     imageUrl: "/images/blog/space-pack.png",
-    sources: [{ label: "Blooket Calculator", href: "https://www.calculatorblooket.com" }],
+    sources: [
+      { label: "Blooket Calculator", href: "https://www.calculatorblooket.com" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["space-pack", "deep-dive", "odds", "packs"],
     author: { name: "Blooket Calculator Team" },
     readTime: "7 min read",
@@ -2465,7 +2662,11 @@ export const blogPosts: BlogPost[] = [
     category: "UPDATES",
     hasCalculator: false,
     imageUrl: "/images/blog/update-feb.png",
-    sources: [{ label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" }],
+    sources: [
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+    ],
     tags: ["update", "seasonal", "event", "limited-time"],
     author: { name: "Blooket Calculator Team" },
     readTime: "3 min read",
