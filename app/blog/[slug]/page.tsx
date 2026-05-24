@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ChevronLeft, Calendar, Calculator } from "lucide-react";
+import { ChevronLeft, Calendar, Calculator, Clock, Eye, User } from "lucide-react";
 import ContentMeta from "@/components/content/ContentMeta";
 import { blogPosts } from "@/data/blog";
+import { getBlogPostBySlug } from "@/lib/blog";
 import { siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -62,15 +63,37 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
       </div>
 
       <header className="mb-10">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex flex-wrap items-center gap-3 mb-6">
           <span className="bg-[#1a2333] border border-slate-700 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
             {post.category}
           </span>
           <div className="flex items-center gap-1.5 text-slate-400 text-sm">
             <Calendar className="w-4 h-4" />
-            <time dateTime={post.date}>{post.date}</time>
+            <time dateTime={post.publishedAt}>{post.date}</time>
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-400 text-sm">
+            <Clock className="w-4 h-4" />
+            {post.readTime}
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-400 text-sm">
+            <Eye className="w-4 h-4" />
+            {post.views.toLocaleString()} views
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-400 text-sm">
+            <User className="w-4 h-4" />
+            {post.author.name}
           </div>
         </div>
+
+        {post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {post.tags.map((tag) => (
+              <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-800/50 text-slate-400 border border-slate-700/50">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
 
         <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
           {post.title}
