@@ -35,12 +35,36 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: cspHeader.replace(/\n/g, ''),
           },
+          {
+            // HSTS — tells browsers to always use HTTPS for 2 years and
+            // requests preload-list inclusion. Combined with the CSP
+            // upgrade-insecure-requests directive, this eliminates the
+            // class of "HTTPS not evaluated" warnings caused by mixed
+            // content or first-visit HTTP attempts.
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
         ],
       },
     ];
   },
   async redirects() {
     return [
+      {
+        // Force HTTPS on any host that forwards a request with
+        // x-forwarded-proto=http (Vercel, Netlify, most CDNs). On hosts
+        // that already terminate TLS at the edge this rule is a no-op.
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.calculatorblooket.com/:path*',
+        permanent: true,
+      },
       {
         source: '/about-us',
         destination: '/about',

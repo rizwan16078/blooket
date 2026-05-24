@@ -30,9 +30,13 @@ export async function generateMetadata({
 
   const capitalized = term.charAt(0).toUpperCase() + term.slice(1);
 
+  const title = `${capitalized} Calculator 2026 — Free Blooket Pack Odds Tool`;
+  const description = `Searched for ${capitalized}? This IS the Blooket Calculator — free exact pack odds, drop rates, sell values, and Monte Carlo simulation. Try it free now →`;
+  const canonical = `${siteUrl}/m/${term}`;
+
   return {
-    title: `${capitalized} Calculator — Blooket Pack Odds & Drop Rates`,
-    description: `Looking for ${capitalized}? This is the Blooket Pack Odds Calculator — exact probability math, Monte Carlo simulation, and drop rates for every pack.`,
+    title,
+    description,
     keywords: [
       term,
       `${term} calculator`,
@@ -40,19 +44,20 @@ export async function generateMetadata({
       `${term} pack odds`,
       "blooket pack odds",
       `${term} drop rates`,
+      "free blooket calculator",
     ],
     alternates: {
-      canonical: `${siteUrl}/m/${term}`,
+      canonical,
       languages: {
-        "en-US": `${siteUrl}/m/${term}`,
-        "x-default": `${siteUrl}/m/${term}`,
+        "en-US": canonical,
+        "x-default": canonical,
       },
     },
     openGraph: {
-      title: `${capitalized} Calculator | ${siteName}`,
-      description: `Looking for ${capitalized}? This is the Blooket Pack Odds Calculator with exact probability math for every pack.`,
+      title: `${title} | ${siteName}`,
+      description,
       type: "website",
-      url: `${siteUrl}/m/${term}`,
+      url: canonical,
     },
   };
 }

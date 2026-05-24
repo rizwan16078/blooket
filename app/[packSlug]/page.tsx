@@ -8,7 +8,7 @@ import {
   type SearchParamRecord,
 } from "@/lib/search-params";
 import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
-import { siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 
 type PackPageProps = {
   params: Promise<{ packSlug: string }>;
@@ -33,22 +33,37 @@ export async function generateMetadata({
     return {};
   }
 
+  const legPct = (matchedPack.dropRates.legendary * 100).toFixed(2);
+  const chromaPct = (matchedPack.dropRates.chroma * 100).toFixed(2);
+  const cost = matchedPack.costPerPull;
+  const title = `${matchedPack.name} Pack Odds 2026 — Drop Rates & Free Calculator`;
+  const description = `${matchedPack.name} Pack: ${legPct}% Legendary, ${chromaPct}% Chroma drop rates, ${cost}-token cost. Exact odds, sell values, and chase math — free Blooket calculator 2026 →`;
+  const canonical = `${siteUrl}${matchedPack.route}`;
+
   return {
-    title: `${matchedPack.name} Pack Drop Rates & Odds Calculator`,
-    description: `Check exact ${matchedPack.name} Pack odds in Blooket, including Epic+, Legendary, and Chroma probabilities with duplicate refund math.`,
+    title,
+    description,
     keywords: [
       `blooket ${matchedPack.name.toLowerCase()} pack`,
       `blooket ${matchedPack.name.toLowerCase()} box`,
       `${matchedPack.name.toLowerCase()} box odds`,
       `${matchedPack.name.toLowerCase()} pack drop rates`,
       `${matchedPack.name.toLowerCase()} pack chroma`,
+      `${matchedPack.name.toLowerCase()} pack calculator`,
+      `blooket ${matchedPack.name.toLowerCase()} odds 2026`,
     ],
     alternates: {
-      canonical: `${siteUrl}${matchedPack.route}`,
+      canonical,
       languages: {
-        "en-US": `${siteUrl}${matchedPack.route}`,
-        "x-default": `${siteUrl}${matchedPack.route}`,
+        "en-US": canonical,
+        "x-default": canonical,
       },
+    },
+    openGraph: {
+      title: `${title} | ${siteName}`,
+      description,
+      type: "website",
+      url: canonical,
     },
   };
 }

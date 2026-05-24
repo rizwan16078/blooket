@@ -56,7 +56,7 @@ app/
 ├── best-blooket-calculator/page.tsx  # Editorial: why this calculator is best
 ├── blog/
 │   ├── page.tsx                      # Blog index
-│   └── [slug]/page.tsx              # Individual blog posts (33 posts)
+│   └── [slug]/page.tsx              # Individual blog posts (34 posts)
 ├── blooks/
 │   ├── page.tsx                      # Blook library index (dynamic)
 │   ├── [id]/page.tsx                # Individual blook detail pages (172 blooks)
@@ -109,7 +109,7 @@ app/
 | `components/` | React components (navbar, footer, calculator, guides, blog, packs, blooks, UI) |
 | `components/ui/` | shadcn/ui primitives (Button, Card, Dialog, etc.) |
 | `components/guides/GuideBody.tsx` | **Large file (~1200 lines)** — body content for all guide pages |
-| `data/` | Static data: `guides.ts` (guide metadata), `blog.ts` (blog posts) |
+| `data/` | Static data: `guides.ts` (guide metadata), `blog.tsx` (blog posts with JSX content) |
 | `lib/` | Core libraries: constants, math, packs, schema, authority, blog, odds |
 | `types/` | TypeScript type definitions |
 | `workers/` | Web Worker for Monte Carlo simulation |
@@ -292,7 +292,7 @@ Every page **must** include:
 | `/blooks/[id]` | 172 blooks | Dataset + BreadcrumbList |
 | `/m/[term]` | 50 misspellings | BreadcrumbList |
 | `/guides/[slug]` | 21 guides | Article + BreadcrumbList |
-| `/blog/[slug]` | 33 blog posts | Article + BreadcrumbList |
+| `/blog/[slug]` | 34 blog posts | Article + BreadcrumbList |
 
 ### 7.4 Guide Entries (21)
 
@@ -408,9 +408,9 @@ const NAV_LINKS = [
 | `lib/authority.ts` | Rarity hub helpers (getBlooksByRarity, getRaritySummary, rankings) | ~86 lines |
 | `lib/site.ts` | Site URL and name constants | 5 lines |
 | `data/guides.ts` | Guide entry metadata (21 guides) | ~392 lines |
-| `data/blog.ts` | Blog post data (33 posts) | varies |
+| `data/blog.tsx` | Blog post data (34 posts) — JSX content with PAS intros, tables, FAQs, internal links | ~3,500+ lines |
 | `components/guides/GuideBody.tsx` | Body content for all guide pages | ~1200 lines |
-| `app/sitemap.ts` | Dynamic sitemap generator for all 278 pages | ~185 lines |
+| `app/sitemap.ts` | Dynamic sitemap generator for all 332 pages | ~185 lines |
 | `app/llms.txt/route.ts` | AI-consumable site map | ~122 lines |
 | `app/layout.tsx` | Root layout with org/website/nav schema | ~80 lines |
 | `components/navbar.tsx` | Navigation bar | ~138 lines |
@@ -754,10 +754,25 @@ Bottom bar: copyright, DMCA badge, contact email (`contact@blooketcalculator.com
 
 ## 22. Blog System
 
-### Blog Data (`data/blog.ts`)
+### Blog Data (`data/blog.tsx`)
 
-- 33 blog posts with metadata: slug, title, excerpt, content, category, tags, author, dates, views, imageUrl, hasCalculator flag
-- Categories defined in `types/blog.ts` as `BLOG_CATEGORIES`
+- **34 blog posts** with rich JSX content (not strings — content is `React.ReactNode`)
+- File extension is `.tsx` because `content` field contains inline JSX with `<Link>`, `<table>`, headings, etc.
+- Each post includes: slug, title, excerpt, dates, category, imageUrl, hasCalculator flag, sources[], tags[], author, readTime, views, featured, content (JSX)
+- Categories defined in `types/blog.ts` as `BLOG_CATEGORIES`: `GAME STRATEGY | ODDS & DATA | CALCULATOR TOOLS | TIPS & TRICKS | UPDATES`
+
+### Blog Content Standards (`app/blog_content.md`)
+
+Every blog post must comply with the editorial spec in `app/blog_content.md`. Verified standards (all 34 posts compliant as of May 2026):
+
+- **Word count**: 350+ words (Phase 5 target; Phase 6 QA accepts ≥300)
+- **PAS-style intro** (Problem-Agitation-Solution): 50-80 words, hooks the reader before any data
+- **Body structure**: H2 sections, comparison tables (`<table>` with rarity-tier color cells), bullet lists, or rarity-card grids
+- **Pro Tip / Trench Truth box**: bordered emerald-accent callout with insider-only insight
+- **FAQ section**: 4-6 Q&A pairs in rounded card grid
+- **Internal links**: 5-10 contextual `<Link>` references to calculators, packs, guides, other blog posts
+- **External sources**: 3-5 authoritative `BlogSource` entries in the `sources` array
+- **Banned phrases**: "In conclusion", "Look no further", "Welcome to the world of", "In this article we will", and similar AI-tells are forbidden
 
 ### Blog Library (`lib/blog.ts`)
 
@@ -774,24 +789,42 @@ Functions for filtering, sorting, and paginating blog posts:
 ### Blog Post Types (`types/blog.ts`)
 
 ```typescript
-type BlogCategory = "Strategy" | "Guides" | "Updates" | "Probability";
+type BlogCategory =
+  | "GAME STRATEGY"
+  | "ODDS & DATA"
+  | "CALCULATOR TOOLS"
+  | "TIPS & TRICKS"
+  | "UPDATES";
+
 type SortOption = "latest" | "oldest" | "popular" | "az";
+type ViewMode = "grid" | "list";
+
+interface BlogSource {
+  label: string;
+  href: string;
+}
 
 interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  content: string;
-  category: BlogCategory;
-  tags: string[];
-  author: { name: string; avatar?: string };
+  date: string;
   publishedAt: string;
   updatedAt: string;
-  views: number;
+  category: BlogCategory;
   imageUrl: string;
   hasCalculator: boolean;
+  sources: BlogSource[];          // 3-5 external authoritative links per post
+  content: React.ReactNode;       // JSX, not string — includes <Link>, <table>, FAQs, etc.
+  tags: string[];
+  author: { name: string; avatar?: string };
+  readTime: string;
+  views: number;
+  featured: boolean;
 }
 ```
+
+Additional exports: `BlogCategoryCount`, `BlogPaginationResult`, `BLOG_CATEGORIES`, `POSTS_PER_PAGE` (12), `SORT_OPTIONS`.
 
 ---
 
@@ -993,7 +1026,7 @@ Follow this checklist:
 6. **Add the route to `app/sitemap.ts`** with appropriate priority and changeFrequency
 7. **Update `app/llms.txt/route.ts`** if it's a major new section
 8. **If it's a guide**: add entry to `data/guides.ts` AND body content to `components/guides/GuideBody.tsx`
-9. **If it's a blog post**: add entry to `data/blog.ts` with all required fields
+9. **If it's a blog post**: add entry to `data/blog.tsx` with all required fields per `app/blog_content.md` spec (PAS intro, 350+ words, 4-6 FAQs, 5-10 internal links, 3-5 sources, Pro Tip box)
 10. **If it's a blook/pack page**: ensure data exists in `lib/constants.ts` PACK_SEEDS
 11. **Run `npx next build`** to verify — must compile with zero errors
 12. **Check the build output** — the new page must appear in the route list
@@ -1071,8 +1104,9 @@ import { getBlooksByRarity, getRaritySummary, formatRateLabel } from "@/lib/auth
 import { guideEntries, getGuideBySlug, type GuideEntry } from "@/data/guides";
 
 // Blog
-import { blogPosts } from "@/data/blog";
+import { blogPosts } from "@/data/blog";  // Resolves to data/blog.tsx
 import { getBlogPosts } from "@/lib/blog";
+import type { BlogPost, BlogCategory, BlogSource } from "@/types/blog";
 ```
 
 ### Key File Paths
@@ -1081,7 +1115,7 @@ import { getBlogPosts } from "@/lib/blog";
 |---|---|
 | Add a blook/pack | `lib/constants.ts` → `PACK_SEEDS` array |
 | Add a guide | `data/guides.ts` → `guideEntries` + `components/guides/GuideBody.tsx` → switch case |
-| Add a blog post | `data/blog.ts` → `blogPosts` array |
+| Add a blog post | `data/blog.tsx` → `blogPosts` array (JSX content per `app/blog_content.md` spec) |
 | Add a static page | `app/{slug}/page.tsx` |
 | Add a dynamic page | `app/{pattern}/[param]/page.tsx` + `generateStaticParams` |
 | Update sitemap | `app/sitemap.ts` |
@@ -1094,6 +1128,6 @@ import { getBlogPosts } from "@/lib/blog";
 ### Build Verification
 
 ```bash
-npx next build    # Must pass with 0 errors, 278+ pages
+npx next build    # Must pass with 0 errors, 332 static pages generated
 npm run lint      # ESLint check
 ```

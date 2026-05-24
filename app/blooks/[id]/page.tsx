@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 
 import { BLOOKS, PACK_MAP } from "@/lib/constants";
 import { calculateEstimatedTokensForBlook, formatPercent, formatTokenLabel } from "@/lib/math";
-import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
-import { siteUrl } from "@/lib/site";
+import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd } from "@/lib/schema";
+import { siteName, siteUrl } from "@/lib/site";
 
 type BlookDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -30,9 +30,15 @@ export async function generateMetadata({
     return {};
   }
 
+  const pack = PACK_MAP[blook.packId];
+  const ratePercent = (blook.dropRate * 100).toFixed(blook.dropRate < 0.001 ? 3 : 2);
+  const title = `${blook.name} Blook 2026 — ${blook.rarity} Drop Rate & Chase Odds`;
+  const description = `${blook.name} drop rate: ${ratePercent}%. See exact ${blook.rarity} chase odds, sell value, and token cost from the ${pack.name} Pack — free Blooket calculator updated 2026 →`;
+  const canonical = `${siteUrl}/blooks/${blook.id}`;
+
   return {
-    title: `${blook.name} Blook — Drop Rate, Sell Value & Chase Odds`,
-    description: blook.description,
+    title,
+    description,
     keywords: [
       `blooket ${blook.name.toLowerCase()}`,
       `${blook.name.toLowerCase()} blook`,
@@ -44,11 +50,17 @@ export async function generateMetadata({
       `${blook.rarity.toLowerCase()} blooket odds`,
     ],
     alternates: {
-      canonical: `${siteUrl}/blooks/${blook.id}`,
+      canonical,
       languages: {
-        "en-US": `${siteUrl}/blooks/${blook.id}`,
-        "x-default": `${siteUrl}/blooks/${blook.id}`,
+        "en-US": canonical,
+        "x-default": canonical,
       },
+    },
+    openGraph: {
+      title: `${title} | ${siteName}`,
+      description,
+      type: "article",
+      url: canonical,
     },
   };
 }
@@ -62,6 +74,34 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
   }
 
   const pack = PACK_MAP[blook.packId];
+
+  // Chase math: tokens needed for at-least-one success at a given confidence level
+  const tokensFor = (chance: number) => {
+    if (blook.dropRate <= 0 || blook.dropRate >= 1) return 0;
+    const attempts = Math.ceil(Math.log(1 - chance) / Math.log(1 - blook.dropRate));
+    return attempts * pack.costPerPull;
+  };
+  const tokens50 = tokensFor(0.5);
+  const tokens90 = tokensFor(0.9);
+  const tokens99 = tokensFor(0.99);
+  const oneInX = blook.dropRate > 0 ? Math.round(1 / blook.dropRate) : 0;
+  const ratePercent = (blook.dropRate * 100).toFixed(blook.dropRate < 0.001 ? 3 : 2);
+
+  const faqs = [
+    {
+      question: `What is the ${blook.name} drop rate in Blooket?`,
+      answer: `The ${blook.name} drops at ${ratePercent}% per ${pack.name} Pack opening — roughly 1 in ${oneInX.toLocaleString()} pulls. Each pull is independent, so no pity timer applies.`,
+    },
+    {
+      question: `How many tokens to get the ${blook.name}?`,
+      answer: `For 90% confidence at the ${blook.name}, plan on about ${formatTokenLabel(tokens90)}. For a coin-flip (50%) chance, ${formatTokenLabel(tokens50)} is enough. For near-certainty (99%), budget ${formatTokenLabel(tokens99)}.`,
+    },
+    {
+      question: `Where does the ${blook.name} come from?`,
+      answer: `The ${blook.name} is a ${blook.rarity} Blook from the ${pack.name} Pack at ${pack.costPerPull} tokens per pull. It is the only pack that contains this Blook in the current rotation.`,
+    },
+  ];
+
   const datasetSchema = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -77,6 +117,8 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
     { name: blook.name, item: `${siteUrl}/blooks/${blook.id}` },
   ]);
 
+  const faqSchema = buildFaqSchema(faqs);
+
   return (
     <>
       <script
@@ -89,6 +131,12 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: serializeJsonLd(breadcrumbs),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(faqSchema),
         }}
       />
 
@@ -179,21 +227,72 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
                   To get the {blook.name}, you need to open {pack.name} Packs using in-game tokens.
                   Based on the listed drop rate, the raw expectation works out to about{" "}
                   {formatTokenLabel(calculateEstimatedTokensForBlook(blook, pack))} worth of openings.
-                  That number is not a guarantee. It is a planning anchor. The actual result can land
-                  earlier or much later, which is why the calculator is more useful than a single
-                  average.
+                  That number is not a guarantee. It is a planning anchor &mdash; the cumulative
+                  probability table below shows the real budget at different confidence levels.
                 </p>
+
+                <div className="mt-5 rounded-xl border border-violet-500/20 bg-violet-500/5 p-4 text-sm leading-7">
+                  <p className="font-bold text-violet-200">
+                    Drop rate: <span className="text-white">{ratePercent}%</span>
+                    {" · "}
+                    Roughly <span className="text-white">1 in {oneInX.toLocaleString()}</span> pulls
+                  </p>
+                </div>
+
+                <div className="mt-5 overflow-x-auto rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+                  <table className="min-w-full divide-y divide-white/10 text-left text-sm text-white/75">
+                    <thead className="bg-white/[0.03] text-[11px] uppercase tracking-[0.22em] text-white/35">
+                      <tr>
+                        <th className="px-4 py-3">Confidence</th>
+                        <th className="px-4 py-3">Attempts needed</th>
+                        <th className="px-4 py-3">Token budget</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-white/10">
+                      <tr>
+                        <td className="px-4 py-3 font-semibold text-white">50% (coin-flip)</td>
+                        <td className="px-4 py-3">{Math.ceil(tokens50 / pack.costPerPull).toLocaleString()}</td>
+                        <td className="px-4 py-3">{formatTokenLabel(tokens50)}</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 font-semibold text-emerald-300">90% (recommended)</td>
+                        <td className="px-4 py-3">{Math.ceil(tokens90 / pack.costPerPull).toLocaleString()}</td>
+                        <td className="px-4 py-3 text-emerald-300">{formatTokenLabel(tokens90)}</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 font-semibold text-white">99% (near-certain)</td>
+                        <td className="px-4 py-3">{Math.ceil(tokens99 / pack.costPerPull).toLocaleString()}</td>
+                        <td className="px-4 py-3">{formatTokenLabel(tokens99)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </section>
-              
+
               <section>
                 <h2 className="text-2xl font-bold text-white mb-3">Is the {blook.name} Worth Chasing?</h2>
                 <p className="leading-relaxed">
                   Whether the {blook.name} is worth chasing depends on your goal. If you want one
                   specific collector target, this page gives you the pack, rarity, and budget context.
                   If you only care about maximizing odds for the rarity tier, it is smarter to compare
-                  pack-level value in the calculator and the pack guides before committing all your
-                  tokens to one chase.
+                  pack-level value in the{" "}
+                  <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>
+                  {" "}and{" "}
+                  <Link href={pack.route} className="text-emerald-400 hover:text-emerald-300">{pack.name} Pack page</Link>
+                  {" "}before committing all your tokens to one chase.
                 </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-white mb-3">FAQ</h2>
+                <div className="space-y-4">
+                  {faqs.map((faq) => (
+                    <div key={faq.question} className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+                      <p className="font-bold text-white">{faq.question}</p>
+                      <p className="mt-1 text-sm leading-7 text-white/60">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
               </section>
             </div>
 

@@ -9,15 +9,17 @@ import { buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Blooket Calculator — Exact Pack Odds & Drop Rates" },
+  title: { absolute: "Free Blooket Calculator 2026 — Exact Pack Odds & Drop Rates" },
   description:
-    "See your real Blooket chances before you spend tokens with exact probability math, duplicate refund modeling, and worker-based simulations.",
+    "Free Blooket pack odds calculator with exact probability math, Monte Carlo simulation, duplicate refunds, and live drop rates for every pack. Try it now →",
   keywords: [
     "blooket calculator",
     "blooket pack odds",
     "blooket drop rates",
     "blooket box simulator",
     "blooket probability",
+    "free blooket calculator",
+    "blooket calculator 2026",
   ],
   alternates: {
     canonical: siteUrl,
@@ -25,6 +27,13 @@ export const metadata: Metadata = {
       "en-US": siteUrl,
       "x-default": siteUrl,
     },
+  },
+  openGraph: {
+    title: "Free Blooket Calculator 2026 — Exact Pack Odds & Drop Rates",
+    description:
+      "Free Blooket pack odds calculator with exact probability math, Monte Carlo simulation, duplicate refunds, and live drop rates for every pack. Try it now →",
+    type: "website",
+    url: siteUrl,
   },
 };
 

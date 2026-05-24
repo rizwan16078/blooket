@@ -383,6 +383,26 @@ export const guideEntries: GuideEntry[] = [
       "blooket weekly shop",
     ],
   },
+  {
+    slug: "rarest-blook",
+    title: "Rarest Blook in Blooket 2026 — Complete Rarity Ranking",
+    excerpt:
+      "The rarest Blook is a Chroma at 0.02% drop rate, but the real story includes rotated-out event Blooks that are now functionally unobtainable.",
+    description:
+      "The rarest Blook is a Chroma at 0.02% drop rate — see full rarity tier ranking, exact pull odds, and which Blooks are unobtainable. Updated 2026 →",
+    category: "Rarity Hub",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    priority: "high",
+    keywords: [
+      "rarest blook",
+      "rarest blook in blooket",
+      "rarest blooket blook",
+      "rarest blooks",
+      "what is the rarest blook",
+      "blooket rarity ranking",
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string) {

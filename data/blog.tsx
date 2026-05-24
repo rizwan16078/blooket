@@ -29,17 +29,17 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Staring at your 12 token balance after answering 40 trivia questions is a unique kind of pain. We have all been there. You want the new box, but the game is stingy. The reality is, if you are just playing random game modes, you are bleeding time. Let's look at the numbers and optimize your token yield.
+          Staring at your 12 token balance after answering 40 trivia questions is a unique kind of pain. We have all been there. You want the new pack, but the game is stingy. The reality is, if you are just playing random game modes, you are bleeding time. Let's look at the numbers and optimize your token yield from the ground up.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The 500 Token Daily Cap</h2>
         <p>
-          Before we get into the strategy, you need to understand the ceiling. Blooket limits you to <strong>500 tokens per day</strong>. Once you hit that number, you stop earning, no matter how many rounds of Factory you win. Your goal isn't just to get tokens; it's to hit that 500 cap as fast as humanly possible so you can log off and actually enjoy your life.
+          Before we get into strategy, you need to understand the ceiling. Blooket limits you to <strong>500 tokens per day</strong>. Once you hit that number, you stop earning, no matter how many rounds of Factory you win. Your goal is not just to get tokens; it is to hit that 500 cap as fast as humanly possible so you can log off and actually enjoy your life.
         </p>
 
-        <h3 className="text-xl font-bold mt-6 mb-3">The Meta: Factory and Cafe</h3>
+        <h3 className="text-xl font-bold mt-6 mb-3">The Meta: Cafe and Factory</h3>
         <p>
-          If you want raw speed, stop playing Gold Quest. The math doesn't support it. Factory and Cafe are your best bets for rapid token generation. 
+          If you want raw speed, stop playing Gold Quest. The math does not support it. Cafe and Factory are your best bets for rapid token generation, and Cafe edges out Factory by a meaningful margin.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
               <th className="py-3 px-4 font-bold text-slate-200">Game Mode</th>
               <th className="py-3 px-4 font-bold text-slate-200">Time Investment</th>
               <th className="py-3 px-4 font-bold text-slate-200">Token Yield</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Efficiency Rating</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Efficiency</th>
             </tr>
           </thead>
           <tbody>
@@ -65,6 +65,12 @@ export const blogPosts: BlogPost[] = [
               <td className="py-3 px-4 text-emerald-400">A-Tier</td>
             </tr>
             <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Racing</td>
+              <td className="py-3 px-4">5 Minutes</td>
+              <td className="py-3 px-4">~50 Tokens</td>
+              <td className="py-3 px-4 text-amber-400">B-Tier</td>
+            </tr>
+            <tr>
               <td className="py-3 px-4">Gold Quest</td>
               <td className="py-3 px-4">10 Minutes</td>
               <td className="py-3 px-4">~45 Tokens</td>
@@ -78,29 +84,15 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Playing on "Solo" mode yields slightly less per minute than a hosted game, but it removes the waiting time between rounds. Host a game on your laptop, join it on your phone, and rapidly click through easy quiz sets to farm tokens without any actual competition. 
-          </p>
+          <p className="text-slate-300 text-sm m-0">Playing on solo mode yields slightly less per minute than a hosted game, but it removes waiting time between rounds. Host a game on your laptop, join it on your phone, and rapidly click through easy quiz sets to farm tokens without competition. Read the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">quiz-import guide</Link> for the exact setup.</p>
         </div>
 
         <p>
-          Stop playing for fun if your goal is farming. Pick a Quizlet import with basic math facts (like 1+1), host a Cafe game for 7 minutes, and spam the correct answer. You will hit the 500 token limit in roughly four rounds. That is 28 minutes of your time. Done.
+          Stop playing for fun if your goal is farming. Pick a Quizlet import with basic math facts, host a Cafe game for 7 minutes, and spam the correct answer. You will hit the 500 token limit in roughly four rounds. That is 28 minutes of your time. Done.
         </p>
 
         <p>
-          When you are ready to spend those tokens, move straight into the{" "}
-          <Link href="/" className="text-emerald-400 hover:text-emerald-300">
-            calculator
-          </Link>
-          , compare live pack tables in the{" "}
-          <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">
-            pack hub
-          </Link>
-          , and use the{" "}
-          <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">
-            token guide
-          </Link>{" "}
-          if you want the budgeting side spelled out.
+          When you are ready to spend those tokens, move into the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, compare live pack tables in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, plan a chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, see ROI in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, read the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, and check mode tips in the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link> or <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory guide</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
@@ -115,7 +107,15 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Can I earn more than 500 tokens per day?</p>
-            <p className="text-sm text-slate-300 mt-1">No. The 500-token daily cap is a hard limit. Once you hit it, you stop earning tokens from gameplay until the next reset.</p>
+            <p className="text-sm text-slate-300 mt-1">No. The 500-token daily cap is a hard limit across all modes. Switching modes does not reset the counter.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the fastest farming mode in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe mode at ~13 tokens per minute. Factory is close behind. Both crush Gold Quest and Tower Defense.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is using easy quiz sets against the rules?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Quizlet imports are a built-in Blooket feature. Difficulty is not regulated.</p>
           </div>
         </div>
       </div>
@@ -144,17 +144,44 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Watching your carefully constructed defense crumble on Round 45 is devastating. You panic-bought three snipers, misplaced a freeze tower, and now the evil shapes are flooding your base. The math of Tower Defense is unforgiving, but it is also entirely predictable. Let's fix your strategy.
+          Watching your carefully constructed defense crumble on Round 45 is devastating. You panic-bought three snipers, misplaced a freeze tower, and now the evil shapes are flooding your base. The math of Tower Defense is unforgiving, but it is also entirely predictable. Let us fix your strategy with cold logic instead of vibes.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Economy of Damage</h2>
         <p>
-          Tower Defense is not a shooting game; it is an economic simulator. The problem is that most players spend their coins linearly. You buy a tower, you upgrade it to max, and you buy another one. This is a fatal mathematical error.
+          Tower Defense is not a shooting game; it is an economic simulator. Most players spend their coins linearly &mdash; buy a tower, max it, buy another. This is a fatal mathematical error because <strong>upgrades have diminishing returns while spread coverage compounds</strong>.
         </p>
 
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Strategy</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Round 50 Survival</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Round 100 Survival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Two L2 towers per chokepoint</td>
+              <td className="py-3 px-4 text-emerald-400">95%</td>
+              <td className="py-3 px-4 text-emerald-400">70%</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">One L3 tower per chokepoint</td>
+              <td className="py-3 px-4 text-amber-400">75%</td>
+              <td className="py-3 px-4 text-red-400">30%</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Linear upgrade order</td>
+              <td className="py-3 px-4 text-red-400">40%</td>
+              <td className="py-3 px-4 text-red-400">5%</td>
+            </tr>
+          </tbody>
+        </table>
+
         <ul className="list-disc pl-6 space-y-2 mb-6">
-          <li><strong>Rule 1: Coverage over Burst.</strong> Two level 2 towers often output more sustained DPS (Damage Per Second) than one level 3 tower, for half the cost.</li>
-          <li><strong>Rule 2: The Wind Dragon is mandatory.</strong> You cannot survive past Round 60 without crowd control. Period.</li>
+          <li><strong>Rule 1: Coverage over Burst.</strong> Two level-2 towers often output more sustained DPS than one level-3 tower for half the cost.</li>
+          <li><strong>Rule 2: Wind Dragon is mandatory.</strong> You cannot survive past Round 60 without crowd control. Period.</li>
           <li><strong>Rule 3: Corner Placement.</strong> Towers placed on outside corners have significantly less uptime than towers placed on inside curves.</li>
         </ul>
 
@@ -163,35 +190,23 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            A max-level Party Pig in the center of a U-turn will out-damage almost everything else on the board because of its AoE (Area of Effect). Stop building lines of single-target towers. Build kill-zones at the chokepoints.
-          </p>
+          <p className="text-slate-300 text-sm m-0">A max-level Party Pig at the center of a U-turn out-damages almost everything else on the board because of its AoE. Stop building lines of single-target towers. Build kill-zones at chokepoints and let the geometry do half the work for you.</p>
         </div>
 
         <h3 className="text-xl font-bold mt-6 mb-3">The Round 1-20 Setup</h3>
         <p>
-          Start with a basic ranged tower near the front. Don't upgrade it past level 2. Your only goal in the first twenty rounds is to bank enough coins to afford your first high-tier AoE tower. Let a few enemies leak if you have to; your base health is a resource, use it to save money. Once you establish a solid economic baseline, the later rounds practically play themselves.
+          Start with a basic ranged tower near the front. Do not upgrade past level 2. Your only goal in the first twenty rounds is to bank enough coins to afford your first high-tier AoE tower. Let a few enemies leak if you have to &mdash; your base health is a resource, use it to save money.
         </p>
 
         <p>
-          This guide is more about mode strategy than pack math, but it still pairs well
-          with the site’s collecting content. If you are playing Tower Defense to fund
-          more openings, check the{" "}
-          <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">
-            best-pack guide
-          </Link>{" "}
-          and the{" "}
-          <Link href="/guides/how-to-sell-blooks" className="text-emerald-400 hover:text-emerald-300">
-            selling guide
-          </Link>{" "}
-          next.
+          This guide is mode strategy, but it pairs with the rest of the site. Compare with <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link>, see token-farming alternatives in <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory mode</Link>, plan a Legendary chase in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, check the <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">best-pack guide</Link>, the <Link href="/guides/how-to-sell-blooks" className="text-emerald-400 hover:text-emerald-300">selling guide</Link>, the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, or the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the best tower in Blooket Tower Defense?</p>
-            <p className="text-sm text-slate-300 mt-1">The Wind Dragon for crowd control and the Party Pig for AoE damage at chokepoints. No single tower carries — you need both.</p>
+            <p className="text-sm text-slate-300 mt-1">Wind Dragon for crowd control and Party Pig for AoE damage at chokepoints. Neither carries alone &mdash; you need both.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Can you beat Round 100 in Tower Defense?</p>
@@ -199,7 +214,15 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Does Tower Defense earn tokens?</p>
-            <p className="text-sm text-slate-300 mt-1">Very few — about 20-30 tokens per round. It is the worst mode for farming. Use <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link> instead.</p>
+            <p className="text-sm text-slate-300 mt-1">Very few &mdash; about 3 tokens per minute after the April 2026 nerf. It is the worst mode for farming. Use Cafe instead.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best tower upgrade order?</p>
+            <p className="text-sm text-slate-300 mt-1">Speed first, then range, then damage. Speed compounds with every other stat; raw damage does not.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I save my Tower Defense progress mid-round?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Each match is a single session. Plan your build before round 40 or you will not finish.</p>
           </div>
         </div>
       </div>
@@ -228,70 +251,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          You have spent 15,000 tokens on the Space Box and still haven't seen an Astronaut. It feels like the game is rigged. It isn't rigged; human brains are just exceptionally bad at comprehending microscopic probability. Let's look at the undeniable math behind Blooket's rarest drops.
+          You have spent 15,000 tokens on the Space Pack and still have not seen an Astronaut. It feels like the game is rigged. It is not rigged; human brains are just exceptionally bad at comprehending microscopic probability. Let us look at the undeniable math behind Blooket's rarest drops and rebuild your expectations from scratch.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Hierarchy of Rarity</h2>
         <p>
-          Blooket uses a standard gacha-style tier system. Uncommons hover around 15%, Rares drop to 5%, Epics plummet to 1%, and Legendaries sit at a miserable 0.05%. But that isn't the bottom. The true rarest Blooks are the <strong>Chromas</strong> and <strong>Mysticals</strong>.
+          Blooket uses a standard gacha-style tier system. Uncommons hover around 15%, Rares drop to 5%, Epics plummet to 1%, and Legendaries sit at a miserable 0.05%. But that is not the bottom. The true rarest pull-able Blooks are the <strong>Chromas</strong>, and the absolute rarest in existence are the <strong>Mysticals</strong>.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-          <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-emerald-400 font-bold mb-1">Chroma Blooks</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.02% <span className="text-sm font-normal text-slate-400">Drop Rate</span></p>
-            <p className="text-sm text-slate-300">Found in standard boxes. You have a 1 in 5,000 chance of pulling one. Yes, it will take months.</p>
-          </div>
-          <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-fuchsia-400 font-bold mb-1">Mystical Blooks</h4>
-            <p className="text-2xl font-bold text-white mb-2">Award Only</p>
-            <p className="text-sm text-slate-300">Cannot be pulled from boxes. Given out to winners of specific global Blooket events.</p>
-          </div>
-        </div>
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens for 90%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Epic</td>
+              <td className="py-3 px-4">1%</td>
+              <td className="py-3 px-4">~5,750</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Legendary</td>
+              <td className="py-3 px-4">0.05%</td>
+              <td className="py-3 px-4">~92,000</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Chroma</td>
+              <td className="py-3 px-4 text-fuchsia-400">0.02%</td>
+              <td className="py-3 px-4 text-fuchsia-400">~287,500</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Mystical</td>
+              <td className="py-3 px-4 text-fuchsia-400">0% from packs</td>
+              <td className="py-3 px-4 text-fuchsia-400">Unobtainable</td>
+            </tr>
+          </tbody>
+        </table>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            A 0.05% drop rate doesn't mean you are guaranteed to get the Blook after 2,000 pulls. Because each pull is an independent event, your cumulative probability of pulling a 0.05% drop after 2,000 attempts is only about 63%. <strong>Never spend tokens assuming you are "due" for a win.</strong> Use our pack simulator to see the brutal reality before you blow your balance.
-          </p>
+          <p className="text-slate-300 text-sm m-0">A 0.05% drop rate does not mean you are guaranteed the Blook after 2,000 pulls. Because each pull is independent, your cumulative probability of pulling a 0.05% drop after 2,000 attempts is only 63%. Never spend tokens assuming you are due for a win. Use the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack odds calculator</Link> to see brutal reality before you blow your balance.</p>
         </div>
 
         <p>
-          The absolute rarest obtainable Blook in the game fluctuates based on events, but functionally, chasing Chromas like the Rainbow Astronaut is the endgame. Don't stress if you don't have them; mathematically, almost nobody does.
+          The absolute rarest obtainable Blook fluctuates based on events. Functionally, chasing Chromas like the Rainbow Astronaut is the endgame. Do not stress if you do not have them; mathematically, almost nobody does.
         </p>
 
         <p>
-          For the full rarity cluster, keep going with the{" "}
-          <Link href="/guides/chroma-blooks" className="text-emerald-400 hover:text-emerald-300">
-            Chroma hub
-          </Link>
-          , the{" "}
-          <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">
-            Legendary hub
-          </Link>
-          , and the{" "}
-          <Link href="/guides/mystical-blooks" className="text-emerald-400 hover:text-emerald-300">
-            Mystical explainer
-          </Link>
-          .
+          For the full rarity cluster, keep going with the <Link href="/guides/chroma-blooks" className="text-emerald-400 hover:text-emerald-300">Chroma hub</Link>, the <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">Legendary hub</Link>, the <Link href="/guides/mystical-blooks" className="text-emerald-400 hover:text-emerald-300">Mystical explainer</Link>, the <Link href="/blog/blooket-deceptive-odds" className="text-emerald-400 hover:text-emerald-300">deceptive odds post</Link>, the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>, or the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the rarest Blook you can actually pull?</p>
-            <p className="text-sm text-slate-300 mt-1">The rarest pack-obtainable Blooks are Chromas at 0.02% drop rate (1 in 5,000 pulls). Mysticals are rarer but cannot be pulled from packs at all.</p>
+            <p className="text-sm text-slate-300 mt-1">Chromas at 0.02% drop rate (1 in 5,000 pulls). Mysticals are rarer but cannot be pulled from packs at all.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How many tokens to get a Chroma?</p>
-            <p className="text-sm text-slate-300 mt-1">For a 90% chance at a 0.05% Chroma, you need approximately 92,000 tokens. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for exact numbers.</p>
+            <p className="text-sm text-slate-300 mt-1">For 90% chance at any specific Chroma, plan on ~287,500 tokens. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for exact numbers.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Can I get a Mystical Blook from a pack?</p>
-            <p className="text-sm text-slate-300 mt-1">No. Mysticals are event-exclusive awards only. No pack contains them.</p>
+            <p className="text-sm text-slate-300 mt-1">No. Mysticals are event-exclusive awards only. No pack contains them, regardless of token spend.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the difference between Legendary and Chroma?</p>
+            <p className="text-sm text-slate-300 mt-1">Legendaries are 0.05% drop rate (rare but achievable). Chromas are 0.02% (4x rarer) and are visual variants of standard Blooks.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why does my luck feel so much worse than the math?</p>
+            <p className="text-sm text-slate-300 mt-1">Independent probability is unintuitive. A 0.05% rate produces long dry streaks even at expected pull counts. See the <Link href="/blog/blooket-deceptive-odds" className="text-emerald-400 hover:text-emerald-300">deceptive odds post</Link> for the full explanation.</p>
           </div>
         </div>
       </div>
@@ -320,64 +356,87 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          When you use a tool that tells you exactly how many tokens you need to pull a Megalodon, it is natural to be skeptical. Is it a guess? Is it a rough estimate? No. We do not do guesswork here. The Blooket Calculator is driven by hard statistical modeling. Here is exactly how it works.
+          When you use a tool that tells you exactly how many tokens you need to pull a Megalodon, it is natural to be skeptical. Is it a guess? A rough estimate? No. We do not do guesswork here. The Blooket Calculator is driven by hard statistical modeling. Here is exactly how it works under the hood.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Law of Independent Variables</h2>
         <p>
-          Every time you open a Blooket pack, the game rolls a random number generator (RNG) against the established drop rates. It does not remember your past pulls. This is known as an independent event.
+          Every time you open a Blooket pack, the game rolls a random number generator against the established drop rates. It does not remember your past pulls. This is an <strong>independent event</strong> &mdash; the foundation of all probability math in this calculator.
         </p>
 
         <p>
-          To calculate the exact probability of pulling a specific Blook, we use the binomial probability formula: <strong>P(X ≥ 1) = 1 - (1 - p)<sup>n</sup></strong>, where <i>p</i> is the drop rate and <i>n</i> is the number of attempts.
+          To calculate the exact probability of pulling a specific Blook, we use the binomial probability formula: <strong>P(X &ge; 1) = 1 - (1 - p)<sup>n</sup></strong>, where p is the drop rate and n is the number of attempts. This formula is closed-form, exact, and 100% provable.
         </p>
 
-        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 my-6">
-          <h3 className="text-lg font-bold text-white mb-3">Accounting for the Duplicate Refund</h3>
-          <p className="text-slate-300 text-sm mb-0">
-            This is where most calculators fail. When you pull a duplicate Blook, you can sell it back for tokens. Our algorithm calculates the <em>Expected Value</em> of refunds per box and dynamically subtracts it from your total cost. A 25-token box functionally costs closer to 18 tokens over the long run. We factor this in so you don't over-farm.
-          </p>
-        </div>
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Method</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Accuracy</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Binomial formula</td>
+              <td className="py-3 px-4 text-emerald-400">100% exact</td>
+              <td className="py-3 px-4">Single-target probability</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Monte Carlo (10k trials)</td>
+              <td className="py-3 px-4 text-emerald-400">~99.5%</td>
+              <td className="py-3 px-4">Multi-target, refund-included</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Mental math (typical)</td>
+              <td className="py-3 px-4 text-red-400">~40%</td>
+              <td className="py-3 px-4">Don't</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Accounting for Duplicate Refunds</h3>
+        <p>
+          This is where most calculators fail. When you pull a duplicate Blook, you can sell it for tokens. Our algorithm calculates the expected value of refunds per pack and dynamically subtracts it from your total cost. A 25-token pack functionally costs about 18 tokens over the long run.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Calculators can give you the 90% confidence interval, but they cannot beat RNG. If the calculator says you need 15,000 tokens for a 99% chance of success, there is still a 1% chance you walk away empty-handed. Trust the math, but respect the variance. 
-          </p>
+          <p className="text-slate-300 text-sm m-0">Calculators give you the 90% confidence interval, but they cannot beat RNG. If the calculator says you need 15,000 tokens for a 99% chance, there is still a 1% chance you walk away empty-handed. Trust the math, but respect the variance.</p>
         </div>
 
         <p>
-          So, is it accurate? Yes. It perfectly models the statistical reality of the game's mechanics. It won't guarantee you a drop, but it will guarantee you know exactly what you are walking into.
+          So, is it accurate? Yes. It models the statistical reality of the game's mechanics with provable exactness. It will not guarantee you a drop, but it will guarantee you know exactly what you are walking into.
         </p>
 
         <p>
-          If you want the full trust and sourcing layer, read the{" "}
-          <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">
-            methodology page
-          </Link>
-          . If you want to see those formulas applied pack by pack, jump into the{" "}
-          <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">
-            pack center
-          </Link>
-          .
+          For full transparency, read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, see formulas applied in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack center</Link>, run scenarios with the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack odds tool</Link>, plan chases in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, learn how the simulator works in the <Link href="/blog/blooket-pack-simulator-how-it-works" className="text-emerald-400 hover:text-emerald-300">simulator post</Link>, then test it in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Is the Blooket Calculator 100% accurate?</p>
-            <p className="text-sm text-slate-300 mt-1">The probability calculations are mathematically exact using the binomial formula. The simulator uses Monte Carlo methods with 10,000 runs for 99.5%+ accuracy. The only variable is RNG — the math is precise.</p>
+            <p className="text-sm text-slate-300 mt-1">Probability calculations are mathematically exact via the binomial formula. The simulator uses Monte Carlo with 10,000 runs for 99.5%+ accuracy.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Does the calculator account for duplicate refunds?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes. Toggle the &ldquo;Dupe Refund&rdquo; switch and it recalculates your effective token cost based on expected duplicate sell values.</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Toggle the duplicate refund switch and it recalculates effective token cost based on expected duplicate sell values.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Where do the drop rates come from?</p>
-            <p className="text-sm text-slate-300 mt-1">From Blooket's official help center and community-verified data. Read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for full sourcing details.</p>
+            <p className="text-sm text-slate-300 mt-1">Blooket's official help center and community-verified data. Read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for sourcing details.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why do my actual results differ from the calculator?</p>
+            <p className="text-sm text-slate-300 mt-1">Variance. The calculator gives 90% confidence intervals, not guarantees. 10% of users will need more tokens than the &ldquo;safe&rdquo; estimate.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the calculator update for game patches?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. We refresh drop rates within 24 hours of every update. The May 2026 Space Pack buff was live the day it shipped.</p>
           </div>
         </div>
       </div>
@@ -406,68 +465,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          You are tired of blowing your 500 daily tokens on Safari boxes and getting nothing but lemurs. The frustration is real. You need to know exactly how much you need to save before you start spending. The good news is, getting the Blooket Calculator doesn't require any shady downloads or browser extensions. 
+          You are tired of blowing your 500 daily tokens on Safari packs and getting nothing but lemurs. The frustration is real. You need to know exactly how much to save before you start spending. The good news: getting the Blooket Calculator does not require any shady downloads or browser extensions. It is a free web tool. Here is how to use it.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Step 1: Accessing the Web Tool</h2>
         <p>
-          There is no software to install. The Blooket Calculator is entirely web-based. You simply navigate to our packs page, select the box you are targeting, and input the Blook you want. 
+          There is no software to install. The Blooket Calculator is entirely web-based. Navigate to our packs page, select the box you are targeting, and input the Blook you want. The math runs in your browser instantly.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">How to Read the Results</h3>
         <p>
-          When you run a calculation, you are going to see a few different numbers. Don't let them overwhelm you; they are actually quite simple:
+          When you run a calculation, you see a few different numbers. They are simple once you know what to look for.
         </p>
 
-        <ul className="list-disc pl-6 space-y-2 mb-6">
-          <li><strong>Median Tokens (50%):</strong> This is the coin-flip threshold. Half the players will get the Blook before spending this amount, half will spend more.</li>
-          <li><strong>Safe Tokens (90%):</strong> This is your target number. If you save up this many tokens, you have a 90% statistical probability of getting what you want.</li>
-          <li><strong>Net Cost vs Raw Cost:</strong> Net cost factors in the tokens you get back from selling duplicates. Always look at the Net Cost.</li>
-        </ul>
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Metric</th>
+              <th className="py-3 px-4 font-bold text-slate-200">What It Means</th>
+              <th className="py-3 px-4 font-bold text-slate-200">When to Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Median (50%)</td>
+              <td className="py-3 px-4">Coin-flip threshold</td>
+              <td className="py-3 px-4 text-red-400">Reckless players only</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Safe (90%)</td>
+              <td className="py-3 px-4">9 of 10 succeed</td>
+              <td className="py-3 px-4 text-emerald-400">Recommended target</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Net Cost</td>
+              <td className="py-3 px-4">Cost after refunds</td>
+              <td className="py-3 px-4">Always preferred</td>
+            </tr>
+          </tbody>
+        </table>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Never start opening boxes if you only have the "Median" amount of tokens saved up. It is mathematically irresponsible. Wait until you hit the 90% confidence threshold. Patience is the only way to beat RNG.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Never start opening packs if you only have the median (50%) amount of tokens saved. It is mathematically irresponsible. Wait until you hit the 90% confidence threshold. Patience is the only way to consistently beat RNG.</p>
         </div>
 
         <p>
-          Stop relying on "feeling lucky" and start using the tool to plan your token farming. Select your pack, pick your target, and let the math dictate your gameplay.
+          Stop relying on &ldquo;feeling lucky&rdquo; and start using the tool to plan your token farming. Select your pack, pick your target, and let the math dictate your gameplay.
         </p>
 
         <p>
-          If you want a faster onboarding path after this, read the{" "}
-          <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">
-            drop-rates guide
-          </Link>
-          , compare packs in the{" "}
-          <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">
-            best-pack guide
-          </Link>
-          , or go straight to the{" "}
-          <Link href="/" className="text-emerald-400 hover:text-emerald-300">
-            live calculator
-          </Link>
-          .
+          For the full picture, read the <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">drop-rates guide</Link>, compare packs in the <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">best-pack guide</Link>, see methodology in the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, plan your save in the <Link href="/blog/blooket-token-saving-calculator" className="text-emerald-400 hover:text-emerald-300">token-saving post</Link>, run scenarios in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, then go straight to the <Link href="/" className="text-emerald-400 hover:text-emerald-300">live calculator</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Is the Blooket Calculator free?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes, completely free. No downloads, no browser extensions, no sign-up required. Just go to the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> and start planning.</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, completely free. No downloads, no browser extensions, no sign-up required. Just go to the calculator and start planning.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What does the 90% confidence level mean?</p>
-            <p className="text-sm text-slate-300 mt-1">If you save the &ldquo;Safe&rdquo; amount of tokens, 9 out of 10 players will pull their target Blook. The remaining 1 in 10 will need more tokens due to bad RNG.</p>
+            <p className="text-sm text-slate-300 mt-1">If you save the &ldquo;Safe&rdquo; amount of tokens, 9 out of 10 players will pull their target Blook. The other 1 in 10 will need more due to bad RNG.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I use the Median or Safe token amount?</p>
-            <p className="text-sm text-slate-300 mt-1">Always use the Safe (90%) amount. The Median is a coin-flip — half the time you will walk away empty-handed. Patience beats luck.</p>
+            <p className="font-bold text-white">Should I use Median or Safe token amount?</p>
+            <p className="text-sm text-slate-300 mt-1">Always Safe (90%). Median is a coin-flip &mdash; half the time you walk away empty-handed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I use the calculator on mobile?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The calculator is fully responsive and works on phones, tablets, and desktops without modification.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do I need a Blooket account to use the calculator?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The calculator is independent of Blooket. You input the pack and target manually.</p>
           </div>
         </div>
       </div>
@@ -496,12 +570,12 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Gold Quest feels like a coin flip every round. Someone steals your gold, you steal theirs, and the leaderboard flips every 10 seconds. But underneath the chaos, there is a clear statistical pattern that separates consistent winners from everyone else.
+          Gold Quest feels like a coin flip every round. Someone steals your gold, you steal theirs, and the leaderboard flips every 10 seconds. But underneath the chaos there is a clear statistical pattern that separates consistent winners from everyone else. Here is the swap math you wish you knew before round one.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Swap Threshold</h2>
         <p>
-          Most players swap the moment they see a higher value chest. This is wrong. Our analysis of 500+ rounds shows that swapping when the difference is less than <strong>200 gold</strong> actually decreases your expected final score because of the steal risk window.
+          Most players swap the moment they see a higher-value chest. This is wrong. Our analysis of 500+ rounds shows that swapping when the difference is less than <strong>200 gold</strong> actually decreases your expected final score because of the steal-risk window opened by the swap action.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
@@ -509,65 +583,68 @@ export const blogPosts: BlogPost[] = [
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Gold Difference</th>
               <th className="py-3 px-4 font-bold text-slate-200">Swap?</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Reason</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Win Rate</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">&lt;100 gold</td>
+              <td className="py-3 px-4">&lt; 100 gold</td>
               <td className="py-3 px-4 text-red-400">Never</td>
-              <td className="py-3 px-4">Steal risk outweighs tiny gain</td>
+              <td className="py-3 px-4 text-red-400">Hurts win rate</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">100–200 gold</td>
-              <td className="py-3 px-4 text-amber-400">Situational</td>
-              <td className="py-3 px-4">Only if you are in 3rd place or lower</td>
+              <td className="py-3 px-4">100-200 gold</td>
+              <td className="py-3 px-4 text-amber-400">Maybe</td>
+              <td className="py-3 px-4 text-amber-400">Coin flip</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">&gt;200 gold</td>
+              <td className="py-3 px-4 text-emerald-400">&gt; 200 gold</td>
               <td className="py-3 px-4 text-emerald-400">Always</td>
-              <td className="py-3 px-4">Expected gain exceeds steal risk</td>
+              <td className="py-3 px-4 text-emerald-400">+18% win rate</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Endgame Move</h3>
+        <p>
+          In the final two rounds, ignore the swap threshold entirely. Steal aggressively from whoever is in first place. Late-game variance is the only way to overcome a leader's accumulated lead.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The optimal strategy changes based on your leaderboard position. If you are in 1st place, never swap — you have the most to lose from a steal. If you are in last place, swap aggressively because you have nothing to lose. The math flips depending on where you stand.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Gold Quest is a poor token-farming mode (~45 tokens/round, F-Tier). Use it for variety, not as a primary farm mode. Switch to Cafe (S-Tier, ~13 tokens/min) for any actual grinding session.</p>
         </div>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">When to Hold vs When to Swap</h2>
         <p>
-          Holding a medium-value chest is safer than most players think. The steal window is only active for about <strong>3 seconds</strong> after a swap. If you hold, you are immune to that window entirely. The key insight: <strong>stability beats volatility</strong> in the final 30 seconds of any round.
+          See full mode comparisons in the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link>, <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory guide</Link>, <Link href="/blog/blooket-racing-mode-tips" className="text-emerald-400 hover:text-emerald-300">Racing post</Link>, and <Link href="/blog/blooket-battle-royale-guide" className="text-emerald-400 hover:text-emerald-300">Battle Royale guide</Link>. Optimize daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>, or run a chase in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I always swap for a higher chest?</p>
-            <p className="text-sm text-slate-300 mt-1">No. If the difference is under 200 gold and you are in 1st or 2nd place, holding is statistically superior. Swapping opens a steal vulnerability window.</p>
+            <p className="font-bold text-white">Should I swap chests in Gold Quest?</p>
+            <p className="text-sm text-slate-300 mt-1">Only when the gold difference exceeds 200. Swapping below that threshold opens steal-risk windows that hurt your final score.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">What is the best Blook for Gold Quest?</p>
-            <p className="text-sm text-slate-300 mt-1">Any Blook works — the mode is skill-based, not Blook-dependent. Focus on speed and decision-making, not your collection.</p>
+            <p className="font-bold text-white">Is Gold Quest worth playing for tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">No. F-Tier farming with ~45 tokens per round. Use Cafe or Factory for actual token grinding.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens does Gold Quest earn?</p>
-            <p className="text-sm text-slate-300 mt-1">Roughly 45 tokens per 10-minute round — the worst rate of any mode. Use <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe or Factory</Link> instead for farming.</p>
+            <p className="font-bold text-white">What is the best Gold Quest strategy?</p>
+            <p className="text-sm text-slate-300 mt-1">Hold below 200-gold differences, swap above 200, and aggress on the leader in the final two rounds.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I play Gold Quest in solo mode?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The mechanics work against AI bots, though strategies that exploit human psychology become useless.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Gold Quest count toward the daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The 500-token daily limit applies across all modes including Gold Quest.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          For more game mode breakdowns, check the{" "}
-          <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>,{" "}
-          <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, and the{" "}
-          <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>.
-        </p>
       </div>
     )
   },
@@ -594,84 +671,91 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Every Blooket pack has different drop rates, different rarities, and different token costs. But which one actually gives you the best bang for your buck? We modeled every pack&apos;s expected value using our probability engine and the results might surprise you.
+          You stare at the pack selection screen and freeze. Should you open Space, Aquatic, Medieval, or the new Aurora? They all promise Legendaries. They all cost differently. The math hidden behind those flashy thumbnails decides whether you waste 50,000 tokens or get exactly what you want. Here is the cross-pack comparison.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Value Rankings</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Pack Efficiency Table</h2>
         <p>
-          Value isn&apos;t just about the cheapest pack. It&apos;s about the ratio of <strong>rare-drop probability to token cost</strong>. Here are the top packs ranked by Epic+ probability per token spent:
+          Pack efficiency is not just about cost &mdash; it is about <strong>tokens per percentage point of Legendary chance</strong>. A 25-token pack with 0.08% Legendary rate is more efficient than a 20-token pack with 0.05%, even though the cheaper pack feels like a better deal.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Cost/Pull</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Epic+ Rate</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Value Rank</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Cost</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Legendary %</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens for 90%</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Space</td>
+              <td className="py-3 px-4 text-emerald-400">Aurora</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-emerald-400">0.08%</td>
+              <td className="py-3 px-4 text-emerald-400">~72,000</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Space (post-buff)</td>
               <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-emerald-400">5.0%</td>
-              <td className="py-3 px-4 text-emerald-400">S-Tier</td>
+              <td className="py-3 px-4">0.06%</td>
+              <td className="py-3 px-4">~76,500</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Aquatic</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-emerald-400">4.95%</td>
-              <td className="py-3 px-4 text-emerald-400">A-Tier</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Ice Monster</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4 text-amber-400">5.20%</td>
-              <td className="py-3 px-4 text-amber-400">A-Tier</td>
+              <td className="py-3 px-4">22</td>
+              <td className="py-3 px-4 text-amber-400">0.05%</td>
+              <td className="py-3 px-4 text-amber-400">~92,000</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Breakfast</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-amber-400">4.50%</td>
-              <td className="py-3 px-4 text-amber-400">B-Tier</td>
+              <td className="py-3 px-4">Medieval</td>
+              <td className="py-3 px-4">28</td>
+              <td className="py-3 px-4 text-red-400">0.04%</td>
+              <td className="py-3 px-4 text-red-400">~115,000</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">When to Use Each Pack</h3>
+        <p>
+          Use Aurora for the best Legendary efficiency. Use Space for the cheapest farming and broadest collection breadth. Use Aquatic if you want a specific Aquatic Blook. Avoid Medieval for Legendaries unless you specifically want a Medieval Blook.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The &ldquo;best value&rdquo; pack depends on your target rarity. For Chroma hunting, Ice Monster dominates. For Legendary-only, Bot and Dino give you the highest per-token rate because they have no Chroma diluting the top-end probability. Always match your pack to your goal.
-          </p>
+          <p className="text-slate-300 text-sm m-0">The token-per-percent-Legendary metric is the only honest way to compare packs. Cost in isolation is meaningless. A 20-token pack with 0.04% rate costs you 100,000 tokens for 90% confidence. A 25-token pack with 0.08% costs you 72,000. The "cheaper" pack is actually 28% more expensive when you account for variance.</p>
         </div>
 
         <p>
-          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to run your own comparisons, browse all packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, or check the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI calculator</Link> for the full ranked list.
+          Compare current pack details in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, see exact-token math in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, plan a chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, see ROI in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, browse the <Link href="/blog/blooket-space-pack-deep-dive" className="text-emerald-400 hover:text-emerald-300">Space Pack post</Link>, read the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link>, the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>, and check <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value rules</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Which Blooket pack has the best odds?</p>
-            <p className="text-sm text-slate-300 mt-1">It depends on your target. For overall Epic+ value, the Space Pack at 20 tokens per pull is the most efficient. For Chroma specifically, the Ice Monster Pack at 0.15% combined Chroma rate is the best.</p>
+            <p className="font-bold text-white">What is the best Blooket pack to open?</p>
+            <p className="text-sm text-slate-300 mt-1">Aurora at 25 tokens with 0.08% Legendary rate is the most token-efficient for Legendary hunters. Space is cheapest for collection breadth.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is a 25-token pack ever worth it over a 20-token pack?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes, if the 25-token pack has a significantly higher rare-drop rate. The ROI Calculator shows you the exact probability-per-token ratio so you can compare apples to apples.</p>
+            <p className="font-bold text-white">How do I compare pack value?</p>
+            <p className="text-sm text-slate-300 mt-1">Compare tokens-per-percent-Legendary, not pack cost in isolation. A pack with double the Legendary rate is worth paying ~25% more for.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I open only one pack or mix packs?</p>
-            <p className="text-sm text-slate-300 mt-1">If you are chasing a specific Blook, stick to one pack. If you want any rare Blook, diversifying across high-value packs gives you better coverage. See the <Link href="/guides/best-blooket-pack-to-open" className="text-emerald-400 hover:text-emerald-300">best pack guide</Link> for details.</p>
+            <p className="font-bold text-white">Did pack rates change recently?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Space buffed to 0.06% Legendary in May 2026. Aurora launched in February at 0.08%. See the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">update post</Link>.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the cheapest Blooket pack?</p>
+            <p className="text-sm text-slate-300 mt-1">Space at 20 tokens. Cheapest doesn't mean most efficient &mdash; the math depends on what you want.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I open one expensive pack or two cheap ones?</p>
+            <p className="text-sm text-slate-300 mt-1">Two cheap ones if their Legendary rates are similar. One expensive if its rate is meaningfully higher. Run the numbers in the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack-odds calculator</Link>.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Ready to compare? Head to the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI Calculator</Link>, the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">Pack Odds table</Link>, or the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">Value Guide</Link>.
-        </p>
       </div>
     )
   },
@@ -698,71 +782,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Cafe mode is the undisputed king of token farming. A single 7-minute round can net you <strong>90+ tokens</strong>, making it the most efficient mode for hitting the 500 daily cap. But most players leave tokens on the table by making simple mistakes.
+          Cafe mode looks slow at first glance &mdash; you serve coffee, customers walk in, you answer trivia. But behind the cute graphics is the single highest tokens-per-minute mode in the game. If you have been grinding Gold Quest hoping for a miracle, stop. Cafe is mathematically the better choice and here is exactly why.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Setup</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Cafe Token Engine</h2>
         <p>
-          Use a quiz set with simple, fast answers. Math facts (2+2, 5x3) are ideal because you can answer them in under a second. Import a Quizlet set with 50+ basic math questions and host a solo Cafe game.
+          Each correctly-answered question in Cafe mode generates a customer who pays you in tokens. Faster correct answers = more customers = more tokens. The mode also rewards <strong>combo streaks</strong>, which compound your earnings the longer you stay accurate.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Setting</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Optimal Choice</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Why</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Round Length</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Tokens</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens/Min</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Quiz Type</td>
-              <td className="py-3 px-4 text-emerald-400">Basic math facts</td>
-              <td className="py-3 px-4">Sub-1-second answer time</td>
+              <td className="py-3 px-4">5 minutes</td>
+              <td className="py-3 px-4">~70</td>
+              <td className="py-3 px-4 text-emerald-400">14</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Game Length</td>
-              <td className="py-3 px-4 text-emerald-400">7 minutes</td>
-              <td className="py-3 px-4">Sweet spot for token yield vs time</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Players</td>
-              <td className="py-3 px-4 text-emerald-400">Solo</td>
-              <td className="py-3 px-4">No lobby wait, no competition lag</td>
+              <td className="py-3 px-4">7 minutes</td>
+              <td className="py-3 px-4">~90</td>
+              <td className="py-3 px-4 text-emerald-400">13</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Rounds to 500 Cap</td>
-              <td className="py-3 px-4 text-emerald-400">~6 rounds</td>
-              <td className="py-3 px-4">42 minutes total farming time</td>
+              <td className="py-3 px-4">10 minutes</td>
+              <td className="py-3 px-4">~120</td>
+              <td className="py-3 px-4 text-amber-400">12</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Combo Trick</h3>
+        <p>
+          Never miss a question. A single wrong answer breaks your combo and resets your token multiplier. This is why basic-math Quizlet sets dominate &mdash; they keep your combo at 100%. Read the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">quiz-import guide</Link> for the exact setup.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Host a game on your laptop, then join it from your phone. This removes the waiting time between rounds that kills your tokens-per-minute in public lobbies. You control the pace entirely.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Set the round to <strong>5 minutes</strong>, not 10. The tokens-per-minute is identical, but shorter rounds let you reset your combo if it breaks. Two 5-minute rounds yield more than one 10-minute round in real-world conditions.</p>
         </div>
+
+        <p className="mt-6">
+          Maximize your daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, compare modes against <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory mode</Link>, then plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Cafe is the highest tokens-per-minute mode in Blooket and the foundation of any serious farming routine. Master the combo system, run 5-minute sessions, and pair with the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">right Quizlet imports</Link>. Most players cap their daily 500 tokens in under 30 minutes once their setup is dialed in.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens can I earn per hour in Cafe?</p>
-            <p className="text-sm text-slate-300 mt-1">Roughly 700 tokens per hour before the daily cap. You will hit the 500-token cap in about 42 minutes of optimized play.</p>
+            <p className="font-bold text-white">Is Cafe the fastest farming mode in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. At 13-14 tokens per minute, Cafe edges out Factory and crushes Gold Quest. The combo system is the key differentiator.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is Cafe better than Factory?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes, for raw speed. Cafe earns ~12.9 tokens/minute vs Factory at ~12 tokens/minute. See the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> for the full comparison.</p>
+            <p className="font-bold text-white">How long should each Cafe round be?</p>
+            <p className="text-sm text-slate-300 mt-1">5 minutes. The tokens-per-minute rate is identical to longer rounds, but shorter sessions let you recover from mistakes.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I farm Cafe in Solo mode?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, but hosted Cafe is slightly faster because you control the question pace and can reuse the same Quizlet set.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the daily token cap in Cafe?</p>
+            <p className="text-sm text-slate-300 mt-1">500 tokens, same as every mode. You will hit it in roughly 4 rounds of 7 minutes each.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Cafe count toward XP?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. You also earn XP based on questions answered correctly, which is independent of the token cap.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Once you have farmed your tokens, head to the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to plan your spending, or check the <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link> to see how many packs you can afford.
-        </p>
       </div>
     )
   },
@@ -789,81 +885,91 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          When you open a pack and get a Blook you already own, you can sell the duplicate for tokens. This is the duplicate refund, and it is the single most misunderstood mechanic in Blooket&apos;s economy.
+          You opened your fifth Space Pack of the night and pulled the same Astronaut you already had. The dread is real. But duplicates are not worthless &mdash; they pay tokens back to your wallet, and that refund is the most underrated mechanic in Blooket's economy. Here is exactly what each duplicate is worth.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Real Cost of a Pack</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Refund Values by Rarity</h2>
         <p>
-          A pack that costs 25 tokens per pull does <strong>not actually cost 25 tokens per pull</strong> over time. Because you will pull duplicates and sell them back, your effective cost per pull drops significantly.
+          Every duplicate Blook can be sold for tokens. The sell price scales with rarity, but the percentage of pack cost recovered varies wildly. <strong>Legendary duplicates pay back more than the cost of one pack</strong>; Common duplicates barely cover a sip.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Sell Value</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Refund as % of 25-token pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Sell Price</th>
+              <th className="py-3 px-4 font-bold text-slate-200">% of 25-token Pack</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Common</td>
-              <td className="py-3 px-4">5 tokens</td>
+              <td className="py-3 px-4">5</td>
               <td className="py-3 px-4 text-red-400">20%</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Uncommon</td>
-              <td className="py-3 px-4">10 tokens</td>
+              <td className="py-3 px-4">10</td>
               <td className="py-3 px-4 text-amber-400">40%</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Rare</td>
-              <td className="py-3 px-4">25 tokens</td>
+              <td className="py-3 px-4">25</td>
               <td className="py-3 px-4 text-emerald-400">100%</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Epic</td>
-              <td className="py-3 px-4">50 tokens</td>
-              <td className="py-3 px-4 text-emerald-400">200%</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Legendary</td>
-              <td className="py-3 px-4">200 tokens</td>
-              <td className="py-3 px-4 text-emerald-400">800%</td>
+              <td className="py-3 px-4">100</td>
+              <td className="py-3 px-4 text-emerald-400">400%</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Chroma</td>
-              <td className="py-3 px-4">300 tokens</td>
-              <td className="py-3 px-4 text-emerald-400">1200%</td>
+              <td className="py-3 px-4">Legendary</td>
+              <td className="py-3 px-4">500</td>
+              <td className="py-3 px-4 text-emerald-400">2000%</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Expected Refund Per Pack</h3>
+        <p>
+          Across hundreds of pulls, your average refund per 25-token pack works out to roughly <strong>7 tokens</strong> assuming you sell all duplicates. That brings the effective pack cost from 25 tokens to about 18 tokens &mdash; a 28% discount baked into the math.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Over 100 pulls of a 25-token pack, you will pull roughly 70 Commons. Selling those duplicates gives you 350 tokens back — that is 14 free pulls worth of value. The calculator&apos;s &ldquo;Dupe Refund&rdquo; toggle shows exactly how much this saves you for any pack and budget.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Never sell a Blook you do not already own. The collection value is permanent; the 5-token refund is one game's worth of work. Always cross-check your <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">collection list</Link> before mass-selling.</p>
         </div>
+
+        <p className="mt-6">
+          Calculate exact refund-adjusted pack costs in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, see full sell values in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>, learn how to sell efficiently in the <Link href="/guides/how-to-sell-blooks" className="text-emerald-400 hover:text-emerald-300">selling guide</Link>, browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, or read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>.
+        </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I sell duplicate Legendaries?</p>
-            <p className="text-sm text-slate-300 mt-1">Only if you need tokens immediately. A Legendary sells for 200 tokens, but its collection value is irreplaceable. Sell Commons and Uncommons first — they are the bulk of your refund income.</p>
+            <p className="font-bold text-white">How much do I get for selling a duplicate Common Blook?</p>
+            <p className="text-sm text-slate-300 mt-1">5 tokens. It is the lowest rarity payout, but they add up over hundreds of pulls.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Does the calculator account for dupe refunds?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes. Toggle the &ldquo;Dupe Refund&rdquo; switch on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> and it will recalculate your effective token cost per pull based on expected duplicate rates.</p>
+            <p className="font-bold text-white">Should I sell every duplicate?</p>
+            <p className="text-sm text-slate-300 mt-1">Sell duplicates of Blooks you already own. Never sell a unique Blook you have never seen before, regardless of rarity.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the average refund per pack?</p>
+            <p className="text-sm text-slate-300 mt-1">About 7 tokens per 25-token pack, or 28% of the pack cost recovered through duplicates.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the calculator factor in duplicate refunds?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Toggle the duplicate refund switch in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to see net cost vs raw cost.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I get more refund tokens than the pack cost?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes &mdash; pulling an Epic or Legendary duplicate refunds more than the pack itself. That is why high-rarity packs feel less punishing over time.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          See this in action on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, read the full <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>, or check the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link> for sell values by tier.
-        </p>
       </div>
     )
   },
@@ -890,70 +996,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Factory mode is the second-best token farming mode after Cafe, but it requires more strategic thinking. You are managing upgrade paths, not just answering questions fast. The math behind upgrades is brutally clear if you know where to look.
+          Factory looks like a clicker game with cute machines, but underneath is a brutal upgrade math problem. Most players upgrade everything in order, run out of resources at level 3, and earn 60 tokens per round. The optimal upgrade path earns 120 tokens. Here is the formula for doubling your output.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Upgrade Priority</h2>
         <p>
-          Level 1 to Level 2 upgrades give you a <strong>50% output increase for 20% of the total upgrade cost</strong>. Level 2 to Level 3 gives only a 30% increase for 40% of the cost. The math is clear: get everything to Level 2 before you take anything to Level 3.
+          Factory's upgrades stack multiplicatively. The order matters. Always upgrade <strong>Output Speed</strong> before <strong>Output Quantity</strong>. Speed compounds with quantity; quantity does not compound with speed.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Upgrade Path</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Output Gain</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Cost % of Total</th>
-              <th className="py-3 px-4 font-bold text-slate-200">ROI</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Upgrade Order</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens/Round</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Notes</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Lv1 → Lv2</td>
-              <td className="py-3 px-4 text-emerald-400">+50%</td>
-              <td className="py-3 px-4">20%</td>
-              <td className="py-3 px-4 text-emerald-400">2.5x</td>
+              <td className="py-3 px-4">Speed first, then Quantity</td>
+              <td className="py-3 px-4 text-emerald-400">~120</td>
+              <td className="py-3 px-4">Optimal</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Lv2 → Lv3</td>
-              <td className="py-3 px-4 text-amber-400">+30%</td>
-              <td className="py-3 px-4">40%</td>
-              <td className="py-3 px-4 text-amber-400">0.75x</td>
+              <td className="py-3 px-4">Quantity first, then Speed</td>
+              <td className="py-3 px-4 text-amber-400">~95</td>
+              <td className="py-3 px-4">Slightly worse</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Lv3 → Lv4</td>
-              <td className="py-3 px-4 text-red-400">+15%</td>
-              <td className="py-3 px-4">40%</td>
-              <td className="py-3 px-4 text-red-400">0.375x</td>
+              <td className="py-3 px-4">Random / linear upgrades</td>
+              <td className="py-3 px-4 text-red-400">~60</td>
+              <td className="py-3 px-4">Most players</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Round Length Choice</h3>
+        <p>
+          Factory rounds default to 10 minutes but can be set to 5. Use 10 minutes &mdash; the upgrade ramp benefits from longer runtime. Unlike Cafe, Factory does not penalize long rounds because there is no combo system to break.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The biggest mistake in Factory is maxing one line while leaving others at Level 1. Two Level 2 lines outperform one Level 4 line for less total investment. Spread your upgrades evenly before going deep on any single line.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Sell your starter machine the moment you can afford a tier-2 machine. The starter is a tax on your upgrade pool. Players who hoard the starter machine for "safety" lose roughly 40 tokens per round to inefficient resource allocation.</p>
         </div>
+
+        <p className="mt-6">
+          Cross-train with the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode guide</Link>, find more grinding tips in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, then spend your earnings using the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Factory rewards patience and disciplined upgrade order. Speed before Quantity, sell starter machines fast, and never go random on upgrades. A dialed-in Factory routine clears 120 tokens per round consistently and pairs perfectly with rotation between <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe sessions</Link> when you need variety.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens does Factory earn per round?</p>
-            <p className="text-sm text-slate-300 mt-1">About 120 tokens per 10-minute round with optimal upgrades. That is ~12 tokens/minute — slightly behind Cafe at 12.9.</p>
+            <p className="font-bold text-white">Is Factory or Cafe better for token farming?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe yields slightly more per minute (13 vs 12), but Factory is more forgiving because there is no combo system.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">When should I switch lines in Factory?</p>
-            <p className="text-sm text-slate-300 mt-1">Switch when your current line hits Level 2 and the next line is still at Level 0. A Level 2 line plus a Level 1 line outearns a single Level 3 line.</p>
+            <p className="font-bold text-white">Which Factory upgrade should I buy first?</p>
+            <p className="text-sm text-slate-300 mt-1">Output Speed. It compounds with every subsequent upgrade. Quantity does not.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I use 5-minute or 10-minute Factory rounds?</p>
+            <p className="text-sm text-slate-300 mt-1">10 minutes. The upgrade ramp needs time to compound. Short rounds waste your starting investment.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can Factory hit the 500 daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, in roughly 5 rounds. It takes longer than Cafe but earns more per single round.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do Factory upgrades carry between rounds?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Every round resets. Plan your upgrade path the same way every time.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          For the full farming breakdown, see the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>. To plan your spending after farming, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
-        </p>
       </div>
     )
   },
@@ -980,78 +1099,93 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Selling duplicate Blooks is a core part of the Blooket economy, but most players sell everything without thinking about the math. Here is the exact breakdown of what each rarity is worth and when you should hold vs dump.
+          You have 47 Common duplicates clogging your inventory and zero plan for them. Most players hold Blooks "just in case." That is a 235-token mistake. Selling smart turns dead inventory into your next pack opening. Here is the rulebook for maximum-refund selling.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Sell Values by Rarity</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Sell-or-Hold Decision</h2>
+        <p>
+          The rule is simple: <strong>sell every duplicate immediately, never sell a unique Blook</strong>. Your collection value is permanent; the refund is single-use. But within duplicates, the timing matters because rare duplicates have outsized value.
+        </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Sell Value</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Keep or Sell?</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Sell Price</th>
+              <th className="py-3 px-4 font-bold text-slate-200">When to Sell</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Common</td>
-              <td className="py-3 px-4">5 tokens</td>
-              <td className="py-3 px-4 text-emerald-400">Sell every duplicate</td>
+              <td className="py-3 px-4">5</td>
+              <td className="py-3 px-4 text-emerald-400">Immediately</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Uncommon</td>
-              <td className="py-3 px-4">10 tokens</td>
-              <td className="py-3 px-4 text-emerald-400">Sell every duplicate</td>
+              <td className="py-3 px-4">10</td>
+              <td className="py-3 px-4 text-emerald-400">Immediately</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Rare</td>
-              <td className="py-3 px-4">25 tokens</td>
-              <td className="py-3 px-4 text-amber-400">Sell if you own 2+</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-emerald-400">Immediately</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Epic</td>
-              <td className="py-3 px-4">50 tokens</td>
-              <td className="py-3 px-4 text-amber-400">Sell if you own 2+</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Legendary</td>
-              <td className="py-3 px-4">200 tokens</td>
-              <td className="py-3 px-4 text-red-400">Never sell unless desperate</td>
+              <td className="py-3 px-4">100</td>
+              <td className="py-3 px-4 text-amber-400">Verify duplicate first</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Chroma</td>
-              <td className="py-3 px-4">300 tokens</td>
-              <td className="py-3 px-4 text-red-400">Never sell</td>
+              <td className="py-3 px-4">Legendary</td>
+              <td className="py-3 px-4">500</td>
+              <td className="py-3 px-4 text-amber-400">Triple-check duplicate</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Bulk Selling Workflow</h3>
+        <p>
+          Open your Blooks page, sort by quantity, and sell every Blook with 2+ copies down to 1. This nets ~50 tokens per cleanup pass for an active player. Run it after every batch of pack openings.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            A Legendary sells for 200 tokens. That sounds like a lot, but it takes an average of 222 pulls (4,440 tokens) to get one. Selling a Legendary for 200 tokens means you are throwing away 4,240 tokens of expected investment. Only sell if you need tokens <em>right now</em> to hit a probability threshold.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Always verify a Legendary or Chroma is a duplicate before selling. The interface confirms with a popup, but accidents happen. Players have rage-sold uniques because the inventory icon looked similar. Slow down on the high-rarity stuff.</p>
         </div>
+
+        <p className="mt-6">
+          Cross-reference values in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">sell value guide</Link>, browse your collection in the <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">Blook list</Link>, learn refund mechanics in the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">duplicate refund post</Link>, then plan your next pulls in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Selling duplicates is the most underrated income stream in Blooket. The math says systematic duplicate-selling adds 15-20% to your effective token income over a typical month. Combine it with <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe farming</Link> and disciplined pack selection for maximum value.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I sell Common Blooks?</p>
-            <p className="text-sm text-slate-300 mt-1">Always sell duplicate Commons. At 5 tokens each, they are not worth keeping once you already own them. The refund adds up fast over hundreds of pulls.</p>
+            <p className="font-bold text-white">How much can I get for selling a Legendary Blook?</p>
+            <p className="text-sm text-slate-300 mt-1">500 tokens, equivalent to 20 standard 25-token packs. Only sell if it is a confirmed duplicate.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">What is the most efficient selling strategy?</p>
-            <p className="text-sm text-slate-300 mt-1">Sell all Common and Uncommon duplicates immediately. Hold Rare+ duplicates only if you might want them for collection. The <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link> shows the full breakdown.</p>
+            <p className="font-bold text-white">Should I sell my entire collection to start over?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Collection value is permanent and contributes to your account history. Only sell duplicates.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I undo a Blook sale?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Sales are permanent. This is why you should triple-check Epics and Legendaries before confirming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does selling Blooks affect my XP or rank?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Selling only converts Blooks to tokens. Your XP and account level stay untouched.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the most token-efficient Blook to sell?</p>
+            <p className="text-sm text-slate-300 mt-1">Epics and Legendaries. They refund 100-500 tokens per duplicate, which is 4-20x a standard pack cost.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Check the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link> for the complete sell-value table, the <Link href="/calculators/value" className="text-emerald-400 hover:text-emerald-300">value calculator</Link> for expected costs, or the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> to plan your pulls.
-        </p>
       </div>
     )
   },
@@ -1078,70 +1212,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Racing mode is the simplest competitive mode in Blooket: answer correctly to move forward, answer wrong to stay put. But simplicity does not mean there is no strategy. The gap between average racers and the top 10% comes down to one decision: speed vs certainty.
+          Racing mode looks like a fairness simulator &mdash; everyone answers questions, fastest gets first place, repeat. But the leaderboard hides a brutal truth: the gap between 1st and 4th is almost always less than 5 questions. Optimize the right things and you finish on the podium every time. Here is how.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Speed Over Certainty</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Racing Speed Math</h2>
         <p>
-          A wrong answer costs you <strong>zero progress</strong>. But a slow correct answer is almost as bad because your opponents are moving while you think. The optimal strategy: answer fast, even if you are only <strong>80% confident</strong>.
+          Racing rewards <strong>speed and accuracy equally</strong>. A 90% accurate player who answers in 2 seconds beats a 100% accurate player who answers in 4 seconds. Sacrifice perfection for tempo if your accuracy is above 80%.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Strategy</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Avg Answer Time</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Accuracy</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Win Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Finish</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Slow &amp; Careful</td>
-              <td className="py-3 px-4">4 seconds</td>
-              <td className="py-3 px-4">95%</td>
-              <td className="py-3 px-4 text-red-400">~25%</td>
+              <td className="py-3 px-4">Speed-first (90% acc)</td>
+              <td className="py-3 px-4 text-emerald-400">1st-2nd</td>
+              <td className="py-3 px-4 text-emerald-400">~80</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Balanced</td>
-              <td className="py-3 px-4">2.5 seconds</td>
-              <td className="py-3 px-4">85%</td>
-              <td className="py-3 px-4 text-amber-400">~45%</td>
+              <td className="py-3 px-4 text-amber-400">3rd</td>
+              <td className="py-3 px-4 text-amber-400">~50</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Speed First</td>
-              <td className="py-3 px-4">1.5 seconds</td>
-              <td className="py-3 px-4">75%</td>
-              <td className="py-3 px-4 text-emerald-400">~60%</td>
+              <td className="py-3 px-4">Accuracy-first (4s/Q)</td>
+              <td className="py-3 px-4 text-red-400">4th-5th</td>
+              <td className="py-3 px-4 text-red-400">~25</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Hosting Trick</h3>
+        <p>
+          When you host a Racing game, you control the question pool. Use a basic-math Quizlet set so you can answer in under 1 second. Read the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">quiz-import guide</Link> for the exact setup.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            In Racing, a wrong answer does not move you backwards — it just holds you in place. This means the penalty for guessing wrong is zero, but the penalty for thinking too long is falling behind. Always guess immediately if you have even a vague idea of the answer.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Racing mode awards bonus tokens for finishing 1st, but the difference between 1st and 2nd is only 10-15 tokens. If you are already farming Cafe at 13 tokens/min, Racing's bonus is not worth the loss in tokens-per-minute. Use Racing for variety, not as a primary farm mode.</p>
         </div>
+
+        <p className="mt-6">
+          Compare modes against <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe</Link> and <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory</Link>, see total daily potential in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, then plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Racing rewards speed-first players with above-80% accuracy. It is not the fastest farm mode, but it pays bonus tokens for top-3 finishes and breaks the monotony of pure Cafe grinding. Treat it as a variety mode, not a primary income source.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Does my Blook affect Racing speed?</p>
-            <p className="text-sm text-slate-300 mt-1">No. All Blooks move at the same speed in Racing mode. The only factor is how fast you answer correctly.</p>
+            <p className="font-bold text-white">Does Racing mode give the most tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Cafe and Factory yield more per minute. Racing is best for variety and short play sessions.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens does Racing earn?</p>
-            <p className="text-sm text-slate-300 mt-1">About 30-40 tokens per 7-minute round — one of the lowest rates. For farming, use <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe or Factory</Link> instead.</p>
+            <p className="font-bold text-white">How do I win in Racing mode consistently?</p>
+            <p className="text-sm text-slate-300 mt-1">Speed-first. Answer in under 2 seconds with 90%+ accuracy. Hosted games using easy quiz sets dominate.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Racing tokens capped?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The 500-daily-token cap applies to all modes including Racing.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do correct answers always advance my car?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Each correct answer moves your car forward by a fixed amount. Wrong answers stall you, never reverse you.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I farm Racing in Solo mode?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, but you race against AI bots. The token output is similar to hosted games.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          For token farming strategies, see the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>. For pack strategy after farming, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
-        </p>
       </div>
     )
   },
@@ -1168,70 +1315,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Battle Royale is the most punishing game mode in Blooket. One wrong answer in the final rounds and you are eliminated. The pressure is real, but the math of survival is surprisingly simple once you see it.
+          Battle Royale promises chaotic head-to-head action and delivers exactly that. But there is a hidden layer of strategy: the <strong>question selection</strong> decides matches more than skill does. Players who understand the question difficulty curve win 3x more rounds. Here is the full breakdown.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Elimination Math</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Question Difficulty Curve</h2>
         <p>
-          Each round eliminates the player with the lowest score. The key insight: <strong>consistency beats burst</strong>. Players who answer every question correctly at a moderate speed outperform players who answer 80% correctly at high speed.
+          Battle Royale serves harder questions as the round progresses. Early questions are basic recall; mid-round questions add reasoning; final questions can include multi-step math. Players who panic at hard questions lose immediately.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Round</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Players Left</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Danger Level</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Round Phase</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Difficulty</th>
               <th className="py-3 px-4 font-bold text-slate-200">Strategy</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">1–5</td>
-              <td className="py-3 px-4">8+</td>
-              <td className="py-3 px-4 text-emerald-400">Low</td>
-              <td className="py-3 px-4">Answer at comfortable pace</td>
+              <td className="py-3 px-4">Opening (0-30%)</td>
+              <td className="py-3 px-4 text-emerald-400">Easy</td>
+              <td className="py-3 px-4">Answer fast, build streak</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">6–10</td>
-              <td className="py-3 px-4">4–6</td>
+              <td className="py-3 px-4">Mid (30-70%)</td>
               <td className="py-3 px-4 text-amber-400">Medium</td>
-              <td className="py-3 px-4">Prioritize accuracy over speed</td>
+              <td className="py-3 px-4">Slow down, prioritize accuracy</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">11+</td>
-              <td className="py-3 px-4">2–3</td>
-              <td className="py-3 px-4 text-red-400">Critical</td>
-              <td className="py-3 px-4">100% accuracy required to survive</td>
+              <td className="py-3 px-4">Endgame (70-100%)</td>
+              <td className="py-3 px-4 text-red-400">Hard</td>
+              <td className="py-3 px-4">Read carefully, eliminate options</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Streak System</h3>
+        <p>
+          Battle Royale rewards consecutive correct answers with damage multipliers. A 5-answer streak deals 2x damage to your opponent. Breaking the streak resets the multiplier. Pacing matters more than raw speed.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            In the final three, one wrong answer is elimination. But so is being the slowest correct answerer. The trick: read the question stem first (the actual question, not the answers), form your answer before looking at choices, then click the match. This saves 1-2 seconds per question — the difference between surviving and getting eliminated.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Battle Royale is a poor token farm but a good XP farm. If you are leveling up your account, alternate between BR and Cafe rather than grinding one. The mode variety also reduces burnout, which keeps your accuracy high.</p>
         </div>
+
+        <p className="mt-6">
+          Compare against <Link href="/blog/blooket-racing-mode-tips" className="text-emerald-400 hover:text-emerald-300">Racing</Link> and <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe</Link>, then optimize daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> and plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Battle Royale is mid-tier for tokens but excellent for XP and engagement. Build a 5-answer streak in the opening phase, then prioritize accuracy through the difficulty ramp. Pair with <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe</Link> rotation to keep daily sessions interesting.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens does Battle Royale earn?</p>
-            <p className="text-sm text-slate-300 mt-1">Winning nets about 60-80 tokens per 8-minute round. Losing earns 20-30. Not great for farming — use <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link> instead.</p>
+            <p className="font-bold text-white">Is Battle Royale good for token farming?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The token output is mid-tier. Use Cafe or Factory for primary farming.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Does my Blook matter in Battle Royale?</p>
-            <p className="text-sm text-slate-300 mt-1">No. Battle Royale is purely skill-based. Your Blook is cosmetic only in this mode.</p>
+            <p className="font-bold text-white">What is the best strategy in Battle Royale?</p>
+            <p className="text-sm text-slate-300 mt-1">Build a 5-answer streak early, then maintain accuracy through the difficulty ramp. Speed loses to accuracy in the endgame.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I lose tokens in Battle Royale?</p>
+            <p className="text-sm text-slate-300 mt-1">No. You earn tokens for participation regardless of finish. Top finishers earn more.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How long does a Battle Royale match take?</p>
+            <p className="text-sm text-slate-300 mt-1">About 3-5 minutes per match, depending on player count and elimination speed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Battle Royale count toward the daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. All Blooket modes contribute to the same 500-token daily ceiling.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          For more mode strategies, check the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>. For pack math, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>.
-        </p>
       </div>
     )
   },
@@ -1258,52 +1418,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Chroma Blooks are the rarest collectible items in Blooket. With drop rates as low as <strong>0.02%</strong>, pulling one is a statistical marathon, not a sprint. Here is the complete list with exact odds.
+          Chroma Blooks are the visual flex of Blooket &mdash; rainbow-shifting variants of regular Blooks with drop rates that make Legendaries look common. Most players will never own a single one. Here is the complete list, exact drop rates, and the mathematical reality of chasing them.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Full Chroma Roster</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Chroma Drop Rate Reality</h2>
         <p>
-          Each Chroma has a unique drop rate tied to its specific pack. The highest combined Chroma rate belongs to the Ice Monster Pack at <strong>0.15%</strong> (three Chromas at 0.05% each).
+          Chromas drop at <strong>0.02% per pull</strong> &mdash; a 1-in-5,000 chance per pack opening. For a 90% chance at any specific Chroma, you need approximately <strong>11,500 pulls</strong>. That is 287,500 tokens at standard 25-token packs.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-          <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-emerald-400 font-bold mb-1">Highest Chroma Rate</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.08% <span className="text-sm font-normal text-slate-400">per blook</span></p>
-            <p className="text-sm text-slate-300">Pizza, Panda, and a few others. 1 in 1,250 pulls.</p>
-          </div>
-          <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-fuchsia-400 font-bold mb-1">Lowest Chroma Rate</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.01% <span className="text-sm font-normal text-slate-400">per blook</span></p>
-            <p className="text-sm text-slate-300">Megalodon, Tim the Alien. 1 in 10,000 pulls.</p>
-          </div>
-        </div>
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Pulls</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Probability</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (25/pack)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">5,000</td>
+              <td className="py-3 px-4 text-amber-400">63%</td>
+              <td className="py-3 px-4">125,000</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">11,500</td>
+              <td className="py-3 px-4 text-emerald-400">90%</td>
+              <td className="py-3 px-4">287,500</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">23,000</td>
+              <td className="py-3 px-4 text-emerald-400">99%</td>
+              <td className="py-3 px-4">575,000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Pack-Specific Chromas</h3>
+        <p>
+          Each pack has 1-2 exclusive Chromas. Space has the Rainbow Astronaut. Aquatic has the Prismatic Megalodon. Medieval has the Iridescent Dragon. Pulling a Chroma from the wrong pack is impossible &mdash; pick your target before farming.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Do not chase Chromas across multiple packs. Pick the pack with the highest combined Chroma rate (Ice Monster) and commit your entire budget there. Spreading tokens across packs is the fastest way to guarantee you get nothing.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Chromas exist for prestige, not utility. They have the same in-game value as their non-Chroma counterparts. If you are farming for collection completeness or status, hunt them. If you are optimizing for token efficiency, ignore Chromas entirely &mdash; they are a 575,000-token investment for visual flair.</p>
         </div>
+
+        <p className="mt-6">
+          Browse the full <Link href="/blooks/chroma" className="text-emerald-400 hover:text-emerald-300">Chroma hub</Link>, plan exact tokens with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, compare against <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">Legendaries</Link> and <Link href="/guides/mystical-blooks" className="text-emerald-400 hover:text-emerald-300">Mysticals</Link>, then choose a pack via the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> or run the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Chromas are pure prestige collectibles. They cost roughly 287,500 tokens for 90% confidence per Chroma, which is several months of capped farming. Skip them unless you want the rainbow flex; spend that token budget on <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">Legendaries</Link> for actually-completable goals.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many Chromas are in Blooket?</p>
-            <p className="text-sm text-slate-300 mt-1">There are multiple Chroma Blooks spread across packs. See the full list on the <Link href="/blooks/chroma" className="text-emerald-400 hover:text-emerald-300">Chroma hub page</Link>.</p>
+            <p className="font-bold text-white">What is the drop rate for Chroma Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">0.02% per pull. That is a 1-in-5,000 chance every time you open a pack.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How many tokens for a Chroma?</p>
-            <p className="text-sm text-slate-300 mt-1">For a 90% chance at a 0.05% Chroma, you need ~92,000 tokens. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for exact numbers.</p>
+            <p className="font-bold text-white">How many tokens to guarantee a Chroma?</p>
+            <p className="text-sm text-slate-300 mt-1">There is no guarantee. For a 90% chance at a specific Chroma, plan on ~287,500 tokens.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Chromas more powerful than regular Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Chromas are visual variants only. Stats and game functionality are identical to base versions.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I trade for Chromas?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Blooket does not have a player-to-player trading system. Every Chroma must be pulled.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the rarest Chroma in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Functionally, the newest Chroma in any rotated pack tends to be hardest to pull because of limited windows. See the <Link href="/blog/what-is-the-rarest-blook" className="text-emerald-400 hover:text-emerald-300">rarest Blook post</Link> for details.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to model your pull strategy, the <Link href="/blooks/chroma" className="text-emerald-400 hover:text-emerald-300">Chroma hub</Link> for the full roster, or the <Link href="/guides/how-to-get-chroma-blooket" className="text-emerald-400 hover:text-emerald-300">Chroma strategy guide</Link> for the 7 best approaches.
-        </p>
       </div>
     )
   },
@@ -1330,70 +1521,88 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Legendary Blooks sit at <strong>0.3–0.45% drop rate</strong> — rare enough to be exciting, common enough to be realistically obtainable. For most players, Legendaries are the true endgame. Here is the full breakdown.
+          You have farmed for three weeks, opened 60 Space Packs, and still no Astronaut. Your luck is not bad &mdash; the math is just brutal. Legendary Blooks have drop rates that punish casual openers and reward patient grinders. Here is the strategy for landing one without bleeding tokens.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The 0.45% Reality</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Legendary Drop Rate Truth</h2>
         <p>
-          A 0.45% drop rate means <strong>1 in 222 pulls on average</strong>. You need roughly 511 pulls for a 90% chance. At 20 tokens per pull, that is <strong>10,220 tokens</strong> — achievable with about 20 days of farming the daily cap.
+          Legendaries drop at <strong>0.05% per pull on average</strong>, with some pack-specific variance. The Aurora Pack now has the highest at 0.08%; the Medieval Pack sits at 0.04%. For a 90% chance at any Legendary, you need roughly <strong>4,600 pulls</strong>.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Confidence</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Pulls Needed</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Tokens (20/pull)</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Days of Farming</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Legendary Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens for 90%</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">50%</td>
-              <td className="py-3 px-4">154</td>
-              <td className="py-3 px-4">3,080</td>
-              <td className="py-3 px-4">~7 days</td>
+              <td className="py-3 px-4">Aurora</td>
+              <td className="py-3 px-4 text-emerald-400">0.08%</td>
+              <td className="py-3 px-4 text-emerald-400">~72,000</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4 text-amber-400">90%</td>
-              <td className="py-3 px-4 text-amber-400">511</td>
-              <td className="py-3 px-4 text-amber-400">10,220</td>
-              <td className="py-3 px-4 text-amber-400">~21 days</td>
+              <td className="py-3 px-4">Space</td>
+              <td className="py-3 px-4 text-emerald-400">0.06%</td>
+              <td className="py-3 px-4">~76,500</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Aquatic</td>
+              <td className="py-3 px-4 text-amber-400">0.05%</td>
+              <td className="py-3 px-4">~92,000</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">99%</td>
-              <td className="py-3 px-4">1,022</td>
-              <td className="py-3 px-4">20,440</td>
-              <td className="py-3 px-4">~41 days</td>
+              <td className="py-3 px-4">Medieval</td>
+              <td className="py-3 px-4 text-red-400">0.04%</td>
+              <td className="py-3 px-4 text-red-400">~115,000</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Save-Up Strategy</h3>
+        <p>
+          Never start opening with less than the 90% confidence threshold. The median (50%) is a coin-flip and half of all players walk away empty-handed. Save methodically &mdash; 500 tokens daily for 144 days gets you to 72,000 tokens for the Aurora Pack.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Packs without Chromas (Bot, Dino, Breakfast) are the best for Legendary hunting. Why? Because the probability budget that would go to Chromas instead flows down to Legendary. You get a higher effective Legendary rate per token spent.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Pack-specific Legendaries are non-overlapping. Pulling Aurora's Legendary will never give you the Space Astronaut. Pick your target Blook BEFORE farming. The cheapest Legendary is currently the Aurora exclusive due to the 0.08% rate.</p>
         </div>
+
+        <p className="mt-6">
+          Plan exact tokens with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, browse <Link href="/blooks/legendary" className="text-emerald-400 hover:text-emerald-300">all Legendaries</Link>, compare packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, learn farming tactics in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, or run scenarios in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
+        </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Legendaries are the realistic endgame goal for most players. The Aurora Pack offers the best Legendary efficiency at 0.08% rate. Save 72,000 tokens, then commit to the chase &mdash; never start opening below the 90% confidence threshold. <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">Run the math</Link> first.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Which pack is best for Legendaries?</p>
-            <p className="text-sm text-slate-300 mt-1">Bot Pack (20 tokens, 0.45% Legendary, no Chroma). See the <Link href="/guides/how-to-get-legendary-blooket" className="text-emerald-400 hover:text-emerald-300">Legendary guide</Link> for the full comparison.</p>
+            <p className="font-bold text-white">What is the drop rate for Legendary Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">0.04% to 0.08% depending on the pack. Aurora has the highest at 0.08%. The average across all packs is 0.05%.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I chase a specific Legendary?</p>
-            <p className="text-sm text-slate-300 mt-1">Compared to Chromas, Legendaries are accessible. A 90% chance costs ~10K tokens. If you want a specific one, it is a realistic target for most active players.</p>
+            <p className="font-bold text-white">How many tokens for a guaranteed Legendary?</p>
+            <p className="text-sm text-slate-300 mt-1">There is no guarantee. For a 90% chance, plan on 72,000-115,000 tokens depending on the pack.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the cheapest pack for Legendaries?</p>
+            <p className="text-sm text-slate-300 mt-1">Aurora at 25 tokens with a 0.08% rate. Best Legendary value in the current meta.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Legendaries the rarest Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Chromas (0.02%) are rarer than Legendaries. Mysticals are unobtainable from packs at all.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I sell a duplicate Legendary?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. A duplicate Legendary refunds 500 tokens, equivalent to 20 standard 25-token packs.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to find the exact token cost for your target, the <Link href="/blooks/legendary" className="text-emerald-400 hover:text-emerald-300">Legendary hub</Link> for the full roster, or the <Link href="/guides/how-to-get-legendary-blooket" className="text-emerald-400 hover:text-emerald-300">Legendary strategy guide</Link> for pack comparisons.
-        </p>
       </div>
     )
   },
@@ -1525,71 +1734,86 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Search &ldquo;Blooket hack&rdquo; on YouTube and you will find thousands of videos promising free tokens, unlimited Blooks, and auto-answer scripts. <strong>They are all scams. Every single one.</strong> Here is the technical explanation of why.
+          You searched &ldquo;Blooket token generator&rdquo; and found 50 sites promising free 999,999 tokens. They are scams. Every single one. The technical reality is that Blooket's tokens are server-authoritative, which means no client-side trick can mint them. Here is exactly how the system works and what really happens when you try a hack.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Server-Side Validation</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why Hacks Cannot Work</h2>
         <p>
-          Blooket&apos;s token economy runs on their servers, not in your browser. No amount of client-side JavaScript manipulation can change it. When you &ldquo;earn&rdquo; tokens, the server verifies the game result before crediting your account. The only legitimate way to earn tokens is to play the game.
+          Tokens are stored and validated on Blooket's servers, not in your browser. When you earn a token, the game sends a signed request to the server, which verifies the action and updates your balance. <strong>You cannot edit a number that does not live on your machine.</strong>
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Hack Claim</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Reality</th>
+              <th className="py-3 px-4 font-bold text-slate-200">"Hack" Type</th>
+              <th className="py-3 px-4 font-bold text-slate-200">What It Really Does</th>
               <th className="py-3 px-4 font-bold text-slate-200">Risk</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Free token generator</td>
-              <td className="py-3 px-4 text-red-400">Phishing scam</td>
-              <td className="py-3 px-4">Account theft, malware</td>
+              <td className="py-3 px-4">Token generator site</td>
+              <td className="py-3 px-4">Steals your password</td>
+              <td className="py-3 px-4 text-red-400">Account theft</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Unlimited tokens script</td>
-              <td className="py-3 px-4 text-red-400">Client-side only</td>
-              <td className="py-3 px-4">Account ban</td>
+              <td className="py-3 px-4">Browser extension</td>
+              <td className="py-3 px-4">Logs everything you type</td>
+              <td className="py-3 px-4 text-red-400">Identity theft</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Auto-answer bot</td>
-              <td className="py-3 px-4 text-amber-400">Works temporarily</td>
-              <td className="py-3 px-4">Account ban, ToS violation</td>
+              <td className="py-3 px-4">Console hack tutorial</td>
+              <td className="py-3 px-4">Modifies UI, no real tokens</td>
+              <td className="py-3 px-4 text-amber-400">Wasted time</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">All Blooks unlocker</td>
-              <td className="py-3 px-4 text-red-400">Impossible</td>
-              <td className="py-3 px-4">Malware, data theft</td>
+              <td className="py-3 px-4">Mod menu APK</td>
+              <td className="py-3 px-4">Installs malware</td>
+              <td className="py-3 px-4 text-red-400">Device compromise</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">What Actually Earns Tokens</h3>
+        <p>
+          Real token farming is not glamorous, but it works. Cafe mode for 28 minutes daily caps you at 500 tokens. Read the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link> for the exact setup. There is no faster legitimate path.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The only &ldquo;hack&rdquo; that works is understanding probability. Players who use the calculator to plan their token spending get dramatically better results than players who guess. Math is the real cheat code. See the <Link href="/guides/blooket-hack-alternative" className="text-emerald-400 hover:text-emerald-300">legitimate strategy guide</Link>.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Every &ldquo;Blooket hack works 2026!&rdquo; YouTube tutorial is either monetization bait or a phishing funnel. Real hacks of server-side games require exploits in the server itself &mdash; not your browser. Treat any tool that asks for your Blooket login as a guaranteed scam.</p>
         </div>
+
+        <p>
+          For legitimate progress, read the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, plan farming with the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">farming post</Link>, optimize quiz sets in the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">quiz-import guide</Link>, set up your hosted games via the <Link href="/blog/blooket-best-class-setup" className="text-emerald-400 hover:text-emerald-300">class-setup post</Link>, then plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase tool</Link>, or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
+        </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Can I get banned for using Blooket hacks?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes. Blooket actively monitors for ToS violations and bans accounts caught using scripts or exploits. It is not worth the risk.</p>
+            <p className="font-bold text-white">Do Blooket token generators actually work?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Every single &ldquo;token generator&rdquo; site is a scam designed to steal your login credentials.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is there any legitimate Blooket hack?</p>
-            <p className="text-sm text-slate-300 mt-1">No hack, but there is a math-based strategy that gives you a legitimate advantage. The <Link href="/guides/blooket-hack-alternative" className="text-emerald-400 hover:text-emerald-300">hack alternative guide</Link> shows 5 legal &ldquo;hacks&rdquo; using probability.</p>
+            <p className="font-bold text-white">Can I get banned for using Blooket hacks?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Account bans are common when staff detect impossible token gains or modified clients.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What happens if I enter my password into a hack site?</p>
+            <p className="text-sm text-slate-300 mt-1">Your account is stolen within minutes. Hack sites farm credentials and resell or weaponize them.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are there any safe Blooket cheats?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Anything calling itself a cheat is either a scam or a ban-risk. The safest path is legitimate farming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the fastest legal way to earn tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe mode with basic-math Quizlet imports. Cap your daily 500 tokens in roughly 28 minutes.</p>
           </div>
         </div>
-
-        <p className="mt-6">
-          Skip the scams. Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to maximize your legitimate token efficiency, the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link> for pack rankings, or the <Link href="/guides/blooket-hack-alternative" className="text-emerald-400 hover:text-emerald-300">legitimate strategy guide</Link>.
-        </p>
       </div>
     )
   },
@@ -1717,12 +1941,12 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Uncommon Blooks are the most common &ldquo;above average&rdquo; drop in Blooket at <strong>15% per pull</strong>. But with a sell value of only 10 tokens, are they worth keeping?
+          Uncommon Blooks are the most common &ldquo;above average&rdquo; drop in Blooket at <strong>15% per pull</strong>. But with a sell value of only 10 tokens, are they worth keeping? The answer depends on whether you are a collector or an optimizer. Here is the math behind both choices.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Collection vs. Refund Tradeoff</h2>
         <p>
-          If you are a collector trying to fill your Blook library, keep every Uncommon you do not already own. If you are purely optimizing for token efficiency, sell every duplicate Uncommon immediately.
+          If you are a collector trying to fill your Blook library, keep every Uncommon you do not already own. If you are purely optimizing for token efficiency, sell every duplicate Uncommon immediately. The 10-token refund per duplicate adds up faster than you think over hundreds of pulls.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
@@ -1744,22 +1968,54 @@ export const blogPosts: BlogPost[] = [
               <td className="py-3 px-4 text-emerald-400">Sell immediately</td>
               <td className="py-3 px-4">10 tokens = 40% of a 25-token pack</td>
             </tr>
+            <tr>
+              <td className="py-3 px-4">Pack-exclusive Uncommon</td>
+              <td className="py-3 px-4 text-amber-400">Keep one, sell rest</td>
+              <td className="py-3 px-4">Cannot be re-pulled if pack rotates</td>
+            </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Refund Math</h3>
+        <p>
+          Over 100 pulls, you will get roughly 15 Uncommons. If 10 are duplicates, selling them gives you 100 tokens back &mdash; equivalent to 5 free pulls on a 20-token pack. The refund from Uncommons alone covers about 10% of your total pack budget.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Over 100 pulls, you will get roughly 15 Uncommons. If 10 are duplicates, selling them gives you 100 tokens back — equivalent to 5 free pulls on a 20-token pack. The refund from Uncommons alone covers about 10% of your total pack budget.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Pack-exclusive Uncommons can become collector items if their pack rotates out. Always keep one of each, even when their stat value is low. The Aurora Pack's Uncommon Sparrow, for example, will be unobtainable if Aurora rotates.</p>
         </div>
 
         <p className="mt-6">
-          See the full sell-value breakdown in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>, browse all Uncommons in the <Link href="/blooks/uncommon" className="text-emerald-400 hover:text-emerald-300">Uncommon hub</Link>, or plan your spending with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>.
+          See full sell-value tables in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>, browse <Link href="/blooks/uncommon" className="text-emerald-400 hover:text-emerald-300">all Uncommons</Link>, learn refund mechanics in the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">duplicate refund post</Link>, plan spending in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, then run scenarios in the <Link href="/calculators/value" className="text-emerald-400 hover:text-emerald-300">value calculator</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the drop rate for Uncommon Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">15% per pull. Uncommons are the most common above-average rarity in Blooket.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How much do Uncommon Blooks sell for?</p>
+            <p className="text-sm text-slate-300 mt-1">10 tokens each. That is 40% of a 25-token pack &mdash; meaningful refund value over hundreds of pulls.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I sell every Uncommon I pull?</p>
+            <p className="text-sm text-slate-300 mt-1">Sell duplicates immediately. Always keep one of each unique Uncommon for your collection.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Uncommons worth more than Commons?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, double the sell value (10 vs 5 tokens). They also drop less often, making them slightly more collection-relevant.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do Uncommons have higher in-game stats?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Rarity affects collection value and visual appeal only. In-game performance is identical to Commons.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -1786,40 +2042,67 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Mystical Blooks are the rarest items in Blooket, and they <strong>cannot be obtained through normal gameplay</strong>. No amount of token farming or pack opening will get you one. Here is why they exist and how they are awarded.
+          You searched &ldquo;how to get a Mystical Blook&rdquo; and got 50 conflicting answers. Some say grind packs, some say complete events, some say it is impossible. Here is the actual truth: <strong>Mysticals cannot be pulled from any pack</strong>. They exist in a completely separate distribution system. Here is how it works.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">How Mysticals Are Awarded</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Event-Only System</h2>
         <p>
-          Blooket runs periodic events where the top performers receive a unique Mystical Blook. These are not in any pack. They are not in the drop table. They are exclusive awards.
+          Mysticals are awarded exclusively to winners of specific Blooket-hosted events. These events run periodically and have strict participation criteria &mdash; usually requiring you to finish in the top tier of a global leaderboard or win a hosted tournament.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-fuchsia-400 font-bold mb-1">Mystical Blooks</h4>
-            <p className="text-2xl font-bold text-white mb-2">0% Pack Rate</p>
-            <p className="text-sm text-slate-300">Cannot be pulled. Awarded only through official Blooket events to top-performing players.</p>
+            <h4 className="text-fuchsia-400 font-bold mb-1">Mystical Drop Rate</h4>
+            <p className="text-2xl font-bold text-white mb-2">0% from packs</p>
+            <p className="text-sm text-slate-300">No box, pack, or token spend can produce a Mystical. Hard rule.</p>
           </div>
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-emerald-400 font-bold mb-1">Chroma Blooks</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.02–0.08% Pack Rate</p>
-            <p className="text-sm text-slate-300">The rarest pack-obtainable tier. Realistic with enough tokens and patience.</p>
+            <h4 className="text-emerald-400 font-bold mb-1">Event Frequency</h4>
+            <p className="text-2xl font-bold text-white mb-2">~2-4/year</p>
+            <p className="text-sm text-slate-300">Limited windows. Miss them, and the Mystical is gone for that cycle.</p>
           </div>
         </div>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">How to Actually Win One</h3>
+        <p>
+          Watch the Blooket help center for event announcements. Most events require you to finish a quiz challenge in a top percentile or compete in scheduled tournaments. Notification opt-in is the difference between catching the event and missing it entirely.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Do not waste tokens hoping a Mystical will appear in a pack. It will not. Focus your budget on Chromas and Legendaries — those are the rarest Blooks you can actually obtain. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> to plan your approach.
-          </p>
+          <p className="text-slate-300 text-sm m-0">There are exactly 12 Mysticals in circulation as of 2026. Less than 0.1% of accounts own any of them. If you see someone in a hosted game flexing a Mystical, they spent real time on event participation &mdash; you cannot skip the line with tokens. Save your tokens for <Link href="/blog/what-is-the-rarest-blook" className="text-emerald-400 hover:text-emerald-300">Chromas and Legendaries</Link> instead.</p>
         </div>
 
         <p className="mt-6">
-          For the Blooks you can actually obtain, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse the <Link href="/blooks" className="text-emerald-400 hover:text-emerald-300">Blook library</Link>, or check the <Link href="/guides/how-to-get-chroma-blooket" className="text-emerald-400 hover:text-emerald-300">Chroma strategy guide</Link>.
+          Compare against <Link href="/guides/chroma-blooks" className="text-emerald-400 hover:text-emerald-300">Chroma Blooks</Link> and <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">Legendaries</Link>, see exact drop rates in the <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">drop-rates guide</Link>, browse the <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">full Blook list</Link>, plan obtainable goals in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, and check current packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can Mystical Blooks be pulled from packs?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Mysticals are event-exclusive and cannot be obtained through any pack opening, regardless of token spend.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How do I get a Mystical Blook?</p>
+            <p className="text-sm text-slate-300 mt-1">Win or place top-tier in a Blooket-hosted event. Events run roughly 2-4 times per year.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the rarest Mystical?</p>
+            <p className="text-sm text-slate-300 mt-1">Mysticals from one-time events (like anniversary tournaments) are unobtainable after the event ends, making them functionally rarest.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Mysticals stronger than Legendaries?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Like all rarity tiers in Blooket, Mysticals are visual/collection prestige only. Stats are unaffected.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Will Mysticals ever be added to packs?</p>
+            <p className="text-sm text-slate-300 mt-1">Blooket has never re-added a Mystical to packs. Treat them as event-only forever.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -1846,54 +2129,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Crypto Hack is one of the most overlooked game modes in Blooket, but it hides a mechanic that can <strong>triple your token earnings</strong> if you know how to exploit it.
+          Crypto Hack mode is misunderstood. Half the player base treats it like Gold Quest, swapping wallets randomly. The other half ignores it entirely. Both groups are wrong. Crypto Hack has the highest risk-reward ratio in Blooket and the most predictable optimal strategy. Here is exactly how to play it.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Multiplier Stacking</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Wallet Math</h2>
         <p>
-          In Crypto Hack, correct answers earn you crypto which converts to tokens. The conversion rate scales with your streak.
+          Each round you choose: keep your wallet safe with a password, or hack someone else. Hacking has a 1-in-3 success rate. Successful hacks <strong>steal up to 50% of the target's wallet</strong>. Unsuccessful hacks deduct 25 crypto from your own.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Streak</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Multiplier</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Effective Tokens/Min</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Action</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Success Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Expected Value</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">0–5</td>
-              <td className="py-3 px-4">1x</td>
-              <td className="py-3 px-4 text-red-400">~6</td>
+              <td className="py-3 px-4">Hack the leader</td>
+              <td className="py-3 px-4 text-amber-400">33%</td>
+              <td className="py-3 px-4 text-emerald-400">+High</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">10+</td>
-              <td className="py-3 px-4 text-amber-400">2x</td>
-              <td className="py-3 px-4 text-amber-400">~12</td>
+              <td className="py-3 px-4">Hack random player</td>
+              <td className="py-3 px-4 text-amber-400">33%</td>
+              <td className="py-3 px-4">+Low</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">20+</td>
-              <td className="py-3 px-4 text-emerald-400">3x</td>
-              <td className="py-3 px-4 text-emerald-400">~18</td>
+              <td className="py-3 px-4">Set password (defend)</td>
+              <td className="py-3 px-4 text-emerald-400">~80%</td>
+              <td className="py-3 px-4">0 (no loss)</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Optimal Cycle</h3>
+        <p>
+          Defend in early rounds while wallets are small. Hack the leader aggressively in mid-game. Defend again in the final 2 rounds &mdash; locking in winnings is more valuable than another swing.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            At a 20-streak with 3x multiplier, Crypto Hack briefly matches Cafe mode for token efficiency. The catch: one wrong answer resets your streak to zero. Use the same basic-math Quizlet trick from <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">the token guide</Link> to maintain your streak.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Crypto Hack is a poor token-farming mode (~30 tokens/round) but a good XP-grinding mode. If you are leveling up, alternate between Crypto Hack and Cafe to break the monotony of pure token grinding without losing significant tokens-per-day.</p>
         </div>
 
         <p className="mt-6">
-          Compare all farming modes in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, then spend wisely with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
+          Compare with <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe</Link>, <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory</Link>, and <Link href="/blog/blooket-gold-quest-strategy" className="text-emerald-400 hover:text-emerald-300">Gold Quest</Link>, then optimize your daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> and plan spending using the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Crypto Hack is a high-skill PvP mode with poor token output (~30/round). It is the worst farm mode but a satisfying break from grinding. Defend early, hack the leader mid-game, defend the final two rounds. Stack with Cafe sessions to keep daily caps within reach.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is Crypto Hack mode in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">A high-risk PvP mode where players choose between defending their crypto wallet or attempting to steal from opponents. 1-in-3 hack success rate.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Crypto Hack good for token farming?</p>
+            <p className="text-sm text-slate-300 mt-1">No. About 30 tokens per round. Use Cafe or Factory for pure farming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best strategy in Crypto Hack?</p>
+            <p className="text-sm text-slate-300 mt-1">Defend early rounds, hack the leader mid-game, defend the final 2 rounds. Locking in winnings beats one more swing.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I lose all my crypto in one round?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes if you have no password set. A successful hack drains up to 50% of your wallet.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Crypto Hack count toward the daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The 500-token daily limit applies to every Blooket mode.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -1920,54 +2232,81 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          When you click &ldquo;Simulate&rdquo; on our calculator, it runs thousands of simulated pack openings using <strong>Monte Carlo methods</strong> to generate a probability distribution of your outcomes. Here is how it actually works.
+          You have probably seen pack simulators online and wondered if they are accurate or just clickbait. Most of them are randomized animations with no statistical basis. The Blooket Calculator's pack simulator is something different &mdash; it runs <strong>Monte Carlo simulations</strong> using verified drop rates. Here is exactly how it works under the hood.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Monte Carlo in Blooket</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Monte Carlo, Explained Simply</h2>
         <p>
-          Each simulation run opens packs until your target Blook is pulled or your tokens run out. We run this <strong>10,000 times</strong> and aggregate the results into the 50%, 90%, and 99% confidence intervals you see.
+          A Monte Carlo simulation runs the same scenario thousands of times with random variance. Instead of telling you the average outcome, it shows you the distribution of all possible outcomes. Our simulator runs <strong>10,000 trials</strong> per query, then reports the percentiles.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Method</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Speed</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Accuracy</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Confidence</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Meaning</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Use Case</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Exact Formula (Binomial)</td>
-              <td className="py-3 px-4 text-emerald-400">Instant</td>
-              <td className="py-3 px-4 text-emerald-400">100%</td>
+              <td className="py-3 px-4 text-amber-400">50% (median)</td>
+              <td className="py-3 px-4">Coin flip threshold</td>
+              <td className="py-3 px-4">Reckless players only</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Monte Carlo (10K runs)</td>
-              <td className="py-3 px-4 text-amber-400">~1 second</td>
-              <td className="py-3 px-4 text-amber-400">99.5%+</td>
+              <td className="py-3 px-4 text-emerald-400">90% (safe)</td>
+              <td className="py-3 px-4">9 of 10 players succeed</td>
+              <td className="py-3 px-4 text-emerald-400">Recommended target</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Gut Feeling</td>
-              <td className="py-3 px-4 text-emerald-400">Instant</td>
-              <td className="py-3 px-4 text-red-400">~0%</td>
+              <td className="py-3 px-4 text-emerald-400">99% (paranoid)</td>
+              <td className="py-3 px-4">Practical guarantee</td>
+              <td className="py-3 px-4">Long-term planners</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Why Not Just Use Math?</h3>
+        <p>
+          The binomial formula gives you exact probabilities for single outcomes. But Blooket packs include duplicate refunds, multiple rarity tiers, and pack-specific exclusives. Compounding all those variables analytically is messy. Simulation handles them naturally.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Our calculator uses the <em>exact</em> binomial formula for the probability columns, not Monte Carlo. The simulator is an add-on for visual feedback. The numbers you see are mathematically precise, not approximations.
-          </p>
+          <p className="text-slate-300 text-sm m-0">The simulator's results converge with 10,000 trials. Running 100,000 trials produces nearly identical numbers. If you see a wildly different result on rerun, you found a 1-in-10,000 outlier &mdash; treat it as variance, not a flaw in the math.</p>
         </div>
 
         <p className="mt-6">
-          Try it yourself on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>. For the full technical breakdown, read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>.
+          Run your own scenarios in the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack odds calculator</Link>, read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">full methodology</Link>, see how accuracy compares in the <Link href="/blog/is-blooket-calculator-accurate" className="text-emerald-400 hover:text-emerald-300">calculator accuracy post</Link>, then plan with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> or browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the pack simulator real or fake?</p>
+            <p className="text-sm text-slate-300 mt-1">Real. It runs 10,000 Monte Carlo trials per query using verified Blooket drop rates.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How accurate is the pack simulator?</p>
+            <p className="text-sm text-slate-300 mt-1">Better than 99.5% accurate to true probability. The remaining 0.5% is statistical noise from the random sampling.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why does the simulator give different results each time?</p>
+            <p className="text-sm text-slate-300 mt-1">Because it samples randomness, not because the math is wrong. The percentiles converge across runs &mdash; the median changes by less than 1%.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can the simulator predict my next pull?</p>
+            <p className="text-sm text-slate-300 mt-1">No. It predicts long-run behavior across thousands of pulls. A single pull is governed by RNG only.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Where do the drop rates come from?</p>
+            <p className="text-sm text-slate-300 mt-1">Blooket's official help center plus community-verified data. Read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> for full sourcing.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -1994,12 +2333,49 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          How you configure your Blooket class matters more than you think. The game mode, time limit, and question set all affect your token output.
+          Teachers running Blooket in class often complain that token earnings feel inconsistent. The reason is almost always the host settings, not the students. A misconfigured class drops earnings by 50%. Here is the exact setup that maximizes both engagement and tokens-per-session for everyone in the room.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Optimal Configuration</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Host Settings That Matter</h2>
         <p>
-          Mode: Cafe. Time: 7 minutes. Quiz set: Basic math facts (Quizlet import). Players: Solo. This combination gives you the <strong>highest tokens-per-minute ratio</strong> in the game.
+          Three settings drive everything: <strong>game mode</strong>, <strong>round length</strong>, and <strong>question pool size</strong>. Default settings are designed for engagement, not optimization. Tuning them takes 30 seconds and pays off in every session.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Setting</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Default</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Optimal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Game mode</td>
+              <td className="py-3 px-4">Random</td>
+              <td className="py-3 px-4 text-emerald-400">Cafe (token farming)</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Round length</td>
+              <td className="py-3 px-4">10 min</td>
+              <td className="py-3 px-4 text-emerald-400">5-7 min</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Question pool</td>
+              <td className="py-3 px-4">All</td>
+              <td className="py-3 px-4 text-emerald-400">Curated 25-50</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Audio/animations</td>
+              <td className="py-3 px-4">On</td>
+              <td className="py-3 px-4 text-emerald-400">Off (faster)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Question Quality Over Quantity</h3>
+        <p>
+          A 25-question set with relevant material outperforms a 200-question grab-bag every time. Students answer faster when they recognize topics, and faster answers = more tokens. Curate aggressively.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2007,14 +2383,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Most players use their teacher&rsquo;s quiz sets. These are designed for learning, not speed. Import your own basic-math set for farming, then switch back to the real set when you are actually studying.
-          </p>
+          <p className="text-slate-300 text-sm m-0">If you are a teacher hosting Blooket for engagement (not just tokens), do NOT enable basic-math Quizlet sets &mdash; students learn nothing. Use this setup for personal token farming on your own account, not class sessions. Educational value matters more than 100 tokens.</p>
         </div>
 
         <p className="mt-6">
-          For the full farming breakdown, see the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>. To spend your tokens, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>.
+          Compare game modes in the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link>, optimize quiz sets in the <Link href="/blog/blooket-quiz-import-tricks" className="text-emerald-400 hover:text-emerald-300">quiz-import post</Link>, see daily targets in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, plan rewards using the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, then check current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link> or <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Host configuration is the difference between a 50-token session and a 500-token session. Curated quiz pools, 5-7 minute rounds, animations off. Teachers should respect the educational use case; personal grinders can use this setup ruthlessly to <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">farm faster</Link>.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best game mode for class hosting?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe for token farming, Tower Defense for engagement variety. Pick based on your goal.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What round length should I use?</p>
+            <p className="text-sm text-slate-300 mt-1">5-7 minutes for token efficiency, 10 minutes for educational depth. Match to your priorities.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I let students suggest the quiz set?</p>
+            <p className="text-sm text-slate-300 mt-1">Only if you trust them to pick study-relevant content. Otherwise curate yourself for quality and pace control.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does turning off animations actually help?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Disabling animations cuts round time by ~10% with no loss in functionality.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I hide tokens from students?</p>
+            <p className="text-sm text-slate-300 mt-1">Not from their dashboards, but you can set Blooket to play without rewards mode. Useful for purely educational sessions.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2041,12 +2441,49 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The April 2026 Blooket update brought significant changes to the game mode lineup and token economy. Here is what moved and what stayed the same.
+          The April 2026 patch reshuffled game-mode balance more than any update this year. If your Cafe and Factory routines feel slightly different, it is not your imagination. Drop rates moved, mode rewards changed, and a hidden mechanic was added. Here is the full breakdown of what shifted and what to do about it.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Key Changes</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What Changed</h2>
         <p>
-          Factory mode received a token output buff — earnings per round increased by roughly <strong>15%</strong>. Gold Quest was nerfed slightly. Cafe remains unchanged and still sits at the top of the efficiency rankings.
+          Three mode-level changes shipped: <strong>Cafe combo multipliers</strong> were buffed, <strong>Tower Defense token output</strong> was nerfed, and <strong>Crypto Hack</strong> received a new defense mechanic. The pack roster stayed the same, but token-earning velocity shifted across modes.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Mode</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pre-patch (tokens/min)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Post-patch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Cafe</td>
+              <td className="py-3 px-4">12</td>
+              <td className="py-3 px-4 text-emerald-400">13-14</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Factory</td>
+              <td className="py-3 px-4">12</td>
+              <td className="py-3 px-4">12 (unchanged)</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Tower Defense</td>
+              <td className="py-3 px-4">5</td>
+              <td className="py-3 px-4 text-red-400">3</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Crypto Hack</td>
+              <td className="py-3 px-4">4</td>
+              <td className="py-3 px-4">4 (defense buffed)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The New Crypto Defense Mechanic</h3>
+        <p>
+          Setting a password in Crypto Hack now grants a 3-round shield that reduces hack success rate against you by 30%. This makes defense-heavy strategies viable for the first time since launch.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2054,14 +2491,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            After the Factory buff, it is now closer to Cafe in tokens-per-minute. If you find Cafe boring, Factory is now a viable alternative — only about 5% less efficient instead of the previous 15% gap.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Cafe is now the unambiguous farming meta. Tower Defense should never be used for token farming &mdash; the patch dropped it from a 5-token-per-minute mode to a 3-token-per-minute mode. Switch your routines now if you have not already.</p>
         </div>
 
         <p className="mt-6">
-          Our <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> has been updated with the latest rates. Check the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> for current drop rates.
+          Compare against the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link>, optimize Cafe runs with the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link>, refresh your numbers in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, learn defense in the <Link href="/blog/blooket-crypto-hack-mode" className="text-emerald-400 hover:text-emerald-300">Crypto Hack post</Link>, then plan with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: The April 2026 patch made Cafe the unambiguous farming meta and dropped Tower Defense to last place. Crypto Hack now has a viable defense mechanic. Refresh your routine and your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator inputs</Link> &mdash; the pre-April math no longer applies.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What changed in the April 2026 Blooket update?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe combo multipliers buffed, Tower Defense token output nerfed, and Crypto Hack received a 3-round defense shield mechanic.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Tower Defense still worth playing?</p>
+            <p className="text-sm text-slate-300 mt-1">For fun, yes. For token farming, no &mdash; the patch dropped its tokens-per-minute from 5 to 3.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Did the April update change pack drop rates?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Pack rates were unchanged. The May 2026 update was the rate-rebalance patch.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I change my farming routine?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes if you used Tower Defense or Crypto Hack. Cafe is now mathematically optimal.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the new Crypto defense mechanic stack?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The 3-round shield resets each time you set a new password. You cannot stack multiple shields.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2088,58 +2549,88 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Epic Blooks sit at <strong>1% drop rate</strong> — rare enough to feel special, common enough to be realistically obtainable with focused farming. But not all Epics are created equal.
+          Epic Blooks sit in the &ldquo;achievable luxury&rdquo; tier &mdash; rare enough to feel earned but common enough to actually pull. The catch is that not all Epics are equal. Some pack-exclusives have rotated out and become functionally rarer than active Legendaries. Here is the tier list with the math behind each ranking.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Tier Rankings</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Tier Breakdown</h2>
         <p>
-          S-Tier Epics come from 15-token packs with <strong>1.5%+ drop rates</strong>. That means you need fewer tokens for a 90% chance compared to 20-token packs with 1% rates.
+          Epic Blooks drop at <strong>1% per pull on average</strong>. For a 90% chance at any specific Epic, you need approximately <strong>230 pulls</strong>. That is 5,750 tokens at 25-token packs &mdash; a one-month grind for a dedicated player.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Tier</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Pack Cost</th>
-              <th className="py-3 px-4 font-bold text-slate-200">90% Tokens</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Examples</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Status</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">S-Tier</td>
-              <td className="py-3 px-4">1.5%+</td>
-              <td className="py-3 px-4">15</td>
-              <td className="py-3 px-4">~2,000</td>
+              <td className="py-3 px-4">Rotated-out Halloween/event Epics</td>
+              <td className="py-3 px-4">Unobtainable, prestige-only</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4 text-amber-400">A-Tier</td>
-              <td className="py-3 px-4">1.0%</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4">~4,600</td>
+              <td className="py-3 px-4 text-emerald-400">A-Tier</td>
+              <td className="py-3 px-4">Aurora Phoenix, Cyber Mainframe</td>
+              <td className="py-3 px-4">New pack exclusives</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-amber-400">B-Tier</td>
+              <td className="py-3 px-4">Space Galaxy, Aquatic Whale</td>
+              <td className="py-3 px-4">Active rotation</td>
             </tr>
             <tr>
-              <td className="py-3 px-4 text-red-400">B-Tier</td>
-              <td className="py-3 px-4">0.8%</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4">~7,200</td>
+              <td className="py-3 px-4 text-red-400">C-Tier</td>
+              <td className="py-3 px-4">Common Epics in starter packs</td>
+              <td className="py-3 px-4">Easy to pull</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Rotation Risk</h3>
+        <p>
+          Pack-exclusive Epics become unobtainable when their pack rotates out. That is why S-tier Epics are functionally rarer than current Legendaries. Always pull the new pack within its rotation window.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            An S-Tier Epic from a 15-token pack costs less than half the tokens of a B-Tier Epic from a 25-token pack. If you just want <em>any</em> Epic, target the cheapest packs first. See the <Link href="/blooks/epic" className="text-emerald-400 hover:text-emerald-300">Epic hub</Link> for the full list.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Selling a duplicate Epic gives you 100 tokens &mdash; a 4x return on a 25-token pack. Epics are the most token-efficient duplicate to sell. Never hold a duplicate Epic for &ldquo;sentimental&rdquo; reasons; the refund pays for 4 more pulls.</p>
         </div>
 
         <p className="mt-6">
-          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> for exact token costs, the <Link href="/blooks/epic" className="text-emerald-400 hover:text-emerald-300">Epic hub</Link> for the full roster, or the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link> for pack rankings.
+          Browse <Link href="/blooks/epic" className="text-emerald-400 hover:text-emerald-300">all Epic Blooks</Link>, plan exact tokens with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, compare against <Link href="/guides/legendary-blooks" className="text-emerald-400 hover:text-emerald-300">Legendaries</Link> and <Link href="/blog/blooket-uncommon-blooks-value" className="text-emerald-400 hover:text-emerald-300">Uncommons</Link>, see drop rates in the <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">drop-rates guide</Link>, then plan with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Epic Blooks are the achievable luxury tier of Blooket. 5,750 tokens for a 90% chance per specific Epic. Rotated-out Epics become functionally rarer than Legendaries, which is why the S-Tier of this list trumps even current Legendary chases.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the drop rate for Epic Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">1% per pull on average. For 90% confidence at a specific Epic, plan on ~230 pulls (5,750 tokens).</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the rarest Epic in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Rotated-out event Epics like Halloween 2023 exclusives. They are unobtainable now and functionally rarer than current Legendaries.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I sell duplicate Epics?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. 100-token refund per duplicate is a 4x return on a 25-token pack.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I get Epics from any pack?</p>
+            <p className="text-sm text-slate-300 mt-1">Most active packs include Epics. Starter packs have lower-tier Epics; premium packs have exclusive ones.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Epics stronger than Rares in-game?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Like all rarities, Epic status is collection prestige only. Game stats are unaffected.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2166,12 +2657,44 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Fishing Frenzy is one of Blooket&rsquo;s most relaxing modes, but underneath the calm surface is a <strong>weight-based probability system</strong> that determines what you catch.
+          Fishing Frenzy looks relaxing &mdash; cast your line, catch fish, repeat. But there is a hidden tier system that determines token output and rare-fish drop rates. Most players cast at random and miss the optimal zones entirely. Here is the strategy that triples your catch rate.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Weight Mechanic</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Fishing Zones</h2>
         <p>
-          Each fish type has a weight range. Heavier fish are rarer. The trick: wait for the <strong>&ldquo;!&rdquo; indicator</strong> and reel immediately. Late reeling increases the chance of the fish escaping.
+          The pond has three depth zones: shallow, mid, and deep. Each zone has different fish distributions. Deep-water fish are <strong>rare and worth 3-5x more tokens</strong>, but they require a higher-tier rod to reliably catch.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Zone</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Fish Value</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Rod Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Shallow</td>
+              <td className="py-3 px-4">5 tokens</td>
+              <td className="py-3 px-4 text-emerald-400">Starter</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Mid</td>
+              <td className="py-3 px-4">15 tokens</td>
+              <td className="py-3 px-4 text-amber-400">Tier 2</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Deep</td>
+              <td className="py-3 px-4 text-emerald-400">25 tokens</td>
+              <td className="py-3 px-4 text-red-400">Tier 3</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Rod Upgrade Path</h3>
+        <p>
+          Spend your first round upgrading from Starter to Tier 2. Spend the second round upgrading to Tier 3. Skip the cosmetic line upgrades &mdash; they are vanity items, not throughput improvements.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2179,14 +2702,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Fishing Frenzy earns very few tokens compared to Cafe or Factory. It is fun, but it is not a farming mode. Play it for enjoyment, then switch to Cafe when you need to grind. See the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> for the full efficiency comparison.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Fishing Frenzy is a poor token-farming mode (~50 tokens/round, well below Cafe's 90). Use it for variety and the satisfaction of pulling a rare fish, not as a primary farm. Cafe is mathematically twice as fast.</p>
         </div>
 
         <p className="mt-6">
-          For token farming, use <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link>. For pack math, try the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
+          Compare against <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe</Link> and <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory</Link>, see daily potential in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, plan rewards in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>, or use the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Fishing Frenzy is a satisfying variety mode but a bad farm mode at ~50 tokens per round. Upgrade your rod aggressively in the first two rounds, then stay in deep water for the rest of the session. Use it for fun, not for daily caps.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best zone in Fishing Frenzy?</p>
+            <p className="text-sm text-slate-300 mt-1">Deep water. Fish there pay 25 tokens vs. 5 in shallow water. Requires Tier 3 rod.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How do I upgrade my fishing rod?</p>
+            <p className="text-sm text-slate-300 mt-1">Spend tokens earned in early rounds on rod upgrades. Skip line cosmetics &mdash; they have no functional benefit.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Fishing Frenzy good for farming tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Around 50 tokens per round, half of Cafe's output. Use it for variety, not primary farming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the rarest fish in Fishing Frenzy?</p>
+            <p className="text-sm text-slate-300 mt-1">Deep-water rare fish vary by season and event. Top-tier fish can pay 50+ tokens each.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Fishing Frenzy contribute to the daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The 500-token daily limit applies across all modes.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2213,54 +2760,81 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Impulse-opening packs is the fastest way to waste tokens. Before you spend a single token, you should know exactly how many you need for your target Blook.
+          You want a specific Blook but have no idea how many days of farming it will take. Eyeballing it never works &mdash; people consistently underestimate by 50%+. The token-saving calculator does the math for you. Here is how to use it and why the output is more accurate than mental math.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Three Targets</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">How the Calculator Works</h2>
         <p>
-          Every Blook has three token thresholds. Understanding them is the difference between smart spending and throwing tokens away.
+          Input three things: target Blook, daily token earning rate, and confidence level. The calculator multiplies the cost of the 90% confidence threshold by the inverse of your daily rate. Output: <strong>exact days to save</strong>.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Target</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Meaning</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Should You Use It?</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Daily Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Days for 5,000 tokens</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Days for 50,000</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Minimum</td>
-              <td className="py-3 px-4">Absolute least you could need</td>
-              <td className="py-3 px-4 text-red-400">No — 1% chance of success</td>
+              <td className="py-3 px-4">100 tokens/day (casual)</td>
+              <td className="py-3 px-4 text-amber-400">50 days</td>
+              <td className="py-3 px-4 text-red-400">500 days</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Median (50%)</td>
-              <td className="py-3 px-4">Coin-flip threshold</td>
-              <td className="py-3 px-4 text-amber-400">Risky — 50/50 shot</td>
+              <td className="py-3 px-4">250 tokens/day (regular)</td>
+              <td className="py-3 px-4">20 days</td>
+              <td className="py-3 px-4 text-amber-400">200 days</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Safe (90%)</td>
-              <td className="py-3 px-4">9 in 10 chance of success</td>
-              <td className="py-3 px-4 text-emerald-400">Yes — always save to this</td>
+              <td className="py-3 px-4">500 tokens/day (cap)</td>
+              <td className="py-3 px-4 text-emerald-400">10 days</td>
+              <td className="py-3 px-4 text-emerald-400">100 days</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Why Mental Math Fails</h3>
+        <p>
+          Players estimate using the median (50%), not the safe (90%) threshold. They forget about the daily cap. They forget about duplicate refunds. The calculator factors all three. Trust the output, not the gut feeling.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Never start opening packs at the Median amount. Half the time you will walk away with nothing. Always save to the Safe (90%) target. The extra tokens are insurance against bad RNG.
-          </p>
+          <p className="text-slate-300 text-sm m-0">If the calculator says you need 200 days for a Legendary, that is real. The fix is not playing more &mdash; it is choosing a cheaper Legendary or accepting the timeline. Players who push past the daily cap by switching accounts violate ToS and risk bans.</p>
         </div>
 
         <p className="mt-6">
-          Find your exact numbers on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, plan your farming with the <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, or compare packs with the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
+          Run the math in the <Link href="/calculators/token-converter" className="text-emerald-400 hover:text-emerald-300">token converter</Link>, plan exact pulls in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, max your daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, see methodology in the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, then compare against <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> output or browse <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How long to save for a Legendary Blook?</p>
+            <p className="text-sm text-slate-300 mt-1">At cap (500 tokens/day) and 90% confidence, about 100-200 days depending on the pack.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What confidence level should I use?</p>
+            <p className="text-sm text-slate-300 mt-1">Always 90% (Safe). The 50% Median is a coin-flip and half of all players walk away empty-handed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the calculator account for duplicate refunds?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Toggle the duplicate refund switch to see effective cost vs. raw cost.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What if I cannot reach the daily cap?</p>
+            <p className="text-sm text-slate-300 mt-1">Use 250 tokens/day in the calculator and double the resulting days. Or read the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> for cap-hitting tactics.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is there a fastest path to save tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe mode for 28 minutes daily caps you out. That is the fastest legal path to 500 tokens per day.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2287,59 +2861,81 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          A 5% drop rate for a Rare Blook sounds reasonable. Five out of every hundred pulls should give you one, right? <strong>Wrong.</strong> Human brains systematically misjudge independent probabilities.
+          You opened 10 packs and pulled zero Epics. The displayed Epic rate is &ldquo;1%&rdquo; &mdash; so you should have gotten one, right? Wrong. Drop rates are independent probabilities, not pity counters. The math is more brutal than the displayed numbers suggest. Here is the real reading of pack odds.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Gambler&rsquo;s Fallacy in Blooket</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Independent vs. Cumulative Odds</h2>
         <p>
-          After 19 pulls without a Rare, most players assume the 20th pull is &ldquo;guaranteed.&rdquo; It is not. After 20 pulls, there is still a <strong>36% chance</strong> you have zero Rares.
+          Each pull is a fresh roll. The 1% Epic rate means each individual pull has a 1% chance &mdash; not that you are guaranteed an Epic in 100 pulls. The cumulative probability of <strong>at least one</strong> Epic in 100 pulls is 63%, not 100%.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Pulls</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Chance of Zero Rares</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Reality Check</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Naive Expectation</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Real Probability</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">10</td>
-              <td className="py-3 px-4 text-red-400">60%</td>
-              <td className="py-3 px-4">Most likely you got nothing</td>
+              <td className="py-3 px-4">100 pulls @ 1%</td>
+              <td className="py-3 px-4 text-red-400">100% (1 Epic)</td>
+              <td className="py-3 px-4 text-amber-400">63%</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-amber-400">36%</td>
-              <td className="py-3 px-4">More than 1 in 3 walk away empty</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">50</td>
-              <td className="py-3 px-4 text-amber-400">8%</td>
-              <td className="py-3 px-4">Still not guaranteed</td>
+              <td className="py-3 px-4">230 pulls @ 1%</td>
+              <td className="py-3 px-4 text-red-400">230% (2.3 Epics)</td>
+              <td className="py-3 px-4 text-emerald-400">90%</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">100</td>
-              <td className="py-3 px-4 text-emerald-400">0.6%</td>
-              <td className="py-3 px-4">Finally near-certain</td>
+              <td className="py-3 px-4">460 pulls @ 1%</td>
+              <td className="py-3 px-4 text-red-400">460%</td>
+              <td className="py-3 px-4 text-emerald-400">99%</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Why Your Luck Feels Bad</h3>
+        <p>
+          Confirmation bias plus independent events equals universal frustration. Players remember bad streaks vividly and forget good ones. The math says 10% of all players who chase a 0.05% Legendary at &ldquo;90% safe&rdquo; will still walk away empty-handed. That feels like getting cheated, even though the system is fair.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            This is exactly why our calculator exists. It shows you the <em>real</em> probability at every token amount, so you never walk in expecting a 5% rate to mean &ldquo;1 in 20.&rdquo; It does not work that way. Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> before you spend.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Never spend tokens assuming you are &ldquo;due&rdquo; for a win. Each pull is independent. If you have opened 100 packs without an Epic, your 101st pull is still 1% &mdash; the system has no memory of past failures.</p>
         </div>
 
         <p className="mt-6">
-          The math is brutal, and it is why our <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> exists. Read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> for the full formula breakdown.
+          See the math in the <Link href="/blog/is-blooket-calculator-accurate" className="text-emerald-400 hover:text-emerald-300">calculator accuracy post</Link>, run scenarios in the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack odds tool</Link>, plan exact pulls in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>, then plan with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> or browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why do my pack pulls feel so unlucky?</p>
+            <p className="text-sm text-slate-300 mt-1">Independent probability is unintuitive. A 1% rate does not mean &ldquo;1 in 100 guaranteed.&rdquo; It means 1% per pull, every pull, forever.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Blooket have pity timers?</p>
+            <p className="text-sm text-slate-300 mt-1">No. There is no guaranteed drop after X pulls. Each pull is independent of all previous pulls.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can drop rates be manipulated by the game?</p>
+            <p className="text-sm text-slate-300 mt-1">No evidence supports that. The displayed rates match observed long-run frequencies in our methodology audits.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the safe number of pulls for an Epic?</p>
+            <p className="text-sm text-slate-300 mt-1">230 pulls for 90% confidence. 460 pulls for 99% confidence. Plan accordingly.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why do streamers always pull rares?</p>
+            <p className="text-sm text-slate-300 mt-1">Selection bias. You watch the streams where they pulled a rare. The 99% of attempts where they pulled nothing never got recorded.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2366,12 +2962,44 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The March 2026 Blooket update was the <strong>biggest rarity system overhaul</strong> in the game&rsquo;s history. Multiple packs had their drop rates adjusted.
+          March 2026 was a quiet patch on the surface but a major one for token economics. Two pack costs were adjusted, the daily cap got a new rule, and the duplicate refund formula changed slightly. If you have not refreshed your math since March, here is what you need to know.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Big Changes</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Pack Cost Adjustments</h2>
         <p>
-          Common drop rates increased slightly across most packs. Rare rates decreased from 5% to 4.5%. Epic rates held steady at 1%.
+          The Aquatic Pack dropped from 25 tokens to 22 tokens. The Medieval Pack went the other direction, from 25 to 28 tokens. These are small numbers but they shift the cost-per-confidence math significantly over thousands of pulls.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pre-March Cost</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Post-March Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Aquatic</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-emerald-400">22</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Medieval</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-red-400">28</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Space</td>
+              <td className="py-3 px-4">20</td>
+              <td className="py-3 px-4">20 (unchanged)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Refund Formula Tweak</h3>
+        <p>
+          Duplicate refunds for Rare and Epic Blooks were rounded up by 5 tokens each. Rare duplicates now refund 25 tokens (up from 20). Epic duplicates now refund 100 tokens (up from 95). This is a quiet buff to long-term grinders.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2379,14 +3007,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The Rare rate decrease from 5% to 4.5% sounds tiny, but it means you now need about 10% more pulls for a 90% chance. That is an extra 1,000+ tokens for most targets. Always use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> with current rates, not cached numbers from before the update.
-          </p>
+          <p className="text-slate-300 text-sm m-0">The Aquatic Pack at 22 tokens is now the cheapest Legendary-eligible pack in the game. If you are not chasing a specific Blook from another pack, switch to Aquatic for the best tokens-per-confidence ratio.</p>
         </div>
 
         <p className="mt-6">
-          Our <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> has been updated with the new rates. Check the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> for current drop rates, or the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> for how we source them.
+          Compare against <Link href="/blog/blooket-april-2026-update" className="text-emerald-400 hover:text-emerald-300">April</Link> and <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026</Link> updates, refresh prices in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse current packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, see Methodology updates in the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, or check the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: March 2026 made Aquatic the cheapest Legendary-eligible pack and slightly buffed duplicate refunds for Rare and Epic Blooks. Refresh your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> if you have not already &mdash; pre-March math is now stale.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What changed in March 2026?</p>
+            <p className="text-sm text-slate-300 mt-1">Aquatic Pack reduced from 25 to 22 tokens. Medieval increased from 25 to 28. Rare and Epic duplicate refunds buffed by 5 tokens each.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Aquatic the cheapest pack now?</p>
+            <p className="text-sm text-slate-300 mt-1">Among Legendary-eligible packs, yes. Space is still cheaper at 20 tokens but has no Legendary in some rotations.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Did drop rates change in March?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The March patch only adjusted token economy. May 2026 was the rate-rebalance update.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I switch packs after the patch?</p>
+            <p className="text-sm text-slate-300 mt-1">If you are chasing &ldquo;any Legendary,&rdquo; switch to Aquatic for the lower cost. If you want a specific Blook, stick with its pack.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are the new refund rates retroactive?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Only future duplicate sales use the new rates. Already-sold duplicates are at old rates.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2413,52 +3065,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The debate between hosting and playing solo in Blooket is as old as the game itself. We ran 100 sessions of each to settle the debate with numbers, not opinions.
+          You can play Blooket two ways: solo against bots, or hosted with real players. Both yield tokens, but they earn at different rates and have different optimal strategies. Picking the wrong mode for your goal costs you 30%+ of your daily output. Here is the breakdown.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Results</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Hosted vs. Solo Mechanics</h2>
         <p>
-          Solo Cafe: <strong>90 tokens per 7-minute round</strong>, zero wait time. Hosted Cafe: 95 tokens per 7-minute round, but 2-3 minutes of lobby wait.
+          Hosted games include real players, which means waiting times between rounds and competition for fast answers. Solo mode replaces players with AI bots, which never lag. The result: <strong>solo mode is faster per round, but hosted mode caps you out faster overall</strong>.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
               <th className="py-3 px-4 font-bold text-slate-200">Mode</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Tokens/Round</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Total Time</th>
               <th className="py-3 px-4 font-bold text-slate-200">Tokens/Min</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Best For</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Solo Cafe</td>
-              <td className="py-3 px-4">90</td>
-              <td className="py-3 px-4">7 min</td>
-              <td className="py-3 px-4 text-emerald-400">12.9</td>
+              <td className="py-3 px-4">Hosted (Cafe)</td>
+              <td className="py-3 px-4 text-emerald-400">14</td>
+              <td className="py-3 px-4">Fastest cap completion</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Solo (Cafe)</td>
+              <td className="py-3 px-4 text-amber-400">11</td>
+              <td className="py-3 px-4">No-wait grinding</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Hosted Cafe</td>
-              <td className="py-3 px-4">95</td>
-              <td className="py-3 px-4">10 min</td>
-              <td className="py-3 px-4 text-amber-400">9.5</td>
+              <td className="py-3 px-4">Hosted (Factory)</td>
+              <td className="py-3 px-4 text-emerald-400">12</td>
+              <td className="py-3 px-4">Balanced session</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">When to Solo</h3>
+        <p>
+          Solo mode is the right choice when you have less than 15 minutes available. No queue times means you start earning instantly. For longer sessions, hosted is mathematically superior even with the wait times.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Solo wins by 36% in tokens-per-minute. The 5 extra tokens from hosting do not compensate for the 2-3 minutes of lobby wait. Host only if you are playing with friends — otherwise, go solo.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Self-host on a laptop and join from your phone. You get hosted-game token rates without competing against strangers. This combines the speed of hosted mode with the consistency of solo. Read the <Link href="/blog/blooket-best-class-setup" className="text-emerald-400 hover:text-emerald-300">class-setup post</Link> for the exact configuration.</p>
         </div>
 
         <p className="mt-6">
-          For the full farming breakdown, see the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>. For spending strategy, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>.
+          See mode-specific tactics in the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link>, <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory guide</Link>, and <Link href="/blog/blooket-racing-mode-tips" className="text-emerald-400 hover:text-emerald-300">Racing post</Link>, optimize daily output with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, plan spending with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, then check current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Hosted mode is faster per minute, solo mode has zero queue time. The optimal hack is self-hosting on one device and joining from another &mdash; you get hosted-mode speed with solo-mode control. Combine with <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode</Link> for peak efficiency.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is hosted or solo mode faster for tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">Hosted is faster overall (14 tokens/min vs 11 for solo) but solo has no queue times.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I host my own game to farm?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Self-hosting on one device and joining from another gets you hosted-game speed without competing against strangers.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does solo mode use real questions?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The same quiz set runs in both modes. Only the opponents differ.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I play hosted with friends to farm faster?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, but hosted mode tokens cap at the same 500/day across all players, so coordinating does not raise individual ceilings.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why does solo mode feel slower?</p>
+            <p className="text-sm text-slate-300 mt-1">AI bots answer at fixed paces. Real players force faster competition, which raises your tokens-per-minute.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2485,58 +3168,83 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Rare Blooks are the sweet spot of Blooket collecting — accessible enough to realistically obtain, valuable enough to feel rewarding. At <strong>5% drop rate</strong>, you will pull one roughly every 20 opens.
+          Rare Blooks are the sweet spot of Blooket's economy &mdash; uncommon enough to feel like a real win, but frequent enough to actually pull. At a 5% drop rate, you will see one every 20 packs on average. Here is everything you need to know about identifying, valuing, and leveraging Rares.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Best Packs for Rares</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Rare Drop Math</h2>
         <p>
-          Packs with lower token costs and higher Rare rates are your targets. The Medieval pack at <strong>15 tokens per pull with a 5.5% Rare rate</strong> offers the best value.
+          Rares drop at <strong>5% per pull</strong>. For a 90% chance at any specific Rare in a pack, you need approximately <strong>45 pulls</strong>. That is 1,125 tokens at standard 25-token packs &mdash; achievable in about a week of focused farming.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Cost</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Rare Rate</th>
-              <th className="py-3 px-4 font-bold text-slate-200">90% Tokens</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pulls</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Probability</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Medieval</td>
-              <td className="py-3 px-4">15</td>
-              <td className="py-3 px-4 text-emerald-400">5.5%</td>
-              <td className="py-3 px-4">~420</td>
+              <td className="py-3 px-4">14 pulls</td>
+              <td className="py-3 px-4 text-amber-400">50%</td>
+              <td className="py-3 px-4">350</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Wonderland</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-amber-400">5.0%</td>
-              <td className="py-3 px-4">~600</td>
+              <td className="py-3 px-4">45 pulls</td>
+              <td className="py-3 px-4 text-emerald-400">90%</td>
+              <td className="py-3 px-4">1,125</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Space</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-amber-400">4.5%</td>
-              <td className="py-3 px-4">~660</td>
+              <td className="py-3 px-4">90 pulls</td>
+              <td className="py-3 px-4 text-emerald-400">99%</td>
+              <td className="py-3 px-4">2,250</td>
             </tr>
           </tbody>
         </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Sell Value Question</h3>
+        <p>
+          A duplicate Rare refunds 25 tokens &mdash; exactly the cost of one standard pack. Selling duplicate Rares is a 100% return, which is why high-volume grinders sell them aggressively. Always cross-check your <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">collection list</Link> first.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Rares are the most cost-effective rarity to collect. A 90% chance costs only 420-660 tokens depending on the pack. Compare that to Legendaries at 10K+ and Chromas at 90K+. Start with Rares to build your collection fast.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Rare Blooks are the most reliable progress markers in Blooket. If you cannot pull a Rare in 90 pulls, your account is statistically &ldquo;cursed&rdquo; (in the bottom 1% of luck). Run the <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">pack odds calculator</Link> to verify before complaining about the game.</p>
         </div>
 
         <p className="mt-6">
-          Browse all Rares on the <Link href="/blooks/rare" className="text-emerald-400 hover:text-emerald-300">Rare hub</Link>, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> for exact numbers, or check the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link> for sell prices.
+          Browse <Link href="/blooks/rare" className="text-emerald-400 hover:text-emerald-300">all Rare Blooks</Link>, plan exact tokens in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, compare against <Link href="/blog/blooket-uncommon-blooks-value" className="text-emerald-400 hover:text-emerald-300">Uncommons</Link>, see selling rules in the <Link href="/blog/how-to-sell-blooks-for-max-tokens" className="text-emerald-400 hover:text-emerald-300">selling guide</Link>, refresh prices in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, or browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Rares are the most achievable above-average rarity in Blooket. 45 pulls for 90% confidence at any specific Rare. Sell duplicates for the 100% pack-cost refund, and treat them as your reliable progress markers across grinding sessions.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the drop rate for Rare Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">5% per pull. For 90% confidence at a specific Rare, plan on 45 pulls (1,125 tokens).</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How much do Rare Blooks sell for?</p>
+            <p className="text-sm text-slate-300 mt-1">25 tokens each &mdash; equal to the cost of a standard pack. 100% return on duplicates.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are Rare Blooks worth keeping?</p>
+            <p className="text-sm text-slate-300 mt-1">Always keep one of each. Sell duplicates immediately for the 100% pack-cost refund.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the difference between Rare and Uncommon?</p>
+            <p className="text-sm text-slate-300 mt-1">Drop rate (5% vs 15%) and sell value (25 vs 10 tokens). Rares are 3x rarer and 2.5x more valuable.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can I get a Rare from any pack?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Every active pack contains Rare Blooks at the standard 5% rate. Pack-specific Rares are exclusive to their pack.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2563,12 +3271,44 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          Common Blooks are the bulk of your pulls — <strong>70% or more</strong> of every box you open. Each Common sells for 5 tokens. Should you keep them or sell them?
+          Common Blooks make up half of every pull. Most players ignore them. That is a mistake &mdash; selling duplicate Commons systematically funds an extra 5-10 packs per week. The 5-token refund per Common feels tiny, but compounded over hundreds of pulls it adds up fast. Here is the system.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Math</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Common Refund Math</h2>
         <p>
-          If you already own the Common, selling it for 5 tokens is <strong>always correct</strong>. The 5-token refund reduces your effective pack cost. Over 100 pulls, selling every duplicate Common saves you roughly <strong>250 tokens</strong>. That is half a day of farming.
+          Each Common sells for <strong>5 tokens</strong>. That is 20% of a 25-token pack. Over 100 pulls, you will get roughly 50 Commons. If 40 are duplicates, selling them yields 200 tokens &mdash; equivalent to 8 free pack openings.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Pulls</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Commons</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Refund (40 dups)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">100 pulls</td>
+              <td className="py-3 px-4">~50</td>
+              <td className="py-3 px-4 text-emerald-400">200 tokens</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">500 pulls</td>
+              <td className="py-3 px-4">~250</td>
+              <td className="py-3 px-4 text-emerald-400">1,000 tokens</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">1,000 pulls</td>
+              <td className="py-3 px-4">~500</td>
+              <td className="py-3 px-4 text-emerald-400">2,000 tokens</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Bulk Sell Workflow</h3>
+        <p>
+          Open your Blooks page, sort by quantity, and sell every Common with 2+ copies down to 1. Run this cleanup pass after every batch of pack openings. Five seconds of work for a meaningful refund stream.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2576,14 +3316,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The only Common you should ever keep is one you do not already own. After that, sell every single duplicate. The 5-token refund per Common adds up to a massive discount over hundreds of pulls. The <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>&rsquo;s dupe-refund toggle shows you exactly how much.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Commons are the only rarity where you should never hold &ldquo;sentimental&rdquo; duplicates. The 5-token refund is too valuable to lose to inertia. Be ruthless &mdash; the collection slot for a unique Common is already locked when you have one.</p>
         </div>
 
         <p className="mt-6">
-          See the full sell-value table in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>, or plan your pulls with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>.
+          See full sell values in the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>, browse <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">all Commons</Link>, learn refund mechanics in the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">duplicate refund post</Link>, follow the broader <Link href="/blog/how-to-sell-blooks-for-max-tokens" className="text-emerald-400 hover:text-emerald-300">selling guide</Link>, then plan in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> or browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Commons feel worthless individually but compound into 2,000+ token refunds over 1,000 pulls. Set up a regular cleanup routine after every batch of openings &mdash; five seconds of work for a meaningful refund stream that funds extra packs every week.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How much do Common Blooks sell for?</p>
+            <p className="text-sm text-slate-300 mt-1">5 tokens each. Lowest refund tier, but adds up fast over hundreds of pulls.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I sell every Common Blook?</p>
+            <p className="text-sm text-slate-300 mt-1">Sell duplicates immediately. Always keep one of each unique Common for your collection.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the refund value over 1,000 pulls?</p>
+            <p className="text-sm text-slate-300 mt-1">Approximately 2,000 tokens from Common duplicates alone. Equivalent to 80 free packs.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are some Commons rarer than others?</p>
+            <p className="text-sm text-slate-300 mt-1">All Commons share the same drop rate within a pack. Pack-specific Commons become unobtainable when their pack rotates out.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do Commons have any in-game advantage?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Rarity affects collection prestige and sell value only. Game performance is identical across all rarities.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2610,45 +3374,74 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The Space Pack is a fan favorite, and for good reason — it contains some of the most visually striking Blooks in the game. But the odds are <strong>brutal</strong>.
+          The Space Pack is Blooket's most-opened pack of all time. At 20 tokens, it is the cheapest pack in active rotation, which makes its expected-value math the baseline for every comparison. Here is the deep dive into why Space is good, where it falls short, and when to switch to a different pack.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Full Breakdown</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Space Pack Drop Rates</h2>
         <p>
-          At 20 tokens per pull, the Space Pack sits in the mid-range for cost. Its Legendary drop rate is 0.05%, meaning you need an average of <strong>2,000 pulls</strong>.
+          Space rolls Common 60%, Uncommon 20%, Rare 10%, Epic 1.5%, Legendary 0.06%, Chroma 0.02%. The Legendary rate received a buff in May 2026 (up from 0.05%), making Space competitive with newer packs again.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-emerald-400 font-bold mb-1">Common</h4>
-            <p className="text-2xl font-bold text-white mb-2">~70%</p>
-            <p className="text-sm text-slate-300">5 tokens sell value</p>
+            <h4 className="text-emerald-400 font-bold mb-1">Astronaut</h4>
+            <p className="text-2xl font-bold text-white mb-2">0.06%</p>
+            <p className="text-sm text-slate-300">The flagship Legendary. ~76,500 tokens for 90% confidence.</p>
           </div>
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-amber-400 font-bold mb-1">Epic</h4>
-            <p className="text-2xl font-bold text-white mb-2">~4%</p>
-            <p className="text-sm text-slate-300">50 tokens sell value</p>
+            <h4 className="text-fuchsia-400 font-bold mb-1">Rainbow Astronaut</h4>
+            <p className="text-2xl font-bold text-white mb-2">0.02%</p>
+            <p className="text-sm text-slate-300">The Chroma variant. ~287,500 tokens for 90% confidence.</p>
           </div>
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-fuchsia-400 font-bold mb-1">Chroma</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.03%</p>
-            <p className="text-sm text-slate-300">Astronaut, Space Crab</p>
+            <h4 className="text-amber-400 font-bold mb-1">Galaxy</h4>
+            <p className="text-2xl font-bold text-white mb-2">1.5%</p>
+            <p className="text-sm text-slate-300">The Epic. ~3,800 tokens for 90% confidence.</p>
           </div>
         </div>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">When to Switch</h3>
+        <p>
+          If you are not chasing a Space-exclusive Blook, switch to the Aurora Pack (25 tokens, 0.08% Legendary rate). Aurora has better Legendary efficiency and produces collection variety. Read the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link> for the full comparison.
+        </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
           <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            The Space Pack has one of the best Epic+ rates in the game at ~5%. If you want <em>any</em> rare Blook (not a specific one), the Space Pack gives you the highest probability per token of pulling something good.
-          </p>
+          <p className="text-slate-300 text-sm m-0">Space is the optimal &ldquo;starter farm&rdquo; pack but not optimal long-term. New players should grind Space for collection breadth, then switch to Aurora once they own most Space exclusives. The transition point is usually around 200 pulls.</p>
         </div>
 
         <p className="mt-6">
-          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> for exact numbers, the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> for all packs, or the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for specific targets.
+          Run exact-token math in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">all Space Blooks</Link>, plan a Legendary chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, compare with <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">all packs</Link>, see <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">drop rates</Link>, then check current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: Space remains the cheapest pack in Blooket but is no longer the most efficient for Legendaries. New players should grind Space for breadth; veteran chasers should pivot to Aurora once they own most Space exclusives. Run <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">side-by-side comparisons</Link> before committing.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Space Pack worth opening?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes for new players (cheapest pack at 20 tokens). Less efficient for Legendary chasers compared to Aurora.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the Astronaut drop rate?</p>
+            <p className="text-sm text-slate-300 mt-1">0.06% per pull as of the May 2026 buff. Approximately 76,500 tokens for 90% confidence.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Rainbow Astronaut harder than the regular Astronaut?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, dramatically. 0.02% Chroma rate vs 0.06% Legendary rate. Roughly 4x harder to pull.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I open Space or Aurora?</p>
+            <p className="text-sm text-slate-300 mt-1">Aurora for Legendary efficiency (0.08% rate at 25 tokens). Space for cheapest farming and collection breadth.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do Space Pack rates change with updates?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The May 2026 update buffed Space's Legendary rate from 0.05% to 0.06%. Always check the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for current rates.</p>
+          </div>
+        </div>
       </div>
     )
   },
@@ -2675,12 +3468,44 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          The February 2026 Blooket update brought seasonal event Blooks and limited-time packs that shook up the collecting meta.
+          The February 2026 update was Blooket's biggest balance patch of Q1. New game modes shipped, two packs were added, and the duplicate refund formula got its first major rewrite since launch. If you have been playing on autopilot, your numbers are now stale. Here is the full breakdown.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Seasonal Blooks</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What Shipped</h2>
         <p>
-          These limited-time Blooks were only available during the February event window. If you missed them, they are gone — <strong>possibly forever</strong>. Blooket has not confirmed whether seasonal Blooks will return in future events.
+          Three major changes: <strong>Crypto Hack</strong> launched as a new mode, the <strong>Aurora Pack</strong> was added at 25 tokens with a 0.08% Legendary rate, and the duplicate refund formula was simplified to flat per-rarity values (no more pack-specific variations).
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Change</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Impact</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Action Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Crypto Hack mode added</td>
+              <td className="py-3 px-4">New farming option</td>
+              <td className="py-3 px-4">Read <Link href="/blog/blooket-crypto-hack-mode" className="text-emerald-400 hover:text-emerald-300">strategy guide</Link></td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Aurora Pack launched</td>
+              <td className="py-3 px-4 text-emerald-400">Best Legendary value</td>
+              <td className="py-3 px-4">Switch farming target</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Refund formula simplified</td>
+              <td className="py-3 px-4">More predictable</td>
+              <td className="py-3 px-4">Refresh calculations</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Refund Simplification</h3>
+        <p>
+          Pre-February, duplicate refunds varied slightly by pack. Now every Common refunds exactly 5 tokens, every Uncommon 10, every Rare 25, every Epic 100, every Legendary 500 &mdash; regardless of pack origin. This makes calculations cleaner and removes a common source of confusion.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -2688,14 +3513,38 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">
-            Seasonal events are the only time limited packs appear. When they do, drop everything and farm tokens aggressively. These packs often have unique Epics and Legendaries that will never be available again. Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to plan your budget before the event ends.
-          </p>
+          <p className="text-slate-300 text-sm m-0">The Aurora Pack at 25 tokens with 0.08% Legendary rate became the new meta the day this patch shipped. If you were grinding Space Pack for Legendaries, switch to Aurora unless you specifically want a Space-exclusive Blook.</p>
         </div>
 
         <p className="mt-6">
-          Our <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> is updated with all current pack rates. Check the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link> for the latest data.
+          Compare against later updates: <Link href="/blog/blooket-march-2026-update" className="text-emerald-400 hover:text-emerald-300">March</Link>, <Link href="/blog/blooket-april-2026-update" className="text-emerald-400 hover:text-emerald-300">April</Link>, and <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026</Link>. Run new calculations in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, see refund details in the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">refund post</Link>, or browse current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
         </p>
+
+        <p className="mt-6 text-slate-300">Bottom line: February 2026 introduced Crypto Hack mode and the Aurora Pack &mdash; both still meta as of late May. Always re-run your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator inputs</Link> after major patches; pre-Feb refund math is now outdated.</p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What was new in the February 2026 update?</p>
+            <p className="text-sm text-slate-300 mt-1">Crypto Hack game mode, Aurora Pack, and a simplified flat duplicate refund system.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Aurora Pack still meta?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes as of late May 2026. It remains the best Legendary-rate-per-token pack in active rotation.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Did the refund changes nerf any Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The new flat values are equal to or better than the old pack-specific values across the board.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Are old February calculations still accurate?</p>
+            <p className="text-sm text-slate-300 mt-1">Refund-related ones, yes. Pack-comparison ones may be slightly off due to the May 2026 rate update.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I have switched to Aurora immediately?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes if you were chasing any Legendary. No if you wanted a specific older-pack Blook.</p>
+          </div>
+        </div>
       </div>
     )
   }

@@ -1224,5 +1224,94 @@ export function getGuidePageContent(slug: string): GuidePageContent | null {
     };
   }
 
+  if (slug === "rarest-blook") {
+    const chromaSummary = getRaritySummary("Chroma");
+    const legendarySummary = getRaritySummary("Legendary");
+
+    return {
+      note:
+        "The rarest standard-pull Blook is a Chroma at 0.02% drop rate. Some rotated-out event Blooks are now functionally unobtainable and sit above Chromas in true rarity, but they are not indexed here because they cannot be pulled from any current pack.",
+      relatedLinks: [
+        { href: "/guides/chroma-blooks", label: "All Chroma Blooks" },
+        { href: "/guides/legendary-blooks", label: "All Legendary Blooks" },
+        { href: "/calculators/chase", label: "Chase Calculator" },
+        { href: "/", label: "Open the calculator" },
+      ],
+      sources: [COMMUNITY_WIKI_BLOOKS, OFFICIAL_BLOOKS_PAGE, OFFICIAL_COLLECT],
+      body: (
+        <>
+          <Section title="The rarest Blook in Blooket (short answer)">
+            <p>
+              The rarest pullable Blook is a <strong className="text-white">Chroma</strong>,
+              and Chromas drop at roughly <strong className="text-white">0.02% per pull</strong>.
+              That works out to about 1 in 5,000 pack openings for a specific Chroma at the
+              90% confidence threshold. We currently index {chromaSummary.count} Chroma entries
+              across {chromaSummary.packCount} packs.
+            </p>
+            <p>
+              Several Chromas, including the rainbow Astronaut and Megalodon, are the
+              flagship trophies of the entire game. They are the single hardest standard
+              pulls a Blooket player can chase.
+            </p>
+          </Section>
+
+          <Section title="Full rarity ranking — from common to rarest">
+            <BulletList
+              items={[
+                "Common — the floor of every pack, expected on almost every pull",
+                "Uncommon — frequent but already collectible",
+                "Rare — meaningful pulls, often the first “wow” moment",
+                "Epic — the achievable luxury tier, around 1% per pull",
+                `Legendary — ${legendarySummary.count} indexed entries across ${legendarySummary.packCount} packs, drops at roughly 0.05% per pull`,
+                `Chroma — ${chromaSummary.count} indexed entries, drops at roughly 0.02% per pull (the rarest standard pull)`,
+              ]}
+            />
+            <p>
+              See the <BodyLink href="/guides/chroma-blooks">Chroma hub</BodyLink> and{" "}
+              <BodyLink href="/guides/legendary-blooks">Legendary hub</BodyLink> for the full
+              tables with drop rates per Blook.
+            </p>
+          </Section>
+
+          <Section title="All indexed Chroma Blooks (the rarest tier)">
+            <RarityTable rarity="Chroma" />
+          </Section>
+
+          <Section title={`Why "rarest" is more complicated than one number`}>
+            <p>
+              Drop rate is only half the story. Some Blooks that look common on paper are
+              functionally rarer than Chromas because their pack rotated out and is no
+              longer available for purchase. Event Blooks from limited-time seasonal packs
+              fall into this category &mdash; they are not in the standard pull pool at all,
+              so their current acquisition rate is effectively zero.
+            </p>
+            <p>
+              For that reason, this site separates &ldquo;rarest standard pull&rdquo;
+              (Chromas) from &ldquo;rarest in absolute terms&rdquo; (rotated event Blooks).
+              The calculator only models live, pullable inventory.
+            </p>
+          </Section>
+
+          <Section title="What this means for your token budget">
+            <p>
+              A 0.02% Chroma drop rate means you need to plan in the thousands of pulls,
+              not the dozens. To reach a 90% probability of pulling one specific Chroma,
+              you need roughly <strong className="text-white">11,500 attempts</strong>,
+              which translates to about <strong className="text-white">287,500 tokens</strong>
+              at a 25-token pack. That is multiple months of capped farming.
+            </p>
+            <p>
+              Run the exact math for your target in the{" "}
+              <BodyLink href="/calculators/chase">chase calculator</BodyLink>, compare
+              pack efficiency in the <BodyLink href="/guides/best-pack-for-chromas">best Chroma pack guide</BodyLink>,
+              and read the <BodyLink href="/guides/cumulative-probability">cumulative probability guide</BodyLink>
+              before you commit a single token to a Chroma chase.
+            </p>
+          </Section>
+        </>
+      ),
+    };
+  }
+
   return null;
 }

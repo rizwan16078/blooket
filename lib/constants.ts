@@ -1,6 +1,6 @@
 import type { Blook, PackRecord, Rarity } from "@/types";
 
-export const LAST_UPDATED = "2026-05-03";
+export const LAST_UPDATED = "2026-05-25";
 
 export const SELL_VALUES: Record<Rarity, number> = {
   Common: 2,
