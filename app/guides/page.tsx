@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { guideEntries } from "@/data/guides";
+import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,6 +29,18 @@ export default function GuidesPage() {
 
   return (
     <main className="mx-auto flex-1 w-full max-w-7xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(
+            buildBreadcrumbSchema([
+              { name: "Home", item: siteUrl },
+              { name: "Guides", item: `${siteUrl}/guides` },
+            ]),
+          ),
+        }}
+      />
+
       <section className="space-y-5">
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
           Authority Hub

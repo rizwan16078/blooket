@@ -62,8 +62,22 @@ export async function GET() {
 
 ## Site Structure
 
-- /blooks → Complete database of all Blooks with drop rates  
-- /packs → Information on all Blooket boxes and packs  
+- / → Core pack odds calculator with simulation
+- /calculators → Hub page for all specialized calculators
+- /calculators/pack-odds → Live drop rates for every rarity in every pack
+- /calculators/token-converter → Token-to-pack conversion with and without resell
+- /calculators/roi → Pack ROI rankings (probability per token spent)
+- /calculators/value → Blook sell values and expected token cost
+- /calculators/chase → Token budgets for specific blook targets at 50/90/99%
+- /blooks → Complete database of all Blooks with drop rates
+- /blooks/chroma → Chroma rarity hub — all Chromas with rates and packs
+- /blooks/legendary → Legendary rarity hub — all Legendaries with rates and packs
+- /blooks/starter → Starter blooks you get before opening any pack
+- /packs → Information on all Blooket boxes and packs
+- /value-guide → Full value guide with tier-filtered tables
+- /glossary → Every Blooket term, stat, and mechanic explained
+- /is-blooket-plus-worth-it → Editorial breakdown of Blooket Plus value
+- /best-blooket-calculator → Why this calculator uses exact probability math
 - /blog → Published strategy and calculator articles
 - /guides → Glossary, rarity, Market, and pack strategy pages
 - /methodology → Calculation, source, and update policy details
@@ -73,8 +87,11 @@ export async function GET() {
 ## Featured Content
 
 - ⭐ Blooket Drop Rate Calculator — Core tool for probability calculation
-- ⭐ All Blooket Packs Guide — Comprehensive breakdown of every pack
+- ⭐ Calculators Hub — Five specialized tools for pack odds, ROI, value, chase, and tokens
 - ⭐ Chroma Blooks Hub — High-authority rarity reference
+- ⭐ Legendary Blooks Hub — Second-rarest tier reference
+- ⭐ Value Guide — Sell values, drop rates, and tier filter
+- ⭐ Glossary — Every Blooket term explained
 - ⭐ Methodology — Source and modeling documentation
 
 ## Essential Links
