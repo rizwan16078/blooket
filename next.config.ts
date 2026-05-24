@@ -66,6 +66,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // Canonicalize non-www -> www. Without this, Google sees both
+        // calculatorblooket.com and www.calculatorblooket.com as separate
+        // URLs serving the same content, which causes "Crawled - currently
+        // not indexed" because canonical signals are split. The site's
+        // canonical tags all point to www, so this redirect aligns the
+        // host with the canonical and consolidates link equity.
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'calculatorblooket.com',
+          },
+        ],
+        destination: 'https://www.calculatorblooket.com/:path*',
+        permanent: true,
+      },
+      {
         source: '/about-us',
         destination: '/about',
         permanent: true,
