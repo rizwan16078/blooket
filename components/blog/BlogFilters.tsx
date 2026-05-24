@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import type { BlogCategory, BlogCategoryCount } from "@/types/blog";
 
@@ -10,7 +10,6 @@ interface BlogFiltersProps {
 }
 
 export default function BlogFilters({ categories, activeCategory }: BlogFiltersProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const handleFilter = useCallback(
@@ -22,9 +21,10 @@ export default function BlogFilters({ categories, activeCategory }: BlogFiltersP
         params.set("category", category);
       }
       params.delete("page");
-      router.push(`/blog?${params.toString()}`, { scroll: false });
+      const q = params.toString();
+      window.location.href = q ? `/blog?${q}` : "/blog";
     },
-    [router, searchParams]
+    [searchParams]
   );
 
   const totalCount = categories.reduce((sum, c) => sum + c.count, 0);

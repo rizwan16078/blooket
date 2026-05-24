@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback } from "react";
 
@@ -44,7 +44,6 @@ export default function BlogPagination({
   total,
   limit,
 }: BlogPaginationProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const goToPage = useCallback(
@@ -55,10 +54,10 @@ export default function BlogPagination({
       } else {
         params.set("page", String(page));
       }
-      router.push(`/blog?${params.toString()}`);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const query = params.toString();
+      window.location.href = query ? `/blog?${query}` : "/blog";
     },
-    [router, searchParams]
+    [searchParams]
   );
 
   if (totalPages <= 1) return null;
