@@ -48,11 +48,32 @@ const CALCULATOR_LINKS = [
   },
 ];
 
+const GAME_LINKS = [
+  {
+    href: "/games/guess-the-blook",
+    icon: "🔍",
+    label: "Guess the Blook",
+    description: "Blur reveal — name the blook",
+    isFeatured: true,
+  },
+  {
+    href: "/games/blookle",
+    icon: "🟩",
+    label: "Blookle",
+    description: "Wordle-style blook guessing",
+  },
+  {
+    href: "/games/rarity-quiz",
+    icon: "⚡",
+    label: "Rarity Quiz",
+    description: "Speed quiz — pick the right rarity",
+  },
+];
+
 const NAV_ITEMS = [
   { href: "/packs", label: "Packs" },
   { href: "/blooks", label: "Blooks" },
   { href: "/guides", label: "Guides" },
-  { href: "/games", label: "Games" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -65,13 +86,18 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [gamesDropdownOpen, setGamesDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const gamesDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
+      }
+      if (gamesDropdownRef.current && !gamesDropdownRef.current.contains(e.target as Node)) {
+        setGamesDropdownOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -82,10 +108,15 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setGamesDropdownOpen(false);
   }, [pathname]);
 
   const isCalculatorActive = CALCULATOR_LINKS.some(
     (link) => pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)),
+  );
+
+  const isGamesActive = GAME_LINKS.some(
+    (link) => pathname === link.href || pathname === "/games" || pathname.startsWith("/games/"),
   );
 
   return (
@@ -189,6 +220,97 @@ export default function Navbar() {
                       className="flex items-center justify-center gap-2 rounded-xl p-3 text-sm font-semibold text-violet-300 transition-colors hover:bg-violet-500/10 hover:text-violet-200"
                     >
                       View All Calculators
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Games Dropdown */}
+          <div ref={gamesDropdownRef} className="relative">
+            <button
+              onClick={() => setGamesDropdownOpen(!gamesDropdownOpen)}
+              className={cn(
+                "flex items-center gap-1 rounded-xl px-3.5 py-2 text-sm font-bold transition-all duration-200",
+                isGamesActive
+                  ? "bg-violet-500/15 text-violet-300 shadow-[inset_0_0_0_1px_rgba(139,92,246,0.25)]"
+                  : "text-white/55 hover:bg-white/[0.04] hover:text-white/85",
+              )}
+              aria-expanded={gamesDropdownOpen}
+              aria-haspopup="true"
+            >
+              Games
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 transition-transform duration-200",
+                  gamesDropdownOpen && "rotate-180",
+                )}
+              />
+            </button>
+
+            <AnimatePresence>
+              {gamesDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute left-0 top-full mt-2 w-72 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0e1a]/95 shadow-2xl backdrop-blur-xl"
+                >
+                  <div className="p-2">
+                    {GAME_LINKS.map((link) => {
+                      const isActive = pathname === link.href;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setGamesDropdownOpen(false)}
+                          className={cn(
+                            "flex items-start gap-3 rounded-xl p-3 transition-colors",
+                            isActive
+                              ? "bg-violet-500/10"
+                              : "hover:bg-white/[0.04]",
+                            link.isFeatured && !isActive && "bg-violet-500/5",
+                          )}
+                        >
+                          <span className="mt-0.5 text-2xl">{link.icon}</span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={cn(
+                                  "text-sm font-semibold",
+                                  isActive ? "text-violet-200" : "text-white",
+                                )}
+                              >
+                                {link.label}
+                              </span>
+                              {link.isFeatured && (
+                                <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-violet-300">
+                                  Popular
+                                </span>
+                              )}
+                            </div>
+                            <p className="mt-0.5 text-xs text-white/50 leading-snug">
+                              {link.description}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+
+                  <div className="border-t border-white/[0.06] p-2">
+                    <Link
+                      href="/games"
+                      onClick={() => setGamesDropdownOpen(false)}
+                      className="flex items-center justify-center gap-2 rounded-xl p-3 text-sm font-semibold text-violet-300 transition-colors hover:bg-violet-500/10 hover:text-violet-200"
+                    >
+                      View All Games
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14" />
                         <path d="m12 5 7 7-7 7" />
@@ -304,6 +426,43 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 rounded-xl border border-violet-500/20 bg-violet-500/5 px-3 py-2.5 text-sm font-semibold text-violet-300 transition hover:bg-violet-500/10"
               >
                 View All Calculators
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+
+              <p className="px-3 pt-4 pb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-violet-400">
+                Games
+              </p>
+              {GAME_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-bold transition",
+                    pathname === link.href
+                      ? "bg-violet-500/15 text-violet-300"
+                      : "text-white/60 hover:bg-white/[0.04] hover:text-white/85",
+                  )}
+                >
+                  <span className="text-xl">{link.icon}</span>
+                  {link.label}
+                  {link.isFeatured && (
+                    <span className="ml-auto rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-violet-300">
+                      Popular
+                    </span>
+                  )}
+                </Link>
+              ))}
+
+              <Link
+                href="/games"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border border-violet-500/20 bg-violet-500/5 px-3 py-2.5 text-sm font-semibold text-violet-300 transition hover:bg-violet-500/10"
+              >
+                View All Games
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />

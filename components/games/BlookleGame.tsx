@@ -161,8 +161,17 @@ export default function BlookleGame() {
         </p>
       </section>
 
+      {/* Column Headers */}
+      <div className="mt-8 grid grid-cols-5 gap-2 text-center text-[10px] font-bold uppercase tracking-wider text-white/30">
+        <span>Blook</span>
+        <span>Rarity</span>
+        <span>Pack</span>
+        <span>Drop Rate</span>
+        <span>Sell</span>
+      </div>
+
       {/* Guess History */}
-      <div className="mt-8 space-y-2">
+      <div className="mt-2 space-y-2">
         {guesses.map((g, i) => (
           <div
             key={i}
@@ -251,28 +260,17 @@ export default function BlookleGame() {
           (_, i) => (
             <div
               key={`empty-${i}`}
-              className="grid grid-cols-5 gap-2 rounded-xl border border-dashed border-white/[0.06] p-3 text-center text-sm"
+              className="grid grid-cols-5 gap-2 rounded-xl border border-dashed border-white/[0.08] p-3 text-center"
             >
               {[0, 1, 2, 3, 4].map((j) => (
                 <div
                   key={j}
-                  className="rounded-lg bg-white/[0.01] px-2 py-1 text-xs text-white/20"
-                >
-                  —
-                </div>
+                  className="h-8 rounded-lg bg-white/[0.02]"
+                />
               ))}
             </div>
           ),
         )}
-      </div>
-
-      {/* Column Headers */}
-      <div className="mt-2 grid grid-cols-5 gap-2 text-center text-[10px] font-bold uppercase tracking-wider text-white/30">
-        <span>Blook</span>
-        <span>Rarity</span>
-        <span>Pack</span>
-        <span>Drop Rate</span>
-        <span>Sell</span>
       </div>
 
       {/* Input */}
@@ -365,12 +363,30 @@ export default function BlookleGame() {
               </div>
             </>
           )}
-          <button
-            onClick={handleNewGame}
-            className="mt-6 rounded-xl bg-gradient-to-r from-amber-500 to-violet-500 px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110"
-          >
-            Play Again
-          </button>
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              onClick={() => {
+                const emoji = guesses.map((g) => {
+                  const r = g.rarityMatch === "correct" ? "🟩" : "🟥";
+                  const p = g.packMatch ? "🟩" : "🟥";
+                  const d = g.dropRateMatch === "correct" ? "🟩" : "🟨";
+                  const s = g.sellValueMatch === "correct" ? "🟩" : "🟨";
+                  return `${r}${p}${d}${s}`;
+                }).join("\n");
+                const text = `Blookle ${gameOver === "win" ? guesses.length : "X"}/6\n\n${emoji}`;
+                navigator.clipboard.writeText(text);
+              }}
+              className="rounded-xl border border-white/[0.08] bg-white/[0.02] px-5 py-3 text-sm font-semibold text-white/70 transition hover:text-white"
+            >
+              📋 Share
+            </button>
+            <button
+              onClick={handleNewGame}
+              className="rounded-xl bg-gradient-to-r from-amber-500 to-violet-500 px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110"
+            >
+              Play Again
+            </button>
+          </div>
         </div>
       )}
     </div>
