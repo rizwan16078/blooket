@@ -17,8 +17,12 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ["400", "500", "600"], subsets: ["la
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
+    // No suffix template — every page title already contains "Blooket".
+    // Appending " | Blooket Calculator" pushed several titles past Bing's
+    // 70-char limit and Google's ~60-char SERP display width, wasting the
+    // most valuable real estate in search results.
     default: `${siteName} — Pack Odds & Drop Rates`,
-    template: `%s | ${siteName}`,
+    template: `%s`,
   },
   description:
     "Production-grade Blooket pack odds calculator with exact probability math, duplicate refund modeling, and server-rendered pack guides.",

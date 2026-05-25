@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blooket Chase Calculator — Token Budget for Any Blook at 50%, 90% & 99%",
+  title: "Blooket Chase Calculator — Token Budget at 50%, 90% & 99%",
   description:
     "Target a specific Blooket blook and see exactly how many tokens and packs you need for a 50%, 90%, or 99% chance of pulling it.",
   keywords: [
