@@ -42,6 +42,11 @@ export default function TokenGrinderInteractive() {
           The fastest way to earn <strong className="text-white">500 daily tokens</strong>.
           Pick a gamemode below to see how long it takes.
         </p>
+        <p className="text-base leading-8 text-white/40">
+          This calculator estimates the fastest strategy based on tokens per question,
+          questions per minute, and gamemode difficulty. By comparing these values, you can
+          find the optimal mode to reach the daily 500 token cap as quickly as possible.
+        </p>
       </section>
 
       {/* Best method callout */}
@@ -124,14 +129,34 @@ export default function TokenGrinderInteractive() {
         <div className="flex gap-4 items-start">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-300">1</span>
           <div>
-            <p className="font-bold text-white">Use &quot;All Answers are Correct&quot;</p>
+            <p className="font-bold text-white">
+              Use &quot;All Answers are Correct&quot;{" "}
+              <a
+                href="https://play.blooket.com/solo?id=69b0b5b8958376ccb0139dd2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:text-emerald-300"
+              >
+                → Play now
+              </a>
+            </p>
             <p className="text-sm text-white/50">Use an All Answers are Correct question set so you don&apos;t have to read the answers — just click!</p>
           </div>
         </div>
         <div className="flex gap-4 items-start">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-300">2</span>
           <div>
-            <p className="font-bold text-white">Play the &quot;Study&quot; Gamemode</p>
+            <p className="font-bold text-white">
+              Play the &quot;Study&quot; Gamemode{" "}
+              <a
+                href="https://play.blooket.com/solo?id=69b0b5b8958376ccb0139dd2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:text-emerald-300"
+              >
+                → Play now
+              </a>
+            </p>
             <p className="text-sm text-white/50">Study mode lets you answer questions the fastest — about 220 tokens per minute!</p>
           </div>
         </div>

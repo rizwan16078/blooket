@@ -473,6 +473,9 @@ function getBlookImageUrl(name: string) {
   if (name === "Two of Spades") return "/packs/2OfSpades.svg";
   if (name === "UFO") return "/packs/UFO.svg";
   if (name === "Black Bear") return "/packs/bear.svg";
+  if (name === "Half a Sandwich") return "/packs/halfasandwich.svg";
+  if (name === "Rhino Beetle") return "/packs/rhinobeetle.svg";
+  if (name === "Treasure Map") return "/packs/treasuremap.svg";
   if (name === "Polar Bear") return "/packs/polarBear.svg";
   if (name === "Pumpkin Pie") return "/packs/pumpkin.svg";
   if (name === "Spooky Pumpkin") return "/packs/spookyPumpkin.svg";

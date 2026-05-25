@@ -37,6 +37,14 @@ const breadcrumbs = buildBreadcrumbSchema([
   { name: "Value Guide", item: `${siteUrl}/value-guide` },
 ]);
 
+const TRADE_VALUES: Record<string, number> = {
+  Chroma: 350,
+  Legendary: 200,
+  Epic: 100,
+  Rare: 50,
+  Uncommon: 25,
+};
+
 const RARITY_TIERS = [
   { rarity: "Chroma" as const, color: "text-teal-400", bg: "bg-teal-500/10" },
   { rarity: "Legendary" as const, color: "text-amber-400", bg: "bg-amber-500/10" },
@@ -64,6 +72,19 @@ export default function ValueGuidePage() {
               Sell values, drop rates &amp; tier filter
             </span>
           </h1>
+          <p className="max-w-3xl text-base leading-8 text-white/50">
+            The value of a Blook in Blooket is determined by several factors, including its
+            rarity, demand, and the number of tokens it can be sold for. Rarer Blooks tend to
+            have higher values due to their scarcity, while more common Blooks may have lower
+            values. Additionally, the demand for certain Blooks can fluctuate based on trends
+            and player preferences, which can also impact their value.
+          </p>
+          <p className="max-w-3xl text-base leading-8 text-white/40">
+            We have calculated the value of each Blook based on its default chance of being
+            obtained from packs, its sell value in tokens, and the blook desirability within
+            the community. The trade value is an approximation, and will not be completely
+            accurate until a global market is released.
+          </p>
           <p className="max-w-3xl text-base leading-8 text-white/50">
             The two tiers that drive most chase decisions live on dedicated rarity
             pages: every{" "}
@@ -119,6 +140,7 @@ export default function ValueGuidePage() {
                       <th className="py-3 px-3 font-bold text-white/70">Pack</th>
                       <th className="py-3 px-3 font-bold text-white/70">Drop Rate</th>
                       <th className="py-3 px-3 font-bold text-white/70">Sell Value</th>
+                      <th className="py-3 px-3 font-bold text-white/70">Trade Value</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -152,6 +174,9 @@ export default function ValueGuidePage() {
                           </td>
                           <td className={`py-3 px-3 ${color}`}>
                             {blook.sellValue} tokens
+                          </td>
+                          <td className="py-3 px-3 text-white/60">
+                            ~{TRADE_VALUES[blook.rarity] ?? blook.sellValue} tokens
                           </td>
                         </tr>
                       );
