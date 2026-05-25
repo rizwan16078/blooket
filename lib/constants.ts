@@ -472,6 +472,45 @@ function resolveSellValue(blook: BlookSeed) {
 function getBlookImageUrl(name: string) {
   if (name === "Two of Spades") return "/packs/2OfSpades.svg";
   if (name === "UFO") return "/packs/UFO.svg";
+  if (name === "Black Bear") return "/packs/bear.svg";
+  if (name === "Polar Bear") return "/packs/polarBear.svg";
+  if (name === "Pumpkin Pie") return "/packs/pumpkin.svg";
+  if (name === "Spooky Pumpkin") return "/packs/spookyPumpkin.svg";
+  if (name === "Spooky Ghost") return "/packs/spookyGhost.svg";
+  if (name === "Spooky Mummy") return "/packs/spookyMummy.svg";
+  if (name === "White Rabbit") return "/packs/whiteRabbit.svg";
+  if (name === "Breakfast Combo") return "/packs/breakfastCombo.svg";
+  if (name === "French Toast") return "/packs/frenchToast.svg";
+  if (name === "Hot Chocolate") return "/packs/hotChocolate.svg";
+  if (name === "Orange Juice") return "/packs/orangeJuice.svg";
+  if (name === "Holiday Gift") return "/packs/holidayGift.svg";
+  if (name === "Holiday Wreath") return "/packs/holidayWreath.svg";
+  if (name === "Snow Globe") return "/packs/snowGlobe.svg";
+  if (name === "Tropical Globe") return "/packs/tropicalGlobe.svg";
+  if (name === "Gingerbread House") return "/packs/gingerbreadHouse.svg";
+  if (name === "Gingerbread Man") return "/packs/gingerbreadMan.svg";
+  if (name === "Frost Wreath") return "/packs/frostWreath.svg";
+  if (name === "Lime Astronaut") return "/packs/limeAstronaut.svg";
+  if (name === "Captain Blackbeard") return "/packs/captainBlackbeard.svg";
+  if (name === "Pirate Pufferfish") return "/packs/pufferfish.svg";
+  if (name === "Mega Bot") return "/packs/megaBot.svg";
+  if (name === "Megalodon") return "/packs/megalodon.svg";
+  if (name === "Slime Monster") return "/packs/slimeMonster.svg";
+  if (name === "Swamp Monster") return "/packs/swampMonster.svg";
+  if (name === "King of Hearts") return "/packs/kingOfHearts.svg";
+  if (name === "Queen of Hearts") return "/packs/queenOfHearts.svg";
+  if (name === "Cheshire Cat") return "/packs/cheshireCat.svg";
+  if (name === "Mad Hatter") return "/packs/madHatter.svg";
+  if (name === "Drink Me") return "/packs/drinkMe.svg";
+  if (name === "Eat Me") return "/packs/eatMe.svg";
+  if (name === "Old Boot") return "/packs/oldBoot.svg";
+  if (name === "Baby Shark") return "/packs/babyShark.svg";
+  if (name === "Happy Bot") return "/packs/happyBot.svg";
+  if (name === "Lil Bot") return "/packs/lilBot.svg";
+  if (name === "Lovely Bot") return "/packs/lovelyBot.svg";
+  if (name === "Brainy Bot") return "/packs/brainyBot.svg";
+  if (name === "Buddy Bot") return "/packs/buddyBot.svg";
+  if (name === "Angry Bot") return "/packs/angryBot.svg";
   
   const camelCase = name
     .replace(/[']/g, "")
