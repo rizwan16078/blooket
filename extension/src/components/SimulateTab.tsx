@@ -1,5 +1,5 @@
-import { useState, useMemo, useCallback, useRef } from "preact/hooks";
-import type { OddsMetric, Rarity, Blook, Pack } from "@/types";
+import { useState, useMemo, useCallback } from "preact/hooks";
+import type { OddsMetric, Rarity, Blook } from "@/types";
 import { UNLOCKED_PACKS, PACK_MAP } from "@/lib/data";
 import {
   DEFAULT_TOKENS,
@@ -105,22 +105,18 @@ function simulatePackOpens(blooks: Blook[], pullCount: number, ownedIds: Set<str
 
 export function SimulateTab() {
   const [tokens, setTokens] = useState(DEFAULT_TOKENS);
-  const [packId, setPackId] = useState("space");
   const [metric, setMetric] = useState<OddsMetric>("legendary");
   const [dupes, setDupes] = useState(false);
 
   // Simulation state
   const [results, setResults] = useState<SimulatedBlook[] | null>(null);
+  const [simPackId, setSimPackId] = useState<string | null>(null);
   const [ownedBlooks, setOwnedBlooks] = useState<Set<string>>(new Set());
   const [remainingTokens, setRemainingTokens] = useState<number>(0);
-  const [isSimulating, setIsSimulating] = useState(false);
   const [originalTokens, setOriginalTokens] = useState<number>(0);
+  const [isSimulating, setIsSimulating] = useState(false);
 
-  // Ref to track the tokens used for the current simulation
-  const simTokensRef = useRef(0);
-
-  const pack = PACK_MAP[packId];
-  const packBlooks = pack?.featuredBlooks ?? [];
+  const simPack = simPackId ? PACK_MAP[simPackId] : null;
 
   const metricRarities = useMemo(() => {
     if (metric === "epicPlus") return new Set<Rarity>(["Epic", "Legendary", "Chroma"]);
@@ -130,65 +126,63 @@ export function SimulateTab() {
 
   const metricLabel = metric === "epicPlus" ? "Epic+" : metric.charAt(0).toUpperCase() + metric.slice(1);
 
-  const canSimulate = tokens >= (pack?.costPerPull ?? 999);
+  // Open a specific pack — this IS the simulate action
+  const handleOpenPack = useCallback((packId: string) => {
+    const pack = PACK_MAP[packId];
+    if (!pack || tokens < pack.costPerPull) return;
 
-  // Use compounding pull count when dupes enabled (matches main site's calculateOpenCount)
-  const pullCount = pack
-    ? Math.floor(calculateOpenCount(tokens, pack, dupes))
-    : 0;
-
-  // Probability context from math module
-  const probability = pack
-    ? calculateMetricProbability(pack, tokens, dupes, metric)
-    : 0;
-
-  const handleSimulate = useCallback(() => {
-    if (!canSimulate || !pack) return;
-
-    // Clear previous results immediately
     setResults(null);
     setIsSimulating(true);
-    simTokensRef.current = tokens;
+    setSimPackId(packId);
     setOriginalTokens(tokens);
 
     const currentPullCount = Math.floor(calculateOpenCount(tokens, pack, dupes));
+    const packBlooks = pack.featuredBlooks;
     const newOwned = new Set(ownedBlooks);
 
-    // Simulate with a tiny delay for animation feel
     setTimeout(() => {
       const simResults = simulatePackOpens(packBlooks, currentPullCount, newOwned);
 
-      // Calculate token flow
       const cost = currentPullCount * pack.costPerPull;
-      const totalSellValue = simResults.reduce((sum, r) => sum + r.sellValue, 0);
-      const dupeRefund = simResults.filter((r) => !r.isNew).reduce((sum, r) => sum + r.sellValue, 0);
-
-      // Remaining = what's left after spending, plus dupe refund if enabled
-      const newRemaining = dupes
-        ? tokens - cost + dupeRefund
-        : tokens - cost;
+      const dupeRefund = dupes
+        ? simResults.filter((r) => !r.isNew).reduce((sum, r) => sum + r.sellValue, 0)
+        : 0;
+      const newRemaining = Math.max(0, dupes ? tokens - cost + dupeRefund : tokens - cost);
 
       setResults(simResults);
       setOwnedBlooks(newOwned);
-      setRemainingTokens(Math.max(0, newRemaining));
+      setRemainingTokens(newRemaining);
       setIsSimulating(false);
     }, 300);
-  }, [canSimulate, pack, packBlooks, tokens, dupes, ownedBlooks]);
+  }, [tokens, dupes, ownedBlooks]);
 
+  // Reopen same pack with remaining tokens
   const handleSellAndReopen = useCallback(() => {
-    // Use remaining tokens (which already includes dupe refund) as new input
+    if (!simPackId) return;
     setTokens(remainingTokens);
     setResults(null);
-  }, [remainingTokens]);
+    // Immediately re-simulate with remaining tokens
+    setTimeout(() => handleOpenPack(simPackId), 50);
+  }, [simPackId, remainingTokens, handleOpenPack]);
 
+  // Simulate again with original token amount
   const handleSimulateAgain = useCallback(() => {
-    // Re-run with original token amount
+    if (!simPackId) return;
     setTokens(originalTokens);
     setResults(null);
-  }, [originalTokens]);
+    setTimeout(() => handleOpenPack(simPackId), 50);
+  }, [simPackId, originalTokens, handleOpenPack]);
 
+  // Back to pack picker
+  const handleBack = useCallback(() => {
+    setResults(null);
+    setSimPackId(null);
+  }, []);
+
+  // Full reset
   const handleReset = useCallback(() => {
     setResults(null);
+    setSimPackId(null);
     setOwnedBlooks(new Set());
     setRemainingTokens(0);
     setOriginalTokens(0);
@@ -196,19 +190,178 @@ export function SimulateTab() {
 
   // Stats from results
   const resultStats = useMemo(() => {
-    if (!results) return null;
+    if (!results || !simPack) return null;
     const hits = results.filter((r) => metricRarities.has(r.rarity));
     const dupeItems = results.filter((r) => !r.isNew);
     const dupeRefund = dupeItems.reduce((sum, r) => sum + r.sellValue, 0);
     const newBlooks = results.filter((r) => r.isNew);
     const totalSellValue = results.reduce((sum, r) => sum + r.sellValue, 0);
-    const cost = results.length * (pack?.costPerPull ?? 0);
+    const cost = results.length * simPack.costPerPull;
     return { hits, dupes: dupeItems, dupeRefund, newBlooks, totalSellValue, cost };
-  }, [results, metricRarities, pack]);
+  }, [results, metricRarities, simPack]);
 
-  const canReopen = remainingTokens >= (pack?.costPerPull ?? 999);
+  const canReopen = simPack && remainingTokens >= simPack.costPerPull;
 
-  /* ─── Render ─── */
+  /* ─── RESULTS VIEW ─── */
+  if (results && resultStats && simPack) {
+    const probability = calculateMetricProbability(simPack, originalTokens, dupes, metric);
+
+    return (
+      <div class="space-y-3 animate-in">
+        {/* Back button + pack header */}
+        <div class="flex items-center gap-2">
+          <button
+            onClick={handleBack}
+            class="rounded-lg p-1.5 text-white/40 hover:bg-white/[0.04] hover:text-white/80 transition-colors"
+            title="Back to pack picker"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+          </button>
+          <span class="text-base">{PACK_ICONS[simPackId ?? ""] ?? "\u{1F4E6}"}</span>
+          <span class="text-sm font-bold text-white">{simPack.name} Pack</span>
+          <span class="text-[10px] text-white/30 ml-auto">{results.length} opens</span>
+        </div>
+
+        {/* Token summary */}
+        <div class="glass-panel-rim rounded-2xl p-3 relative overflow-hidden">
+          <div class="pointer-events-none absolute -top-4 right-0 h-10 w-16 rounded-full bg-cyan-400/15 blur-2xl" />
+          <div class="relative space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] uppercase tracking-widest text-white/40">Spent</span>
+              <span class="text-xs font-bold text-red-400">-{resultStats.cost.toLocaleString()} tkn</span>
+            </div>
+            {dupes && resultStats.dupeRefund > 0 && (
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] uppercase tracking-widest text-white/40">Dupe refund</span>
+                <span class="text-xs font-bold text-emerald-300">+{resultStats.dupeRefund.toLocaleString()} tkn</span>
+              </div>
+            )}
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] uppercase tracking-widest text-white/40">Sell value (all)</span>
+              <span class="text-xs font-bold text-white/50">+{resultStats.totalSellValue.toLocaleString()} tkn</span>
+            </div>
+            <div class="flex items-center justify-between pt-1.5 border-t border-white/[0.06]">
+              <span class="text-[10px] uppercase tracking-widest text-white/40">Remaining</span>
+              <span class="text-sm font-bold text-white">{remainingTokens.toLocaleString()} tkn</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hits / No hits */}
+        {resultStats.hits.length > 0 ? (
+          <div class="rounded-xl border border-amber-400/20 bg-amber-400/[0.04] p-2 flex items-center gap-2">
+            <span class="text-amber-400">{"\u2B50"}</span>
+            <span class="text-[11px] text-amber-200 font-semibold">
+              {resultStats.hits.length} {metricLabel} hit{resultStats.hits.length !== 1 ? "s" : ""}!
+            </span>
+            <span class="ml-auto text-[9px] text-white/30">{formatPercent(probability)} expected</span>
+          </div>
+        ) : (
+          <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2">
+            <p class="text-[11px] text-white/40 text-center">
+              No {metricLabel} this time <span class="text-white/20">({formatPercent(probability)} chance)</span>
+            </p>
+            {probability < 0.5 && (
+              <p class="text-[9px] text-white/20 text-center mt-0.5">Try more tokens or a different pack</p>
+            )}
+          </div>
+        )}
+
+        {/* Blook grid */}
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400">Your pulls</p>
+            <div class="flex gap-1">
+              <span class="text-[9px] text-emerald-400">{resultStats.newBlooks.length} new</span>
+              <span class="text-[9px] text-white/20">{"\u00B7"}</span>
+              <span class="text-[9px] text-white/30">{resultStats.dupes.length} dupe</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-1">
+            {results.map((item, i) => {
+              const isHit = metricRarities.has(item.rarity);
+              return (
+                <div
+                  key={`${item.id}-${i}`}
+                  class={`relative flex flex-col items-center justify-center rounded-lg border-2 transition-all overflow-hidden ${
+                    isHit
+                      ? `${RARITY_BORDER[item.rarity]} ${RARITY_BG[item.rarity]} shadow-[0_0_8px_rgba(251,191,36,0.2)]`
+                      : item.isNew
+                        ? `border-white/10 ${RARITY_BG[item.rarity]}`
+                        : "border-white/5 bg-white/[0.02] opacity-40"
+                  }`}
+                  style={{ width: "44px", height: "44px" }}
+                  title={`${item.rarity}${item.isNew ? " - NEW" : " - dupe"}`}
+                >
+                  <span class={`h-1.5 w-1.5 rounded-full ${RARITY_DOT[item.rarity]}`} />
+                  <span class={`text-[7px] font-semibold leading-tight text-center px-0.5 mt-0.5 truncate w-full ${
+                    isHit ? RARITY_COLORS[item.rarity] : "text-white/50"
+                  }`}>
+                    {item.name.length > 8 ? item.name.slice(0, 7) + "\u2026" : item.name}
+                  </span>
+                  {isHit && (
+                    <span class="absolute -top-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-amber-400 text-[6px] font-black text-black shadow-sm">
+                      {"\u2605"}
+                    </span>
+                  )}
+                  {item.isNew && !isHit && (
+                    <span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-emerald-400 text-[5px] font-black text-black">
+                      N
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Rarity breakdown */}
+        <div class="space-y-1">
+          {(["Chroma", "Legendary", "Epic", "Rare", "Uncommon", "Common"] as Rarity[]).map((rarity) => {
+            const count = results.filter((r) => r.rarity === rarity).length;
+            if (count === 0) return null;
+            const pct = (count / results.length) * 100;
+            return (
+              <div key={rarity} class="flex items-center gap-2 rounded-lg px-2 py-1 bg-white/[0.02]">
+                <span class={`h-1.5 w-1.5 rounded-full shrink-0 ${RARITY_DOT[rarity]}`} />
+                <span class={`text-[9px] font-semibold ${RARITY_COLORS[rarity]} w-16`}>{rarity}</span>
+                <div class="flex-1 h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                  <div class={`h-full rounded-full progress-bar ${RARITY_DOT[rarity]}`} style={{ width: `${pct}%` }} />
+                </div>
+                <span class="text-[9px] font-bold text-white/50 w-5 text-right">{count}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Action buttons */}
+        <div class="space-y-1.5">
+          {canReopen && (
+            <button
+              onClick={handleSellAndReopen}
+              class="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98] transition-all"
+            >
+              {dupes ? "Sell dupes & reopen" : "Reopen"} with {remainingTokens.toLocaleString()} tokens
+            </button>
+          )}
+          <button
+            onClick={handleSimulateAgain}
+            class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white/60 hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white transition-all"
+          >
+            {"\u{1F504}"} Simulate Again ({originalTokens.toLocaleString()} tokens)
+          </button>
+          <button
+            onClick={handleReset}
+            class="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-[11px] text-white/30 hover:text-white/60 transition-all"
+          >
+            Reset Simulation
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  /* ─── PACK PICKER VIEW (default) ─── */
   return (
     <div class="space-y-3">
       {/* Token input */}
@@ -244,267 +397,112 @@ export function SimulateTab() {
         </div>
       </div>
 
-      {/* Pack selector */}
+      {/* Target rarity + dupes toggle — compact row */}
+      <div class="flex gap-1.5">
+        {(["epicPlus", "legendary", "chroma"] as OddsMetric[]).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMetric(m)}
+            class={`flex-1 rounded-lg px-2 py-1.5 text-[10px] font-semibold transition-all ${
+              metric === m
+                ? "bg-violet-400/10 text-violet-200 border border-violet-400/40"
+                : "bg-white/[0.02] text-white/40 border border-white/[0.06] hover:text-white/70"
+            }`}
+          >
+            {m === "epicPlus" ? "Epic+" : m === "legendary" ? "Leg" : "Chroma"}
+          </button>
+        ))}
+        <button
+          onClick={() => setDupes(!dupes)}
+          class={`rounded-lg border px-2 py-1.5 text-[10px] font-semibold transition-all ${
+            dupes
+              ? "border-emerald-400/30 bg-emerald-400/[0.06] text-emerald-300"
+              : "border-white/[0.06] bg-white/[0.02] text-white/40 hover:text-white/70"
+          }`}
+        >
+          {dupes ? "Resell ON" : "Resell"}
+        </button>
+      </div>
+
+      {/* Pack grid — each card IS the open button */}
       <div>
         <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400 mb-1.5 block">
-          Pack
+          Click a pack to open
         </label>
-        <div class="grid grid-cols-4 gap-1.5">
+        <div class="grid grid-cols-3 gap-2">
           {UNLOCKED_PACKS.map((p) => {
-            const isActive = packId === p.id;
+            const canAfford = tokens >= p.costPerPull;
+            const pullCount = canAfford ? Math.floor(calculateOpenCount(tokens, p, dupes)) : 0;
+            const prob = canAfford ? calculateMetricProbability(p, tokens, dupes, metric) : 0;
+
             return (
               <button
                 key={p.id}
-                onClick={() => setPackId(p.id)}
-                class={`relative rounded-xl border px-1.5 py-2 text-center transition-all ${
-                  isActive
-                    ? "border-violet-400/40 bg-violet-400/10 shadow-[0_0_12px_rgba(139,92,246,0.15)]"
-                    : "border-white/[0.06] bg-white/[0.02] hover:border-white/15"
+                onClick={() => handleOpenPack(p.id)}
+                disabled={!canAfford || isSimulating}
+                class={`relative rounded-xl border p-2.5 text-left transition-all group ${
+                  canAfford
+                    ? "border-white/[0.08] bg-white/[0.02] hover:border-violet-400/30 hover:bg-violet-400/[0.04] active:scale-[0.97]"
+                    : "border-white/[0.04] bg-white/[0.01] opacity-40 cursor-not-allowed"
                 }`}
               >
-                <div class="text-base leading-none">{PACK_ICONS[p.id] ?? "\u{1F4E6}"}</div>
-                <div class={`text-[9px] font-semibold leading-tight mt-1 truncate ${isActive ? "text-white" : "text-white/50"}`}>
-                  {p.name}
+                {/* Pack icon + name */}
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="text-lg leading-none">{PACK_ICONS[p.id] ?? "\u{1F4E6}"}</span>
+                  <span class="text-[10px] font-bold text-white/80 truncate">{p.name}</span>
                 </div>
+
+                {/* Cost */}
+                <div class="text-[9px] text-white/30">
+                  {p.costPerPull} tkn/pack
+                </div>
+
+                {/* Opens + probability */}
+                {canAfford && (
+                  <div class="mt-1.5 space-y-1">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[9px] text-white/40">{pullCount} opens</span>
+                      <span class={`text-[10px] font-bold ${
+                        prob >= 0.7 ? "text-emerald-400" : prob >= 0.3 ? "text-amber-400" : "text-red-400"
+                      }`}>
+                        {formatPercent(prob)}
+                      </span>
+                    </div>
+                    <div class="h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div
+                        class={`h-full rounded-full transition-all duration-300 ${
+                          prob >= 0.7 ? "bg-emerald-400" : prob >= 0.3 ? "bg-amber-400" : "bg-red-400"
+                        }`}
+                        style={{ width: `${Math.min(100, prob * 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Hover CTA */}
+                {canAfford && (
+                  <div class="mt-1.5 text-[9px] font-semibold text-violet-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Click to open {"\u2192"}
+                  </div>
+                )}
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* Target rarity */}
-      <div>
-        <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400 mb-1.5 block">
-          Target
-        </label>
-        <div class="flex gap-1.5">
-          {(["epicPlus", "legendary", "chroma"] as OddsMetric[]).map((m) => (
-            <button
-              key={m}
-              onClick={() => setMetric(m)}
-              class={`flex-1 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${
-                metric === m
-                  ? "bg-violet-400/10 text-violet-200 border border-violet-400/40"
-                  : "bg-white/[0.02] text-white/50 border border-white/[0.06] hover:text-white/80"
-              }`}
-            >
-              {m === "epicPlus" ? "Epic+" : m === "legendary" ? "Legendary" : "Chroma"}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Sell duplicates toggle */}
-      <button
-        onClick={() => setDupes(!dupes)}
-        class={`flex w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left transition-all ${
-          dupes
-            ? "border-emerald-400/25 bg-emerald-400/[0.05]"
-            : "border-white/[0.06] bg-white/[0.02] hover:border-white/15"
-        }`}
-      >
-        <span class="text-[11px] font-medium text-white/60">Sell duplicates for tokens</span>
-        <span
-          class={`relative inline-flex h-4 w-7 shrink-0 items-center rounded-full transition-colors ${
-            dupes ? "bg-emerald-500" : "bg-white/10"
-          }`}
-        >
-          <span
-            class={`inline-block h-3 w-3 rounded-full bg-white shadow-sm transition-transform ${
-              dupes ? "translate-x-[14px]" : "translate-x-[2px]"
-            }`}
-          />
-        </span>
-      </button>
-
-      {/* Probability context — shown before simulating */}
-      {!results && tokens > 0 && pack && (
-        <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5 text-center">
-          <p class="text-[10px] text-white/30 uppercase tracking-wider">
-            {metricLabel} chance with {tokens.toLocaleString()} tokens
-          </p>
-          <p class="text-base font-bold text-white mt-0.5">{formatPercent(probability)}</p>
-          <p class="text-[9px] text-white/20 mt-0.5">
-            {pullCount} pack opens{dupes ? " (with resell)" : ""}
-          </p>
+      {/* Empty state */}
+      {tokens <= 0 && (
+        <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+          <p class="text-sm text-white/40">Enter tokens above, then click a pack to open it</p>
+          <p class="text-[10px] text-white/20 mt-1">Each pack shows your {metricLabel} chance</p>
         </div>
       )}
 
-      {/* Simulate button */}
-      {!results && (
-        <button
-          onClick={handleSimulate}
-          disabled={!canSimulate || isSimulating}
-          class={`w-full rounded-xl py-3 text-sm font-bold uppercase tracking-wider transition-all ${
-            !canSimulate
-              ? "border border-white/5 bg-white/[0.02] text-white/20 cursor-not-allowed"
-              : isSimulating
-                ? "border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
-                : "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
-          }`}
-        >
-          {isSimulating
-            ? "Simulating\u2026"
-            : canSimulate
-              ? `Open ${pullCount} ${pack.name} Pack${pullCount !== 1 ? "s" : ""}`
-              : "Open Packs"}
-        </button>
-      )}
-
-      {!canSimulate && tokens > 0 && !results && (
-        <p class="text-center text-[11px] text-white/30">
-          Need at least {pack?.costPerPull ?? 20} tokens to open one pack
-        </p>
-      )}
-
-      {/* ─── Results ─── */}
-      {results && resultStats && pack && (
-        <div class="space-y-3 animate-in">
-          {/* Token summary */}
-          <div class="glass-panel-rim rounded-2xl p-3.5 relative overflow-hidden">
-            <div class="pointer-events-none absolute -top-4 right-0 h-12 w-20 rounded-full bg-cyan-400/15 blur-2xl" />
-            <div class="relative">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-[10px] uppercase tracking-widest text-white/40">Spent</span>
-                <span class="text-xs font-bold text-red-400">-{resultStats.cost.toLocaleString()} tkn</span>
-              </div>
-              {dupes && resultStats.dupeRefund > 0 && (
-                <div class="flex items-center justify-between mb-1.5">
-                  <span class="text-[10px] uppercase tracking-widest text-white/40">Dupe refund</span>
-                  <span class="text-xs font-bold text-emerald-300">+{resultStats.dupeRefund.toLocaleString()} tkn</span>
-                </div>
-              )}
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-[10px] uppercase tracking-widest text-white/40">Sell value (all)</span>
-                <span class="text-xs font-bold text-white/60">+{resultStats.totalSellValue.toLocaleString()} tkn</span>
-              </div>
-              <div class="flex items-center justify-between pt-2 border-t border-white/[0.06]">
-                <span class="text-[10px] uppercase tracking-widest text-white/40">Remaining</span>
-                <span class="text-sm font-bold text-white">{remainingTokens.toLocaleString()} tkn</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Hits / No hits banner */}
-          {resultStats.hits.length > 0 ? (
-            <div class="rounded-xl border border-amber-400/20 bg-amber-400/[0.04] p-2.5 flex items-center gap-2">
-              <span class="text-amber-400">{"\u2B50"}</span>
-              <span class="text-[11px] text-amber-200 font-semibold">
-                {resultStats.hits.length} {metricLabel} hit{resultStats.hits.length !== 1 ? "s" : ""}!
-              </span>
-              <span class="ml-auto text-[9px] text-white/30">
-                {formatPercent(probability)} expected
-              </span>
-            </div>
-          ) : (
-            <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5">
-              <p class="text-[11px] text-white/40 text-center">
-                No {metricLabel} this time{" "}
-                <span class="text-white/20">({formatPercent(probability)} chance)</span>
-              </p>
-              {probability < 0.5 && (
-                <p class="text-[9px] text-white/20 text-center mt-1">
-                  Try more tokens or a different pack
-                </p>
-              )}
-            </div>
-          )}
-
-          {/* Blook grid — with names */}
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400">
-                Your pulls ({results.length})
-              </p>
-              <div class="flex gap-1">
-                <span class="text-[9px] text-emerald-400">{resultStats.newBlooks.length} new</span>
-                <span class="text-[9px] text-white/20">{"\u00B7"}</span>
-                <span class="text-[9px] text-white/30">{resultStats.dupes.length} dupe</span>
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-1">
-              {results.map((item, i) => {
-                const isHit = metricRarities.has(item.rarity);
-                return (
-                  <div
-                    key={`${item.id}-${i}`}
-                    class={`relative flex flex-col items-center justify-center rounded-lg border-2 transition-all overflow-hidden ${
-                      isHit
-                        ? `${RARITY_BORDER[item.rarity]} ${RARITY_BG[item.rarity]} shadow-[0_0_8px_rgba(251,191,36,0.2)]`
-                        : item.isNew
-                          ? `border-white/10 ${RARITY_BG[item.rarity]}`
-                          : "border-white/5 bg-white/[0.02] opacity-40"
-                    }`}
-                    style={{ width: "44px", height: "44px" }}
-                    title={`${item.rarity}${item.isNew ? " - NEW" : " - dupe"}`}
-                  >
-                    <span class={`h-1.5 w-1.5 rounded-full ${RARITY_DOT[item.rarity]}`} />
-                    <span class={`text-[7px] font-semibold leading-tight text-center px-0.5 mt-0.5 truncate w-full ${
-                      isHit ? RARITY_COLORS[item.rarity] : "text-white/50"
-                    }`}>
-                      {item.name.length > 8 ? item.name.slice(0, 7) + "\u2026" : item.name}
-                    </span>
-                    {isHit && (
-                      <span class="absolute -top-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-amber-400 text-[6px] font-black text-black shadow-sm">
-                        {"\u2605"}
-                      </span>
-                    )}
-                    {item.isNew && !isHit && (
-                      <span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-emerald-400 text-[5px] font-black text-black">
-                        N
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Rarity breakdown */}
-          <div class="space-y-1">
-            {(["Chroma", "Legendary", "Epic", "Rare", "Uncommon", "Common"] as Rarity[]).map((rarity) => {
-              const count = results.filter((r) => r.rarity === rarity).length;
-              if (count === 0) return null;
-              const pct = (count / results.length) * 100;
-              return (
-                <div key={rarity} class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 bg-white/[0.02]">
-                  <span class={`h-2 w-2 rounded-full shrink-0 ${RARITY_DOT[rarity]}`} />
-                  <span class={`text-[10px] font-semibold ${RARITY_COLORS[rarity]} w-20`}>{rarity}</span>
-                  <div class="flex-1 h-1 rounded-full bg-white/[0.06] overflow-hidden">
-                    <div
-                      class={`h-full rounded-full progress-bar ${RARITY_DOT[rarity]}`}
-                      style={{ width: `${pct}%` }}
-                    />
-                  </div>
-                  <span class="text-[10px] font-bold text-white/60 w-6 text-right">{count}</span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Action buttons */}
-          <div class="space-y-1.5">
-            {canReopen && (
-              <button
-                onClick={handleSellAndReopen}
-                class="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98] transition-all"
-              >
-                {dupes ? "Sell dupes & reopen" : "Reopen"} with {remainingTokens.toLocaleString()} tokens
-              </button>
-            )}
-            <button
-              onClick={handleSimulateAgain}
-              class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white/60 hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white transition-all"
-            >
-              {"\u{1F504}"} Simulate Again ({originalTokens.toLocaleString()} tokens)
-            </button>
-            <button
-              onClick={handleReset}
-              class="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-[11px] text-white/30 hover:text-white/60 transition-all"
-            >
-              Reset Simulation
-            </button>
-          </div>
+      {/* Simulating overlay */}
+      {isSimulating && (
+        <div class="rounded-xl border border-cyan-400/30 bg-cyan-400/10 p-3 text-center animate-pulse">
+          <p class="text-xs font-bold text-cyan-300">Opening packs\u2026</p>
         </div>
       )}
     </div>
