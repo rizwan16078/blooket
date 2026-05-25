@@ -156,28 +156,26 @@ export function SimulateTab() {
     }, 300);
   }, [tokens, dupes, ownedBlooks]);
 
-  // Reopen same pack with remaining tokens
+  // Reopen same pack with remaining tokens — go back to picker with updated tokens
   const handleSellAndReopen = useCallback(() => {
-    if (!simPackId) return;
     setTokens(remainingTokens);
     setResults(null);
-    // Immediately re-simulate with remaining tokens
-    setTimeout(() => handleOpenPack(simPackId), 50);
-  }, [simPackId, remainingTokens, handleOpenPack]);
+    setSimPackId(null);
+  }, [remainingTokens]);
 
-  // Simulate again with original token amount
+  // Simulate again with original token amount — go back to picker with original tokens
   const handleSimulateAgain = useCallback(() => {
-    if (!simPackId) return;
     setTokens(originalTokens);
     setResults(null);
-    setTimeout(() => handleOpenPack(simPackId), 50);
-  }, [simPackId, originalTokens, handleOpenPack]);
+    setSimPackId(null);
+  }, [originalTokens]);
 
-  // Back to pack picker
+  // Back to pack picker — apply remaining tokens
   const handleBack = useCallback(() => {
+    if (remainingTokens > 0) setTokens(remainingTokens);
     setResults(null);
     setSimPackId(null);
-  }, []);
+  }, [remainingTokens]);
 
   // Full reset
   const handleReset = useCallback(() => {
@@ -341,7 +339,7 @@ export function SimulateTab() {
               onClick={handleSellAndReopen}
               class="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98] transition-all"
             >
-              {dupes ? "Sell dupes & reopen" : "Reopen"} with {remainingTokens.toLocaleString()} tokens
+              {dupes ? "Sell dupes & reopen" : "Reopen"} ({remainingTokens.toLocaleString()} tkn left)
             </button>
           )}
           <button
