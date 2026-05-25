@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Archive, Database } from "lucide-react";
 
 import PacksDisplay from "@/components/packs/PacksDisplay";
 import { LOCKED_PACKS, PACKS, PACK_BLOOKS_MAP, UNLOCKED_PACKS } from "@/lib/constants";
@@ -84,27 +85,50 @@ export default function PacksPage() {
 
         <h2 className="sr-only">Pack Database Statistics</h2>
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
-              Total datasets
+          <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-5 shadow-lg transition-all hover:border-violet-400/40 hover:from-violet-500/[0.08]">
+            <div className="flex items-center justify-between">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/60">
+                Total datasets
+              </p>
+              <Database
+                className="h-4 w-4 text-violet-300/70 transition-colors group-hover:text-violet-300"
+                aria-hidden
+              />
+            </div>
+            <p className="mt-3 text-3xl font-black tracking-tight text-white">
+              {PACKS.length}
             </p>
-            <p className="mt-2 text-2xl font-black text-white">{PACKS.length}</p>
+            <p className="mt-1 text-xs text-white/40">indexed pack records</p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
-              Live simulator packs
-            </p>
-            <p className="mt-2 text-2xl font-black text-white">
+          <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-5 shadow-lg transition-all hover:border-emerald-400/40 hover:from-emerald-500/[0.08]">
+            <div className="flex items-center justify-between">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/60">
+                Live simulator packs
+              </p>
+              <span className="relative flex h-2 w-2" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+            </div>
+            <p className="mt-3 text-3xl font-black tracking-tight text-white">
               {UNLOCKED_PACKS.length}
             </p>
+            <p className="mt-1 text-xs text-white/40">openable in calculator</p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">
-              Archived references
-            </p>
-            <p className="mt-2 text-2xl font-black text-white">
+          <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-5 shadow-lg transition-all hover:border-amber-400/40 hover:from-amber-500/[0.08]">
+            <div className="flex items-center justify-between">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/60">
+                Archived references
+              </p>
+              <Archive
+                className="h-4 w-4 text-amber-300/70 transition-colors group-hover:text-amber-300"
+                aria-hidden
+              />
+            </div>
+            <p className="mt-3 text-3xl font-black tracking-tight text-white">
               {LOCKED_PACKS.length}
             </p>
+            <p className="mt-1 text-xs text-white/40">retired or seasonal</p>
           </div>
         </div>
 
