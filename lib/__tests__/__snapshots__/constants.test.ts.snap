@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Constants snapshots > SELL_VALUES are stable > sell-values 1`] = `
+{
+  "Chroma": 300,
+  "Common": 2,
+  "Epic": 75,
+  "Legendary": 200,
+  "Rare": 20,
+  "Uncommon": 5,
+}
+`;
+
+exports[`Constants snapshots > blook count is stable > blook-count 1`] = `172`;
+
+exports[`Constants snapshots > pack IDs are stable > pack-ids 1`] = `
+[
+  "space",
+  "medieval",
+  "aquatic",
+  "blizzard",
+  "lunch",
+  "bug",
+  "pirate",
+  "breakfast",
+  "bot",
+  "safari",
+  "dino",
+  "spooky",
+  "wonderland",
+  "outback",
+  "ice-monster",
+  "autumn",
+]
+`;
+
+exports[`Constants snapshots > pack blook counts are stable > pack-blook-counts 1`] = `
+{
+  "aquatic": 12,
+  "autumn": 10,
+  "blizzard": 13,
+  "bot": 8,
+  "breakfast": 10,
+  "bug": 9,
+  "dino": 8,
+  "ice-monster": 11,
+  "lunch": 10,
+  "medieval": 10,
+  "outback": 10,
+  "pirate": 10,
+  "safari": 11,
+  "space": 15,
+  "spooky": 14,
+  "wonderland": 11,
+}
+`;
+
+exports[`Constants snapshots > pack costs are stable > pack-costs 1`] = `
+{
+  "aquatic": 20,
+  "autumn": 25,
+  "blizzard": 25,
+  "bot": 20,
+  "breakfast": 20,
+  "bug": 25,
+  "dino": 25,
+  "ice-monster": 25,
+  "lunch": 25,
+  "medieval": 20,
+  "outback": 25,
+  "pirate": 25,
+  "safari": 20,
+  "space": 20,
+  "spooky": 25,
+  "wonderland": 20,
+}
+`;

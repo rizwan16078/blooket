@@ -1,15 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, ChevronDown, Minus, Plus, RotateCw, Sparkles } from "lucide-react";
+import { ArrowLeft, BarChart3, ChevronDown, Minus, Plus, RotateCw, Sparkles, Trophy, Volume2, VolumeX } from "lucide-react";
 
 import { formatPercent } from "@/lib/calculator-v2";
 import {
   DEFAULT_PACK_SLUG,
   DEFAULT_TOKENS,
+  calculateAtLeastOneSuccess,
   calculateOpenCount,
   calculateMetricProbability,
+  getRarityRate,
 } from "@/lib/math";
 import {
   getBlooksForPack,
@@ -80,6 +82,9 @@ const METRIC_OPTIONS: { key: OddsMetric; label: string }[] = [
 ];
 
 const SLIDER_MAX = 100;
+const STAGGER_MAX_TIME = 3000; // cap total reveal animation at 3s
+
+const RARITY_ORDER: Rarity[] = ["Chroma", "Legendary", "Epic", "Rare", "Uncommon", "Common"];
 
 /* ─── Types ─── */
 
@@ -90,6 +95,33 @@ interface SimulatedBlook {
   sellValue: number;
   imageUrl: string;
   isNew: boolean;
+}
+
+interface SessionStats {
+  totalPacks: number;
+  totalTokensSpent: number;
+  totalHits: number;
+  luckiestPull: SimulatedBlook | null;
+  simulationCount: number;
+}
+
+/* ─── Sound helpers (no external files) ─── */
+
+function playHitSound() {
+  try {
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(880, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.2);
+  } catch { /* AudioContext not available */ }
 }
 
 /* ─── Helpers ─── */
@@ -150,6 +182,22 @@ export default function SimulateTab() {
   const [originalTokens, setOriginalTokens] = useState(0);
   const [isSimulating, setIsSimulating] = useState(false);
 
+  // Staggered reveal: how many blooks are visible
+  const [revealedCount, setRevealedCount] = useState(0);
+  const revealTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Sound toggle
+  const [soundEnabled, setSoundEnabled] = useState(true);
+
+  // Session stats — persisted across simulations
+  const [sessionStats, setSessionStats] = useState<SessionStats>({
+    totalPacks: 0,
+    totalTokensSpent: 0,
+    totalHits: 0,
+    luckiestPull: null,
+    simulationCount: 0,
+  });
+
   const pack = getPackById(selectedPack);
   const metricRarities = getMetricRarities(metric);
   const metricLabel = METRIC_LABEL[metric];
@@ -172,11 +220,47 @@ export default function SimulateTab() {
     }
   }, [metric, metricAvailability]);
 
+  // Staggered reveal effect — only starts when results first appear
+  useEffect(() => {
+    if (!results || results.length === 0 || revealedCount !== 0) return;
+
+    const total = results.length;
+    const delay = Math.max(10, Math.min(40, STAGGER_MAX_TIME / total));
+    let idx = 0;
+
+    const tick = () => {
+      if (idx >= total) {
+        revealTimerRef.current = null;
+        return;
+      }
+      const item = results[idx];
+      // Only play sound for target rarity hits — avoids spam
+      if (soundEnabled && metricRarities.has(item.rarity)) {
+        playHitSound();
+      }
+      idx++;
+      setRevealedCount(idx);
+
+      if (idx < total) {
+        revealTimerRef.current = setTimeout(tick, delay) as unknown as ReturnType<typeof setInterval>;
+      } else {
+        revealTimerRef.current = null;
+      }
+    };
+
+    // Start first reveal immediately
+    revealTimerRef.current = setTimeout(tick, 0) as unknown as ReturnType<typeof setInterval>;
+    return () => {
+      if (revealTimerRef.current) clearTimeout(revealTimerRef.current as unknown as ReturnType<typeof setTimeout>);
+    };
+  }, [results]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Open the selected pack
   const handleSimulate = useCallback(() => {
     if (!pack || tokens < pack.costPerPull) return;
 
     setResults(null);
+    setRevealedCount(0);
     setIsSimulating(true);
     setSimPackId(selectedPack);
     setOriginalTokens(tokens);
@@ -205,21 +289,56 @@ export default function SimulateTab() {
       setOwnedBlooks(newOwned);
       setRemainingTokens(newRemaining);
       setIsSimulating(false);
-    }, 300);
-  }, [selectedPack, pack, tokens, dupesEnabled, ownedBlooks]);
 
-  // Reopen with remaining tokens
-  const handleSellAndReopen = useCallback(() => {
+      // Update session stats
+      const hits = simResults.filter((r) => metricRarities.has(r.rarity));
+      const luckiest = hits.length > 0
+        ? hits.reduce((best, r) =>
+            RARITY_ORDER.indexOf(r.rarity) < RARITY_ORDER.indexOf(best.rarity) ? r : best,
+          )
+        : null;
+
+      setSessionStats((prev) => ({
+        totalPacks: prev.totalPacks + simResults.length,
+        totalTokensSpent: prev.totalTokensSpent + cost,
+        totalHits: prev.totalHits + hits.length,
+        luckiestPull:
+          !prev.luckiestPull
+            ? luckiest
+            : luckiest && RARITY_ORDER.indexOf(luckiest.rarity) < RARITY_ORDER.indexOf(prev.luckiestPull.rarity)
+              ? luckiest
+              : prev.luckiestPull,
+        simulationCount: prev.simulationCount + 1,
+      }));
+    }, 300);
+  }, [selectedPack, pack, tokens, dupesEnabled, ownedBlooks, metricRarities]);
+
+  // Sell dupes only & reopen
+  const handleSellDupesAndReopen = useCallback(() => {
     setTokens(remainingTokens);
     setResults(null);
     setSimPackId(null);
+    setRevealedCount(0);
   }, [remainingTokens]);
+
+  // Sell ALL blooks & reopen — sells everything for maximum token recovery
+  const handleSellAllAndReopen = useCallback(() => {
+    if (!results) return;
+    const allSellValue = results.reduce((sum, r) => sum + r.sellValue, 0);
+    const cost = results.length * (simPack?.costPerPull ?? 0);
+    const allInTokens = Math.max(0, originalTokens - cost + allSellValue);
+    setTokens(allInTokens);
+    setResults(null);
+    setSimPackId(null);
+    setRevealedCount(0);
+  }, [results, simPack, originalTokens]);
 
   // Simulate again with original tokens
   const handleSimulateAgain = useCallback(() => {
     setTokens(originalTokens);
     setResults(null);
     setSimPackId(null);
+    setRevealedCount(0);
   }, [originalTokens]);
 
   // Back to configuration
@@ -227,15 +346,24 @@ export default function SimulateTab() {
     if (remainingTokens > 0) setTokens(remainingTokens);
     setResults(null);
     setSimPackId(null);
+    setRevealedCount(0);
   }, [remainingTokens]);
 
-  // Full reset
+  // Full reset (including session)
   const handleReset = useCallback(() => {
     setResults(null);
     setSimPackId(null);
     setOwnedBlooks(new Set());
     setRemainingTokens(0);
     setOriginalTokens(0);
+    setRevealedCount(0);
+    setSessionStats({
+      totalPacks: 0,
+      totalTokensSpent: 0,
+      totalHits: 0,
+      luckiestPull: null,
+      simulationCount: 0,
+    });
   }, []);
 
   // Stats from results
@@ -250,7 +378,24 @@ export default function SimulateTab() {
     return { hits, dupes: dupeItems, dupeRefund, newBlooks, totalSellValue, cost };
   }, [results, metricRarities, simPack]);
 
+  // Per-rarity expected vs actual
+  const rarityComparison = useMemo(() => {
+    if (!results || !simPack) return null;
+    const pullCount = results.length;
+    return RARITY_ORDER.map((rarity) => {
+      const rate = getRarityRate(simPack.id, rarity);
+      const expected = rate * pullCount;
+      const actual = results.filter((r) => r.rarity === rarity).length;
+      const chance = calculateAtLeastOneSuccess(rate, pullCount);
+      return { rarity, rate, expected, actual, chance };
+    }).filter((r) => r.rate > 0);
+  }, [results, simPack]);
+
   const canReopen = simPack && remainingTokens >= simPack.costPerPull;
+  const sellAllTokens = results && resultStats
+    ? Math.max(0, originalTokens - resultStats.cost + resultStats.totalSellValue)
+    : 0;
+  const canSellAllReopen = simPack && sellAllTokens >= simPack.costPerPull;
   const canSimulate = tokens >= pack.costPerPull;
   const pullCount = canSimulate
     ? Math.floor(calculateOpenCount(tokens, pack, dupesEnabled))
@@ -270,7 +415,7 @@ export default function SimulateTab() {
 
     return (
       <div className="space-y-4 animate-in">
-        {/* Back button + pack header */}
+        {/* Back button + pack header + sound toggle */}
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -295,6 +440,14 @@ export default function SimulateTab() {
           <span className="ml-auto text-sm text-slate-500">
             {results.length} opens
           </span>
+          <button
+            type="button"
+            onClick={() => setSoundEnabled(!soundEnabled)}
+            className="rounded-lg p-1.5 text-slate-500 hover:text-white transition-colors"
+            title={soundEnabled ? "Mute sounds" : "Enable sounds"}
+          >
+            {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+          </button>
         </div>
 
         {/* Token summary */}
@@ -363,7 +516,7 @@ export default function SimulateTab() {
           </div>
         )}
 
-        {/* Blook grid */}
+        {/* Per-blook results — name + rarity, staggered reveal */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <p className="text-sm font-semibold text-white">Your pulls</p>
@@ -377,101 +530,185 @@ export default function SimulateTab() {
               </span>
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {results.map((item, i) => {
               const isHit = metricRarities.has(item.rarity);
+              const isRevealed = i < revealedCount;
               return (
                 <div
                   key={`${item.id}-${i}`}
-                  className={`relative h-12 w-12 overflow-hidden rounded-lg border-2 transition-all ${
-                    isHit
-                      ? `${RARITY_BORDER[item.rarity]} ${RARITY_BG[item.rarity]} shadow-[0_0_12px_rgba(251,191,36,0.3)] scale-105 z-10`
-                      : item.isNew
-                        ? `border-white/10 ${RARITY_BG[item.rarity]}`
-                        : "border-white/5 bg-white/[0.02] opacity-40"
+                  className={`flex items-center gap-2 rounded-lg border px-2 py-2 sm:py-1.5 transition-all duration-200 ${
+                    !isRevealed
+                      ? "border-white/5 bg-white/[0.01] opacity-0 scale-95"
+                      : isHit
+                        ? `${RARITY_BORDER[item.rarity]} ${RARITY_BG[item.rarity]} shadow-[0_0_12px_rgba(251,191,36,0.2)] opacity-100 scale-100`
+                        : item.isNew
+                          ? `border-white/10 ${RARITY_BG[item.rarity]} opacity-100 scale-100`
+                          : "border-white/5 bg-white/[0.02] opacity-50 scale-100"
                   }`}
-                  title={`${item.name} (${item.rarity})${item.isNew ? " - NEW" : " - dupe"}`}
                 >
-                  {item.imageUrl && (
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.name}
-                      fill
-                      sizes="48px"
-                      className={`object-cover ${isHit ? "brightness-110 saturate-150" : "brightness-[0.6]"}`}
-                    />
-                  )}
-                  {isHit && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400 text-[8px] font-black text-black shadow-md">
-                      ★
-                    </span>
-                  )}
-                  {item.isNew && !isHit && (
-                    <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-emerald-400 text-[6px] font-black text-black">
-                      N
-                    </span>
-                  )}
+                  <div className="relative h-8 w-8 sm:h-7 sm:w-7 shrink-0 overflow-hidden rounded">
+                    {item.imageUrl && isRevealed && (
+                      <Image
+                        src={item.imageUrl}
+                        alt={item.name}
+                        fill
+                        sizes="28px"
+                        className={`object-cover ${isHit ? "brightness-110 saturate-150" : "brightness-[0.7]"}`}
+                      />
+                    )}
+                    {!isRevealed && (
+                      <div className="h-full w-full bg-white/5 animate-pulse rounded" />
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className={`text-xs sm:text-[11px] font-semibold truncate ${isHit ? RARITY_COLORS[item.rarity] : "text-white/60"}`}>
+                      {isRevealed ? item.name : "???"}
+                    </p>
+                    <div className="flex items-center gap-1">
+                      <span className={`h-1.5 w-1.5 rounded-full ${RARITY_DOT[item.rarity]}`} />
+                      <span className={`text-[10px] sm:text-[9px] ${RARITY_COLORS[item.rarity]}`}>
+                        {isRevealed ? item.rarity : ""}
+                      </span>
+                      {item.isNew && isRevealed && (
+                        <span className="text-[9px] sm:text-[8px] font-bold text-emerald-400">NEW</span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Rarity breakdown */}
-        <div className="space-y-1">
-          {(
-            ["Chroma", "Legendary", "Epic", "Rare", "Uncommon", "Common"] as Rarity[]
-          ).map((rarity) => {
-            const count = results.filter((r) => r.rarity === rarity).length;
-            if (count === 0) return null;
-            const pct = (count / results.length) * 100;
-            return (
-              <div
-                key={rarity}
-                className="flex items-center gap-2 rounded-lg px-3 py-1.5 bg-white/[0.02]"
-              >
-                <span
-                  className={`h-2 w-2 rounded-full shrink-0 ${RARITY_DOT[rarity]}`}
-                />
-                <span
-                  className={`text-xs font-semibold w-20 ${RARITY_COLORS[rarity]}`}
+        {/* Rarity breakdown — expected vs actual */}
+        {rarityComparison && (
+          <div className="space-y-1">
+            <div className="flex items-center justify-between mb-1">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Rarity breakdown</p>
+              <p className="text-[10px] text-slate-600">expected → actual</p>
+            </div>
+            {rarityComparison.map(({ rarity, expected, actual, chance }) => {
+              const maxVal = Math.max(expected, actual, 1);
+              const pct = (actual / maxVal) * 100;
+              const expectedPct = (expected / maxVal) * 100;
+              return (
+                <div
+                  key={rarity}
+                  className="flex items-center gap-1.5 sm:gap-2 rounded-lg px-2 sm:px-3 py-1.5 bg-white/[0.02]"
                 >
-                  {rarity}
-                </span>
-                <div className="flex-1 h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${RARITY_DOT[rarity]}`}
-                    style={{ width: `${pct}%` }}
+                  <span
+                    className={`h-2 w-2 rounded-full shrink-0 ${RARITY_DOT[rarity]}`}
                   />
+                  <span
+                    className={`text-[11px] sm:text-xs font-semibold w-14 sm:w-20 ${RARITY_COLORS[rarity]}`}
+                  >
+                    {rarity}
+                  </span>
+                  <div className="flex-1 h-1.5 rounded-full bg-white/[0.06] overflow-hidden relative">
+                    <div
+                      className="absolute h-full rounded-full bg-white/10"
+                      style={{ width: `${expectedPct}%` }}
+                    />
+                    <div
+                      className={`h-full rounded-full ${RARITY_DOT[rarity]} relative z-10`}
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                  <span className="text-[10px] text-slate-500 w-14 sm:w-16 text-right tabular-nums">
+                    {expected.toFixed(1)}→{actual}
+                  </span>
+                  <span className={`text-[10px] font-semibold w-10 sm:w-12 text-right ${chance >= 0.5 ? "text-emerald-400" : "text-slate-500"}`}>
+                    {formatPercent(chance)}
+                  </span>
                 </div>
-                <span className="text-xs font-bold text-slate-500 w-6 text-right">
-                  {count}
+              );
+            })}
+          </div>
+        )}
+
+        {/* Session stats */}
+        {sessionStats.simulationCount > 0 && (
+          <div className="rounded-xl border border-violet-400/20 bg-violet-400/[0.04] p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <BarChart3 className="h-4 w-4 text-violet-400" />
+              <span className="text-xs font-bold uppercase tracking-wider text-violet-300">
+                Session stats
+              </span>
+              <span className="ml-auto text-[10px] text-slate-600">
+                {sessionStats.simulationCount} sim{sessionStats.simulationCount !== 1 ? "s" : ""}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div>
+                <p className="text-base sm:text-lg font-bold text-white">{sessionStats.totalPacks.toLocaleString()}</p>
+                <p className="text-[9px] sm:text-[10px] text-slate-500">Packs opened</p>
+              </div>
+              <div>
+                <p className="text-base sm:text-lg font-bold text-red-400">{sessionStats.totalTokensSpent.toLocaleString()}</p>
+                <p className="text-[9px] sm:text-[10px] text-slate-500">Tokens spent</p>
+              </div>
+              <div>
+                <p className="text-base sm:text-lg font-bold text-amber-400">{sessionStats.totalHits}</p>
+                <p className="text-[9px] sm:text-[10px] text-slate-500">{metricLabel} hits</p>
+              </div>
+            </div>
+            {sessionStats.luckiestPull && (
+              <div className="mt-2 flex items-center gap-2 rounded-lg bg-white/[0.02] px-2 py-1">
+                <Trophy className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                <span className="text-xs text-slate-400">Luckiest:</span>
+                <span className={`text-xs font-bold ${RARITY_COLORS[sessionStats.luckiestPull.rarity]}`}>
+                  {sessionStats.luckiestPull.name}
+                </span>
+                <span className={`text-[10px] ${RARITY_COLORS[sessionStats.luckiestPull.rarity]}`}>
+                  ({sessionStats.luckiestPull.rarity})
                 </span>
               </div>
-            );
-          })}
-        </div>
+            )}
+          </div>
+        )}
 
         {/* Action buttons */}
         <div className="space-y-2">
-          {canReopen && (
-            <button
-              type="button"
-              onClick={handleSellAndReopen}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98] transition-all"
-            >
-              <Sparkles className="h-4 w-4" />
-              {dupesEnabled ? "Sell dupes & reopen" : "Reopen"} (
-              {remainingTokens.toLocaleString()} tkn left)
-            </button>
-          )}
+          <button
+            type="button"
+            disabled={!canReopen}
+            onClick={handleSellDupesAndReopen}
+            className={`w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-5 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all ${
+              canReopen
+                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
+                : "border border-white/10 bg-white/[0.02] text-slate-600 cursor-not-allowed"
+            }`}
+          >
+            <Sparkles className="h-4 w-4 shrink-0" />
+            <span className="truncate">Sell dupes & reopen ({remainingTokens.toLocaleString()} tkn)</span>
+          </button>
+          <button
+            type="button"
+            disabled={!canSellAllReopen}
+            onClick={handleSellAllAndReopen}
+            className={`w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-5 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all ${
+              canSellAllReopen
+                ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-500/20 hover:brightness-110 active:scale-[0.98]"
+                : "border border-white/10 bg-white/[0.02] text-slate-600 cursor-not-allowed"
+            }`}
+          >
+            <RotateCw className="h-4 w-4 shrink-0" />
+            <span className="truncate">Sell all & reopen ({sellAllTokens.toLocaleString()} tkn)</span>
+          </button>
           <button
             type="button"
             onClick={handleSimulateAgain}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-semibold uppercase tracking-wider text-slate-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white"
+            className="w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white"
           >
-            <RotateCw className="h-4 w-4" /> Simulate Again (
-            {originalTokens.toLocaleString()} tokens)
+            <RotateCw className="h-4 w-4 shrink-0" /> <span className="truncate">Simulate Again ({originalTokens.toLocaleString()} tkn)</span>
+          </button>
+          <button
+            type="button"
+            onClick={handleBack}
+            className="w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0" /> Back to pack picker
           </button>
           <button
             type="button"
@@ -577,7 +814,7 @@ export default function SimulateTab() {
               type="button"
               onClick={() => setTokens(Math.max(0, tokens - 1))}
               aria-label="Decrease tokens by 1"
-              className="cyber-ghost inline-flex h-14 w-14 shrink-0 items-center justify-center"
+              className="cyber-ghost inline-flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center"
             >
               <Minus className="h-5 w-5" />
             </button>
@@ -590,14 +827,14 @@ export default function SimulateTab() {
               onChange={(event) =>
                 setTokens(Math.max(0, Number(event.target.value) || 0))
               }
-              className="cyber-mono w-full rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3.5 text-center text-3xl font-semibold text-white outline-none focus:border-cyan-400/50"
+              className="cyber-mono w-full rounded-xl border border-white/10 bg-white/[0.02] px-2 sm:px-3 py-3 sm:py-3.5 text-center text-2xl sm:text-3xl font-semibold text-white outline-none focus:border-cyan-400/50"
               aria-label="Tokens"
             />
             <button
               type="button"
               onClick={() => setTokens(tokens + 1)}
               aria-label="Increase tokens by 1"
-              className="cyber-ghost inline-flex h-14 w-14 shrink-0 items-center justify-center"
+              className="cyber-ghost inline-flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center"
             >
               <Plus className="h-5 w-5" />
             </button>
@@ -675,7 +912,7 @@ export default function SimulateTab() {
           <div className="space-y-4">
             {/* Probability preview */}
             <div className="text-center">
-              <p className="cyber-display cyber-glow-cyan text-7xl text-cyan-300 sm:text-8xl" style={{ lineHeight: 1 }}>
+              <p className="cyber-display cyber-glow-cyan text-5xl sm:text-7xl md:text-8xl text-cyan-300" style={{ lineHeight: 1 }}>
                 {formatPercent(probability)}
               </p>
               <p className="cyber-mono mt-3 text-xs uppercase tracking-[0.22em] text-slate-300">
@@ -700,7 +937,7 @@ export default function SimulateTab() {
               type="button"
               disabled={isSimulating}
               onClick={handleSimulate}
-              className={`w-full inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-all ${
+              className={`w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all ${
                 isSimulating
                   ? "border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
                   : "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
