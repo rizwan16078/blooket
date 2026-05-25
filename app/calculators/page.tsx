@@ -87,6 +87,14 @@ const calculators: CalculatorCard[] = [
     keywords: ["chase probability", "specific blook odds", "target blook"],
     icon: "🎯",
   },
+  {
+    title: "Token Grinder Calculator",
+    description:
+      "Find the fastest way to earn daily Blooket tokens. Compare gamemodes, estimate time needed, and optimize your grinding strategy.",
+    href: "/calculators/token-grinder",
+    keywords: ["token grinder", "daily tokens", "fastest tokens", "grind"],
+    icon: "⚡",
+  },
 ];
 
 export default function CalculatorsPage() {
@@ -105,7 +113,7 @@ export default function CalculatorsPage() {
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
             All Blooket Calculators
             <span className="mt-2 block text-xl font-medium text-violet-300">
-              One hub, five tools, zero guesswork
+              One hub, six tools, zero guesswork
             </span>
           </h1>
           <p className="max-w-3xl text-base leading-8 text-white/50">

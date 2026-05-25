@@ -46,6 +46,12 @@ const CALCULATOR_LINKS = [
     label: "Chase Calculator",
     description: "Tokens needed for any blook",
   },
+  {
+    href: "/calculators/token-grinder",
+    icon: "⚡",
+    label: "Token Grinder",
+    description: "Fastest way to earn daily tokens",
+  },
 ];
 
 const GAME_LINKS = [
