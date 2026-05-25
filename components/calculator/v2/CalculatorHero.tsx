@@ -296,15 +296,7 @@ export default function CalculatorHero() {
               onClear={() => setTargetBlookId(null)}
             />
           ) : activeTab === "simulate" ? (
-            <SimulateTab
-              packSlug={packSlug}
-              tokens={tokens}
-              dupesEnabled={dupesEnabled}
-              onDupesChange={setDupesEnabled}
-              onPackChange={handlePackChange}
-              onTokensChange={handleTokensChange}
-              metric={metric}
-            />
+            <SimulateTab />
           ) : (
             <StubTab
               title={STUB_CONTENT[activeTab].title}
