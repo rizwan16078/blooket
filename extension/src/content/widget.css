@@ -1,0 +1,25 @@
+/* CSS isolation for the floating widget on blooket.com */
+#blooket-calc-widget,
+#blooket-calc-widget * {
+  all: revert;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  line-height: 1.4;
+}
+
+#blooket-calc-widget input,
+#blooket-calc-widget select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#blooket-calc-widget input[type="number"]::-webkit-inner-spin-button,
+#blooket-calc-widget input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#blooket-calc-widget select option {
+  background: #0a0e1a;
+  color: white;
+}
