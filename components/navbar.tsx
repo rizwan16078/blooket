@@ -52,6 +52,7 @@ const NAV_ITEMS = [
   { href: "/packs", label: "Packs" },
   { href: "/blooks", label: "Blooks" },
   { href: "/guides", label: "Guides" },
+  { href: "/games", label: "Games" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -180,6 +181,20 @@ export default function Navbar() {
                       );
                     })}
                   </div>
+
+                  <div className="border-t border-white/[0.06] p-2">
+                    <Link
+                      href="/calculators"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center justify-center gap-2 rounded-xl p-3 text-sm font-semibold text-violet-300 transition-colors hover:bg-violet-500/10 hover:text-violet-200"
+                    >
+                      View All Calculators
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -282,6 +297,18 @@ export default function Navbar() {
                   )}
                 </Link>
               ))}
+
+              <Link
+                href="/calculators"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border border-violet-500/20 bg-violet-500/5 px-3 py-2.5 text-sm font-semibold text-violet-300 transition hover:bg-violet-500/10"
+              >
+                View All Calculators
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
 
               <p className="px-3 pt-4 pb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-violet-400">
                 Browse
