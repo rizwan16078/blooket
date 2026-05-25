@@ -12,7 +12,7 @@ import type {
   SimulationWorkerOutput,
 } from "@/types";
 
-import { MonoLabel, SubPanel, Tooltip } from "./parts";
+import { SubPanel } from "./parts";
 
 /* ─── Constants ──────────────────────────────────────────────────── */
 
@@ -21,6 +21,12 @@ const ITERATION_OPTIONS = [
   { value: 5000, label: "5K" },
   { value: 10000, label: "10K" },
   { value: 50000, label: "50K" },
+] as const;
+
+const TRENDING_PACKS = [
+  { slug: "safari" as PackSlug, label: "Hunt Rainbow Panda", sub: "0.02% Chroma — Safari Pack" },
+  { slug: "ice-monster" as PackSlug, label: "3 Chromas in one pack", sub: "Ice Monster — best Chroma odds" },
+  { slug: "space" as PackSlug, label: "Colored Astronauts", sub: "7 rotating Chromas — Space Pack" },
 ] as const;
 
 const RARITY_COLORS: Record<Rarity, string> = {
@@ -38,6 +44,9 @@ type Props = {
   packSlug: PackSlug;
   tokens: number;
   dupesEnabled: boolean;
+  onDupesChange: (value: boolean) => void;
+  onPackChange?: (slug: PackSlug) => void;
+  onTokensChange?: (tokens: number) => void;
   metric: "epicPlus" | "legendary" | "chroma";
 };
 
@@ -61,6 +70,9 @@ export default function SimulateTab({
   packSlug,
   tokens,
   dupesEnabled,
+  onDupesChange,
+  onPackChange,
+  onTokensChange,
   metric,
 }: Props) {
   const pack = getPackById(packSlug);
@@ -110,18 +122,118 @@ export default function SimulateTab({
     ? result.targetHitCount / result.totalIterations
     : null;
 
+  const packOpens = Math.floor(tokens / pack.costPerPull);
+
   return (
     <div className="space-y-5">
+      {/* ─── Empty state: trending quick-start ─────────────── */}
+      {tokens <= 0 && !isRunning && !result && (
+        <SubPanel className="space-y-4 text-center">
+          <div>
+            <p className="text-lg font-bold text-white">Try a popular chase</p>
+            <p className="mt-1 text-xs text-slate-400">Set tokens and pick a pack to simulate opens</p>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            {TRENDING_PACKS.map((t) => {
+              const tPack = getPackById(t.slug);
+              return (
+                <button
+                  key={t.slug}
+                  type="button"
+                  onClick={() => {
+                    onPackChange?.(t.slug);
+                    onTokensChange?.(tPack.costPerPull * 50);
+                  }}
+                  className="group rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04]"
+                >
+                  <p className="text-sm font-semibold text-white group-hover:text-cyan-200 transition">
+                    {t.label}
+                  </p>
+                  <p className="mt-0.5 text-[11px] text-slate-500">
+                    {t.sub}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </SubPanel>
+      )}
+
       {/* ─── Controls ──────────────────────────────────────── */}
       <SubPanel className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <MonoLabel>
-            Iterations
-            <Tooltip content="More iterations = more accurate results, but takes longer">
-              <HelpDot />
-            </Tooltip>
-          </MonoLabel>
-          <div className="flex gap-1.5">
+        {/* Resell toggle — competitors all have this */}
+        <button
+          type="button"
+          onClick={() => onDupesChange(!dupesEnabled)}
+          className={`flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition ${
+            dupesEnabled
+              ? "border-emerald-400/30 bg-emerald-400/[0.06]"
+              : "border-white/10 bg-white/[0.02] hover:border-white/15"
+          }`}
+        >
+          <div>
+            <p className="text-sm font-semibold text-white">
+              Sell duplicates for tokens
+            </p>
+            <p className="mt-0.5 text-xs text-slate-400">
+              {dupesEnabled
+                ? "Simulates selling dupes back — more pack opens"
+                : "Off — each pack costs the full price"
+              }
+            </p>
+          </div>
+          <span
+            className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition ${
+              dupesEnabled ? "bg-emerald-500" : "bg-white/10"
+            }`}
+          >
+            <span
+              className={`inline-block h-4 w-4 rounded-full bg-white shadow-sm transition ${
+                dupesEnabled ? "translate-x-6" : "translate-x-1"
+              }`}
+            />
+          </span>
+        </button>
+
+        {/* Main CTA */}
+        <button
+          type="button"
+          disabled={!canRun || isRunning}
+          onClick={runSimulation}
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-base font-bold uppercase tracking-wider transition ${
+            !canRun
+              ? "cursor-not-allowed border border-white/5 bg-white/[0.02] text-slate-600"
+              : isRunning
+                ? "border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
+                : "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
+          }`}
+        >
+          {isRunning ? (
+            <>
+              <RotateCw className="h-5 w-5 animate-spin" /> Simulating…
+            </>
+          ) : (
+            <>
+              <Play className="h-5 w-5" /> Simulate {packOpens > 0 ? `${packOpens} Opens` : "Pack Opens"}
+            </>
+          )}
+        </button>
+
+        {!canRun && tokens > 0 && (
+          <p className="text-center text-xs text-slate-500">
+            Need at least {pack.costPerPull} tokens to open one pack
+          </p>
+        )}
+
+        {/* Collapsed iteration setting — advanced users only */}
+        <details className="group">
+          <summary className="cyber-mono cursor-pointer list-none text-[11px] uppercase tracking-[0.2em] text-slate-500 hover:text-slate-300 transition">
+            <span className="inline-flex items-center gap-1.5">
+              <svg className="h-3 w-3 transition group-open:rotate-90" viewBox="0 0 16 16" fill="currentColor"><path d="M6 4l4 4-4 4" /></svg>
+              Accuracy: {iterations.toLocaleString()} runs
+            </span>
+          </summary>
+          <div className="mt-2 flex gap-1.5">
             {ITERATION_OPTIONS.map((opt) => (
               <button
                 key={opt.value}
@@ -137,70 +249,49 @@ export default function SimulateTab({
               </button>
             ))}
           </div>
-        </div>
-
-        <button
-          type="button"
-          disabled={!canRun || isRunning}
-          onClick={runSimulation}
-          className={`cyber-ghost inline-flex w-full items-center justify-center gap-2 rounded-xl border px-5 py-3 text-sm font-semibold uppercase tracking-wider transition ${
-            !canRun
-              ? "cursor-not-allowed border-white/5 text-slate-600"
-              : isRunning
-                ? "border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
-                : "border-cyan-400/40 bg-cyan-400/15 text-cyan-200 hover:bg-cyan-400/25"
-          }`}
-        >
-          {isRunning ? (
-            <>
-              <RotateCw className="h-4 w-4 animate-spin" /> Running…
-            </>
-          ) : (
-            <>
-              <Play className="h-4 w-4" /> Run {iterations.toLocaleString()} simulations
-            </>
-          )}
-        </button>
-
-        {!canRun && (
-          <p className="text-center text-xs text-slate-500">
-            Need at least {pack.costPerPull} tokens to open one pack
-          </p>
-        )}
+        </details>
       </SubPanel>
 
       {/* ─── Results ────────────────────────────────────────── */}
       {result && (
         <>
-          {/* Big probability */}
+          {/* Big probability — hero result */}
           <SubPanel className="text-center">
-            <MonoLabel>Simulated chance for {metric === "epicPlus" ? "Epic+" : metric}</MonoLabel>
-            <p className="cyber-display cyber-glow-cyan mt-2 text-6xl text-cyan-300 sm:text-7xl">
+            <p className="cyber-mono text-xs uppercase tracking-[0.22em] text-slate-400">
+              Chance of getting {metric === "epicPlus" ? "Epic+" : metric}
+            </p>
+            <p className="cyber-display cyber-glow-cyan mt-2 text-7xl text-cyan-300 sm:text-8xl">
               {simProbability !== null ? formatPercent(simProbability) : "—"}
             </p>
-            <p className="cyber-mono mt-2 text-xs uppercase tracking-wider text-slate-400">
-              {result.targetHitCount.toLocaleString()} / {result.totalIterations.toLocaleString()} runs hit target
+            <p className="cyber-mono mt-3 text-xs uppercase tracking-wider text-slate-400">
+              across {Math.floor(tokens / pack.costPerPull)} pack opens
             </p>
           </SubPanel>
 
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-3">
+          {/* Stats row — plain English, stacks on mobile */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <SubPanel className="text-center">
-              <MonoLabel>Avg refund</MonoLabel>
+              <p className="cyber-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                Avg tokens back
+              </p>
               <p className="cyber-mono mt-1 text-lg font-semibold text-white">
                 {Math.round(result.expectedTokens).toLocaleString()}
               </p>
-              <p className="text-[10px] text-slate-500">tokens back</p>
+              <p className="text-[10px] text-slate-500">from selling dupes</p>
             </SubPanel>
             <SubPanel className="text-center">
-              <MonoLabel>Best case (P10)</MonoLabel>
+              <p className="cyber-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                Lucky run (top 10%)
+              </p>
               <p className="cyber-mono mt-1 text-lg font-semibold text-emerald-300">
                 {Math.round(result.p10BestCase).toLocaleString()}
               </p>
               <p className="text-[10px] text-slate-500">tokens back</p>
             </SubPanel>
             <SubPanel className="text-center">
-              <MonoLabel>Worst case (P90)</MonoLabel>
+              <p className="cyber-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                Unlucky run (90% beat this)
+              </p>
               <p className="cyber-mono mt-1 text-lg font-semibold text-orange-300">
                 {Math.round(result.p90WorstCase).toLocaleString()}
               </p>
@@ -212,28 +303,30 @@ export default function SimulateTab({
           <SubPanel className="space-y-3">
             <div className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-cyan-300" />
-              <MonoLabel>Refund distribution</MonoLabel>
+              <p className="cyber-mono text-xs uppercase tracking-[0.18em] text-slate-400">
+                Tokens back distribution
+              </p>
             </div>
             <HistogramChart bins={result.histogramBins} />
           </SubPanel>
 
           {/* Sample run grid */}
           <SubPanel className="space-y-3">
-            <MonoLabel>Sample run — your {Math.floor(tokens / pack.costPerPull)} opens</MonoLabel>
+            <p className="cyber-mono text-xs uppercase tracking-[0.18em] text-slate-400">
+              Your {Math.floor(tokens / pack.costPerPull)} opens — sample result
+            </p>
             <SampleRunGrid items={result.simulatedRun} metricRarities={metricRarities} />
           </SubPanel>
 
-          {/* Rerun button */}
-          {result.rerunAllowed && (
-            <button
-              type="button"
-              onClick={runSimulation}
-              disabled={isRunning}
-              className="cyber-ghost inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/20 hover:text-white"
-            >
-              <RotateCw className="h-3.5 w-3.5" /> Rerun simulation
-            </button>
-          )}
+          {/* Rerun button — always available */}
+          <button
+            type="button"
+            onClick={runSimulation}
+            disabled={isRunning}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/20 hover:text-white"
+          >
+            <RotateCw className="h-4 w-4" /> Try Again
+          </button>
         </>
       )}
     </div>
@@ -241,20 +334,6 @@ export default function SimulateTab({
 }
 
 /* ─── Sub-components ───────────────────────────────────────────────── */
-
-function HelpDot() {
-  return (
-    <span
-      tabIndex={0}
-      aria-label="More info"
-      className="inline-flex h-3.5 w-3.5 cursor-help items-center justify-center rounded-full text-cyan-400/60 hover:text-cyan-400 focus:text-cyan-400 focus:outline-none"
-    >
-      <svg viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3">
-        <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 10.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM8 3.5c.69 0 1.25.56 1.25 1.25 0 .5-.3.93-.73 1.12-.58.26-1.02.82-1.02 1.48v.15h1.5v-.15c0-.23.14-.43.35-.52A2.75 2.75 0 008 3.5z" />
-      </svg>
-    </span>
-  );
-}
 
 function HistogramChart({ bins }: { bins: [number, number][] }) {
   if (bins.length === 0) return null;
@@ -294,42 +373,60 @@ function SampleRunGrid({
   items: Blook[] | { id: string; name: string; rarity: Rarity; imageUrl: string }[];
   metricRarities: Set<Rarity>;
 }) {
-  const displayItems = items.slice(0, 50); // Cap display for performance
+  const displayItems = items.slice(0, 60);
+  const hitCount = displayItems.filter((item) => metricRarities.has(item.rarity)).length;
+
   return (
-    <div className="flex flex-wrap gap-1.5">
-      {displayItems.map((item, i) => {
-        const isHit = metricRarities.has(item.rarity);
-        return (
-          <div
-            key={`${item.id}-${i}`}
-            className={`relative h-8 w-8 overflow-hidden rounded-md border transition ${
-              isHit
-                ? "border-amber-400/60 ring-1 ring-amber-400/30"
-                : "border-white/5"
-            }`}
-            title={`${item.name} (${item.rarity})`}
-          >
-            {"imageUrl" in item && item.imageUrl && (
-              <Image
-                src={item.imageUrl}
-                alt={item.name}
-                fill
-                sizes="32px"
-                className="object-cover"
-              />
-            )}
-            {/* Rarity dot indicator */}
-            <span
-              className={`absolute bottom-0 right-0 h-1.5 w-1.5 rounded-tl-sm ${RARITY_COLORS[item.rarity] ?? "bg-slate-400"}`}
-            />
-          </div>
-        );
-      })}
-      {items.length > 50 && (
-        <div className="flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-white/[0.02] text-[10px] text-slate-400">
-          +{items.length - 50}
-        </div>
+    <div className="space-y-3">
+      {hitCount > 0 && (
+        <p className="text-xs font-semibold text-emerald-300">
+          {hitCount} {hitCount === 1 ? "hit" : "hits"} in this run
+        </p>
       )}
+      <div className="flex flex-wrap gap-2">
+        {displayItems.map((item, i) => {
+          const isHit = metricRarities.has(item.rarity);
+          return (
+            <div
+              key={`${item.id}-${i}`}
+              className={`relative h-10 w-10 overflow-hidden rounded-lg border transition-all ${
+                isHit
+                  ? "border-amber-400/60 ring-2 ring-amber-400/30 shadow-[0_0_8px_rgba(251,191,36,0.25)]"
+                  : "border-white/5"
+              }`}
+              style={{
+                animation: `fadeSlideIn 0.3s ease-out ${Math.min(i * 0.02, 0.8)}s both`,
+              }}
+              title={`${item.name} (${item.rarity})`}
+            >
+              {"imageUrl" in item && item.imageUrl && (
+                <Image
+                  src={item.imageUrl}
+                  alt={item.name}
+                  fill
+                  sizes="40px"
+                  className={`object-cover ${isHit ? "brightness-110" : "brightness-75"}`}
+                />
+              )}
+              {/* Rarity dot indicator */}
+              <span
+                className={`absolute bottom-0 right-0 h-2 w-2 rounded-tl-sm ${RARITY_COLORS[item.rarity] ?? "bg-slate-400"}`}
+              />
+              {/* Hit sparkle overlay */}
+              {isHit && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-amber-400 text-[7px] font-black text-black shadow-sm">
+                  ★
+                </span>
+              )}
+            </div>
+          );
+        })}
+        {items.length > 60 && (
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.02] text-[10px] text-slate-400">
+            +{items.length - 60}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

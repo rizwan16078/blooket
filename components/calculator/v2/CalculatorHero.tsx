@@ -144,8 +144,11 @@ export default function CalculatorHero() {
   const [tokens, setTokens] = useLocalStorage<number>("blooket-v2-tokens", 0, {
     initializeWithValue: false,
   });
-  const dupesEnabled = false; // Default off — matches iBlooket's default.
-  // Users can enable resell mode for a more optimistic (higher) probability.
+  const [dupesEnabled, setDupesEnabled] = useLocalStorage<boolean>(
+    "blooket-v2-dupes",
+    false,
+    { initializeWithValue: false },
+  );
   const [metric, setMetric] = useLocalStorage<
     "epicPlus" | "legendary" | "chroma"
   >("blooket-v2-metric", "legendary", { initializeWithValue: false });
@@ -297,6 +300,9 @@ export default function CalculatorHero() {
               packSlug={packSlug}
               tokens={tokens}
               dupesEnabled={dupesEnabled}
+              onDupesChange={setDupesEnabled}
+              onPackChange={handlePackChange}
+              onTokensChange={handleTokensChange}
               metric={metric}
             />
           ) : (
