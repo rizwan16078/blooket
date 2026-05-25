@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useState, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, RotateCw, Sparkles, Minus, Plus } from "lucide-react";
+import { ArrowLeft, ChevronDown, Minus, Plus, RotateCw, Sparkles } from "lucide-react";
 
 import { formatPercent } from "@/lib/calculator-v2";
 import {
@@ -17,7 +17,13 @@ import {
   PACKS,
   type PackSlug,
 } from "@/lib/packs";
+import {
+  METRIC_REQUIRED_RARITY,
+  packHasRarity,
+} from "@/lib/blook-probabilities";
 import type { Blook, Rarity } from "@/types";
+
+import { MonoLabel, SubPanel } from "./parts";
 
 /* ─── Rarity visual config ─── */
 
@@ -57,9 +63,23 @@ const RARITY_DOT: Record<Rarity, string> = {
   Chroma: "bg-purple-400",
 };
 
+/* ─── Constants ─── */
+
 type OddsMetric = "epicPlus" | "legendary" | "chroma";
 
-const TOKEN_PRESETS = [0, 25, 50, 75, 100] as const;
+const METRIC_LABEL: Record<OddsMetric, string> = {
+  epicPlus: "Epic+",
+  legendary: "Legendary",
+  chroma: "Chroma",
+};
+
+const METRIC_OPTIONS: { key: OddsMetric; label: string }[] = [
+  { key: "epicPlus", label: "Epic+" },
+  { key: "legendary", label: "Legendary" },
+  { key: "chroma", label: "Chroma" },
+];
+
+const SLIDER_MAX = 100;
 
 /* ─── Types ─── */
 
@@ -132,13 +152,27 @@ export default function SimulateTab() {
 
   const pack = getPackById(selectedPack);
   const metricRarities = getMetricRarities(metric);
-  const metricLabel = metric === "epicPlus" ? "Epic+" : metric;
+  const metricLabel = METRIC_LABEL[metric];
   const simPack = simPackId ? getPackById(simPackId) : null;
-  const unlockedPacks = PACKS.filter(
-    (p) => !("isLocked" in p) || !(p as { isLocked?: boolean }).isLocked,
-  );
 
-  // Open the selected pack — this IS the simulate action
+  // Same impossibility guard as SimpleOddsView
+  const metricAvailability = useMemo(
+    () => ({
+      epicPlus: packHasRarity(pack.id, METRIC_REQUIRED_RARITY.epicPlus),
+      legendary: packHasRarity(pack.id, METRIC_REQUIRED_RARITY.legendary),
+      chroma: packHasRarity(pack.id, METRIC_REQUIRED_RARITY.chroma),
+    }),
+    [pack.id],
+  );
+  useEffect(() => {
+    if (!metricAvailability[metric]) {
+      if (metricAvailability.legendary) setMetric("legendary");
+      else if (metricAvailability.epicPlus) setMetric("epicPlus");
+      else if (metricAvailability.chroma) setMetric("chroma");
+    }
+  }, [metric, metricAvailability]);
+
+  // Open the selected pack
   const handleSimulate = useCallback(() => {
     if (!pack || tokens < pack.costPerPull) return;
 
@@ -451,232 +485,240 @@ export default function SimulateTab() {
     );
   }
 
-  /* ─── CONFIGURATION VIEW (default) ─── */
+  /* ─── CONFIGURATION VIEW (default) — same layout as SimpleOddsView ─── */
   return (
-    <div className="space-y-5">
-      {/* ─── Pack selector ─── */}
-      <div>
-        <label className="block text-sm font-semibold text-white mb-1">
-          Pack
-        </label>
-        <p className="text-xs text-slate-500 mb-2">
-          Pick which pack you want to open. Each pack has different drop rates.
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {unlockedPacks.map((p) => {
-            const isSelected = selectedPack === p.id;
-            return (
-              <button
-                key={p.id}
-                type="button"
-                onClick={() => setSelectedPack(p.id as PackSlug)}
-                className={`flex items-center gap-2 rounded-xl border p-2.5 text-left transition-all ${
-                  isSelected
-                    ? "border-cyan-400/40 bg-cyan-400/10 shadow-[0_0_12px_rgba(34,211,238,0.12)]"
-                    : "border-white/10 bg-white/[0.02] hover:border-white/20"
-                }`}
-              >
-                <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-lg">
-                  <Image
-                    src={p.imageUrl}
-                    alt={p.name}
-                    fill
-                    sizes="28px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p
-                    className={`text-xs font-bold truncate ${
-                      isSelected ? "text-cyan-200" : "text-white/70"
-                    }`}
-                  >
-                    {p.name}
-                  </p>
-                  <p className="text-[10px] text-slate-500">
-                    {p.costPerPull} tkn
-                  </p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ─── Target rarity ─── */}
-      <div>
-        <label className="block text-sm font-semibold text-white mb-1">
-          Target rarity
-        </label>
-        <p className="text-xs text-slate-500 mb-2">
-          Which rarity tier do you want to pull? Higher rarity = lower chance.
-        </p>
-        <div className="flex gap-2">
-          {(["epicPlus", "legendary", "chroma"] as OddsMetric[]).map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMetric(m)}
-              className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-all ${
-                metric === m
-                  ? "bg-violet-400/15 text-violet-200 border border-violet-400/40 shadow-[0_0_8px_rgba(139,92,246,0.15)]"
-                  : "bg-white/[0.02] text-slate-400 border border-white/[0.06] hover:text-white/70 hover:border-white/15"
-              }`}
-            >
-              {m === "epicPlus" ? "Epic+" : m === "legendary" ? "Legendary" : "Chroma"}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── Token input ─── */}
-      <div>
-        <label className="block text-sm font-semibold text-white mb-1">
-          How many tokens?
-        </label>
-        <p className="text-xs text-slate-500 mb-2">
-          How many tokens you have to spend on this pack. Use + / - to adjust
-          one at a time, or type directly.
-        </p>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setTokens(Math.max(0, tokens - pack.costPerPull))}
-            className="shrink-0 rounded-lg border border-white/10 bg-white/[0.02] p-2 text-slate-400 hover:text-white hover:border-white/20 transition"
-          >
-            <Minus className="h-4 w-4" />
-          </button>
-          <input
-            type="number"
-            value={tokens}
-            onChange={(e) =>
-              setTokens(Math.max(0, Number(e.target.value)))
-            }
-            className="flex-1 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-center text-2xl font-bold text-white placeholder:text-white/20 focus:border-violet-400/40 focus:outline-none transition"
-            min="0"
-            max="100000"
-            placeholder="0"
-          />
-          <button
-            type="button"
-            onClick={() => setTokens(tokens + pack.costPerPull)}
-            className="shrink-0 rounded-lg border border-white/10 bg-white/[0.02] p-2 text-slate-400 hover:text-white hover:border-white/20 transition"
-          >
-            <Plus className="h-4 w-4" />
-          </button>
-        </div>
-        {/* Token presets */}
-        <div className="flex gap-1.5 mt-2">
-          {TOKEN_PRESETS.map((v) => (
-            <button
-              key={v}
-              type="button"
-              onClick={() => setTokens(v === 100 ? 1000 : v)}
-              className={`flex-1 rounded-lg border px-2 py-1.5 text-xs font-semibold transition-all ${
-                tokens === (v === 100 ? 1000 : v)
-                  ? "border-violet-400/40 bg-violet-400/10 text-violet-300"
-                  : "border-white/[0.06] bg-white/[0.02] text-slate-500 hover:text-white"
-              }`}
-            >
-              {v === 100 ? "1K" : v}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── Resell toggle ─── */}
-      <button
-        type="button"
-        onClick={() => setDupesEnabled(!dupesEnabled)}
-        className={`flex items-center gap-2.5 rounded-lg border px-3 py-2 text-left transition ${
-          dupesEnabled
-            ? "border-emerald-400/30 bg-emerald-400/[0.06]"
-            : "border-white/10 bg-white/[0.02] hover:border-white/15"
-        }`}
-        title={
-          dupesEnabled
-            ? "Selling dupes for tokens = more opens"
-            : "Each pack costs full price"
-        }
-      >
-        <span
-          className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition ${
-            dupesEnabled ? "bg-emerald-500" : "bg-white/10"
-          }`}
-        >
-          <span
-            className={`inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm transition ${
-              dupesEnabled ? "translate-x-[18px]" : "translate-x-[3px]"
-            }`}
-          />
-        </span>
-        <span className="text-xs font-medium text-slate-300">Resell dupes</span>
-      </button>
-
-      {/* ─── Simulate button + probability preview ─── */}
-      {canSimulate && (
-        <div className="space-y-3">
-          {/* Probability preview */}
-          <div className="rounded-xl border border-white/5 bg-white/[0.02] p-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs text-slate-500">
-                {pullCount} opens · {metricLabel} chance
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+      {/* ── LEFT: inputs ── */}
+      <SubPanel className="space-y-6">
+        {/* Row 1 — Pack chip + Target rarity */}
+        <div className="grid grid-cols-1 gap-5 xl:grid-cols-[1.3fr_1fr]">
+          {/* Pack chip — image + dropdown */}
+          <div>
+            <MonoLabel tooltip="Pick which pack you want to open. Each pack has different drop rates.">
+              Pack
+            </MonoLabel>
+            <div className="relative mt-2 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 transition focus-within:border-cyan-400/40">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/5">
+                <Image
+                  src={pack.imageUrl}
+                  alt=""
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              <span className="flex-1 truncate text-base font-semibold text-white">
+                {pack.name} Pack
+                <span className="ml-2 cyber-mono text-sm font-normal text-slate-400">
+                  ({pack.costPerPull} tkn)
+                </span>
               </span>
-              <span
-                className={`text-sm font-bold ${
-                  probability >= 0.7
-                    ? "text-emerald-400"
-                    : probability >= 0.3
-                      ? "text-amber-400"
-                      : "text-red-400"
-                }`}
+              <ChevronDown className="h-5 w-5 shrink-0 text-slate-400" aria-hidden />
+              <select
+                value={selectedPack}
+                onChange={(event) =>
+                  setSelectedPack(event.target.value as PackSlug)
+                }
+                aria-label="Select pack"
+                className="absolute inset-0 cursor-pointer opacity-0"
               >
-                {formatPercent(probability)}
-              </span>
-            </div>
-            <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
-              <div
-                className={`h-full rounded-full transition-all duration-300 ${
-                  probability >= 0.7
-                    ? "bg-emerald-400"
-                    : probability >= 0.3
-                      ? "bg-amber-400"
-                      : "bg-red-400"
-                }`}
-                style={{ width: `${Math.min(100, probability * 100)}%` }}
-              />
+                {PACKS.map((p) => (
+                  <option key={p.id} value={p.id} className="bg-[#06080f]">
+                    {p.name} Pack ({p.costPerPull} tkn)
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
-          {/* Simulate CTA */}
-          <button
-            type="button"
-            disabled={isSimulating}
-            onClick={handleSimulate}
-            className={`w-full inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wider transition-all ${
-              isSimulating
-                ? "border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
-                : "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
+          {/* Target rarity */}
+          <div>
+            <MonoLabel tooltip="Which rarity tier do you want to pull? Higher rarity = lower chance.">
+              Target rarity
+            </MonoLabel>
+            <div className="mt-2 grid grid-cols-3 gap-1 rounded-xl border border-white/10 bg-white/[0.02] p-1">
+              {METRIC_OPTIONS.map((option) => {
+                const isAvailable = metricAvailability[option.key];
+                const isActive = metric === option.key;
+                return (
+                  <button
+                    key={option.key}
+                    type="button"
+                    onClick={() => setMetric(option.key)}
+                    disabled={!isAvailable}
+                    title={
+                      !isAvailable
+                        ? `${pack.name} has no ${option.label} blooks`
+                        : undefined
+                    }
+                    className={`cyber-mono rounded-lg px-2 py-3 text-sm uppercase tracking-wider transition ${
+                      !isAvailable
+                        ? "cursor-not-allowed text-slate-600 line-through"
+                        : isActive
+                          ? "bg-cyan-400/15 text-cyan-300 shadow-[inset_0_0_0_1px_rgba(34,211,238,0.4)]"
+                          : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2 — Tokens */}
+        <div>
+          <MonoLabel tooltip="How many tokens you have to spend on this pack. Use + / - to adjust one at a time, or type directly.">
+            How many tokens?
+          </MonoLabel>
+          <div className="mt-2 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setTokens(Math.max(0, tokens - 1))}
+              aria-label="Decrease tokens by 1"
+              className="cyber-ghost inline-flex h-14 w-14 shrink-0 items-center justify-center"
+            >
+              <Minus className="h-5 w-5" />
+            </button>
+            <input
+              type="number"
+              inputMode="numeric"
+              min={0}
+              step={1}
+              value={tokens}
+              onChange={(event) =>
+                setTokens(Math.max(0, Number(event.target.value) || 0))
+              }
+              className="cyber-mono w-full rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3.5 text-center text-3xl font-semibold text-white outline-none focus:border-cyan-400/50"
+              aria-label="Tokens"
+            />
+            <button
+              type="button"
+              onClick={() => setTokens(tokens + 1)}
+              aria-label="Increase tokens by 1"
+              className="cyber-ghost inline-flex h-14 w-14 shrink-0 items-center justify-center"
+            >
+              <Plus className="h-5 w-5" />
+            </button>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={SLIDER_MAX}
+            step={1}
+            value={Math.min(tokens, SLIDER_MAX)}
+            onChange={(event) => setTokens(Number(event.target.value))}
+            className="cyber-range mt-4"
+            aria-label="Tokens slider"
+          />
+          <div className="cyber-mono mt-2 flex justify-between text-xs uppercase tracking-wider text-slate-400">
+            <span>0</span>
+            <span>25</span>
+            <span>50</span>
+            <span>75</span>
+            <span>100+</span>
+          </div>
+        </div>
+
+        {/* Row 3 — Resell toggle */}
+        <button
+          type="button"
+          onClick={() => setDupesEnabled(!dupesEnabled)}
+          className={`flex items-center gap-2.5 rounded-lg border px-3 py-2 text-left transition ${
+            dupesEnabled
+              ? "border-emerald-400/30 bg-emerald-400/[0.06]"
+              : "border-white/10 bg-white/[0.02] hover:border-white/15"
+          }`}
+          title={
+            dupesEnabled
+              ? "Selling dupes for tokens = more opens"
+              : "Each pack costs full price"
+          }
+        >
+          <span
+            className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition ${
+              dupesEnabled ? "bg-emerald-500" : "bg-white/10"
             }`}
           >
-            {isSimulating ? (
-              <>
-                <RotateCw className="h-4 w-4 animate-spin" /> Opening packs…
-              </>
-            ) : (
-              <>
-                <Sparkles className="h-4 w-4" /> Open {pullCount} {pack.name} Packs
-              </>
-            )}
-          </button>
-        </div>
-      )}
+            <span
+              className={`inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm transition ${
+                dupesEnabled ? "translate-x-[18px]" : "translate-x-[3px]"
+              }`}
+            />
+          </span>
+          <span className="text-xs font-medium text-slate-300">Resell dupes</span>
+        </button>
+      </SubPanel>
 
-      {!canSimulate && tokens > 0 && (
-        <p className="text-center text-xs text-slate-500">
-          Need at least {pack.costPerPull} tokens to open one {pack.name} pack
-        </p>
-      )}
+      {/* ── RIGHT: simulate CTA + probability preview ── */}
+      <div className="flex flex-col gap-4 lg:sticky lg:top-4">
+        {tokens <= 0 ? (
+          <div className="cyber-glass-sub text-center px-4 py-10">
+            <p className="cyber-display text-2xl text-slate-300 sm:text-3xl">
+              Enter tokens to simulate
+            </p>
+            <p className="cyber-mono mt-3 text-[11px] uppercase tracking-[0.22em] text-slate-500">
+              Type a number on the left or drag the slider
+            </p>
+          </div>
+        ) : !canSimulate ? (
+          <div className="cyber-glass-sub text-center px-4 py-10">
+            <p className="cyber-display text-2xl text-orange-300 sm:text-3xl">
+              Need at least {pack.costPerPull} tokens
+            </p>
+            <p className="cyber-mono mt-3 text-[11px] uppercase tracking-[0.22em] text-slate-400">
+              {pack.name} Pack costs {pack.costPerPull} tkn per pull
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {/* Probability preview */}
+            <div className="text-center">
+              <p className="cyber-display cyber-glow-cyan text-7xl text-cyan-300 sm:text-8xl" style={{ lineHeight: 1 }}>
+                {formatPercent(probability)}
+              </p>
+              <p className="cyber-mono mt-3 text-xs uppercase tracking-[0.22em] text-slate-300">
+                Chance for {metricLabel} in {pullCount} opens
+              </p>
+              <div className="mx-auto mt-4 h-2 max-w-md overflow-hidden rounded-full bg-white/5">
+                <div
+                  className={`h-full rounded-full transition-[width] duration-500 ease-out ${
+                    probability >= 0.7
+                      ? "bg-gradient-to-r from-emerald-400 to-cyan-400"
+                      : probability >= 0.3
+                        ? "bg-gradient-to-r from-amber-400 to-orange-400"
+                        : "bg-gradient-to-r from-red-400 to-orange-400"
+                  }`}
+                  style={{ width: `${probability * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Simulate CTA */}
+            <button
+              type="button"
+              disabled={isSimulating}
+              onClick={handleSimulate}
+              className={`w-full inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-all ${
+                isSimulating
+                  ? "border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 animate-pulse"
+                  : "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-[0.98]"
+              }`}
+            >
+              {isSimulating ? (
+                <>
+                  <RotateCw className="h-4 w-4 animate-spin" /> Opening packs…
+                </>
+              ) : (
+                <>
+                  <Sparkles className="h-4 w-4" /> Open {pullCount} {pack.name} Packs
+                </>
+              )}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
