@@ -470,12 +470,42 @@ function resolveSellValue(blook: BlookSeed) {
 }
 
 function getBlookImageUrl(name: string) {
-  if (name === "Two of Spades") return "/packs/2OfSpades.svg";
+  if (name === "Two of Spades") return "/packs/twoOfSpades.svg";
   if (name === "UFO") return "/packs/UFO.svg";
   if (name === "Black Bear") return "/packs/bear.svg";
   if (name === "Half a Sandwich") return "/packs/halfasandwich.svg";
   if (name === "Rhino Beetle") return "/packs/rhinobeetle.svg";
   if (name === "Treasure Map") return "/packs/treasuremap.svg";
+  if (name === "Santa's Sleigh") return "/packs/santassleigh.svg";
+  if (name === "Peppermint Bark") return "/packs/peppermintbark.svg";
+  if (name === "Chilly Chameleon") return "/packs/chillychameleon.svg";
+  if (name === "Blue Butterfly") return "/packs/bluebutterfly.svg";
+  if (name === "Tyrannosaurus Rex") return "/packs/tyrannosaurusrex.svg";
+  if (name === "Vampire Bat") return "/packs/vampirebat.svg";
+  if (name === "Skeleton Fish") return "/packs/skeletonfish.svg";
+  if (name === "Super Glider") return "/packs/superglider.svg";
+  if (name === "Sugar Glider") return "/packs/sugarGlider.svg";
+  if (name === "Teal Platypus") return "/packs/tealPlatypus.svg";
+  if (name === "Rainbow Panda") return "/packs/rainbowPanda.svg";
+  if (name === "Dino Egg") return "/packs/dinoEgg.svg";
+  if (name === "Dino Fossil") return "/packs/dinoFossil.svg";
+  if (name === "Caramel Apple") return "/packs/caramelApple.svg";
+  if (name === "Candy Corn") return "/packs/candyCorn.svg";
+  if (name === "Ice Bat") return "/packs/iceBat.svg";
+  if (name === "Ice Bug") return "/packs/iceBug.svg";
+  if (name === "Ice Elemental") return "/packs/iceElemental.svg";
+  if (name === "Rock Monster") return "/packs/rockMonster.svg";
+  if (name === "Bush Monster") return "/packs/bushMonster.svg";
+  if (name === "Ice Slime") return "/packs/iceSlime.svg";
+  if (name === "Frozen Fossil") return "/packs/frozenFossil.svg";
+  if (name === "Ice Crab") return "/packs/iceCrab.svg";
+  if (name === "Autumn Cat") return "/packs/autumncat.svg";
+  if (name === "Pumpkin Puppy") return "/packs/pumpkinPuppy.svg";
+  if (name === "Red Squirrel") return "/packs/redsquirrel.svg";
+  if (name === "Autumn Crow") return "/packs/autumnCrow.svg";
+  if (name === "Captain Blackbeard") return "/packs/captainBlackbeard.svg";
+  if (name === "Jolly Pirate") return "/packs/jollyPirate.svg";
+  if (name === "Pirate Ship") return "/packs/pirateShip.svg";
   if (name === "Polar Bear") return "/packs/polarBear.svg";
   if (name === "Pumpkin Pie") return "/packs/pumpkin.svg";
   if (name === "Spooky Pumpkin") return "/packs/spookyPumpkin.svg";
