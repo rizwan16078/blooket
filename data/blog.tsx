@@ -864,7 +864,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "blooket-duplicate-refund-explained",
-    title: "Blooket Duplicate Refund Explained: How Selling Blooks Saves You Tokens",
+    title: "Blooket Duplicate Refund: How Selling Blooks Saves You Tokens",
     excerpt: "Every duplicate Blook you pull can be sold back. We break down exactly how much you save and why the refund changes your real pack cost.",
     date: "May 2, 2026",
     publishedAt: "2026-05-02",
@@ -2021,7 +2021,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "blooket-mystical-blooks-explained",
-    title: "Blooket Mystical Blooks Explained: How They Work and Why You Probably Won't Get One",
+    title: "Blooket Mystical Blooks: How They Work & Why You Won't Get One",
     excerpt: "Mystical Blooks cannot be pulled from packs. They are event-exclusive awards. Here is the complete explanation of how Mysticals work in Blooket's ecosystem.",
     date: "Apr 21, 2026",
     publishedAt: "2026-04-21",
@@ -2108,7 +2108,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "blooket-crypto-hack-mode",
-    title: "Blooket Crypto Hack Mode: The Hidden Token Multiplier Nobody Talks About",
+    title: "Blooket Crypto Hack Mode: The Hidden Token Multiplier",
     excerpt: "Crypto Hack mode has a secret mechanic that can triple your token output if you know how to exploit it. Here is the full breakdown.",
     date: "Apr 20, 2026",
     publishedAt: "2026-04-20",
@@ -3147,7 +3147,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "blooket-rare-blooks-complete-guide",
-    title: "Blooket Rare Blooks: Complete Guide to Pull Odds and Collection Strategy",
+    title: "Blooket Rare Blooks: Pull Odds & Collection Strategy Guide",
     excerpt: "Rare Blooks at 5% drop rate are the most accessible non-Common tier. Here is the complete guide to collecting every Rare in the game efficiently.",
     date: "Apr 10, 2026",
     publishedAt: "2026-04-10",
@@ -3447,7 +3447,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "blooket-february-2026-update",
-    title: "Blooket February 2026 Update: Seasonal Event Blooks and Limited-Time Packs",
+    title: "Blooket February 2026 Update: Event Blooks & Limited Packs",
     excerpt: "The February update introduced seasonal event Blooks and limited-time packs. Here is what was added and what disappeared after the event ended.",
     date: "Apr 7, 2026",
     publishedAt: "2026-04-07",
