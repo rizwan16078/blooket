@@ -108,7 +108,18 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
     name: `${blook.name} Blook Statistics`,
     description: blook.description,
     url: `${siteUrl}/blooks/${blook.id}`,
-    variableMeasured: ["Drop Rate", "Sell Value", "Rarity", "Estimated Tokens"],
+    creator: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    license: `${siteUrl}/terms`,
+    variableMeasured: [
+      {"@type": "PropertyValue", name: "Drop Rate", value: blook.dropRate },
+      {"@type": "PropertyValue", name: "Sell Value", value: blook.sellValue, unitText: "tokens" },
+      {"@type": "PropertyValue", name: "Rarity", value: blook.rarity },
+      {"@type": "PropertyValue", name: "Estimated Tokens", value: tokens90, unitText: "tokens" },
+    ],
   };
 
   const breadcrumbs = buildBreadcrumbSchema([

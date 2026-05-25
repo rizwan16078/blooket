@@ -44,6 +44,7 @@ function buildPackTableSchema(
   pack: PackRecord,
   blooks: Blook[],
   siteUrl: string,
+  siteName: string,
   catalogId: string,
 ) {
   return {
@@ -56,6 +57,12 @@ function buildPackTableSchema(
     description: pack.description,
     url: `${siteUrl}/packs#${pack.id}`,
     image: `${siteUrl}${pack.imageUrl}`,
+    creator: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    license: `${siteUrl}/terms`,
     isAccessibleForFree: true,
     numberOfItems: blooks.length,
     itemListOrder: "https://schema.org/ItemListOrderAscending",
@@ -65,6 +72,11 @@ function buildPackTableSchema(
       "drop rates",
       "sell values",
       pack.isLocked ? "locked pack" : "live pack",
+    ],
+    variableMeasured: [
+      {"@type": "PropertyValue", name: "Cost Per Pull", value: pack.costPerPull, unitText: "tokens" },
+      {"@type": "PropertyValue", name: "Effective Cost", value: pack.effectiveCost, unitText: "tokens" },
+      {"@type": "PropertyValue", name: "Blooks Count", value: blooks.length },
     ],
     itemListElement: blooks.map((blook, index) => ({
       "@type": "ListItem",
@@ -149,7 +161,7 @@ export function buildPacksPageSchema({
       },
       ...packs.flatMap((pack) => [
         buildPackBreadcrumbSchema(pack, siteUrl),
-        buildPackTableSchema(pack, packBlooksMap[pack.id] ?? [], siteUrl, catalogId),
+        buildPackTableSchema(pack, packBlooksMap[pack.id] ?? [], siteUrl, siteName, catalogId),
       ]),
     ],
   };

@@ -7,6 +7,7 @@ import { DEFAULT_PACK_SLUG } from "@/lib/math";
 import type { PackSlug } from "@/lib/packs";
 
 import ChaseTab from "./ChaseTab";
+import CompareTab from "./CompareTab";
 import PerBlookProbabilities from "./PerBlookProbabilities";
 import SimpleOddsView from "./SimpleOddsView";
 import SimulateTab from "./SimulateTab";
@@ -71,7 +72,7 @@ const TABS = [
 type TabKey = (typeof TABS)[number]["key"];
 
 const STUB_CONTENT: Record<
-  Exclude<TabKey, "odds" | "chase">,
+  Exclude<TabKey, "odds" | "chase" | "compare" | "simulate">,
   { title: string; description: string; features: string[] }
 > = {
   roi: {
@@ -83,28 +84,6 @@ const STUB_CONTENT: Record<
       "Economic waterfall: spend → dupes → refund → net",
       "Per-rarity expected pull breakdown",
       "Best-value verdict with reasoning",
-    ],
-  },
-  compare: {
-    title: "Pack-vs-pack comparison",
-    description:
-      "Pit up to 4 packs side-by-side across 16 metrics with overlaid chase curves.",
-    features: [
-      "4-slot pack selector",
-      "16-row data matrix with best-cell highlighting",
-      "Overlaid chase curves on one chart",
-      "Automated verdict + cheapest target",
-    ],
-  },
-  simulate: {
-    title: "Monte Carlo simulator",
-    description:
-      "Run up to 100,000 alternate realities and watch the math play out in real time.",
-    features: [
-      "1K / 5K / 10K / 100K iteration selector",
-      "Live 200-cell sample run visualization",
-      "Distribution histogram with mean/P10/P90",
-      "Live ticker of recent simulation outcomes",
     ],
   },
   collection: {
@@ -206,7 +185,7 @@ export default function CalculatorHero() {
   const activePack = getPackById(packSlug);
 
   // ─── Tab partition: 3 primary + the rest under a footer "More tools" row
-  const PRIMARY_TAB_KEYS = ["odds", "chase", "simulate"] as const;
+  const PRIMARY_TAB_KEYS = ["odds", "chase", "compare", "simulate"] as const;
   const primaryTabs = TABS.filter((t) =>
     (PRIMARY_TAB_KEYS as readonly string[]).includes(t.key),
   );
@@ -295,6 +274,8 @@ export default function CalculatorHero() {
               onSelectBlook={setTargetBlookId}
               onClear={() => setTargetBlookId(null)}
             />
+          ) : activeTab === "compare" ? (
+            <CompareTab />
           ) : activeTab === "simulate" ? (
             <SimulateTab />
           ) : (

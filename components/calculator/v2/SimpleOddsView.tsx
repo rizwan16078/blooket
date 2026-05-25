@@ -288,12 +288,28 @@ export default function SimpleOddsView({
             className="cyber-range mt-4"
             aria-label="Tokens slider"
           />
-          <div className="cyber-mono mt-2 flex justify-between text-xs uppercase tracking-wider text-slate-400">
-            <span>0</span>
-            <span>25</span>
-            <span>50</span>
-            <span>75</span>
-            <span>100+</span>
+          <div className="mt-3 flex gap-1.5">
+            {[0, 500, 1000, 2000, 5000].map((v) => (
+              <button
+                key={v}
+                type="button"
+                onClick={() => onTokensChange(v)}
+                className={`cyber-mono flex-1 rounded-lg border px-1 py-1.5 text-[10px] font-semibold uppercase tracking-wider transition ${
+                  tokens === v
+                    ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300"
+                    : "border-white/10 bg-white/[0.02] text-slate-500 hover:border-white/20 hover:text-white"
+                }`}
+              >
+                {v === 0 ? "0" : v >= 1000 ? `${v / 1000}K` : v}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => onTokensChange(tokens + 500)}
+              className="cyber-mono flex-1 rounded-lg border border-white/10 bg-white/[0.02] px-1 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-slate-500 hover:border-white/20 hover:text-white transition"
+            >
+              +500
+            </button>
           </div>
         </div>
       </SubPanel>
