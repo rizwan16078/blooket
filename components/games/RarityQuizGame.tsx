@@ -235,6 +235,7 @@ export default function RarityQuizGame() {
             fill
             className="object-contain p-6"
             priority
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
         </div>
       </div>

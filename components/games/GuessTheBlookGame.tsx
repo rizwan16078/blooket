@@ -270,6 +270,7 @@ export default function GuessTheBlookGame() {
                 : `blur(${currentBlur}px) brightness(${0.5 + (1 - currentBlur / 30) * 0.4})`,
             }}
             priority
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
           {/* Hint counter overlay */}
           {!revealed && hintsUsed > 0 && (
@@ -322,7 +323,7 @@ export default function GuessTheBlookGame() {
                       onClick={() => handleGuess(b.name)}
                       className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-white/80 hover:bg-white/[0.04] transition"
                     >
-                      <Image src={b.imageUrl} alt={b.name} width={28} height={28} className="rounded" />
+                      <Image src={b.imageUrl} alt={b.name} width={28} height={28} className="rounded" onError={(e) => { e.currentTarget.style.display = "none"; }} />
                       <span className="font-semibold">{b.name}</span>
                       <span className={cn("ml-auto text-xs", RARITY_COLORS[b.rarity])}>
                         {b.rarity}
@@ -396,6 +397,7 @@ export default function GuessTheBlookGame() {
               width={56}
               height={56}
               className="rounded-xl"
+              onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
             <div>
               <p className="text-lg font-bold text-white">{currentBlook.name}</p>

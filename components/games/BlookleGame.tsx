@@ -185,6 +185,7 @@ export default function BlookleGame() {
                 width={32}
                 height={32}
                 className="rounded"
+                onError={(e) => { e.currentTarget.style.display = "none"; }}
               />
               <span className="font-semibold text-white text-xs truncate">
                 {g.clue.name}
@@ -300,6 +301,7 @@ export default function BlookleGame() {
                         width={24}
                         height={24}
                         className="rounded"
+                        onError={(e) => { e.currentTarget.style.display = "none"; }}
                       />
                       <span className="font-semibold">{b.name}</span>
                     </button>
@@ -332,6 +334,7 @@ export default function BlookleGame() {
                   width={64}
                   height={64}
                   className="rounded-xl"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <div className="text-left">
                   <p className="text-lg font-bold text-white">{target.name}</p>
@@ -353,6 +356,7 @@ export default function BlookleGame() {
                   width={64}
                   height={64}
                   className="rounded-xl"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <div className="text-left">
                   <p className="text-lg font-bold text-white">{target.name}</p>
