@@ -421,7 +421,7 @@ const PACK_SEEDS: PackSeed[] = [
       { name: "Ice Bug", rarity: "Uncommon", dropRatePercent: 19.5 },
       { name: "Ice Elemental", rarity: "Uncommon", dropRatePercent: 19.5 },
       { name: "Rock Monster", rarity: "Uncommon", dropRatePercent: 19.5 },
-      { name: "Ding", rarity: "Rare", dropRatePercent: 8.5 },
+      { name: "Dink", rarity: "Rare", dropRatePercent: 8.5 },
       { name: "Donk", rarity: "Rare", dropRatePercent: 8.5 },
       { name: "Bush Monster", rarity: "Epic", dropRatePercent: 4.5 },
       { name: "Yeti", rarity: "Legendary", dropRatePercent: 0.35 },

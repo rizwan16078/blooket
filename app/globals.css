@@ -298,24 +298,23 @@ summary {
 }
 
 /* ────────────────────────────────────────────────────────────
-   SCROLLBAR (premium feel)
+   SCROLLBAR — invisible by default, faint on hover only.
+   The previous violet bar was reading as a UI element rather than
+   a scroll affordance, so we hide it entirely.
    ──────────────────────────────────────────────────────────── */
 
-::-webkit-scrollbar {
-  width: 6px;
+* {
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(10, 14, 26, 0.8);
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.5);
+*::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -330,4 +329,256 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* ────────────────────────────────────────────────────────────
+   CYBER GLASS DESIGN SYSTEM (v2 — Probability Engine)
+   Used by the new calculator hero. Additive; does not modify
+   the legacy violet glass-panel utility above.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  --cyber-bg: #06080f;
+  --cyber-panel: rgba(15, 22, 41, 0.6);
+  --cyber-border: rgba(34, 211, 238, 0.12);
+  --cyber-border-strong: rgba(34, 211, 238, 0.25);
+  --cyber-cyan: #22d3ee;
+  --cyber-cyan-deep: #0891b2;
+  --cyber-violet: #a78bfa;
+  --cyber-emerald: #34d399;
+  --cyber-orange: #fb923c;
+  --cyber-text: #f8fafc;
+  --cyber-text-dim: #94a3b8;
+  --cyber-text-mute: #64748b;
+}
+
+.cyber-glass {
+  background: rgba(15, 22, 41, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+  border-radius: 24px;
+}
+
+.cyber-glass-sub {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.cyber-cta {
+  background: linear-gradient(135deg, #22d3ee, #0891b2);
+  color: #06080f;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.22);
+  transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cyber-cta:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 22px rgba(34, 211, 238, 0.32);
+}
+
+.cyber-cta:active {
+  transform: scale(0.98);
+}
+
+.cyber-ghost {
+  background: rgba(34, 211, 238, 0.06);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  color: var(--cyber-cyan);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cyber-ghost:hover {
+  background: rgba(34, 211, 238, 0.1);
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+.cyber-glow-cyan {
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.32), 0 0 4px rgba(34, 211, 238, 0.22);
+}
+
+.cyber-mono {
+  font-family: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.cyber-display {
+  font-family: var(--font-space), "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/*
+  Flat dark navy base, almost neutral. A very faint vertical fade at the
+  top blends with the page above; no radial neon blooms.
+*/
+.cyber-hero-bg {
+  background-color: #0a0e1a;
+  background-image: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.025) 0%,
+    rgba(10, 14, 26, 0) 8%,
+    #0a0e1a 100%
+  );
+}
+
+.cyber-grid-bg {
+  /* Disabled by default — keep utility for future use, but very subtle */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.cyber-rim-glow {
+  position: relative;
+}
+
+.cyber-rim-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.06)
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.cyber-pulse-dot {
+  animation: cyber-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes cyber-ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.cyber-ticker {
+  animation: cyber-ticker-scroll 60s linear infinite;
+}
+
+.cyber-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.5), rgba(52, 211, 153, 0.4));
+  outline: none;
+  cursor: pointer;
+}
+
+.cyber-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #06080f;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+  cursor: pointer;
+}
+
+.cyber-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #06080f;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+  cursor: pointer;
+}
+
+/* ────────────────────────────────────────────────────────────
+   MOTION — hover lift, glow pulse, shimmer
+   ──────────────────────────────────────────────────────────── */
+
+.cyber-card-lift {
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s ease;
+  will-change: transform;
+}
+
+.cyber-card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(34, 211, 238, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-color: rgba(34, 211, 238, 0.28);
+}
+
+@keyframes cyber-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(34, 211, 238, 0.1),
+      0 0 12px rgba(34, 211, 238, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(34, 211, 238, 0.18),
+      0 0 18px rgba(34, 211, 238, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+}
+
+.cyber-glow-breath {
+  animation: cyber-glow-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes cyber-live-blink {
+  0%, 60%, 100% { opacity: 1; transform: scale(1); }
+  30% { opacity: 0.55; transform: scale(0.85); }
+}
+
+.cyber-live-dot {
+  animation: cyber-live-blink 1.4s ease-in-out infinite;
+  box-shadow: 0 0 6px currentColor;
+}
+
+@keyframes cyber-number-flash {
+  0% { filter: brightness(1.18) drop-shadow(0 0 8px rgba(34, 211, 238, 0.4)); }
+  100% { filter: none; }
+}
+
+.cyber-number-flash {
+  animation: cyber-number-flash 0.4s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyber-card-lift,
+  .cyber-glow-breath,
+  .cyber-live-dot,
+  .cyber-number-flash,
+  .cyber-pulse-dot,
+  .cyber-ticker {
+    animation: none !important;
+    transition: none !important;
+  }
 }

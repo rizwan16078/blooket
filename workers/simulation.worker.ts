@@ -66,7 +66,8 @@ self.onmessage = (event: MessageEvent<SimulationWorkerInput>) => {
   );
   const outcomes: number[] = [];
   let totalRefundTokens = 0;
-  let totalTargetHits = 0;
+  let targetHitCount = 0;
+  const targetHitsPerIteration: number[] = [];
 
   for (let iteration = 0; iteration < MONTE_CARLO_ITERATIONS; iteration += 1) {
     let refundTokens = 0;
@@ -82,7 +83,8 @@ self.onmessage = (event: MessageEvent<SimulationWorkerInput>) => {
     }
 
     totalRefundTokens += refundTokens;
-    totalTargetHits += targetHits;
+    if (targetHits > 0) targetHitCount += 1;
+    targetHitsPerIteration.push(Math.min(targetHits, 10));
     outcomes.push(refundTokens);
   }
 
@@ -93,6 +95,22 @@ self.onmessage = (event: MessageEvent<SimulationWorkerInput>) => {
   }
 
   outcomes.sort((left, right) => left - right);
+
+  // Build histogram bins (20 bins across the range)
+  const histogramBins: [number, number][] = [];
+  const minVal = outcomes[0] ?? 0;
+  const maxVal = outcomes[outcomes.length - 1] ?? 0;
+  const binCount = 20;
+  const binWidth = maxVal > minVal ? (maxVal - minVal) / binCount : 1;
+  for (let i = 0; i < binCount; i++) {
+    const binFloor = minVal + i * binWidth;
+    const binCeil = binFloor + binWidth;
+    const count = outcomes.filter(
+      (v) => v >= binFloor && (i === binCount - 1 ? v <= binCeil : v < binCeil),
+    ).length;
+    histogramBins.push([Math.round(binFloor), count]);
+  }
+
   const simulatedRun = createSimulatedRun(blooks, pullCount);
   const result: SimulationWorkerOutput = {
     expectedTokens: totalRefundTokens / MONTE_CARLO_ITERATIONS,
@@ -101,9 +119,12 @@ self.onmessage = (event: MessageEvent<SimulationWorkerInput>) => {
     simulatedRun,
     rerunAllowed: sessionRerunCount < MAX_RERUNS_PER_SESSION,
     rerunCount: sessionRerunCount,
+    targetHitCount,
+    totalIterations: MONTE_CARLO_ITERATIONS,
+    histogramBins,
+    targetHitsPerIteration,
   };
 
-  void totalTargetHits;
   self.postMessage(result);
 };
 

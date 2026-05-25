@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import BackToTop from "@/components/shared/BackToTop";
 import { Toaster } from "@/components/ui/toaster";
 import { siteName, siteUrl } from "@/lib/site";
 import { buildOrganizationSchema, buildWebSiteSchema, buildSiteNavigationSchema, serializeJsonLd } from "@/lib/schema";
@@ -96,7 +95,6 @@ export default function RootLayout({
         <Toaster />
         {children}
         <Footer />
-        <BackToTop />
       </body>
     </html>
   );

@@ -131,6 +131,83 @@ export function calculateMetricProbability(
   );
 }
 
+/**
+ * iBlooket-compatible per-blook attempt count.
+ *
+ * iBlooket uses: attempts = tokens / (packPrice + sellValue * dropRate)
+ * When dupes/resell is on: attempts = tokens / ((packPrice - avgSellValue) + sellValue * dropRate)
+ *
+ * This accounts for the sell-back value of each specific blook, giving a
+ * per-blook effective cost that differs from the simple tokens/packPrice model.
+ */
+export function calculateBlookAttempts(
+  tokens: number,
+  pack: Pack,
+  blook: Blook,
+  dupesEnabled: boolean,
+): number {
+  if (tokens <= 0) return 0;
+  const baseCost = dupesEnabled ? pack.effectiveCost : pack.costPerPull;
+  const effectiveCost = baseCost + blook.sellValue * blook.dropRate;
+  if (effectiveCost <= 0) return Infinity;
+  return tokens / effectiveCost;
+}
+
+/**
+ * iBlooket-compatible per-blook probability.
+ * P = 1 - (1 - dropRate)^(tokens / effectiveCost)
+ */
+export function calculateBlookProbability(
+  tokens: number,
+  pack: Pack,
+  blook: Blook,
+  dupesEnabled: boolean,
+): number {
+  const attempts = calculateBlookAttempts(tokens, pack, blook, dupesEnabled);
+  return calculateAtLeastOneSuccess(blook.dropRate, attempts);
+}
+
+/**
+ * iBlooket-compatible aggregate metric probability.
+ *
+ * Instead of using a single aggregate rate with a single attempt count,
+ * this computes per-blook attempt counts and uses the product formula:
+ *   P = 1 - ∏(1 - p_i)^(attempts_i)
+ *
+ * This matches iBlooket's approach where each blook has its own effective
+ * cost based on its sell value.
+ */
+export function calculateMetricProbabilityV2(
+  pack: Pack,
+  tokens: number,
+  dupesEnabled: boolean,
+  metric: OddsMetric,
+): number {
+  const blooks = getEffectiveBlooks(getPackBlooks(pack.id));
+  const rarities = metricToRarities(metric);
+  const targetBlooks = blooks.filter((b) => rarities.has(b.rarity));
+
+  if (targetBlooks.length === 0 || tokens <= 0) return 0;
+
+  let product = 1;
+  for (const blook of targetBlooks) {
+    const attempts = calculateBlookAttempts(tokens, pack, blook, dupesEnabled);
+    product *= Math.pow(1 - blook.dropRate, attempts);
+  }
+
+  return clampProbability(1 - product);
+}
+
+function metricToRarities(metric: OddsMetric): Set<Rarity> {
+  if (metric === "epicPlus") {
+    return new Set(["Epic", "Legendary", "Chroma"] as Rarity[]);
+  }
+  if (metric === "legendary") {
+    return new Set(["Legendary"] as Rarity[]);
+  }
+  return new Set(["Chroma"] as Rarity[]);
+}
+
 export function calculatePackProbabilities(
   pack: Pack,
   tokens: number,
@@ -157,16 +234,12 @@ export function calculateEstimatedTokensForBlook(
 export function formatPercent(probability: number) {
   const percent = clampProbability(probability) * 100;
 
-  if (percent >= 99.9) {
-    return `${percent.toFixed(1)}%`;
+  if (percent >= 99.995) {
+    return `${percent.toFixed(2)}%`;
   }
 
   if (percent > 0 && percent < 0.01) {
     return "<0.01%";
-  }
-
-  if (percent >= 10) {
-    return `${percent.toFixed(1)}%`;
   }
 
   return `${percent.toFixed(2)}%`;

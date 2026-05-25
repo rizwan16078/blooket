@@ -63,4 +63,12 @@ export interface SimulationWorkerOutput {
   simulatedRun: SimulatedLootItem[];
   rerunAllowed: boolean;
   rerunCount: number;
+  /** How many of the N iterations hit the target rarity at least once */
+  targetHitCount: number;
+  /** Total iterations run */
+  totalIterations: number;
+  /** Histogram bins: each entry is [binFloor, count] for refund token distribution */
+  histogramBins: [number, number][];
+  /** Per-iteration target hit counts (capped at 10 for memory) */
+  targetHitsPerIteration: number[];
 }

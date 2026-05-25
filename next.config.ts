@@ -133,6 +133,9 @@ const nextConfig: NextConfig = {
     deviceSizes: [320, 420, 640, 828, 1080, 1200, 1920],
     imageSizes: [64, 128, 192, 256],
   },
+  // Hide the floating Next.js dev indicator ("N" / Compiling…) that
+  // overlaps the calculator in the bottom-left corner during dev.
+  devIndicators: false,
 };
 
 export default nextConfig;

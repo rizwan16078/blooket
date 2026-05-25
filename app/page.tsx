@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import CalculatorCard from "@/components/calculator/CalculatorCard";
+import CalculatorHero from "@/components/calculator/v2/CalculatorHero";
 import FaqAccordion from "@/components/FaqAccordion";
-import HomeQuickLinks from "@/components/home/HomeQuickLinks";
 
 import { buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
@@ -36,32 +34,6 @@ export const metadata: Metadata = {
     url: siteUrl,
   },
 };
-
-function CalculatorCardFallback() {
-  return (
-    <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl bg-white/[0.03] border border-white/[0.06] p-4 shadow-2xl sm:p-6">
-      <div className="space-y-6">
-        <div className="space-y-3">
-          <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
-          <div className="h-12 w-72 animate-pulse rounded-full bg-white/[0.08]" />
-          <div className="h-5 w-96 animate-pulse rounded-full bg-white/[0.06]" />
-        </div>
-        <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6">
-          <div className="h-12 animate-pulse rounded-xl bg-violet-500/10" />
-          <div className="mt-4 h-3 animate-pulse rounded-full bg-violet-500/5" />
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, index) => (
-              <div
-                key={index}
-                className="h-36 animate-pulse rounded-2xl bg-white/[0.03]"
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const faqEntries: FaqEntry[] = [
   {
@@ -113,27 +85,9 @@ export default function Home() {
       />
 
       <main className="flex-1">
-        <section className="relative mx-auto w-full max-w-[96rem] px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
-          {/* Top ambient glow */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[40rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
+        <CalculatorHero />
 
-          <div className="relative mx-auto grid max-w-[92rem] items-start gap-6 xl:grid-cols-[minmax(0,1fr)_280px]">
-            <section className="min-w-0" aria-label="Pack Calculator">
-              <h1 className="mb-6 font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-                Blooket Calculator
-                <span className="mt-2 block text-xl font-medium text-violet-300">
-                  Exact pack odds, drop rates &amp; loot simulations
-                </span>
-              </h1>
-              <Suspense fallback={<CalculatorCardFallback />}>
-                <CalculatorCard />
-              </Suspense>
-            </section>
-            <HomeQuickLinks />
-          </div>
-        </section>
-
-        <section className="mx-auto grid w-full max-w-7xl gap-8 px-4 pb-24 sm:px-6 lg:px-8">
+        <section className="mx-auto grid w-full max-w-7xl gap-8 px-4 pb-24 pt-16 sm:px-6 lg:px-8">
           <article className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-white shadow-2xl backdrop-blur-sm sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
               How drop rates work
