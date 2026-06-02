@@ -46,12 +46,12 @@ export async function generateMetadata({
       `${term} drop rates`,
       "free blooket calculator",
     ],
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: {
-      canonical,
-      languages: {
-        "en-US": canonical,
-        "x-default": canonical,
-      },
+      canonical: siteUrl,
     },
     openGraph: {
       title: `${title} | ${siteName}`,

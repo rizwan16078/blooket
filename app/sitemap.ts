@@ -187,7 +187,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}${pack.route}`,
       lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly" as const,
-      priority: 0.8,
+      priority: 0.88,
     })),
     ...BLOOKS.map((blook) => ({
       url: `${siteUrl}/blooks/${blook.id}`,
@@ -199,21 +199,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/blog/${post.slug}`,
       lastModified: post.updatedAt,
       changeFrequency: "monthly" as const,
-      priority: 0.72,
+      priority: 0.78,
       images: [`${siteUrl}${post.imageUrl}`],
     })),
     ...guideEntries.map((guide) => ({
       url: `${siteUrl}/guides/${guide.slug}`,
       lastModified: guide.updatedAt,
       changeFrequency: "monthly" as const,
-      priority: guide.priority === "high" ? 0.76 : 0.68,
+      priority: guide.priority === "high" ? 0.82 : 0.74,
     })),
-    ...MISSPELLINGS.map((m) => ({
-      url: `${siteUrl}/m/${m.term}`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "monthly" as const,
-      priority: m.volume >= 10000 ? 0.7 : m.volume >= 1000 ? 0.6 : 0.5,
-    })),
+    // /m/* misspelling pages are intentionally excluded from the sitemap.
+    // Including 47 low-authority typo pages wastes crawl budget on a young
+    // domain where Google only crawls ~20-50 pages per day. They are served
+    // with noindex so Googlebot skips them and focuses on real content.
     {
       url: `${siteUrl}/how-it-works`,
       lastModified: DEFAULT_LASTMOD,
@@ -250,29 +248,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
-    {
-      url: `${siteUrl}/editorial-guidelines`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${siteUrl}/html-sitemap`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${siteUrl}/privacy`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${siteUrl}/terms`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    // editorial-guidelines, html-sitemap, privacy, terms omitted from sitemap.
+    // These are support pages with no ranking value. Keeping them out of the
+    // sitemap reserves crawl budget for money pages on a low-authority domain.
   ];
 }
