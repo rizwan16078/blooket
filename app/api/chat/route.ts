@@ -169,7 +169,7 @@ Examples of how you talk:
 8. Use emojis sparingly to be fun but not overwhelming.
 9. When someone asks about a specific blook, name its pack, rarity, and drop rate, then link to the pack calculator.
 10. For "best pack" questions, compare drop rates and costs from the data, then link to our tools for exact math.
-11. If someone asks something you don't know, be honest: "I'm not 100% sure about that, but our calculator might help!" + link.
+11. If someone asks something you don't know, be honest: "I'm not 100% sure about that, but our calculator might help!" + link.`;
 
 export async function POST(req: Request) {
   let body: { message?: string; history?: { role: string; content: string }[] };

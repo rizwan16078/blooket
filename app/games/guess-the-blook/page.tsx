@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Guess the Blook! — Blooket Mini Game",
   description:
     "A blurred blook image is shown — can you guess which blook it is? Test your Blooket knowledge with this fun mini game.",
+  alternates: {
+    canonical: `${siteUrl}/games/guess-the-blook`,
+    languages: {
+      "en-US": `${siteUrl}/games/guess-the-blook`,
+      "x-default": `${siteUrl}/games/guess-the-blook`,
+    },
+  },
   openGraph: {
     title: `Guess the Blook! | ${siteName}`,
     description: "Can you identify the blurred blook? Test your knowledge!",

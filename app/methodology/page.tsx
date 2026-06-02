@@ -6,9 +6,9 @@ import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Methodology",
+  title: "Blooket Calculator Methodology — How Drop Rates & Odds Are Calculated",
   description:
-    "See how the Blooket Calculator models pack odds, duplicate refunds, source data, and update policy.",
+    "How the Blooket Calculator models pack odds: exact binomial probability, duplicate refund effective costs, verified data sources, and update policy. Transparent math, no guesses.",
   keywords: [
     "blooket calculator methodology",
     "blooket odds methodology",

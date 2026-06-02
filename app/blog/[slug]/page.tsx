@@ -64,10 +64,19 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     image: `${siteUrl}${post.imageUrl}`,
-    author: {
-      "@type": "Organization",
-      name: post.author.name,
-    },
+    author: [
+      {
+        "@type": "Person",
+        name: "Alex M.",
+        url: `${siteUrl}/team#alex`,
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: siteName,
+        url: siteUrl,
+      },
+    ],
     publisher: {
       "@type": "Organization",
       name: siteName,
@@ -148,6 +157,8 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         </p>
 
         <ContentMeta
+          author="Alex M."
+          authorUrl={`${siteUrl}/team#alex`}
           publishedAt={post.publishedAt}
           updatedAt={post.updatedAt}
           sources={post.sources}

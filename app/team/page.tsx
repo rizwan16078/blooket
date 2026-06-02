@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { buildPersonSchema, serializeJsonLd, TEAM_MEMBERS } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,6 +23,13 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <main className="relative overflow-hidden">
+      {TEAM_MEMBERS.map((member) => (
+        <script
+          key={member.name}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildPersonSchema(member)) }}
+        />
+      ))}
       <section className="mx-auto max-w-4xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 

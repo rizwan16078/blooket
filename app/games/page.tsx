@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   title: "Blooket Mini Games — Guess the Blook, Blookle & More",
   description:
     "Free Blooket mini games: Guess the Blook (blur reveal), Blookle (Wordle-style), and Rarity Quiz. No signup needed.",
+  alternates: {
+    canonical: `${siteUrl}/games`,
+    languages: {
+      "en-US": `${siteUrl}/games`,
+      "x-default": `${siteUrl}/games`,
+    },
+  },
   openGraph: {
     title: `Mini Games | ${siteName}`,
     description: "Free Blooket mini games — test your knowledge!",

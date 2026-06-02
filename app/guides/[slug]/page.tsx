@@ -69,11 +69,19 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
     url: `${siteUrl}/guides/${guide.slug}`,
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
-    author: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
-    },
+    author: [
+      {
+        "@type": "Person",
+        name: "Alex M.",
+        url: `${siteUrl}/team#alex`,
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: siteName,
+        url: siteUrl,
+      },
+    ],
     publisher: {
       "@type": "Organization",
       name: siteName,
@@ -105,6 +113,8 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
           </h1>
           <p className="text-lg leading-8 text-white/65">{guide.excerpt}</p>
           <ContentMeta
+            author="Alex M."
+            authorUrl={`${siteUrl}/team#alex`}
             publishedAt={guide.publishedAt}
             updatedAt={guide.updatedAt}
             sources={content.sources}

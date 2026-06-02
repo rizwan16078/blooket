@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Zap } from "lucide-react";
+import SearchBar from "./SearchBar";
 import { cn } from "@/lib/utils";
 
 const CALCULATOR_LINKS = [
@@ -350,6 +351,7 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
+          <SearchBar />
           <Link
             href="/"
             className="hidden items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:shadow-violet-500/30 hover:brightness-110 active:scale-[0.97] sm:flex"

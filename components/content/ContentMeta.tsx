@@ -8,6 +8,8 @@ type ContentMetaProps = {
   updatedAt: string;
   sources: ContentSource[];
   note?: string;
+  author?: string;
+  authorUrl?: string;
 };
 
 function formatDate(value: string) {
@@ -23,10 +25,24 @@ export default function ContentMeta({
   updatedAt,
   sources,
   note,
+  author,
+  authorUrl,
 }: ContentMetaProps) {
   return (
     <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 text-sm text-white/65 shadow-lg">
       <div className="flex flex-wrap gap-4">
+        {author ? (
+          <p>
+            By:{" "}
+            {authorUrl ? (
+              <a href={authorUrl} className="font-semibold text-white hover:text-violet-300 transition">
+                {author}
+              </a>
+            ) : (
+              <span className="font-semibold text-white">{author}</span>
+            )}
+          </p>
+        ) : null}
         {publishedAt ? (
           <p>
             Published: <span className="font-semibold text-white">{formatDate(publishedAt)}</span>

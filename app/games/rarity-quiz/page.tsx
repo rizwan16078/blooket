@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Rarity Quiz — Blooket Mini Game",
   description:
     "A blook image appears — pick the correct rarity as fast as you can! 15 rounds, 8 seconds each. Test your Blooket rarity knowledge.",
+  alternates: {
+    canonical: `${siteUrl}/games/rarity-quiz`,
+    languages: {
+      "en-US": `${siteUrl}/games/rarity-quiz`,
+      "x-default": `${siteUrl}/games/rarity-quiz`,
+    },
+  },
   openGraph: {
     title: `Rarity Quiz | ${siteName}`,
     description: "Can you name the rarity of every blook? Speed quiz!",

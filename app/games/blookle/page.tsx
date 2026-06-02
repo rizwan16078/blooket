@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Blookle — Blooket Wordle-Style Game",
   description:
     "Guess the mystery blook in 6 tries! Each guess reveals clues about rarity, pack, drop rate, and sell value. A Wordle-style Blooket mini game.",
+  alternates: {
+    canonical: `${siteUrl}/games/blookle`,
+    languages: {
+      "en-US": `${siteUrl}/games/blookle`,
+      "x-default": `${siteUrl}/games/blookle`,
+    },
+  },
   openGraph: {
     title: `Blookle | ${siteName}`,
     description: "Guess the blook in 6 tries with clue-based feedback!",

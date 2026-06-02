@@ -119,6 +119,42 @@ export function buildSiteNavigationSchema() {
   };
 }
 
+export function buildPersonSchema(person: {
+  name: string;
+  jobTitle: string;
+  url: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: person.jobTitle,
+    url: person.url,
+    description: person.description,
+    worksFor: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+}
+
+export const TEAM_MEMBERS = [
+  {
+    name: "Alex M.",
+    jobTitle: "Lead Developer & Mathematician",
+    url: `${siteUrl}/team#alex`,
+    description:
+      "Alex handles the core probability engine and ensures all drop rates reflect accurate binomial distributions.",
+  },
+  {
+    name: "Sam T.",
+    jobTitle: "UI/UX Designer",
+    url: `${siteUrl}/team#sam`,
+    description:
+      "Sam focuses on making the calculator intuitive and visually appealing, bringing the glassmorphic design to life.",
+  },
+] as const;
+
 export function serializeJsonLd(value: unknown) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
