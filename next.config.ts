@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Security + baseline caching for every response (HTML pages,
+        // API routes, etc.). s-maxage lets Vercel's edge CDN cache pages
+        // for 5 minutes; stale-while-revalidate serves stale content while
+        // a background revalidation runs for up to 10 minutes. Browsers
+        // treat s-maxage as private and will still revalidate normally.
         source: '/(.*)',
         headers: [
           {
@@ -43,6 +48,45 @@ const nextConfig: NextConfig = {
             // content or first-visit HTTP attempts.
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=300, stale-while-revalidate=600',
+          },
+        ],
+      },
+      {
+        // Next.js static bundles are content-hashed (chunk.abc123.js) so
+        // they are safe to cache in browsers and CDNs for 1 year. This
+        // overrides the wildcard Cache-Control above for this path prefix.
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Next.js Image Optimisation responses include an Etag but no
+        // long-lived cache header by default. Cache for 24 h at the edge
+        // and serve stale for up to 7 days while revalidating.
+        source: '/_next/image(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        // Public-folder static assets (icons, images, font files, txt
+        // verification files). 24-hour TTL with 7-day stale window.
+        source: '/(.*\\.(?:ico|png|jpg|jpeg|svg|webp|avif|woff|woff2|ttf|otf|xml|txt))',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
           },
         ],
       },
