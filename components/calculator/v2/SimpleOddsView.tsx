@@ -172,7 +172,7 @@ export default function SimpleOddsView({
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/5">
                 <Image
                   src={pack.imageUrl}
-                  alt=""
+                  alt={`${pack.name} Pack`}
                   fill
                   sizes="48px"
                   className="object-cover"
