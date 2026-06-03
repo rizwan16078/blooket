@@ -4203,5 +4203,719 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
     )
+  },
+  {
+    slug: "blooket-best-classroom-game",
+    title: "Why Blooket Is the Best Classroom Game: The Psychology Behind the Obsession",
+    excerpt: "Teachers keep coming back to Blooket because students beg to play again. It is not the graphics. It is a principle called variable-ratio reinforcement — the same mechanism behind every addictive reward system ever built — and you can use it on purpose.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "TIPS & TRICKS",
+    hasCalculator: false,
+    imageUrl: "/images/blog/classroom-games.png",
+    sources: [
+      { label: "Blooket Help Center: Game Modes", href: "https://help.blooket.com/hc/en-us/articles/4406983552279-Game-Modes" },
+      { label: "Blooket Wiki: Game Modes", href: "https://blooket.fandom.com/wiki/Game_Modes" },
+      { label: "APA: Operant Conditioning", href: "https://www.apa.org/topics/learning/operant-conditioning" },
+    ],
+    tags: ["classroom", "education", "game-modes", "engagement", "teachers", "students"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "7 min read",
+    views: 0,
+    featured: true,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You have tried Kahoot. You have tried Quizlet Live. Your students played along for a few weeks, and then the magic faded. Blooket is different — students are still begging to play three months in. The reason is not the blooks, and it is not the points. It is a specific psychological mechanism baked into the reward structure. Once you understand it, you can use it deliberately.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Variable-Ratio Reinforcement: Why Blooket Is Engineered to Hold Attention</h2>
+        <p>
+          Behavioral psychology identifies two main reward patterns. A <strong>fixed-ratio schedule</strong> gives a predictable reward after a set number of responses — answer 10 questions, earn one token. Students quickly learn the ceiling and disengage. A <strong>variable-ratio schedule</strong> rewards after an unpredictable number of responses. Slot machines run on this. So does Blooket.
+        </p>
+        <p>
+          When a student answers a question in Gold Quest, they do not know if they will receive 10 gold or 100 gold. They do not know if an opponent will steal from them on the next turn. The randomness is not a design flaw — it is the core engagement driver. Correct answers feel exciting because the reward is uncertain, not guaranteed. The brain treats uncertainty as a signal to keep paying attention.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Blooket vs. Other Classroom Games</h2>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Platform</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Core Mechanic</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Replayability</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Best Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Blooket</td>
+              <td className="py-3 px-4">Variable-ratio rewards + game mode variety</td>
+              <td className="py-3 px-4 text-emerald-400">Very High</td>
+              <td className="py-3 px-4">Review, independent practice, engagement</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Kahoot</td>
+              <td className="py-3 px-4">Speed-based fixed points</td>
+              <td className="py-3 px-4 text-amber-400">Medium</td>
+              <td className="py-3 px-4">Fast-paced whole-class review</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Quizlet Live</td>
+              <td className="py-3 px-4">Team-based matching</td>
+              <td className="py-3 px-4 text-amber-400">Medium</td>
+              <td className="py-3 px-4">Vocabulary and term recognition</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Gimkit</td>
+              <td className="py-3 px-4">Currency upgrades + fixed earn rates</td>
+              <td className="py-3 px-4 text-amber-400">Medium-High</td>
+              <td className="py-3 px-4">Individual review with upgrade strategy</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Best Blooket Game Modes for Classrooms (Ranked)</h2>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Gold Quest — Best for Individual Rapid Review</h3>
+        <p>
+          Every correct answer earns a randomized gold amount. Other players can steal from you. This is the highest-engagement solo mode because every interaction is a small gamble. Use it when students need to answer a high volume of questions quickly — there is no downtime waiting for a shared screen.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Tower Defense — Best for Collaborative Thinking</h3>
+        <p>
+          Students earn currency to place towers that defend against waves of enemies. Correct answers benefit the whole team. This mode works well when you want students discussing strategy alongside the academic content — the gameplay creates a natural reason to talk.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Factory — Best for Self-Paced Independent Work</h3>
+        <p>
+          Students answer at their own pace to earn factory coins. No stealing, no competitive pressure. This is the mode for students who shut down during high-stakes competition but still need repetitions on material.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Cafe — Best for Homework Completion</h3>
+        <p>
+          Cafe has one of the highest tokens-per-minute ratios in Blooket, giving students an in-game incentive to play voluntarily at home. Assign a Blooket set as homework — the Cafe mode converts the assignment into something students will open unprompted.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">The biggest mistake teachers make with Blooket is using the same game mode every session. The variable-ratio mechanism only keeps working when students cannot predict the environment. Rotate Gold Quest, Tower Defense, and Factory throughout the week. Predictability kills engagement faster than any other factor. Your students are not bored of Blooket — they are bored of the pattern.</p>
+        </div>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why Students Farm Tokens Outside Class</h2>
+        <p>
+          Here is what no other classroom game delivers: students open Blooket at home, unprompted, to earn tokens and open packs. The blook collection mechanic turns Blooket into a hobby, not just a classroom tool. Understanding pack odds gives students a genuine reason to engage with probability — a real math skill. Our <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> lets students model the exact binomial math behind their target packs. Teachers have used this as a bridge into basic probability lessons with a topic students care about on their own time.
+        </p>
+        <p>
+          For the token farming mechanics that drive student home engagement, see the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming guide</Link>. If a student asks why they have not gotten a Legendary after 200 packs, point them to the <Link href="/blog/blooket-gamblers-fallacy" className="text-emerald-400 hover:text-emerald-300">gambler's fallacy breakdown</Link> — it is a teachable probability moment.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Blooket free for teachers?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Blooket's core classroom features — hosting games, creating question sets, and student play — are completely free. A paid Plus plan unlocks additional game modes and features, but the free tier is fully functional for classroom use.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the best Blooket game mode for a test review?</p>
+            <p className="text-sm text-slate-300 mt-1">Gold Quest is the standard for fast-paced test review. The randomized gold rewards and stealing mechanic keep engagement high across the entire session. Students answer more questions per minute than in any other mode.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How is Blooket different from Kahoot?</p>
+            <p className="text-sm text-slate-300 mt-1">Kahoot is teacher-paced and speed-dependent — one question displayed on a shared screen at a time. Blooket is self-paced — each student answers on their own device independently. Blooket also has persistent progression through blooks and tokens that Kahoot does not.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can students play Blooket at home?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — and many do voluntarily. Students with their own accounts can play solo game modes to earn tokens and open packs. Teachers can assign specific question sets and students can practice in Cafe or Factory mode on their own schedule.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Blooket work on Chromebooks and iPads?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. Blooket runs entirely in the browser with no downloads required. It works on any device with a modern browser and internet connection, including Chromebooks, iPads, Android tablets, and school-issued laptops.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-token-generator-truth",
+    title: "Blooket Token Generator: Why They Don't Work and What Actually Does",
+    excerpt: "Every free Blooket token generator online is a scam — not a maybe, a certainty. Here is the technical reason they cannot work, and the actual 28-minute daily method that gets you to 500 tokens without risking your account.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "GAME STRATEGY",
+    hasCalculator: false,
+    imageUrl: "/images/blog/token-generator.png",
+    sources: [
+      { label: "Blooket Help: Earning Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Terms of Service", href: "https://www.blooket.com/terms" },
+      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
+    ],
+    tags: ["tokens", "coin-generator", "farming", "strategy", "account-safety"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "6 min read",
+    views: 0,
+    featured: false,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You found a site promising 10,000 free Blooket tokens. Enter your username, complete a survey. Your balance never changes. Three more sites. Same result. The problem is not your browser — it is that server-side game economies are physically impossible to hack from the outside. Here is what is actually happening, and what to do instead.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why Token Generators Cannot Work</h2>
+        <p>
+          Your Blooket token balance lives on Blooket's servers, not on your device. When you earn tokens legitimately — by finishing a game mode — the Blooket server validates the session happened and writes the token increment on the server side.
+        </p>
+        <p>
+          A generator site has no access to Blooket's servers. It cannot authenticate as Blooket's backend. It cannot write to your account database. The only thing it does is display a fake loading animation and redirect you to a survey. <strong>Every generator site runs the same con.</strong> The survey completions are how the site owner makes money. You are the product.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">What These Sites Actually Do to You</h3>
+        <ul>
+          <li><strong>Survey farms:</strong> You complete offers that pay the site owner fractions of a cent per completion</li>
+          <li><strong>Credential phishing:</strong> Sites asking for your Blooket password are attempting login theft</li>
+          <li><strong>Malware links:</strong> Download links disguised as "token injectors" frequently contain malware</li>
+          <li><strong>Account flags:</strong> If someone uses your shared credentials abnormally, Blooket can flag the account</li>
+        </ul>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Never enter your Blooket password on any site that is not blooket.com. If you have ever entered your credentials on a generator site, change your Blooket password immediately and switch to Google login as your primary sign-in method — this prevents password-based account takeovers entirely regardless of whether the old password was compromised.</p>
+        </div>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Actual 28-Minute Method: 500 Tokens Per Day</h2>
+        <p>
+          The Blooket daily cap is <strong>500 tokens</strong>. It resets every day. The real goal is not to generate tokens — it is to hit that cap in the shortest possible real time.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Game Mode</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Session Length</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Avg Tokens</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Sessions to Cap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Cafe</td>
+              <td className="py-3 px-4">7 min</td>
+              <td className="py-3 px-4 text-emerald-400">~90 tokens</td>
+              <td className="py-3 px-4 text-emerald-400">~6 sessions (42 min)</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Factory</td>
+              <td className="py-3 px-4">10 min</td>
+              <td className="py-3 px-4">~120 tokens</td>
+              <td className="py-3 px-4">~5 sessions (50 min)</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Racing</td>
+              <td className="py-3 px-4">5 min</td>
+              <td className="py-3 px-4">~50 tokens</td>
+              <td className="py-3 px-4">10 sessions (50 min)</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-red-400">Gold Quest</td>
+              <td className="py-3 px-4">10 min</td>
+              <td className="py-3 px-4">~45 tokens</td>
+              <td className="py-3 px-4 text-red-400">~11 sessions (110 min)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The fastest path: <strong>four Factory sessions</strong> (40 min, ~480 tokens) or <strong>six Cafe sessions</strong> (42 min, ~540 tokens — you stop early at cap). Either route hits 500 daily tokens in under 45 minutes. The full method with timing detail is in the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming guide</Link>.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">How Long to Save for What You Want</h2>
+        <p>At 500 tokens per day, use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> for your exact target. General benchmarks:</p>
+        <ul>
+          <li><strong>King (Medieval, 1.0% Legendary):</strong> ~13 days to 90% confidence</li>
+          <li><strong>Sandwich (Lunch, 0.65% Legendary):</strong> ~18 days</li>
+          <li><strong>Lion (Safari, 0.5% Legendary):</strong> ~19 days</li>
+          <li><strong>Yeti (Ice Monster, 0.35% Legendary):</strong> ~33 days</li>
+        </ul>
+        <p>
+          Compare this to a generator site: zero tokens delivered, time wasted, and account risk incurred. The math on legitimate farming wins every time. See the full cross-pack breakdown in the <Link href="/blog/blooket-legendary-token-cost" className="text-emerald-400 hover:text-emerald-300">Legendary token cost guide</Link>.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Hidden Token Source: Duplicate Refunds</h2>
+        <p>
+          Once you start opening packs, duplicates sell back for tokens — Commons earn 5, Uncommons 10, Rares 25, Epics 100, Legendaries 500. Over a long pack session, these refunds cut your net spend by roughly <strong>25–30%</strong>. This is real token recovery, generated through normal gameplay. Enable the duplicate refund setting in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to see how it changes the cost of your target blook.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do Blooket token generators or coin generators work?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Token generators cannot work because your token balance lives on Blooket's servers, which third-party sites have no access to. Every site claiming to generate free tokens is a scam designed to collect survey completions or steal credentials.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the fastest legitimate way to get Blooket tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">Cafe and Factory game modes are the most efficient. Cafe delivers roughly 90 tokens per 7-minute session. Six Cafe sessions puts you at the 500 daily token cap in about 42 minutes.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can you get banned for using a token generator?</p>
+            <p className="text-sm text-slate-300 mt-1">The generator sites themselves do not affect your account — they cannot access it. However, sharing your credentials with a generator site and having someone log in from an unusual location can trigger Blooket account flags. Change your password immediately if you have done this.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is there a Blooket cheat code for tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Blooket's token system is entirely server-side. The only way to earn tokens is through in-game activities: completing game modes, daily bonuses, and referral rewards.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens can you earn per day in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">The daily cap is 500 tokens. After hitting that limit, additional game sessions yield no token rewards until the daily limit resets.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-market-guide",
+    title: "Blooket Market Explained: How Duplicate Refunds Cut Your Pack Cost by 30%",
+    excerpt: "Most players tap sell on duplicates and forget it. Here is the expected token return per pack rarity, what you should never sell, and how the Market reduces your real Legendary cost by up to 30% over a full chase session.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "GAME STRATEGY",
+    hasCalculator: true,
+    imageUrl: "/images/blog/blooket-market.png",
+    sources: [
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Blooks", href: "https://blooket.fandom.com/wiki/Blooks" },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+    ],
+    tags: ["market", "duplicates", "tokens", "strategy", "expected-value", "blooks"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "7 min read",
+    views: 0,
+    featured: false,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You just pulled your forty-seventh Common blook. The Market tab is right there. You tap sell, get 5 tokens, and move on. That is fine — but across a full Legendary chase, those 5-token sales stack into a 25–30% discount on your total token spend. The Market is not a trash bin. It is a built-in rebate system, and most players treat it as an afterthought.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What the Blooket Market Actually Is</h2>
+        <p>
+          The Market is Blooket's duplicate management system. Any blook you already own can be sold back for a fixed token amount determined by rarity. The price does not vary based on supply or demand — you are liquidating duplicate drops back into the currency you spent to earn them. It is a guaranteed floor on your investment, not a gamble.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Duplicate Sell Values by Rarity</h2>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Sell Value</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Typical Drop Frequency</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Est. Return per 100 Pulls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Common</td>
+              <td className="py-3 px-4">5 tokens</td>
+              <td className="py-3 px-4">~60–70%</td>
+              <td className="py-3 px-4">~300–350 tokens</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Uncommon</td>
+              <td className="py-3 px-4">10 tokens</td>
+              <td className="py-3 px-4">~20–25%</td>
+              <td className="py-3 px-4">~200–250 tokens</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Rare</td>
+              <td className="py-3 px-4">25 tokens</td>
+              <td className="py-3 px-4">~8–12%</td>
+              <td className="py-3 px-4">~200–300 tokens</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Epic</td>
+              <td className="py-3 px-4">100 tokens</td>
+              <td className="py-3 px-4">~2–5%</td>
+              <td className="py-3 px-4">~200–500 tokens</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Legendary</td>
+              <td className="py-3 px-4">500 tokens</td>
+              <td className="py-3 px-4">&lt;1%</td>
+              <td className="py-3 px-4">~0–500 tokens</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Across the full rarity distribution of a 20-token pack, the expected duplicate refund per pull runs approximately <strong>5–7 tokens</strong>. On a 25-token pack, roughly <strong>6–8 tokens</strong>. That is a 25–35% token return rate built into normal gameplay — assuming you sell every confirmed duplicate.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The One Rule: Never Sell a Non-Duplicate</h2>
+        <p>
+          The Market does not stop you from selling a blook you only own once. If you sell your only Legendary, it is gone permanently. Before selling anything above Common rarity, verify it is a confirmed duplicate in your blook collection screen. The Market does not show you a warning — that is entirely on you.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Sell duplicates at the end of each pack session — not while you are mid-streak. Players frequently misidentify blooks as duplicates when they are excited and clicking fast. Build a habit: open all packs, finish the session, then go to Market and sell only what you know is a duplicate. One accidental Legendary sale wipes out a full day of farming in a single click.</p>
+        </div>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">How the Market Changes Your Legendary Budget</h2>
+        <p>
+          Every Legendary cost figure you see online is a gross number — raw token spend before duplicate refunds. Here is how the Market plays out on a King chase (Medieval Pack, 1.0% Legendary, 28 tokens/pull, 90% confidence):
+        </p>
+        <ul>
+          <li><strong>Pulls needed at 90%:</strong> ~229 pulls</li>
+          <li><strong>Gross token cost:</strong> 229 × 28 = ~6,412 tokens</li>
+          <li><strong>Duplicate refund per pull:</strong> ~7 tokens (25% of pack cost)</li>
+          <li><strong>Total refunds over 229 pulls:</strong> ~1,603 tokens</li>
+          <li><strong>Net cost:</strong> ~4,809 tokens</li>
+        </ul>
+        <p>
+          That is nearly 1,600 tokens back — over three full days of farming — recovered through consistent Market sales. Enable the duplicate refund toggle in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> to apply this to any target blook.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Which Packs Give the Best Market Return?</h2>
+        <p>
+          Higher rarity distributions produce more valuable duplicates per pull. But pack cost matters equally — a pack with excellent duplicate rates but a high cost per pull may net worse than a cheaper pack with decent duplicates. The <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI calculator</Link> runs the full expected value comparison including estimated duplicate refunds for each pack so you can compare net token efficiency before committing your farming budget.
+        </p>
+        <p>
+          For the complete cross-pack Legendary cost table, read the <Link href="/blog/blooket-legendary-token-cost" className="text-emerald-400 hover:text-emerald-300">Legendary token cost guide</Link>. For the fastest way to build your token reserves for pack opening, see the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">farming guide</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What does the Blooket Market do?</p>
+            <p className="text-sm text-slate-300 mt-1">The Market lets you sell duplicate blooks back for tokens at fixed prices by rarity: Common = 5, Uncommon = 10, Rare = 25, Epic = 100, Legendary = 500 tokens.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I sell all my duplicate blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — confirmed duplicates have no gameplay value beyond their sell price. Sell every verified duplicate to recover tokens. Keep exactly one of each blook for collection and game customization purposes.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Can you buy specific blooks in the Blooket Market?</p>
+            <p className="text-sm text-slate-300 mt-1">No. The Market is sell-only — you cannot buy specific blooks. The only way to obtain blooks is through pack opening. The Market is strictly for liquidating duplicates back into tokens.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How much do duplicate refunds reduce your pack costs?</p>
+            <p className="text-sm text-slate-300 mt-1">Across a full Legendary chase, duplicate refunds typically cover 25–30% of gross token spend. On a 90%-confidence King chase (~6,412 gross tokens), that is approximately 1,500–1,900 tokens recovered through Market sales.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What happens if I accidentally sell a Legendary blook?</p>
+            <p className="text-sm text-slate-300 mt-1">It is gone — permanently removed from your collection. You receive 500 tokens and there is no undo. Always verify a blook is a confirmed duplicate before selling anything above Rare rarity.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-ice-monster-pack-odds",
+    title: "Blooket Ice Monster Pack Odds: Ice Crab, Yeti, and the Real Token Cost",
+    excerpt: "The Ice Monster Pack has three Chromas, but Ice Crab at 0.02% is one of the rarest blooks in the game. Here is the exact binomial breakdown for every rare drop, plus the token budget you actually need before pulling.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/ice-monster-pack.png",
+    sources: [
+      { label: "Blooket Wiki: Ice Monster Pack", href: "https://blooket.fandom.com/wiki/Ice_Monster_Pack" },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+    ],
+    tags: ["ice-monster-pack", "ice-crab", "yeti", "chroma", "legendary", "odds", "tokens"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "8 min read",
+    views: 0,
+    featured: false,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          The Ice Monster Pack looks approachable — three different Chromas, a solid Legendary, 25 tokens per pull. Then you check the Ice Crab's 0.02% rate and realize this is one of the most demanding Chroma chases in the game. Here is what the math actually says about every rare drop, and where to set your token budget before you open the first pack.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Ice Monster Pack: Full Drop Rate Breakdown</h2>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Blook</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (50%)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (90%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Yeti</td>
+              <td className="py-3 px-4 text-emerald-400">Legendary</td>
+              <td className="py-3 px-4 text-emerald-400">0.35%</td>
+              <td className="py-3 px-4 text-emerald-400">~4,950</td>
+              <td className="py-3 px-4 text-emerald-400">~16,425</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Ice Slime</td>
+              <td className="py-3 px-4 text-purple-400">Chroma</td>
+              <td className="py-3 px-4">0.08%</td>
+              <td className="py-3 px-4">~21,650</td>
+              <td className="py-3 px-4">~71,975</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Frozen Fossil</td>
+              <td className="py-3 px-4 text-purple-400">Chroma</td>
+              <td className="py-3 px-4">0.05%</td>
+              <td className="py-3 px-4">~34,650</td>
+              <td className="py-3 px-4">~115,125</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-amber-400">Ice Crab</td>
+              <td className="py-3 px-4 text-purple-400">Chroma</td>
+              <td className="py-3 px-4 text-red-400">0.02%</td>
+              <td className="py-3 px-4 text-red-400">~86,650</td>
+              <td className="py-3 px-4 text-red-400">~287,825</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          All figures use <strong>P(X ≥ 1) = 1 − (1 − p)ⁿ</strong> solved for n at 50% and 90%, multiplied by 25 tokens per pull. These are gross costs before duplicate refunds.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Yeti: Your Realistic Target in This Pack</h2>
+        <p>
+          At 0.35%, the Yeti is a mid-tier Legendary — attainable for a player willing to commit. At 90% confidence you need approximately <strong>657 pulls at ~16,425 gross tokens</strong>. At the 500 daily token cap, that is about <strong>33 days of full farming</strong>. After 25–30% duplicate refunds, the net cost drops to roughly <strong>11,500–12,300 tokens</strong> — about 23–25 days of full farming.
+        </p>
+        <p>
+          Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> to model your exact budget based on your actual daily farming rate. The general farming strategy is in the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming guide</Link>.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Ice Crab: The Numbers Nobody Posts</h2>
+        <p>
+          Ice Crab at <strong>0.02%</strong> is the reality check in this pack. The 50% confidence threshold — where half of all chasers succeed — is approximately <strong>3,466 pulls at ~86,650 gross tokens</strong>. Most guides skip posting this because it is sobering. But a sobering true number is more useful than a misleadingly low estimate.
+        </p>
+        <p>
+          The 90% figure is <strong>11,513 pulls at ~287,825 gross tokens</strong>. After 25% duplicate refunds, net cost is approximately <strong>215,869 tokens</strong>. At 500 tokens per day, that is roughly <strong>432 days of full daily farming</strong>. The Ice Crab is a multi-month, often multi-year chase for most players.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">If you want a Chroma from Ice Monster Pack but are not prepared for a 100,000+ token investment, target Ice Slime at 0.08% instead. It is a genuine Chroma, the flex is real, and the 90% confidence budget (~71,975 tokens) is four times more realistic than Ice Crab. Decide your target before you open pull one — not 2,000 pulls in after you realize you were aiming at the wrong blook.</p>
+        </div>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Ice Monster Pack vs. Other Packs for Chroma Hunters</h2>
+        <p>
+          If your only goal is to own a Chroma as efficiently as possible, this is not the right pack. The <Link href="/blog/blooket-lunch-pack-odds" className="text-emerald-400 hover:text-emerald-300">Lunch Pack's Half a Sandwich at 0.04%</Link> is exactly twice as likely as Ice Crab and costs half the tokens at equivalent confidence. The <Link href="/blog/blooket-safari-pack-rainbow-panda" className="text-emerald-400 hover:text-emerald-300">Safari Pack's Rainbow Panda</Link> is another competitive target. Run a comparison in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI calculator</Link> before committing your budget.
+        </p>
+        <p>
+          For the full cross-pack Legendary cost comparison, see the <Link href="/blog/blooket-legendary-token-cost" className="text-emerald-400 hover:text-emerald-300">Legendary token cost guide</Link>. For the mindset to survive a long Chroma chase without burning out, read the <Link href="/blog/blooket-gamblers-fallacy" className="text-emerald-400 hover:text-emerald-300">gambler's fallacy breakdown</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What are the drop rates in the Blooket Ice Monster Pack?</p>
+            <p className="text-sm text-slate-300 mt-1">The Ice Monster Pack costs 25 tokens per pull. Key rates: Yeti (Legendary) 0.35%, Ice Slime (Chroma) 0.08%, Frozen Fossil (Chroma) 0.05%, Ice Crab (Chroma) 0.02%.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How rare is the Ice Crab in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">The Ice Crab is a Chroma with a 0.02% drop rate — one of the rarest blooks in the game. At 90% confidence you need approximately 11,513 pulls at ~287,825 gross tokens before duplicate refunds.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens does it take to get the Yeti in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">At 90% confidence, approximately 657 pulls at 25 tokens each equals ~16,425 gross tokens. After typical 25% duplicate refunds, net cost is roughly 11,500–12,300 tokens — about 23–25 days of full daily farming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Ice Monster Pack worth opening for Chromas?</p>
+            <p className="text-sm text-slate-300 mt-1">It depends on your target. Ice Slime (0.08%) is attainable for a committed player. Frozen Fossil (0.05%) requires a larger budget. Ice Crab (0.02%) is a multi-month or multi-year chase. Know your target and its 90% cost before opening your first pack.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many Chromas does the Ice Monster Pack have?</p>
+            <p className="text-sm text-slate-300 mt-1">Three: Ice Slime (0.08%), Frozen Fossil (0.05%), and Ice Crab (0.02%). Three Chromas in one pack is uncommon — but all three have demanding rates, especially Ice Crab.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-lunch-pack-odds",
+    title: "Blooket Lunch Pack Odds: Is Half a Sandwich Worth the Token Chase?",
+    excerpt: "The Lunch Pack is underrated. Sandwich is the second-easiest Legendary in the game at 0.65%, and Half a Sandwich at 0.04% Chroma is twice as accessible as Ice Crab. Here is the full binomial breakdown and token budget.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/lunch-pack.png",
+    sources: [
+      { label: "Blooket Wiki: Lunch Pack", href: "https://blooket.fandom.com/wiki/Lunch_Pack" },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+    ],
+    tags: ["lunch-pack", "half-a-sandwich", "sandwich", "chroma", "legendary", "odds", "tokens"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "7 min read",
+    views: 0,
+    featured: false,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          The Lunch Pack rarely gets the spotlight that Medieval or Safari does. No flashy wiki pages, no YouTube thumbnails. But the math on this pack is quietly excellent for two specific player types: anyone who wants a Legendary fast, and anyone chasing a Chroma without the six-figure token budget that Ice Crab demands. Here is what the numbers actually say.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Lunch Pack: Full Drop Rate Breakdown</h2>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Blook</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Rarity</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (50%)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (90%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Sandwich</td>
+              <td className="py-3 px-4 text-emerald-400">Legendary</td>
+              <td className="py-3 px-4 text-emerald-400">0.65%</td>
+              <td className="py-3 px-4 text-emerald-400">~2,658</td>
+              <td className="py-3 px-4 text-emerald-400">~8,828</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-amber-400">Half a Sandwich</td>
+              <td className="py-3 px-4 text-purple-400">Chroma</td>
+              <td className="py-3 px-4">0.04%</td>
+              <td className="py-3 px-4">~43,325</td>
+              <td className="py-3 px-4">~143,925</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Pack cost: <strong>25 tokens per pull</strong>. Figures use <strong>P(X ≥ 1) = 1 − (1 − p)ⁿ</strong> solved at 50% and 90% confidence. Gross costs before duplicate refunds.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Sandwich: The Second-Easiest Legendary in Blooket</h2>
+        <p>
+          At 0.65%, Sandwich has the second-highest Legendary drop rate in any standard permanent pack — behind only the King from Medieval Pack (1.0%). The 90% confidence budget is approximately <strong>353 pulls at 25 tokens each — ~8,828 gross tokens</strong>. After 25–30% duplicate refunds, net cost drops to roughly <strong>6,200–6,600 tokens</strong>.
+        </p>
+        <p>
+          At 500 tokens per day, that is approximately <strong>13–14 days of net farming</strong>. If you want a Legendary and you are not locked into a specific one, Sandwich competes directly with King as the fastest Legendary target in the game.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Legendary</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pack Cost</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Gross (90%)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Days at 500/day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">King (Medieval)</td>
+              <td className="py-3 px-4">28 tkn</td>
+              <td className="py-3 px-4 text-emerald-400">1.0%</td>
+              <td className="py-3 px-4 text-emerald-400">~6,412</td>
+              <td className="py-3 px-4 text-emerald-400">~13</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">Sandwich (Lunch)</td>
+              <td className="py-3 px-4">25 tkn</td>
+              <td className="py-3 px-4 text-emerald-400">0.65%</td>
+              <td className="py-3 px-4 text-emerald-400">~8,828</td>
+              <td className="py-3 px-4 text-emerald-400">~18</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Lion (Safari)</td>
+              <td className="py-3 px-4">20 tkn</td>
+              <td className="py-3 px-4">0.5%</td>
+              <td className="py-3 px-4">~9,160</td>
+              <td className="py-3 px-4">~19</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Yeti (Ice Monster)</td>
+              <td className="py-3 px-4">25 tkn</td>
+              <td className="py-3 px-4">0.35%</td>
+              <td className="py-3 px-4">~16,425</td>
+              <td className="py-3 px-4">~33</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Half a Sandwich vs. Ice Crab: The Chroma Efficiency Case</h2>
+        <p>
+          If you are comparing packs for a Chroma chase, the Lunch Pack and Ice Monster Pack are direct competitors. The numbers:
+        </p>
+        <ul>
+          <li><strong>Half a Sandwich (0.04%):</strong> 90% confidence = ~5,757 pulls = ~143,925 gross tokens</li>
+          <li><strong>Ice Crab (0.02%):</strong> 90% confidence = ~11,513 pulls = ~287,825 gross tokens</li>
+        </ul>
+        <p>
+          Half a Sandwich is exactly <strong>twice as likely per pull</strong> as Ice Crab. That means half the pull count and half the gross token cost at any equivalent confidence level. <strong>If owning a Chroma is the goal and the specific blook is flexible, the Lunch Pack wins on efficiency.</strong>
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">The Lunch Pack is underrated because it lacks a dramatic name and a flashy Chroma visual. But for a player who wants a Legendary in under three weeks and a realistic Chroma path, this pack competes with Medieval on Legendary speed and beats Ice Monster on Chroma accessibility. Run both packs through the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI calculator</Link> side-by-side before farming a single token. The right answer depends on your target, not the pack's reputation.</p>
+        </div>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Duplicate Refunds in the Lunch Pack</h2>
+        <p>
+          At 25 tokens per pull, the expected duplicate refund runs approximately <strong>6–8 tokens per pull</strong> — around 25–30% of pack cost. Over a Half a Sandwich chase at 90% confidence (~5,757 pulls), that is approximately <strong>34,542–46,056 tokens returned</strong> through Market sales. Net cost drops from ~143,925 to approximately <strong>97,869–109,383 tokens</strong>.
+        </p>
+        <p>
+          Enable the duplicate refund toggle in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to model your specific net cost. For Market mechanics in detail, see the <Link href="/blog/blooket-market-guide" className="text-emerald-400 hover:text-emerald-300">Market guide</Link>. For the fastest token farming method to fuel any long chase, see the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">farming guide</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What are the drop rates in the Blooket Lunch Pack?</p>
+            <p className="text-sm text-slate-300 mt-1">The Lunch Pack costs 25 tokens per pull. Sandwich (Legendary) has a 0.65% drop rate. Half a Sandwich (Chroma) has a 0.04% drop rate.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How rare is Half a Sandwich in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Half a Sandwich is a Chroma with a 0.04% drop rate. At 90% confidence you need approximately 5,757 pulls at ~143,925 gross tokens. After duplicate refunds (~30%), net cost is roughly 97,000–110,000 tokens.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Sandwich Legendary easy to get in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes, relative to other Legendaries. At 0.65%, Sandwich has the second-highest Legendary drop rate of any standard permanent pack. The 90% confidence budget is ~8,828 gross tokens, achievable in about 18 days of full daily farming.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Lunch Pack better than the Ice Monster Pack?</p>
+            <p className="text-sm text-slate-300 mt-1">For Legendary hunters, yes — Sandwich (0.65%) is nearly twice as likely as Yeti (0.35%). For Chroma hunters, Half a Sandwich (0.04%) is exactly twice as attainable as Ice Crab (0.02%). The Lunch Pack is more efficient in both categories.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How long does it take to get Half a Sandwich in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">At the 500 daily token cap, 143,925 gross tokens requires approximately 288 days of full farming. After ~30% duplicate refunds, net cost is roughly 100,000–110,000 tokens — about 200–220 days. This is a serious long-term commitment.</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 ];
