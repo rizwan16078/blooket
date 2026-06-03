@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Search, X, Command } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 
 type SearchItem = {
   title: string;
@@ -201,25 +200,16 @@ export default function SearchBar() {
         <Search className="h-4 w-4" />
       </button>
 
-      {/* Overlay */}
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1 }}
-              className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.15 }}
-              className="fixed left-1/2 top-[15%] z-[61] w-[calc(100vw-32px)] max-w-xl -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#0f1629] shadow-2xl"
-            >
+      {/* Overlay — CSS opacity transition, no framer-motion */}
+      {open && (
+        <>
+          <div
+            className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm animate-in fade-in duration-100"
+            onClick={() => setOpen(false)}
+          />
+          <div
+            className="fixed left-1/2 top-[15%] z-[61] w-[calc(100vw-32px)] max-w-xl -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#0f1629] shadow-2xl animate-in fade-in zoom-in-95 slide-in-from-top-4 duration-150"
+          >
               {/* Search input */}
               <div className="flex items-center gap-3 border-b border-white/[0.06] px-4 py-3">
                 <Search className="h-5 w-5 shrink-0 text-white/30" />
@@ -304,10 +294,9 @@ export default function SearchBar() {
                   close
                 </span>
               </div>
-            </motion.div>
+          </div>
           </>
         )}
-      </AnimatePresence>
     </>
   );
 }

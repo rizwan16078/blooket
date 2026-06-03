@@ -12,8 +12,8 @@ import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
-const ibmPlexMono = IBM_Plex_Mono({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-plex" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
+const ibmPlexMono = IBM_Plex_Mono({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-plex", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -78,6 +78,10 @@ export default function RootLayout({
       className={`h-full antialiased font-sans ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
     >
       <head>
+        {/* Preconnect to the same origin for early connection warm-up on
+            Vercel's edge network. dns-prefetch is the HTTP/1.1 fallback. */}
+        <link rel="preconnect" href="https://www.calculatorblooket.com" />
+        <link rel="dns-prefetch" href="https://www.calculatorblooket.com" />
         {/* Fonts injected via next/font/google */}
         <script
           type="application/ld+json"

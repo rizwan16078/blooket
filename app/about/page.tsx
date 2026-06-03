@@ -139,47 +139,47 @@ export default function AboutPage() {
       </section>
 
       {/* Parent Company */}
-      <section className=”mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8”>
-        <div className=”rounded-2xl border border-violet-500/15 bg-violet-500/5 px-6 py-4 text-sm leading-7 text-white/60”>
-          <strong className=”text-white”>Legal entity:</strong> Blooket Calculator is an independent community project operated as a sole-proprietor web publication. It is not affiliated with, endorsed by, or a subsidiary of Blooket LLC or any related company.
+      <section className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-violet-500/15 bg-violet-500/5 px-6 py-4 text-sm leading-7 text-white/60">
+          <strong className="text-white">Legal entity:</strong> Blooket Calculator is an independent community project operated as a sole-proprietor web publication. It is not affiliated with, endorsed by, or a subsidiary of Blooket LLC or any related company.
         </div>
       </section>
 
       {/* Who We Are */}
-      <section className=”mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8”>
-        <article className=”glass-panel rounded-[2rem] p-6 sm:p-8”>
-          <div className=”space-y-2 mb-6”>
-            <p className=”text-sm font-bold uppercase tracking-[0.24em] text-violet-400”>Our team</p>
-            <h2 className=”font-sans text-3xl font-black tracking-wide text-white sm:text-4xl”>
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
+          <div className="space-y-2 mb-6">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">Our team</p>
+            <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
               Who We Are
             </h2>
           </div>
-          <p className=”text-white/50 leading-8 text-base max-w-3xl”>
+          <p className="text-white/50 leading-8 text-base max-w-3xl">
             We are a small team of developers, mathematicians, and Blooket enthusiasts who believe players deserve real probability data before spending tokens — not vague rarity labels. The Blooket Calculator was founded in 2026 and has grown into the most transparent pack-odds reference in the community.
           </p>
 
           {/* Team photos */}
-          <div className=”mt-8 grid gap-6 sm:grid-cols-2”>
-            <div className=”flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5”>
-              <div className=”flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 text-2xl font-black text-white shadow-lg shadow-violet-500/20”>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 text-2xl font-black text-white shadow-lg shadow-violet-500/20">
                 A
               </div>
               <div>
-                <p className=”font-black text-white”>Alex M.</p>
-                <p className=”text-sm text-violet-400”>Lead Developer &amp; Mathematician</p>
-                <p className=”mt-1 text-xs leading-6 text-white/40”>
+                <p className="font-black text-white">Alex M.</p>
+                <p className="text-sm text-violet-400">Lead Developer &amp; Mathematician</p>
+                <p className="mt-1 text-xs leading-6 text-white/40">
                   Builds the core probability engine. Background in statistics and game theory.
                 </p>
               </div>
             </div>
-            <div className=”flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5”>
-              <div className=”flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-2xl font-black text-white shadow-lg shadow-emerald-500/20”>
+            <div className="flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-2xl font-black text-white shadow-lg shadow-emerald-500/20">
                 S
               </div>
               <div>
-                <p className=”font-black text-white”>Sam T.</p>
-                <p className=”text-sm text-emerald-400”>UI/UX Designer</p>
-                <p className=”mt-1 text-xs leading-6 text-white/40”>
+                <p className="font-black text-white">Sam T.</p>
+                <p className="text-sm text-emerald-400">UI/UX Designer</p>
+                <p className="mt-1 text-xs leading-6 text-white/40">
                   Data visualisation and accessibility-first interface design.
                 </p>
               </div>
@@ -189,18 +189,18 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story & What We Do */}
-      <section className=”mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8”>
-        <div className=”grid gap-8 lg:grid-cols-2”>
-          <article className=”glass-panel rounded-[2rem] p-6 sm:p-8”>
-            <div className=”space-y-2 mb-6”>
-              <p className=”text-sm font-bold uppercase tracking-[0.24em] text-violet-400”>
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
+            <div className="space-y-2 mb-6">
+              <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
                 Our story
               </p>
-              <h2 className=”font-sans text-3xl font-black tracking-wide text-white sm:text-4xl”>
+              <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
                 How We Started
               </h2>
             </div>
-            <div className=”space-y-4 text-white/50 leading-8 text-base”>
+            <div className="space-y-4 text-white/50 leading-8 text-base">
               <p>
                 The Blooket Calculator began as a simple side project among friends who were frustrated by the lack of clear probability data in educational gaming. We noticed players spending countless tokens without understanding the true mathematical odds behind the packs they were opening.
               </p>
@@ -210,21 +210,21 @@ export default function AboutPage() {
             </div>
           </article>
 
-          <article className=”glass-panel rounded-[2rem] p-6 sm:p-8”>
-            <div className=”space-y-2 mb-6”>
-              <p className=”text-sm font-bold uppercase tracking-[0.24em] text-violet-400”>
+          <article className="glass-panel rounded-[2rem] p-6 sm:p-8">
+            <div className="space-y-2 mb-6">
+              <p className="text-sm font-bold uppercase tracking-[0.24em] text-violet-400">
                 Our services
               </p>
-              <h2 className=”font-sans text-3xl font-black tracking-wide text-white sm:text-4xl”>
+              <h2 className="font-sans text-3xl font-black tracking-wide text-white sm:text-4xl">
                 What We Do
               </h2>
             </div>
-            <div className=”space-y-4 text-white/50 leading-8 text-base”>
+            <div className="space-y-4 text-white/50 leading-8 text-base">
               <p>
                 We build mathematically sound tools that turn pack odds into usable decisions. That means converting raw drop rates into budget-aware probability, documenting our assumptions, and keeping the supporting content close to the calculator instead of hiding it in vague marketing copy.
               </p>
               <p>
-                The project also acts as an editorial hub. Alongside the calculator, we maintain pack tables, blook pages, rarity guides, and methodology notes so the site can answer both the math question and the follow-up “what do I do with this information?” question.
+                The project also acts as an editorial hub. Alongside the calculator, we maintain pack tables, blook pages, rarity guides, and methodology notes so the site can answer both the math question and the follow-up "what do I do with this information?" question.
               </p>
             </div>
           </article>

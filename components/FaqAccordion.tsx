@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface FaqEntry {
   question: string;
@@ -27,6 +26,7 @@ export default function FaqAccordion({ entries }: { entries: FaqEntry[] }) {
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : index)}
+              aria-expanded={isOpen}
               className="flex w-full items-center justify-between gap-4 p-5 text-left outline-none sm:p-6"
             >
               <h3
@@ -43,7 +43,8 @@ export default function FaqAccordion({ entries }: { entries: FaqEntry[] }) {
                     : "bg-white/[0.04] text-white/30 group-hover:bg-white/[0.06] group-hover:text-white/50"
                 }`}
               >
-                <motion.svg
+                {/* Pure-CSS rotate — no framer-motion needed */}
+                <svg
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"
@@ -52,30 +53,33 @@ export default function FaqAccordion({ entries }: { entries: FaqEntry[] }) {
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  aria-hidden="true"
+                  className={`transition-transform duration-300 ease-in-out ${
+                    isOpen ? "rotate-180" : "rotate-0"
+                  }`}
                 >
                   <path d="m6 9 6 6 6-6" />
-                </motion.svg>
+                </svg>
               </div>
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-5 pb-6 pt-1 sm:px-6">
-                    <p className="text-sm leading-7 text-white/40">
-                      {entry.answer}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+            {/*
+              CSS grid trick: grid-template-rows transitions from "0fr" to "1fr"
+              which animates height from 0 to auto without JS measurement.
+              The inner div needs min-h-0 so it can actually collapse to 0.
+            */}
+            <div
+              className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+              style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <div className="px-5 pb-6 pt-1 sm:px-6">
+                  <p className="text-sm leading-7 text-white/40">
+                    {entry.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         );
       })}

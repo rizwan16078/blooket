@@ -5,7 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useLocalStorage } from "usehooks-ts";
 
-import LootRevealModal from "@/components/loot/LootRevealModal";
+import dynamic from "next/dynamic";
+// LootRevealModal is only shown after a user opens a pack — lazy-load it so
+// framer-motion + canvas-confetti don't ship in the initial page bundle.
+const LootRevealModal = dynamic(() => import("@/components/loot/LootRevealModal"), { ssr: false });
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { BLOOK_MAP, LOCKED_PACKS, PACKS as ALL_PACKS } from "@/lib/constants";

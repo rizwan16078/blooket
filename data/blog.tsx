@@ -3547,5 +3547,661 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
     )
+  },
+  // ─── NEW POSTS ────────────────────────────────────────────────
+  {
+    slug: "blooket-aquatic-pack-odds",
+    title: "Blooket Aquatic Pack Odds: Why the Megalodon Is Harder Than You Think",
+    excerpt: "You're not just chasing a Legendary — you're chasing the rarer of two inside a 0.7% window. Here's the conditional math that every Aquatic Pack opener needs to see before spending a single token.",
+    date: "Jun 4, 2026",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/aquatic-pack-odds.png",
+    sources: [
+      { label: "Blooket Wiki: Aquatic Pack", href: "https://blooket.fandom.com/wiki/Aquatic_Pack" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+    ],
+    tags: ["aquatic-pack", "megalodon", "legendary", "drop-rates", "pack-odds"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "8 min read",
+    views: 0,
+    featured: true,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You have been hammering the Aquatic Pack for weeks. You know the Megalodon is a Legendary. You know the odds feel slim. What you probably don't know is that you're not racing against one Legendary threshold — you're competing inside one. Understanding this changes your entire token strategy.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Two-Legendary Problem</h2>
+        <p>
+          The Aquatic Pack contains two Legendary Blooks: the Baby Shark and the Megalodon. Both live inside the same Legendary rarity window — but they don't share that window equally. Megalodon sits at <strong>0.2% per pull</strong>. Baby Shark is approximately <strong>0.5% per pull</strong>. Combined, the chance of pulling <em>any</em> Legendary from the Aquatic Pack is about 0.7%.
+        </p>
+        <p>
+          Here's the cold math that competitors don't show you: even after you pull a Legendary, <strong>the odds are 2.5:1 against it being Megalodon</strong>. Seventy-one percent of Legendary pulls land on Baby Shark first. You are chasing the rarer half of a lucky event.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Target</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens for 50%</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens for 90%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Any Legendary</td>
+              <td className="py-3 px-4">0.7%</td>
+              <td className="py-3 px-4">~2,178 tkn</td>
+              <td className="py-3 px-4">~7,238 tkn</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Baby Shark</td>
+              <td className="py-3 px-4">0.5%</td>
+              <td className="py-3 px-4">~3,036 tkn</td>
+              <td className="py-3 px-4">~10,098 tkn</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-emerald-400">Megalodon</td>
+              <td className="py-3 px-4 text-emerald-400">0.2%</td>
+              <td className="py-3 px-4 text-emerald-400">~7,612 tkn</td>
+              <td className="py-3 px-4 text-emerald-400">~25,300 tkn</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Those Megalodon numbers assume you are starting from zero collection. If you already own Baby Shark and every Common, the effective cost per pull drops because duplicate refunds offset real spend. Toggle the duplicate switch in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> to see your personal net cost.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The 50% Milestone Is Not Good News</h2>
+        <p>
+          Reaching a 50% chance of Megalodon requires <strong>346 pack opens — roughly 7,612 tokens</strong>. That sounds manageable until you realize it means there is still a coin-flip chance you walk away empty. Half of all players who save that much leave without the Blook.
+        </p>
+        <p>
+          The 90% confidence target — the number where 9 out of 10 players succeed — is <strong>1,151 pack opens, costing approximately 25,300 tokens</strong>. At the 500-token daily cap that's about <strong>51 days of consistent farming</strong>. The math doesn't lie; it just stings.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Why Megalodon Is Actually a Special Case</h3>
+        <p>
+          Megalodon sells for <strong>250 tokens</strong> — the highest sell value of any Aquatic blook. This matters for duplicate refund math. Once you own it, every duplicate Megalodon you pull refunds more than eleven Aquatic pack pulls. Over a long session, this meaningfully lowers the effective cost of your pursuit. It also makes the Aquatic Pack one of the better long-term ROI plays in the game even after you've secured the Legendary.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Never start an Aquatic Pack session unless you have at least <strong>7,600 tokens saved</strong> (the 50% threshold). Opening 20 packs on a whim and getting nothing teaches you nothing about odds and costs you real farming time. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> to lock in your budget before you open the first pack. The Aquatic Pack will still be there tomorrow.</p>
+        </div>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Aquatic vs. Other Packs for Legendary Hunting</h3>
+        <p>
+          If your only goal is to pull <em>any</em> Legendary as efficiently as possible, the Aquatic Pack is not your best option. Its combined 0.7% Legendary rate is solid, but individual Legendary targets cost more than they do in packs like Medieval (King at 1.0%) or Safari (Lion at 0.5%). You choose Aquatic specifically because you want Megalodon — not because it's the most token-efficient Legendary source.
+        </p>
+        <p>
+          Read the full cross-pack comparison in the <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">pack odds comparison post</Link>, check the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI calculator</Link> for value rankings, and browse all pack drop tables in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>. If you're still farming tokens to get here, see our <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming guide</Link> and <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token strategy hub</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the Megalodon drop rate in the Blooket Aquatic Pack?</p>
+            <p className="text-sm text-slate-300 mt-1">0.2% per pack open. It is a Legendary-tier Blook that appears in the same rarity window as the Baby Shark (0.5%). Combined Legendary odds are approximately 0.7%.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens do I need to guarantee the Megalodon?</p>
+            <p className="text-sm text-slate-300 mt-1">Nothing guarantees it — probability never reaches 100%. At 90% confidence you need approximately 25,300 tokens (1,151 opens at 22 tokens each).</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is the Aquatic Pack worth opening for the Megalodon?</p>
+            <p className="text-sm text-slate-300 mt-1">Only if you specifically want the Megalodon. For general Legendary hunting the Medieval Pack (King at 1.0%) or Safari Pack (Lion at 0.5%) cost fewer tokens per Legendary pull.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How much does Megalodon sell for?</p>
+            <p className="text-sm text-slate-300 mt-1">250 tokens. This is the highest sell value in the Aquatic Pack and makes duplicate Megalodon pulls extremely valuable for your token balance.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the Aquatic Pack contain any Chromas?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — the Aquatic Pack contains Chroma-tier Blooks at approximately 0.02% each. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for Chroma-specific token budgets, as they require significantly more tokens than even a Legendary chase.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-safari-pack-rainbow-panda",
+    title: "Blooket Safari Pack Rainbow Panda Odds: The 1-in-5,000 Lie",
+    excerpt: "Everyone says Rainbow Panda is a 1-in-5,000 pull. That's wrong. After exactly 5,000 packs, 37% of players still have nothing. Here's the real math — and the number you actually need to plan around.",
+    date: "Jun 3, 2026",
+    publishedAt: "2026-06-03",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/safari-rainbow-panda.png",
+    sources: [
+      { label: "Blooket Wiki: Safari Pack", href: "https://blooket.fandom.com/wiki/Safari_Pack" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+    ],
+    tags: ["safari-pack", "rainbow-panda", "chroma", "drop-rates", "probability"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "9 min read",
+    views: 0,
+    featured: true,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You've seen it everywhere: "Rainbow Panda is a 1-in-5,000 pull." Every guide, every Reddit post, every YouTube thumbnail repeats this number. There's just one problem. It's wrong. Not wrong about the drop rate — wrong about what the number means for your actual chance of getting the Blook. The 1-in-5,000 figure is the average. It is not a guarantee. And that distinction is costing players thousands of tokens.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The 1-in-5,000 Is a Mean, Not a Finish Line</h2>
+        <p>
+          Rainbow Panda is a Chroma Blook from the Safari Pack with a <strong>0.02% drop rate</strong>. One in 5,000 is the statistical average number of pulls for one success. But because each pack open is an independent random event — the game does not remember your previous pulls — there is no guarantee of success at any specific pull count.
+        </p>
+        <p>
+          Here is the brutal reality: if you open exactly 5,000 Safari Packs, your actual probability of owning Rainbow Panda is <strong>63.2%</strong>. That means <strong>37 out of every 100 players who open 5,000 packs still go home empty-handed.</strong> The game didn't glitch. The math didn't fail. Independent probability just behaves this way.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Packs Opened</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens Spent</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Probability of Rainbow Panda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">1,000</td>
+              <td className="py-3 px-4">20,000</td>
+              <td className="py-3 px-4 text-red-400">18.1%</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">3,466</td>
+              <td className="py-3 px-4">69,320</td>
+              <td className="py-3 px-4 text-amber-400">50% — coin flip</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">5,000</td>
+              <td className="py-3 px-4">100,000</td>
+              <td className="py-3 px-4 text-amber-400">63.2%</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-emerald-400">11,513</td>
+              <td className="py-3 px-4 text-emerald-400">230,260</td>
+              <td className="py-3 px-4 text-emerald-400">90% — safe budget</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The <strong>90th-percentile target is 11,513 packs — 230,260 tokens</strong>. That's the number where 9 out of 10 players who reach it will own Rainbow Panda. No competitor article publishes this figure because it's terrifying and they'd rather not show you how deep the rabbit hole goes. We would rather you know before you start.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Net Cost Is Lower Than You Think</h2>
+        <p>
+          Here is the one fact that makes this pursuit feel slightly less hopeless: the effective cost per Safari Pack pull is not 20 tokens. Because you will pull hundreds of duplicates along the way and sell every one, the resale loop offsets your gross spend. Safari Pack pulls average approximately <strong>6 tokens in duplicate refund value</strong>, bringing your net cost per pull down to roughly <strong>14 tokens</strong>.
+        </p>
+        <p>
+          At a net 14 tokens per pull, your 90th-percentile budget for Rainbow Panda is closer to <strong>161,000 tokens</strong> — still an enormous number, but 28% less than the gross figure. Toggle the duplicate refund switch in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> to see this applied to your specific session.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Rainbow Panda vs. Other Chromas</h3>
+        <p>
+          Rainbow Panda is tied with the Ice Crab as the rarest obtainable Chroma in the game, both sitting at 0.02%. Most other Chromas land between 0.02% and 0.08%. If you want a Chroma and are flexible on which one, the <Link href="/blog/blooket-chroma-blooks-complete-list" className="text-emerald-400 hover:text-emerald-300">Chroma complete list</Link> ranks them by effective token cost — some Chromas cost less than half of Rainbow Panda's 90th-percentile budget.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Set a hard session budget before you open your first pack, and treat it like a sunk cost the moment you commit it. Chasing Rainbow Panda with unlimited patience is a financial plan for the independently wealthy. For everyone else: decide your budget at <strong>69,320 tokens (50% shot)</strong>, <strong>100,000 tokens (63% shot)</strong>, or <strong>230,260 tokens (90% shot)</strong> and stick to whichever level matches your actual token reserves. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> to verify your session math before you start.</p>
+        </div>
+
+        <p>
+          For the full probability picture, read the <Link href="/blog/what-is-the-rarest-blook" className="text-emerald-400 hover:text-emerald-300">rarest Blook statistical breakdown</Link>, check the <Link href="/blog/blooket-deceptive-odds" className="text-emerald-400 hover:text-emerald-300">deceptive odds post</Link> for why your luck feels worse than the math, browse <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">all pack drop tables</Link>, and plan your farming runway with the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming guide</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the Rainbow Panda drop rate in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">0.02% per Safari Pack open — one of the rarest obtainable Blooks in the game, tied with the Ice Crab Chroma.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Why do I need more than 5,000 packs for Rainbow Panda?</p>
+            <p className="text-sm text-slate-300 mt-1">5,000 packs gives you a 63.2% chance — not a guarantee. For 90% confidence you need 11,513 opens. Each pull is independent; the game doesn't track how many you've done.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens do I need for a 90% chance at Rainbow Panda?</p>
+            <p className="text-sm text-slate-300 mt-1">Approximately 230,260 gross tokens (11,513 packs × 20 tokens). With duplicate refunds modeled, the effective net cost drops to roughly 161,000 tokens.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is Rainbow Panda worth chasing?</p>
+            <p className="text-sm text-slate-300 mt-1">That's personal. It is one of the rarest Blooks in the game and carries real prestige. Mathematically, the minimum serious budget is 69,000+ tokens. If that number is outside your farming capacity, a more accessible Chroma may be a better target.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does the Safari Pack have other rare Blooks?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — the Lion is a Legendary at 0.5% (much more achievable) and there are additional Epic-tier Blooks. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for individual token budgets.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-legendary-token-cost",
+    title: "How Many Tokens Does a Legendary Blooket Take? The Full Math Table",
+    excerpt: "Every Legendary has a different drop rate, a different pack cost, and a wildly different token budget. Here is the only cross-pack table that shows you exactly what each Legendary really costs at 50% and 90% confidence.",
+    date: "Jun 2, 2026",
+    publishedAt: "2026-06-02",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/legendary-token-cost.png",
+    sources: [
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+    ],
+    tags: ["legendary", "tokens", "cost", "drop-rates", "budget", "statistics"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "8 min read",
+    views: 0,
+    featured: true,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You've seen the numbers scattered across wikis and forum threads, and they don't agree. Some say 3,000 tokens, some say 50,000. Some cite "per pull" rates, others total cost. Most of them are wrong because they're comparing the wrong metric. This is the only table that gives you an apples-to-apples Legendary budget across every major pack — using exact binomial math, not guesswork.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why "Drop Rate" Alone Doesn't Tell You the Cost</h2>
+        <p>
+          A 1% Legendary in a 28-token pack is cheaper per-Legendary than a 0.5% Legendary in a 20-token pack. Pack cost matters as much as drop rate. The correct metric is <strong>tokens per percentage point of Legendary probability</strong> — and almost nobody is calculating this.
+        </p>
+        <p>
+          The table below uses the binomial formula <strong>P(X ≥ 1) = 1 − (1 − p)ⁿ</strong>. The 50% column is the point where half of all players succeed; the 90% column is the budget where 9 in 10 players succeed. Always plan to the 90% number.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Legendary Blook</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pack Cost</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Drop Rate</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (50%)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens (90%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">King (Medieval)</td>
+              <td className="py-3 px-4">28 tkn</td>
+              <td className="py-3 px-4 text-emerald-400">1.0%</td>
+              <td className="py-3 px-4 text-emerald-400">~1,932</td>
+              <td className="py-3 px-4 text-emerald-400">~6,412</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Lion (Safari)</td>
+              <td className="py-3 px-4">20 tkn</td>
+              <td className="py-3 px-4">0.5%</td>
+              <td className="py-3 px-4">~2,760</td>
+              <td className="py-3 px-4">~9,160</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Astronaut (Space)</td>
+              <td className="py-3 px-4">20 tkn</td>
+              <td className="py-3 px-4">0.45%</td>
+              <td className="py-3 px-4">~3,080</td>
+              <td className="py-3 px-4">~10,240</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Mega Bot (Bot)</td>
+              <td className="py-3 px-4">20 tkn</td>
+              <td className="py-3 px-4">0.3%</td>
+              <td className="py-3 px-4">~4,620</td>
+              <td className="py-3 px-4">~15,340</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">Megalodon (Aquatic)</td>
+              <td className="py-3 px-4">22 tkn</td>
+              <td className="py-3 px-4 text-red-400">0.2%</td>
+              <td className="py-3 px-4 text-red-400">~7,612</td>
+              <td className="py-3 px-4 text-red-400">~25,300</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The King's gap over every other Legendary is decisive. At 1.0% from a 28-token pack, you can hit a 90% King chance for <strong>6,412 tokens</strong> — less than 13 days of full daily farming. The Megalodon at 0.2% costs four times as many tokens for the same confidence level. If your only goal is "own a Legendary as fast as possible," Medieval is the answer.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Error That's Everywhere Online</h2>
+        <p>
+          Multiple competitor pages and forum posts list Blooket pack costs as <strong>500 tokens</strong>. This is not a typo — it is a persistent copy-paste error that inflates estimated costs by 25x. Standard permanent packs cost 20–28 tokens per pull. If a guide tells you to save 50,000 tokens for a Legendary at 1%, the math behind that number is broken. Verify every figure in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">How Duplicate Refunds Change the Budget</h3>
+        <p>
+          These token figures are gross costs — the raw spend before accounting for duplicates you sell back. Across hundreds of pulls, your average refund per 20-token pack runs approximately <strong>6 tokens</strong> (30% of pack cost). Over a 90%-confidence Legendary session, that refund stream adds up to a meaningful discount. Enable the duplicate refund toggle in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> to see net cost applied to your specific target.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">The median (50%) token number is the wrong planning target. Half the players who save only to the 50% threshold will fail. Budget to the <strong>90% column</strong> every time. The extra tokens you save feel painful in the farming phase and deeply sensible the moment you pull your Legendary on attempt 820 instead of 1,150. Read the full argument in the <Link href="/blog/blooket-token-saving-calculator" className="text-emerald-400 hover:text-emerald-300">token saving guide</Link>.</p>
+        </div>
+
+        <p>
+          Cross-reference these numbers in the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for any Legendary target, read the underlying formula in the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, see pack-by-pack ROI in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, and plan your daily token grind with the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">farming guide</Link>.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How many tokens does it take to get a Legendary in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">It depends entirely on which Legendary you are chasing. The King from Medieval Pack is the cheapest at ~6,400 tokens for 90% confidence. The Megalodon is the most expensive at ~25,300 tokens for 90%.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the easiest Legendary to get in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">The King from Medieval Pack. Its 1.0% drop rate is the highest of any Legendary in a standard permanent pack, making it the most token-efficient Legendary chase in the game.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should I target the 50% or 90% confidence budget?</p>
+            <p className="text-sm text-slate-300 mt-1">Always the 90%. The 50% number is a coin flip — half the players who save only that much will walk away with nothing. Save to 90% confidence and treat the extra tokens as insurance.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Do duplicate refunds significantly lower Legendary costs?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — by approximately 25–30% on a gross basis. Over 450+ pack opens for a 90% Lion chase, that's roughly 2,300 tokens back in your wallet if you sell all duplicates.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How long does it take to farm enough tokens for a Legendary?</p>
+            <p className="text-sm text-slate-300 mt-1">At 500 tokens per day (daily cap): King = ~13 days. Lion = ~18 days. Astronaut = ~21 days. Mega Bot = ~31 days. Megalodon = ~51 days. See the exact breakdown in our <Link href="/blog/blooket-beginner-guide-first-legendary" className="text-emerald-400 hover:text-emerald-300">beginner legendary guide</Link>.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-gamblers-fallacy",
+    title: "The Blooket Gambler's Fallacy: Your Next Pack Is Not Due",
+    excerpt: "Your 500th Aquatic Pack has the exact same 0.2% Megalodon chance as your first. The game doesn't owe you anything. Understanding why is the single most important mental shift for any serious Blooket player.",
+    date: "Jun 1, 2026",
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-04",
+    category: "ODDS & DATA",
+    hasCalculator: true,
+    imageUrl: "/images/blog/gamblers-fallacy.png",
+    sources: [
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+      { label: "Blooket Wiki: Rarity", href: "https://blooket.fandom.com/wiki/Rarity" },
+      { label: "Khan Academy: Independent Events", href: "https://www.khanacademy.org/math/statistics-probability/probability-library/basic-set-ops/a/addition-rule-for-probability" },
+    ],
+    tags: ["probability", "gambler's-fallacy", "pack-strategy", "psychology", "independent-events"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "7 min read",
+    views: 0,
+    featured: false,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You've been opening Safari Packs for an hour. Still no Lion. Your brain is quietly convincing you that you're "due" — that after this many misses, the next pull must be closer to the hit. This feeling is wrong. It is not just wrong; it has a name, a mathematical proof, and it is draining your token balance right now.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What the Gambler's Fallacy Is</h2>
+        <p>
+          The Gambler's Fallacy is the belief that past random outcomes affect future independent ones. In Blooket, it sounds like: "I've opened 300 packs without a Legendary — my odds must be increasing." The reality is the opposite of comforting. Every pack open is a completely fresh coin flip. <strong>The RNG engine has no memory of your previous pulls.</strong>
+        </p>
+        <p>
+          If the Lion drop rate is 0.5%, pull number 301 has exactly the same 0.5% chance as pull number 1 had. Nothing accumulated. Nothing is owed. The game reset to zero the moment you opened the last pack.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">But Wait — Doesn't Cumulative Probability Increase?</h2>
+        <p>
+          Yes. And this is where the confusion comes from — and where we need to be precise, because even some calculator tools muddy this.
+        </p>
+        <p>
+          <strong>Cumulative probability does increase with more pulls</strong> — but it increases because you are adding more independent attempts, not because each attempt is getting better odds. The math is: P(at least one Lion in n pulls) = 1 − (0.995)ⁿ.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Total Pulls So Far</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Cumulative Probability</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Next Pull Probability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">1</td>
+              <td className="py-3 px-4">0.5%</td>
+              <td className="py-3 px-4 text-emerald-400">0.5%</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">100</td>
+              <td className="py-3 px-4">39.4%</td>
+              <td className="py-3 px-4 text-emerald-400">0.5% — unchanged</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">300</td>
+              <td className="py-3 px-4">77.7%</td>
+              <td className="py-3 px-4 text-emerald-400">0.5% — still unchanged</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4">600</td>
+              <td className="py-3 px-4">95.0%</td>
+              <td className="py-3 px-4 text-emerald-400">0.5% — always 0.5%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The cumulative column rises because more pulls means more total chances. The per-pull column never moves. Those two facts coexist without contradiction — and failing to separate them is the exact mental error that keeps players opening packs past their planned budget.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Practical Consequence: Chasing Is Always a Losing Strategy</h3>
+        <p>
+          "I've already spent 8,000 tokens on this pack — I can't stop now." This is the sunk cost fallacy fused with the gambler's fallacy, and it is devastating to a token budget. The tokens you've already spent are gone. They do not make the next pull more likely. Every session should be evaluated from pull number one, every time.
+        </p>
+        <p>
+          The correct framework is simple: <strong>decide your session budget before you open the first pack, and close the game when you hit it.</strong> The pack will still exist tomorrow. Your token reserve will not recover if you blow it chasing a feeling.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">Before every pack session, run the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> and write the <strong>90% confidence token number on a piece of paper</strong> before you open the game. Put that number at the top of your screen. When your balance drops to zero of that budget, stop — regardless of how "close" you feel. The fallacy lives in the feeling of closeness. The math knows better.</p>
+        </div>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Why Blooket Is Especially Vulnerable to This Thinking</h3>
+        <p>
+          Unlike gacha games that feature pity systems (guaranteed pulls after a set number of failures), Blooket has no pity mechanic. Pull 4,999 Rainbow Panda packs and get nothing — pull number 5,000 is still 0.02%. The absence of a pity counter means the gambler's fallacy is even more dangerous here than in most similar games.
+        </p>
+        <p>
+          This also means that any time you read "you're due" or "just a few more" in a Blooket community forum, the author is wrong in a mathematically provable way. Use the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link> to set expectations, read the <Link href="/blog/blooket-deceptive-odds" className="text-emerald-400 hover:text-emerald-300">deceptive odds post</Link> for the full psychology breakdown, and check the <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">pack comparison table</Link> to pick the pack with the best honest odds for your target.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does my Blooket luck increase after a long dry streak?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Every pack open is an independent event with the same fixed probability. A dry streak provides zero information about the next pull.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does cumulative probability mean I'm closer to my Legendary?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes — but only because you've used up more total pulls, not because your next pull is more likely. Cumulative probability grows with attempts; per-pull probability stays fixed.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Does Blooket have a pity system?</p>
+            <p className="text-sm text-slate-300 mt-1">No. Unlike some gacha games, Blooket offers no guaranteed pull after a fixed number of failures. Every pull is purely random with no catch-up mechanic.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How should I decide when to stop opening packs?</p>
+            <p className="text-sm text-slate-300 mt-1">Set a token budget before you open your first pack using the 90% confidence number from the chase calculator. Stop when you've hit that budget, regardless of results. Decide the exit condition before emotions are involved.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Is "just one more pack" ever a good strategy?</p>
+            <p className="text-sm text-slate-300 mt-1">Mathematically, no. "One more pack" adds exactly one pull's worth of probability — the same 0.2% or 0.5% or whatever the fixed rate is. It is never a special tipping point. Plan with budgets, not feelings.</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    slug: "blooket-beginner-guide-first-legendary",
+    title: "Blooket Beginner Guide: How Many Days to Your First Legendary?",
+    excerpt: "You just found out tokens are hard to earn and Legendaries are even harder to pull. Here is exactly how long it takes — mapped to specific Legendaries — and the one mechanical insight that changes everything for a new player.",
+    date: "May 31, 2026",
+    publishedAt: "2026-05-31",
+    updatedAt: "2026-06-04",
+    category: "GAME STRATEGY",
+    hasCalculator: true,
+    imageUrl: "/images/blog/beginner-first-legendary.png",
+    sources: [
+      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
+      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
+      { label: "Blooket Calculator Methodology", href: "https://www.calculatorblooket.com/methodology" },
+    ],
+    tags: ["beginner", "legendary", "token-farming", "guide", "strategy"],
+    author: { name: "Blooket Calculator Team" },
+    readTime: "9 min read",
+    views: 0,
+    featured: true,
+    content: (
+      <div className="prose prose-invert prose-emerald max-w-none">
+        <p>
+          You just opened your first pack and pulled four Uncommons and a Common. Welcome to Blooket economics. Every new player hits this wall: tokens are slow to earn, packs feel expensive, and Legendaries seem impossibly far away. They're not impossible — they're just math. Here's the exact number of days to your first Legendary, mapped to every realistic target.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">First: How Many Tokens Can You Earn Per Day?</h2>
+        <p>
+          Blooket has a <strong>500-token daily gameplay cap</strong>. Once you earn 500 tokens from answering questions, the counter stops until midnight. Most new players hit 150–250 tokens per day because they're playing for fun across random modes. Optimized farmers using Cafe mode hit the full 500 in under 30 minutes.
+        </p>
+        <p>
+          For this guide, we'll use a realistic <strong>300 tokens per day</strong> as the planning baseline — between casual and optimized play. If you want to push to 500, read the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode guide</Link> and the <Link href="/blog/how-to-farm-tokens-fast-blooket" className="text-emerald-400 hover:text-emerald-300">token farming strategy</Link>.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Days to Your First Legendary (at 300 Tokens/Day)</h2>
+        <p>
+          The table below uses the 90% confidence token budget — the amount where 9 out of 10 players who save that many tokens will successfully pull their target Legendary.
+        </p>
+
+        <table className="w-full text-left border-collapse my-6">
+          <thead>
+            <tr className="border-b border-slate-700">
+              <th className="py-3 px-4 font-bold text-slate-200">Target Legendary</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Tokens Needed (90%)</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Days at 300/day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4 text-emerald-400">King</td>
+              <td className="py-3 px-4">Medieval</td>
+              <td className="py-3 px-4 text-emerald-400">~6,400</td>
+              <td className="py-3 px-4 text-emerald-400">~22 days</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Lion</td>
+              <td className="py-3 px-4">Safari</td>
+              <td className="py-3 px-4">~9,160</td>
+              <td className="py-3 px-4">~31 days</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Astronaut</td>
+              <td className="py-3 px-4">Space</td>
+              <td className="py-3 px-4">~10,240</td>
+              <td className="py-3 px-4">~34 days</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Mega Bot</td>
+              <td className="py-3 px-4">Bot</td>
+              <td className="py-3 px-4">~15,340</td>
+              <td className="py-3 px-4">~51 days</td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-red-400">Megalodon</td>
+              <td className="py-3 px-4">Aquatic</td>
+              <td className="py-3 px-4 text-red-400">~25,300</td>
+              <td className="py-3 px-4 text-red-400">~84 days</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The King is the fastest Legendary to reach. At 300 tokens/day, a new player who stays disciplined and never touches their savings can have the King in about <strong>three weeks</strong>. That is an achievable, real goal. Write it down.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The One Mechanic That Changes Everything for Beginners</h2>
+        <p>
+          Most new players open packs, see a duplicate, feel disappointed, and move on. They are leaving tokens on the table. Every duplicate Blook can be <strong>sold for tokens</strong>. The sell values scale with rarity — a duplicate Rare refunds 25 tokens (the full cost of a pull). A duplicate Epic refunds 100 tokens.
+        </p>
+        <p>
+          Over a full Legendary chase, these refunds reduce your actual token spend by <strong>25–30%</strong>. For a King chase at 6,400 gross tokens, you are realistically spending closer to 4,500 net tokens if you sell every duplicate. That is 6 fewer farming days. Never miss a duplicate sell.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">Which Pack Should a Beginner Open First?</h3>
+        <p>
+          Medieval Pack. Full stop.
+        </p>
+        <p>
+          The King has a 1.0% Legendary drop rate — the highest of any Legendary in a standard permanent pack. The Medieval Pack at 28 tokens costs slightly more per pull than Space or Safari, but its per-Legendary efficiency is unmatched. If your only goal is to own your first Legendary as a new player, Medieval is the correct answer and the math is not close.
+        </p>
+        <p>
+          Once you own the King, your second target becomes a personal choice. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> to compare any Legendary token cost, read the <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">pack odds comparison post</Link> for a broader pack analysis, and check the <Link href="/blog/blooket-legendary-token-cost" className="text-emerald-400 hover:text-emerald-300">full legendary token cost table</Link> to plan your roadmap.
+        </p>
+
+        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
+          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
+            The Trench Truth
+          </h4>
+          <p className="text-slate-300 text-sm m-0">The biggest beginner mistake is not choosing the wrong pack — it's opening packs with random leftover tokens. Every pack you open with fewer than the 50% confidence budget is a gamble with bad expected value. <strong>Save first, spend second.</strong> Open the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>, set your target to King, and look at the token number. Do not touch the Medieval Pack until that number is in your wallet.</p>
+        </div>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">The Fastest Way to Farm Tokens as a Beginner</h3>
+        <p>
+          Two words: Cafe mode. It is the highest tokens-per-minute mode in Blooket (~13 tokens/min) and requires no special setup. Host a game, join from another device or browser tab, run basic-math questions for 5 minutes, repeat. Four rounds hits the 500-token daily cap in about 28 minutes. Do this every day for 22 days and you will own your first Legendary Blook.
+        </p>
+        <p>
+          For deeper farming optimization, read the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode guide</Link>, the <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory mode guide</Link>, and the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token strategy hub</Link>. Once you have your first Legendary, the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">duplicate refund guide</Link> teaches you how to make your entire collection work for your future pulls.
+        </p>
+
+        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the easiest Legendary to get as a Blooket beginner?</p>
+            <p className="text-sm text-slate-300 mt-1">The King from the Medieval Pack. Its 1.0% drop rate is the highest of any permanent Legendary, requiring roughly 6,400 tokens for a 90% chance — about 22 days at 300 tokens per day.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">How long does it take to get a Legendary in Blooket?</p>
+            <p className="text-sm text-slate-300 mt-1">22–84 days depending on your target Legendary and daily token earnings. The King is the fastest at ~22 days (300 tokens/day). Megalodon is slowest at ~84 days.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the Blooket daily token cap?</p>
+            <p className="text-sm text-slate-300 mt-1">500 tokens from gameplay per day. The cap resets at midnight EST. Optimized Cafe sessions hit this limit in about 28 minutes. Casual play typically yields 150–300 tokens per day.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">Should beginners open packs immediately or save tokens?</p>
+            <p className="text-sm text-slate-300 mt-1">Save first. Pick a Legendary target, find its 90% confidence token number in the chase calculator, and don't open packs until you hit that balance. Opening packs with random leftover tokens is the fastest way to feel like the game is rigged.</p>
+          </div>
+          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p className="font-bold text-white">What is the duplicate sell mechanic and why does it matter?</p>
+            <p className="text-sm text-slate-300 mt-1">Any duplicate Blook can be sold for tokens. Commons refund 5, Uncommons 10, Rares 25, Epics 100, Legendaries 500. Over a full Legendary chase, these refunds reduce your real spend by 25–30%. Never skip selling duplicates.</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 ];
