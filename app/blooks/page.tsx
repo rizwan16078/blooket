@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 
 import BlookLibrary from "@/components/blooks/BlookLibrary";
@@ -95,6 +96,26 @@ export default async function BlooksPage({ searchParams }: BlooksPageProps) {
           <BlookLibrary initialBlookId={resolvedSearchParams.blookId ?? null} />
         </Suspense>
       </section>
+
+      {/* Server-rendered blook index — ensures Googlebot discovers all 172
+          individual blook pages via HTML links without needing JavaScript. */}
+      <nav aria-label="Blook index" className="mt-16 border-t border-white/[0.06] pt-10">
+        <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/40 mb-5">
+          All Blooks
+        </p>
+        <ul className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {BLOOKS.map((blook) => (
+            <li key={blook.id}>
+              <Link
+                href={`/blooks/${blook.id}`}
+                className="block rounded-lg border border-white/[0.05] bg-white/[0.02] px-3 py-2 text-xs font-medium text-white/60 transition hover:border-violet-500/20 hover:text-white/90"
+              >
+                {blook.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </main>
   );
 }

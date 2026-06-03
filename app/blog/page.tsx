@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Suspense } from "react";
+import Link from "next/link";
 import { Metadata } from "next";
 import { getBlogPosts } from "@/lib/blog";
+import { blogPosts } from "@/data/blog";
 import { type BlogCategory, type SortOption, type ViewMode, POSTS_PER_PAGE } from "@/types/blog";
 import { siteName, siteUrl } from "@/lib/site";
 import BlogSearch from "@/components/blog/BlogSearch";
@@ -84,6 +86,27 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
         total={result.total}
         limit={POSTS_PER_PAGE}
       />
+
+      {/* Server-rendered post index — ensures Googlebot can follow all blog
+          post links without executing JavaScript. The interactive grid above
+          handles the rich UI; this nav provides the crawlable HTML anchor graph. */}
+      <nav aria-label="Blog post index" className="mt-16 border-t border-white/[0.06] pt-10">
+        <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/40 mb-5">
+          All Posts
+        </p>
+        <ul className="grid gap-2 sm:grid-cols-2">
+          {blogPosts.map((post) => (
+            <li key={post.slug}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="block rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm font-semibold text-white/70 transition hover:border-violet-500/25 hover:text-white"
+              >
+                {post.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </main>
   );
 }

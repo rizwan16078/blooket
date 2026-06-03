@@ -46,7 +46,7 @@ export default function Footer() {
               Pack Calculators
             </p>
             <ul className="space-y-3">
-              {PACKS.slice(0, 5).map((pack) => (
+              {PACKS.map((pack) => (
                 <li key={pack.slug}>
                   <Link
                     href={pack.route}

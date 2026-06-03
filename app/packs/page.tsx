@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Archive, Database } from "lucide-react";
 
 import PacksDisplay from "@/components/packs/PacksDisplay";
@@ -134,6 +135,28 @@ export default function PacksPage() {
 
         <h2 className="sr-only">Available Packs & Odds Tables</h2>
         <PacksDisplay />
+
+        {/* Server-rendered pack index — ensures Googlebot can follow all pack
+            links without executing JavaScript. The client component above
+            renders the rich interactive UI; this section provides the crawlable
+            HTML anchor graph. */}
+        <nav aria-label="Pack index" className="mt-16 border-t border-white/[0.06] pt-10">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/40 mb-5">
+            Pack Index
+          </p>
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+            {PACKS.map((pack) => (
+              <li key={pack.id}>
+                <Link
+                  href={pack.route}
+                  className="block rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm font-semibold text-white/70 transition hover:border-violet-500/25 hover:text-white"
+                >
+                  {pack.name} Pack
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </main>
     </>
   );
