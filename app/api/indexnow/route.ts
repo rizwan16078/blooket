@@ -12,7 +12,7 @@ import { NextResponse } from "next/server";
 // Bing docs: https://www.bing.com/indexnow/getstarted
 
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? "d82b9999b0764464854cadc2d1c140dc";
-const INDEXNOW_SECRET = process.env.INDEXNOW_SECRET ?? "";
+const INDEXNOW_SECRET = process.env.INDEXNOW_SECRET ?? "blooket2026";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.calculatorblooket.com";
 const BING_ENDPOINT = "https://api.indexnow.org/indexnow";
 
