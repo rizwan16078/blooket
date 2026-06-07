@@ -163,9 +163,9 @@ export default function CompareTab() {
       }
     }
 
-    // Metric rate
+    // Metric rate (combined rate for the selected target tier)
     rows.push(row(
-      `${metric === "epicPlus" ? "Epic+" : metric.charAt(0).toUpperCase() + metric.slice(1)} rate`,
+      `Target ${metric === "epicPlus" ? "Epic+" : metric} rate`,
       values((p) => getMetricRate(p, metric)),
       "higher",
       `Aggregate rate for your target tier`,

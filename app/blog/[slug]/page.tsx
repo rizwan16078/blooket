@@ -5,8 +5,9 @@ import { Metadata } from "next";
 import { ChevronLeft, Calendar, Calculator, Clock, Eye, User } from "lucide-react";
 import ContentMeta from "@/components/content/ContentMeta";
 import { blogPosts } from "@/data/blog";
+import { blogFaqs } from "@/data/blog-faqs";
 import { getBlogPostBySlug } from "@/lib/blog";
-import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
+import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -104,6 +105,12 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
+      {blogFaqs[post.slug] && blogFaqs[post.slug].length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildFaqSchema(blogFaqs[post.slug])) }}
+        />
+      )}
     <article className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
       <div className="mb-8">
         <Link 

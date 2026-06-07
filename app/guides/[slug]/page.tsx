@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import ContentMeta from "@/components/content/ContentMeta";
 import { getGuidePageContent } from "@/components/guides/GuideBody";
 import { getGuideBySlug, guideEntries } from "@/data/guides";
-import { buildBreadcrumbSchema, serializeJsonLd } from "@/lib/schema";
+import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -103,6 +103,12 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
+      {guide.faqs && guide.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildFaqSchema(guide.faqs)) }}
+        />
+      )}
       <article className="mx-auto flex-1 w-full max-w-4xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
         <header className="space-y-6">
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">

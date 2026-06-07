@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Crosshair, Search, X } from "lucide-react";
+import { Check, Copy, Crosshair, Search, Share2, X } from "lucide-react";
 
 import {
   RARITY_DESIGN,
@@ -12,7 +12,7 @@ import {
 } from "@/lib/blook-probabilities";
 import { formatPercent } from "@/lib/math";
 import { BLOOKS } from "@/lib/constants";
-import { getBlookById, getPackById } from "@/lib/packs";
+import { getBlookById, getPackById, type Pack } from "@/lib/packs";
 import type { Blook, Rarity } from "@/types";
 
 import { MonoLabel, SubPanel } from "./parts";
@@ -43,6 +43,8 @@ export default function ChaseTab({
   onSelectBlook,
   onClear,
 }: Props) {
+  const [showShare, setShowShare] = useState(false);
+
   const blook = blookId ? getBlookById(blookId) : null;
 
   if (!blook) {
@@ -189,8 +191,102 @@ export default function ChaseTab({
           >
             View {pack.name} pack →
           </Link>
+          <button
+            type="button"
+            onClick={() => setShowShare((v) => !v)}
+            className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs transition ${
+              showShare
+                ? "border-violet-400/40 bg-violet-400/10 text-violet-200"
+                : "border-white/10 bg-white/[0.03] text-white hover:border-violet-400/40 hover:text-violet-200"
+            }`}
+          >
+            <Share2 className="h-3.5 w-3.5" />
+            Share result
+          </button>
         </div>
+
+        {showShare ? (
+          <ShareCard
+            blook={blook}
+            pack={pack}
+            guarantees={guarantees}
+            dailyCap={dailyCap}
+          />
+        ) : null}
       </SubPanel>
+    </div>
+  );
+}
+
+/* ─── ShareCard ────────────────────────────────────────────────────── */
+
+function ShareCard({
+  blook,
+  pack,
+  guarantees,
+  dailyCap,
+}: {
+  blook: Blook;
+  pack: Pack;
+  guarantees: Array<{ level: number; tokens: number; packs: number; days: number }>;
+  dailyCap: number;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const text = [
+    `🎯 Blooket Chase Calculator`,
+    ``,
+    `Target: ${blook.name} (${blook.rarity})`,
+    `Pack: ${pack.name} · ${formatPercent(blook.dropRate)} drop rate`,
+    ``,
+    `Tokens to guarantee:`,
+    ...guarantees.map((g) => {
+      const pct = Math.round(g.level * 100);
+      const tkn = Number.isFinite(g.tokens) ? g.tokens.toLocaleString() : "∞";
+      const pks = Number.isFinite(g.packs) ? g.packs.toLocaleString() : "∞";
+      const ds = Number.isFinite(g.days) ? `${g.days}d` : "∞";
+      return `• ${pct < 100 ? " " : ""}${pct}% shot → ${tkn} tkn  (${pks} packs · ${ds})`;
+    }),
+    ``,
+    `At ${dailyCap.toLocaleString()} tokens/day · calculatorblooket.com`,
+  ].join("\n");
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Clipboard blocked in some embedded contexts; still give feedback
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="rounded-xl border border-violet-500/20 bg-violet-500/[0.04] p-4">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <span className="cyber-mono text-[10px] uppercase tracking-wider text-slate-500">
+          Paste to Discord · Reddit · friends
+        </span>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className={`cyber-mono inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-[11px] uppercase tracking-wider transition ${
+            copied
+              ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-300"
+              : "border-violet-400/30 bg-violet-400/[0.06] text-violet-300 hover:border-violet-400/50 hover:text-violet-200"
+          }`}
+        >
+          {copied ? (
+            <Check className="h-3 w-3" />
+          ) : (
+            <Copy className="h-3 w-3" />
+          )}
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+      <pre className="overflow-x-auto rounded-lg bg-black/20 p-3 font-mono text-[11px] leading-relaxed text-slate-300 whitespace-pre-wrap">
+        {text}
+      </pre>
     </div>
   );
 }

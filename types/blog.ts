@@ -16,6 +16,11 @@ export type SortOption = "latest" | "oldest" | "popular" | "az";
 
 export type ViewMode = "grid" | "list";
 
+export type BlogFaqEntry = {
+  question: string;
+  answer: string;
+};
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -36,6 +41,7 @@ export interface BlogPost {
   readTime: string;
   views: number;
   featured: boolean;
+  faqs?: BlogFaqEntry[];
 }
 
 export interface BlogCategoryCount {

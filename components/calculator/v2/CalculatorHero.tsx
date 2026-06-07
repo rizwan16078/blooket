@@ -7,11 +7,13 @@ import { DEFAULT_PACK_SLUG } from "@/lib/math";
 import type { PackSlug } from "@/lib/packs";
 
 import ChaseTab from "./ChaseTab";
+import CollectionTab from "./CollectionTab";
 import CompareTab from "./CompareTab";
 import PerBlookProbabilities from "./PerBlookProbabilities";
 import SimpleOddsView from "./SimpleOddsView";
 import SimulateTab from "./SimulateTab";
 import StubTab from "./StubTab";
+import TierTab from "./TierTab";
 import { GlassPanel } from "./parts";
 import { getPackById } from "@/lib/packs";
 
@@ -67,12 +69,20 @@ const TABS = [
     description: "Calculate days to your goal",
     isNew: true,
   },
+  {
+    key: "tier",
+    icon: "🏆",
+    label: "Tier List",
+    subtitle: "Rank blooks",
+    description: "Build and share a blook tier list",
+    isNew: true,
+  },
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
 
 const STUB_CONTENT: Record<
-  Exclude<TabKey, "odds" | "chase" | "compare" | "simulate">,
+  Exclude<TabKey, "odds" | "chase" | "compare" | "simulate" | "collection" | "tier">,
   { title: string; description: string; features: string[] }
 > = {
   roi: {
@@ -84,17 +94,6 @@ const STUB_CONTENT: Record<
       "Economic waterfall: spend → dupes → refund → net",
       "Per-rarity expected pull breakdown",
       "Best-value verdict with reasoning",
-    ],
-  },
-  collection: {
-    title: "Collection completer",
-    description:
-      "Track your inventory and math the full cost to complete every pack. Account-aware.",
-    features: [
-      "Inventory grid: owned vs missing blooks",
-      "Total completion cost at 50/90/99% confidence",
-      "Multi-curve timeline for each missing blook",
-      "Blook Score + badge tier projection",
     ],
   },
   grind: {
@@ -198,12 +197,12 @@ export default function CalculatorHero() {
       <div className="mx-auto max-w-[1440px] px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
         {/* ─── Headline ─────────────────────────────────────── */}
         <h1 className="cyber-display mx-auto mb-2 max-w-3xl text-center text-3xl text-white sm:text-4xl lg:text-5xl">
-          Plan{" "}
-          <span className="cyber-glow-cyan text-cyan-300">every token</span>{" "}
-          before you spend it.
+          Free{" "}
+          <span className="cyber-glow-cyan text-cyan-300">Blooket Calculator</span>{" "}
+          — Pack Odds &amp; Drop Rates
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-center text-sm text-slate-400 sm:text-base">
-          See your chances for every blook before you spend.
+          Plan every token before you spend it. Exact probability math for every pack and blook.
         </p>
 
         {/* ─── Main panel ───────────────────────────────────── */}
@@ -278,6 +277,10 @@ export default function CalculatorHero() {
             <CompareTab />
           ) : activeTab === "simulate" ? (
             <SimulateTab />
+          ) : activeTab === "collection" ? (
+            <CollectionTab />
+          ) : activeTab === "tier" ? (
+            <TierTab />
           ) : (
             <StubTab
               title={STUB_CONTENT[activeTab].title}
