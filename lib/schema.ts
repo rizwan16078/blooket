@@ -176,3 +176,34 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
     })),
   };
 }
+
+export type HowToStepInput = {
+  name: string;
+  text: string;
+  url?: string;
+};
+
+// HowTo structured data for step-by-step strategy guides. Steps must mirror
+// the visible on-page sections — never emit steps that aren't rendered, or
+// Google can treat it as schema spam.
+export function buildHowToSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  steps: HowToStepInput[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    step: opts.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.url ? { url: step.url } : {}),
+    })),
+  };
+}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { BLOOKS, PACK_MAP } from "@/lib/constants";
 import { getBlooksByRarity, formatRateLabel } from "@/lib/authority";
-import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
+import { buildBreadcrumbSchema, buildFaqSchema, buildHowToSchema, serializeJsonLd, type FaqEntry } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ const faqEntries: FaqEntry[] = [
   {
     question: "What is the easiest Chroma to get in Blooket?",
     answer:
-      "The easiest Chromas are those with the highest drop rates (0.08%) in the cheapest packs. The Lunch Pack's Pizza and the Safari Pack's Panda both have 0.08% rates at 25 tokens per pull. The Ice Monster Pack has three Chromas at 0.05% each, giving the highest combined Chroma rate per pull (0.15%).",
+      "The easiest Chroma to pull is the one with the highest drop rate: Ice Slime in the Ice Monster Pack at 0.08%. That same pack also has the highest combined Chroma rate (0.15% across Ice Slime, Frozen Fossil, and Ice Crab), so it is the best pack to open for any Chroma.",
   },
   {
     question: "How many tokens do I need to get a Chroma?",
@@ -68,6 +68,22 @@ const breadcrumbs = buildBreadcrumbSchema([
 
 const faqSchema = buildFaqSchema(faqEntries);
 
+const howToSchema = buildHowToSchema({
+  name: "How to Get a Chroma in Blooket",
+  description:
+    "Seven strategies to maximize your odds of pulling a Chroma blook in Blooket, ranked by token efficiency.",
+  url: `${siteUrl}/guides/how-to-get-chroma-blooket`,
+  steps: [
+    { name: "Open the Ice Monster Pack", text: "The Ice Monster Pack has the highest combined Chroma rate in the game at 0.15% per pull (Ice Slime 0.08%, Frozen Fossil 0.05%, Ice Crab 0.02%). If your goal is any Chroma, this is the pack to open." },
+    { name: "Target the highest-rate Chroma", text: "Ice Slime in the Ice Monster Pack is the highest-rate Chroma at 0.08% — about 60% more likely per pull than a 0.05% Chroma. Target it first if you want any Chroma for sell value or collection status." },
+    { name: "Use the Chase Calculator before spending", text: "The Chase Calculator shows exactly how many tokens you need for a 50%, 90%, or 99% chance at a specific Chroma. A 0.05% Chroma at 90% confidence needs about 4,603 opens." },
+    { name: "Enable duplicate resell", text: "Sell duplicates for tokens based on rarity. Chroma duplicates sell for 300 tokens — 12 to 15 free pulls of value per duplicate." },
+    { name: "Save for bulk sessions", text: "Cumulative probability compounds, so one large session beats many small ones. Save at least 1,000 to 1,250 tokens (about 50 opens) before spending." },
+    { name: "Avoid seasonal packs unless they are live", text: "Seasonal packs like Blizzard, Spooky, and Autumn are locked most of the year and their Chroma rates are comparable to full-time packs. Open the always-available Ice Monster Pack instead." },
+    { name: "Compare ROI before committing", text: "The ROI Calculator ranks packs by probability per token spent so you can confirm which pack gives the most Chroma probability for your budget." },
+  ],
+});
+
 export default function HowToGetChromaPage() {
   return (
     <>
@@ -78,6 +94,10 @@ export default function HowToGetChromaPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(howToSchema) }}
       />
 
       <main className="mx-auto flex-1 w-full max-w-4xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
@@ -93,7 +113,7 @@ export default function HowToGetChromaPage() {
           </h1>
           <p className="text-lg leading-8 text-white/65">
             Chroma blooks are the rarest tier in Blooket with drop rates between
-            0.01% and 0.08%. This guide covers every strategy to maximize your
+            0.02% and 0.08%. This guide covers every strategy to maximize your
             chances, from pack selection to token budgeting.
           </p>
         </section>
@@ -105,7 +125,7 @@ export default function HowToGetChromaPage() {
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Drop Rate Range</p>
-            <p className="mt-2 text-2xl font-black text-teal-400">0.01–0.08%</p>
+            <p className="mt-2 text-2xl font-black text-teal-400">0.02–0.08%</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Sell Value</p>
@@ -118,9 +138,9 @@ export default function HowToGetChromaPage() {
             <h2 className="text-2xl font-bold text-white mb-4">Strategy #1: Open the Ice Monster Pack</h2>
             <p className="leading-relaxed">
               The Ice Monster Pack has the highest combined Chroma rate in the game
-              at 0.15% per pull (three Chromas at 0.05% each). At 25 tokens per
-              pull, that gives you the best per-token Chroma probability of any
-              pack. If your only goal is &ldquo;any Chroma,&rdquo; this is the pack to open.
+              at 0.15% per pull (Ice Slime 0.08%, Frozen Fossil 0.05%, Ice Crab 0.02%).
+              At 25 tokens per pull, that gives you the best per-token Chroma
+              probability of any pack. If your only goal is &ldquo;any Chroma,&rdquo; this is the pack to open.
             </p>
             <p className="mt-3 leading-relaxed">
               Compare: the Space Pack also has 0.05% per Chroma, but only one
@@ -132,11 +152,11 @@ export default function HowToGetChromaPage() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">Strategy #2: Target the highest-drop-rate Chromas</h2>
             <p className="leading-relaxed">
-              Not all Chromas are equally rare. Some have 0.08% drop rates (like
-              Pizza from the Lunch Pack and Panda from the Safari Pack), which
-              are 60% easier to pull than the 0.05% Chromas. If you want a Chroma
+              Not all Chromas are equally rare. The highest-rate Chroma in the game
+              is Ice Slime (Ice Monster Pack) at 0.08% — roughly 60% more likely per
+              pull than a 0.05% Chroma like Frozen Fossil. If you want any Chroma
               for the sell value or collection status rather than a specific one,
-              target the 0.08% Chromas first.
+              target Ice Slime first.
             </p>
           </section>
 
@@ -258,10 +278,10 @@ export default function HowToGetChromaPage() {
                   <td className="py-3 px-3 text-white/60">9,210 opens</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-3 text-teal-300/80">0.01%</td>
-                  <td className="py-3 px-3 text-white/60">6,931 opens</td>
-                  <td className="py-3 px-3 text-white/60">23,026 opens</td>
-                  <td className="py-3 px-3 text-white/60">46,051 opens</td>
+                  <td className="py-3 px-3 text-teal-300/80">0.02%</td>
+                  <td className="py-3 px-3 text-white/60">3,466 opens</td>
+                  <td className="py-3 px-3 text-white/60">11,512 opens</td>
+                  <td className="py-3 px-3 text-white/60">23,024 opens</td>
                 </tr>
               </tbody>
             </table>

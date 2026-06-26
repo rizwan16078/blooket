@@ -35,13 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/blog`,
-      lastModified: "2026-05-24",
+      lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${siteUrl}/guides`,
-      lastModified: "2026-05-24",
+      lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -220,13 +220,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/methodology`,
-      lastModified: "2026-05-24",
+      lastModified: DEFAULT_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.65,
     },
     {
       url: `${siteUrl}/updates`,
-      lastModified: "2026-05-24",
+      lastModified: DEFAULT_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.55,
     },

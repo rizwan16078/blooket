@@ -67,7 +67,7 @@ export const guideEntries: GuideEntry[] = [
     faqs: [
       { question: "What is the daily token cap in Blooket?", answer: "500 tokens per day from gameplay. The cap resets at midnight EST. After hitting 500 tokens, additional game sessions earn no tokens until the next reset." },
       { question: "What is the fastest way to earn tokens in Blooket?", answer: "Cafe mode at roughly 13 tokens per minute is the fastest option. Four 7-minute Cafe rounds with easy quiz sets will cap your daily 500 tokens in about 28 minutes." },
-      { question: "How do duplicate refunds affect my token count?", answer: "Every duplicate Blook can be sold: Commons refund 5 tokens, Uncommons 10, Rares 25, Epics 100, Legendaries 500. Over a long Legendary chase, refunds typically cover 25–30% of gross token spend." },
+      { question: "How do duplicate refunds affect my token count?", answer: "Every duplicate Blook can be sold: Commons refund 2 tokens, Uncommons 5, Rares 20, Epics 75, Legendaries 200, and Chromas 300. Over a long Legendary chase, refunds typically cover 25–30% of gross token spend." },
       { question: "How many tokens do I need to start opening packs?", answer: "Save at least 2,000 tokens before your first serious pack session. Opening packs one at a time with small balances wastes the compounding effect of duplicate refunds." },
     ],
   },

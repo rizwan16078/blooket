@@ -67,6 +67,7 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
     headline: guide.title,
     description: guide.description,
     url: `${siteUrl}/guides/${guide.slug}`,
+    image: `${siteUrl}/opengraph-image`,
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
     author: [

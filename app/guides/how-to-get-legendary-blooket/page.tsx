@@ -40,7 +40,7 @@ const faqEntries: FaqEntry[] = [
   {
     question: "What is the easiest Legendary to get in Blooket?",
     answer:
-      "All Legendaries have similar drop rates (0.3–0.45%), so the easiest one depends on which pack you open. Packs without Chromas (like Bot, Dino, Breakfast) concentrate more top-end probability into Legendary, making them slightly better for Legendary-specific hunting.",
+      "Legendary drop rates range from 0.2% (Megalodon) to 1% (Medieval King). The easiest Legendary to pull is the Medieval King at 1% — the highest Legendary rate of any live pack, and Medieval has no Chroma to split the top-end budget.",
   },
   {
     question: "How many tokens do I need for a Legendary?",
@@ -50,7 +50,7 @@ const faqEntries: FaqEntry[] = [
   {
     question: "Which pack is best for Legendary hunting?",
     answer:
-      "Packs without Chromas are best for Legendary-only hunters because the full top-end probability budget goes into Legendary instead of being split with Chroma. The Bot Pack and Dino Pack are strong choices. Check the ROI Calculator for the current rankings.",
+      "The Medieval Pack is the best live pack for Legendary hunting — its King has a 1% drop rate (the highest of any live pack) and the pack has no Chroma. The Aquatic Pack is next, with two Legendaries totaling 0.7% per open. Check the ROI Calculator for the current rankings.",
   },
   {
     question: "Is it worth chasing a specific Legendary?",
@@ -92,7 +92,7 @@ export default function HowToGetLegendaryPage() {
           </h1>
           <p className="text-lg leading-8 text-white/65">
             Legendary blooks are the second-rarest tier in Blooket with drop rates
-            between 0.3% and 0.45%. They are significantly more accessible than
+            between 0.2% and 1%. They are significantly more accessible than
             Chromas and appear in most packs. This guide shows you the most
             token-efficient way to get one.
           </p>
@@ -105,7 +105,7 @@ export default function HowToGetLegendaryPage() {
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Drop Rate Range</p>
-            <p className="mt-2 text-2xl font-black text-amber-400">0.3–0.45%</p>
+            <p className="mt-2 text-2xl font-black text-amber-400">0.2–1%</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 shadow-lg">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/30">Sell Value</p>
@@ -128,21 +128,21 @@ export default function HowToGetLegendaryPage() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">Best packs for Legendary hunting</h2>
             <p className="leading-relaxed mb-4">
-              Packs without Chromas concentrate their full top-end probability
-              budget into Legendary. Here are the top picks:
+              The best live packs for Legendary hunting pair a high Legendary rate
+              with a low token cost. Here are the top picks:
             </p>
             <div className="space-y-3">
               <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-                <p className="font-bold text-white">Bot Pack (20 tokens)</p>
-                <p className="text-sm text-white/50 mt-1">One Legendary (Mega Bot, 0.45%). No Chroma to split the budget. Best value per token for Legendary.</p>
+                <p className="font-bold text-white">Medieval Pack (20 tokens)</p>
+                <p className="text-sm text-white/50 mt-1">One Legendary (King, 1%) — the highest Legendary rate of any live pack, with no Chroma to split the top-end budget. Best overall for Legendary hunting.</p>
               </div>
               <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-                <p className="font-bold text-white">Dino Pack (25 tokens)</p>
-                <p className="text-sm text-white/50 mt-1">One Legendary (T-Rex, 0.45%). No Chroma. Higher cost per pull but same Legendary rate.</p>
+                <p className="font-bold text-white">Aquatic Pack (20 tokens)</p>
+                <p className="text-sm text-white/50 mt-1">Two Legendaries (Baby Shark 0.5% + Megalodon 0.2% = 0.7% combined). The best odds of pulling some Legendary per open.</p>
               </div>
               <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-                <p className="font-bold text-white">Breakfast Pack (20 tokens)</p>
-                <p className="text-sm text-white/50 mt-1">One Legendary (French Toast, 0.45%). No Chroma. Cheap per pull with solid Legendary odds.</p>
+                <p className="font-bold text-white">Lunch Pack (25 tokens)</p>
+                <p className="text-sm text-white/50 mt-1">One Legendary (Sandwich, 0.65%). A strong single-Legendary rate at the higher 25-token price.</p>
               </div>
             </div>
           </section>
@@ -197,8 +197,8 @@ export default function HowToGetLegendaryPage() {
                 <tbody>
                   <tr className="border-b border-white/[0.04]">
                     <td className="py-3 px-3 text-white/60">Drop rate</td>
-                    <td className="py-3 px-3 text-amber-300/80">0.3–0.45%</td>
-                    <td className="py-3 px-3 text-teal-300/80">0.01–0.08%</td>
+                    <td className="py-3 px-3 text-amber-300/80">0.2–1%</td>
+                    <td className="py-3 px-3 text-teal-300/80">0.02–0.08%</td>
                   </tr>
                   <tr className="border-b border-white/[0.04]">
                     <td className="py-3 px-3 text-white/60">90% token cost</td>

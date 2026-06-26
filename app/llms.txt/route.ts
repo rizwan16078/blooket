@@ -77,12 +77,12 @@ export async function GET() {
 - /blooks/uncommon → Uncommon rarity hub — all Uncommons with rates and packs
 - /blooks/complete-list → All 172 blooks sorted by rarity with drop rates and sell values
 - /blooks/starter → Starter blooks you get before opening any pack
-- /faq → Comprehensive Blooket FAQ with 14 questions and calculator links
+- /faq → Comprehensive Blooket FAQ with 15 questions and calculator links
 - /guides/blooket-hack-alternative → Math-based strategy alternative to hack-seeking users
 - /guides/how-to-get-chroma-blooket → 7 strategies to get Chroma blooks with drop rates and token budgets
 - /guides/how-to-get-legendary-blooket → Pack comparison and drop math for Legendary hunting
 - /about/who-made-blooket → Blooket founder Tom Stewart, history, and timeline
-- /m/[term] → Misspelling landing pages (50 common Blooket misspellings → calculator)
+- /m/[term] → Misspelling landing pages (52 common Blooket misspellings → calculator)
 - /packs → Information on all Blooket boxes and packs
 - /value-guide → Full value guide with tier-filtered tables
 - /glossary → Every Blooket term, stat, and mechanic explained
@@ -103,10 +103,10 @@ export async function GET() {
 - ⭐ Value Guide — Sell values, drop rates, and tier filter
 - ⭐ Glossary — Every Blooket term explained
 - ⭐ Complete Blook List — All 172 blooks in one table
-- ⭐ FAQ — 14 common questions with calculator links
+- ⭐ FAQ — 15 common questions with calculator links
 - ⭐ Blooket Hack Alternative — Redirects hack-seeking users to legitimate strategy
 - ⭐ Who Made Blooket — Founder, history, and timeline
-- ⭐ Misspelling Pages — 50 landing pages capturing 1.4M monthly misspelling searches
+- ⭐ Misspelling Pages — 52 landing pages capturing high-volume misspelling searches
 
 ## Essential Links
 

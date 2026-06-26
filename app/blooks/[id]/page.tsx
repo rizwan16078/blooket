@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { BLOOKS, PACK_MAP } from "@/lib/constants";
+import { BLOOKS, LAST_UPDATED, PACK_BLOOKS_MAP, PACK_MAP } from "@/lib/constants";
 import { calculateEstimatedTokensForBlook, formatPercent, formatTokenLabel } from "@/lib/math";
 import { buildBreadcrumbSchema, buildFaqSchema, serializeJsonLd } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
@@ -13,6 +13,17 @@ type BlookDetailPageProps = {
 };
 
 export const dynamicParams = false;
+
+const RARITY_CONTEXT: Record<string, string> = {
+  Uncommon:
+    "Uncommons are the entry tier of every pack and the most frequent non-starter pull, so they mainly serve as duplicate sell-back fuel while you chase the top end.",
+  Rare: "Rares sit in the middle of the pack table — quick to collect, but a clear step up in sell value from Uncommons.",
+  Epic: "Epics are the first genuinely scarce tier. Most packs hold one or two, which makes them a realistic short-term collecting goal.",
+  Legendary:
+    "Legendaries are the second-rarest tier, with live drop rates from 0.2% up to 1%. They are aspirational but realistically budgetable with the chase calculator.",
+  Chroma:
+    "Chromas are the rarest tier obtainable from packs, with drop rates between 0.02% and 0.08%. Reaching one reliably takes a large token budget, so plan with the chase calculator first.",
+};
 
 export async function generateStaticParams() {
   return BLOOKS.map((blook) => ({
@@ -74,6 +85,30 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
   }
 
   const pack = PACK_MAP[blook.packId];
+
+  const pillClass =
+    "rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white";
+  const rarityHubHref = `/blooks/${blook.rarity.toLowerCase()}`;
+  const rarityGuides =
+    blook.rarity === "Chroma"
+      ? [
+          { href: "/guides/how-to-get-chroma-blooket", label: "How to Get a Chroma" },
+          { href: "/guides/best-pack-for-chromas", label: "Best Pack for Chromas" },
+        ]
+      : blook.rarity === "Legendary"
+        ? [
+            { href: "/guides/how-to-get-legendary-blooket", label: "How to Get a Legendary" },
+            { href: "/guides/best-pack-for-legendaries", label: "Best Pack for Legendaries" },
+          ]
+        : [{ href: "/guides/best-blooket-pack-to-open", label: "Best Pack to Open" }];
+  const siblingBlooks = (PACK_BLOOKS_MAP[blook.packId] ?? [])
+    .filter((entry) => entry.id !== blook.id)
+    .slice(0, 8);
+  const reviewedLabel = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(`${LAST_UPDATED}T00:00:00`));
 
   // Chase math: tokens needed for at-least-one success at a given confidence level
   const tokensFor = (chance: number) => {
@@ -230,6 +265,17 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
                   move from the broad pack table into a specific entity page without losing the
                   probability context.
                 </p>
+                <p className="mt-3 leading-relaxed">
+                  {RARITY_CONTEXT[blook.rarity]}{" "}
+                  See where it ranks against every {blook.rarity.toLowerCase()} pull on the{" "}
+                  <Link href={rarityHubHref} className="text-emerald-400 hover:text-emerald-300">
+                    {blook.rarity} blooks hub
+                  </Link>
+                  .
+                </p>
+                <p className="mt-3 text-xs text-white/40">
+                  Drop rate and sell value last reviewed {reviewedLabel} against the current {pack.name} Pack table.
+                </p>
               </section>
 
               <section>
@@ -294,6 +340,22 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
                 </p>
               </section>
 
+              {siblingBlooks.length > 0 && (
+                <section>
+                  <h2 className="text-2xl font-bold text-white mb-3">More Blooks from the {pack.name} Pack</h2>
+                  <p className="leading-relaxed mb-4">
+                    Comparing pulls from the same pack shows where the {blook.name} sits on the {pack.name} rarity ladder.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {siblingBlooks.map((sib) => (
+                      <Link key={sib.id} href={`/blooks/${sib.id}`} className={pillClass}>
+                        {sib.name} · {sib.rarity}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
               <section>
                 <h2 className="text-2xl font-bold text-white mb-3">FAQ</h2>
                 <div className="space-y-4">
@@ -310,38 +372,24 @@ export default async function BlookDetailPage({ params }: BlookDetailPageProps) 
             <aside className="mt-10">
               <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-violet-400 mb-4">Related next steps</p>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href={pack.route}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-                >
-                  {pack.name} Pack
+                <Link href={pack.route} className={pillClass}>
+                  {pack.name} Pack odds
                 </Link>
-                <Link
-                  href="/calculators/chase"
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-                >
+                <Link href={rarityHubHref} className={pillClass}>
+                  All {blook.rarity} Blooks
+                </Link>
+                {rarityGuides.map((guide) => (
+                  <Link key={guide.href} href={guide.href} className={pillClass}>
+                    {guide.label}
+                  </Link>
+                ))}
+                <Link href="/calculators/chase" className={pillClass}>
                   Chase Calculator
                 </Link>
-                {blook.rarity === "Chroma" && (
-                  <Link
-                    href="/blooks/chroma"
-                    className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-                  >
-                    All Chroma Blooks
-                  </Link>
-                )}
-                {blook.rarity === "Legendary" && (
-                  <Link
-                    href="/blooks/legendary"
-                    className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-                  >
-                    All Legendary Blooks
-                  </Link>
-                )}
-                <Link
-                  href="/value-guide"
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-                >
+                <Link href="/blooks" className={pillClass}>
+                  Blook Library
+                </Link>
+                <Link href="/value-guide" className={pillClass}>
                   Value Guide
                 </Link>
               </div>
