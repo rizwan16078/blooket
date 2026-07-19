@@ -49,7 +49,7 @@ export function getPackBlooks(packId: PackSlug) {
   return PACK_BLOOKS_MAP[packId];
 }
 
-function getEffectiveBlooks(blooks: Blook[]) {
+export function getEffectiveBlooks(blooks: Blook[]) {
   const seenRotationGroups = new Set<string>();
 
   return blooks.filter((blook) => {
@@ -147,8 +147,9 @@ export function calculateBlookAttempts(
   dupesEnabled: boolean,
 ): number {
   if (tokens <= 0) return 0;
-  const baseCost = dupesEnabled ? pack.effectiveCost : pack.costPerPull;
-  const effectiveCost = baseCost + blook.sellValue * blook.dropRate;
+  const effectiveCost = dupesEnabled
+    ? pack.effectiveCost + blook.sellValue * blook.dropRate
+    : pack.costPerPull;
   if (effectiveCost <= 0) return Infinity;
   return tokens / effectiveCost;
 }

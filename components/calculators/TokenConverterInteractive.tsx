@@ -16,7 +16,7 @@ export default function TokenConverterInteractive() {
   const searchParams = useSearchParams();
 
   const [tokens, setTokens] = useState(
-    Number(searchParams.get("tokens")) || 1000,
+    Math.min(100000, Math.max(0, Number(searchParams.get("tokens")) || 1000)),
   );
   const [dupes, setDupes] = useState(
     searchParams.get("dupes") !== "false",
@@ -71,7 +71,7 @@ export default function TokenConverterInteractive() {
               type="number"
               value={tokens}
               onChange={(e) => {
-                const val = Math.max(0, Number(e.target.value));
+                const val = Math.min(100000, Math.max(0, Number(e.target.value)));
                 setTokens(val);
                 updateUrl({ tokens: val });
               }}

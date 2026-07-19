@@ -140,7 +140,7 @@ export default function ChatBot() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/30 transition-transform hover:scale-110 active:scale-95"
+        className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/30 transition-transform hover:scale-110 active:scale-95"
         aria-label={open ? "Close chat" : "Open chat"}
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
@@ -152,7 +152,7 @@ export default function ChatBot() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-24 right-3 z-50 flex h-[460px] w-[calc(100vw-24px)] max-w-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0f1629] shadow-2xl shadow-violet-600/10">
+        <div className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] right-3 z-50 flex h-[460px] max-h-[70vh] w-[calc(100vw-24px)] max-w-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0f1629] shadow-2xl shadow-violet-600/10">
           {/* Header */}
           <div className="flex items-center gap-3 border-b border-white/10 bg-violet-600/10 px-4 py-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-white">

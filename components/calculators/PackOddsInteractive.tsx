@@ -55,7 +55,6 @@ export default function PackOddsInteractive() {
   const results = useMemo(() => {
     return PACKS.map((pack) => {
       const pulls = calculateOpenCount(tokens, pack, dupes);
-      const rate = getRarityRate(pack.id, "Uncommon");
 
       const targetRate = getMetricRateFromPack(pack, oddsKey);
       const probability = calculateAtLeastOneSuccess(targetRate, pulls);
@@ -64,35 +63,9 @@ export default function PackOddsInteractive() {
     }).sort((a, b) => b.probability - a.probability);
   }, [tokens, target, dupes, oddsKey]);
 
-  // Static drop rates table data
-  const rarityColumns: { key: string; label: string; color: string }[] = [
-    { key: "Uncommon", label: "Uncommon", color: "text-emerald-400" },
-    { key: "Rare", label: "Rare", color: "text-sky-400" },
-    { key: "Epic", label: "Epic", color: "text-violet-400" },
-    { key: "Legendary", label: "Legendary", color: "text-amber-400" },
-    { key: "Chroma", label: "Chroma", color: "text-teal-400" },
-  ];
-
   return (
-    <div className="mx-auto flex-1 w-full max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+    <div>
       <CalculatorBanner />
-
-      <section className="space-y-5">
-        <p className="text-xs font-bold uppercase tracking-[0.28em] text-violet-400">
-          Pack Odds Calculator
-        </p>
-        <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Blooket Pack Odds
-          <span className="mt-2 block text-xl font-medium text-violet-300">
-            Live drop rates for every market pack
-          </span>
-        </h1>
-        <p className="max-w-3xl text-base leading-8 text-white/50">
-          Enter your token budget to see your live probability for each pack.
-          The interactive table ranks packs by your chance of pulling at least
-          one blook of your target rarity.
-        </p>
-      </section>
 
       {/* Interactive Controls */}
       <section className="mt-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-xl">
@@ -265,125 +238,6 @@ export default function PackOddsInteractive() {
         </div>
       </section>
 
-      {/* Static Reference: Drop Rates per Rarity */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold text-white mb-2">
-          Reference: Drop Rates per Pack
-        </h2>
-        <p className="text-sm text-white/50 mb-4">
-          Combined drop rates for each rarity tier in a single pack opening.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-sm">
-            <thead>
-              <tr className="border-b border-white/[0.08]">
-                <th className="py-3 px-4 font-bold text-white/70">Pack</th>
-                <th className="py-3 px-4 font-bold text-white/70">Cost</th>
-                {rarityColumns.map((col) => (
-                  <th
-                    key={col.key}
-                    className={`py-3 px-4 font-bold ${col.color}`}
-                  >
-                    {col.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {PACKS.map((pack) => (
-                <tr
-                  key={pack.id}
-                  className="border-b border-white/[0.04] transition hover:bg-white/[0.02]"
-                >
-                  <td className="py-3 px-4 font-semibold text-white">
-                    <Link
-                      href={pack.isLocked ? "/packs" : `/packs#${pack.id}`}
-                      className="hover:text-violet-300"
-                    >
-                      {pack.name}
-                    </Link>
-                  </td>
-                  <td className="py-3 px-4 text-white/60">
-                    {pack.costPerPull} tokens
-                  </td>
-                  {rarityColumns.map((col) => (
-                    <td
-                      key={col.key}
-                      className={cn(
-                        "py-3 px-4",
-                        col.key === "Uncommon" && "text-emerald-300/80",
-                        col.key === "Rare" && "text-sky-300/80",
-                        col.key === "Epic" && "text-violet-300/80",
-                        col.key === "Legendary" && "text-amber-300/80",
-                        col.key === "Chroma" && "text-teal-300/80",
-                      )}
-                    >
-                      {formatPercent(getRarityRate(pack.id, col.key as Rarity))}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Educational content */}
-      <section className="mt-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-white shadow-lg sm:p-8">
-        <h2 className="text-2xl font-bold text-white">
-          How to read these odds
-        </h2>
-        <div className="mt-4 space-y-3 text-sm leading-7 text-white/60">
-          <p>
-            Each percentage in the reference table is the{" "}
-            <strong className="text-white">combined drop rate</strong> for that
-            rarity tier in a single pack opening. For example, if a pack has two
-            Legendaries at 0.5% each, the Legendary column shows 1.0%.
-          </p>
-          <p>
-            A 1% drop rate does{" "}
-            <strong className="text-white">not</strong> mean a 1-in-100
-            guarantee. The real chance of pulling at least one Legendary from
-            100 opens is{" "}
-            <strong className="text-white">
-              1 - (1 - 0.01)^100 = 63.4%
-            </strong>
-            , not 100%. Use the interactive controls above to compute your
-            actual probability based on your token budget.
-          </p>
-          <p>
-            Packs with rotating Chromas (like Space) show the rate for a single
-            active rotation, not the combined rate across all colors.
-          </p>
-        </div>
-      </section>
-
-      <aside className="mt-10 flex flex-wrap gap-3">
-        <Link
-          href="/calculators"
-          className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-        >
-          All Calculators
-        </Link>
-        <Link
-          href="/calculators/token-converter"
-          className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-        >
-          Token Converter
-        </Link>
-        <Link
-          href="/calculators/roi"
-          className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-        >
-          ROI Calculator
-        </Link>
-        <Link
-          href="/packs"
-          className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-semibold text-white/80 transition hover:border-violet-500/25 hover:text-white"
-        >
-          Pack Details
-        </Link>
-      </aside>
     </div>
   );
 }

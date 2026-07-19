@@ -35,7 +35,7 @@ export default function BlookValueInteractive() {
   const [sortBy, setSortBy] = useState<SortBy>("sellValue");
 
   const filtered = useMemo(() => {
-    let result = BLOOKS.filter((b) => b.rarity !== "Common" && !b.rotationGroup);
+    let result = BLOOKS.filter((b) => b.rarity !== "Common");
 
     if (search) {
       const q = search.toLowerCase();
@@ -206,12 +206,22 @@ export default function BlookValueInteractive() {
                   className="border-b border-white/[0.04] transition hover:bg-white/[0.02]"
                 >
                   <td className="py-3 px-4 font-semibold text-white">
-                    <Link
-                      href={`/blooks/${blook.id}`}
-                      className="hover:text-violet-300"
-                    >
-                      {blook.name}
-                    </Link>
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={`/blooks/${blook.id}`}
+                        className="hover:text-violet-300"
+                      >
+                        {blook.name}
+                      </Link>
+                      {blook.rotationGroup && (
+                        <span
+                          className="rounded bg-orange-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-orange-300"
+                          title="This blook rotates daily in the pack pool."
+                        >
+                          Rotates
+                        </span>
+                      )}
+                    </div>
                   </td>
                   <td
                     className={cn(

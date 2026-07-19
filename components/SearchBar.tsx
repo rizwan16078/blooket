@@ -17,6 +17,7 @@ const SEARCH_INDEX: SearchItem[] = [
   // Calculators
   { title: "Main Calculator", description: "All-in-one interactive pack odds tool", href: "/", icon: "🎯", category: "Calculators" },
   { title: "Pack Odds", description: "Live drop rates for every pack", href: "/calculators/pack-odds", icon: "📊", category: "Calculators" },
+  { title: "Pack Opening Simulator", description: "Open unlimited packs with real drop rates", href: "/calculators/simulator", icon: "🎁", category: "Calculators" },
   { title: "ROI Calculator", description: "Best value pack per token spent", href: "/calculators/roi", icon: "💰", category: "Calculators" },
   { title: "Token Converter", description: "How many packs your tokens buy", href: "/calculators/token-converter", icon: "🪙", category: "Calculators" },
   { title: "Blook Value Calculator", description: "Sell values for every blook", href: "/calculators/value", icon: "💎", category: "Calculators" },
@@ -238,7 +239,7 @@ export default function SearchBar() {
               </div>
 
               {/* Results */}
-              <div className="max-h-[60vh] overflow-y-auto px-2 py-2">
+              <div className="max-h-[35vh] sm:max-h-[60vh] overflow-y-auto px-2 py-2">
                 {flatResults.length === 0 ? (
                   <div className="px-4 py-8 text-center text-sm text-white/30">
                     No results for &ldquo;{query}&rdquo;

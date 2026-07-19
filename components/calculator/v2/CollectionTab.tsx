@@ -31,7 +31,11 @@ type PackRow = {
   missingTokenCost: number;
 };
 
-export default function CollectionTab() {
+type Props = {
+  dupesEnabled?: boolean;
+};
+
+export default function CollectionTab({ dupesEnabled = false }: Props) {
   const [rawOwned, setRawOwned] = useLocalStorage<string[]>(STORAGE_KEY, [], {
     initializeWithValue: false,
   });
@@ -60,7 +64,7 @@ export default function CollectionTab() {
       const ownedCount = sorted.length - missingBlooks.length;
       const pct = sorted.length > 0 ? (ownedCount / sorted.length) * 100 : 0;
       const missingTokenCost = missingBlooks.reduce((sum, blook) => {
-        const { tokens } = getTokensForGuarantee(blook, pack, 0.5, 500, false);
+        const { tokens } = getTokensForGuarantee(blook, pack, 0.5, 500, dupesEnabled);
         return sum + (Number.isFinite(tokens) ? tokens : 0);
       }, 0);
       return { pack, blooks: sorted, ownedCount, missingBlooks, pct, missingTokenCost };

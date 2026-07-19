@@ -58,8 +58,26 @@ function createSimulatedRun(blooks: Blook[], pullCount: number) {
   return run;
 }
 
+function getEffectiveBlooks(blooks: Blook[]) {
+  const seenRotationGroups = new Set<string>();
+
+  return blooks.filter((blook) => {
+    if (!blook.rotationGroup) {
+      return true;
+    }
+
+    if (seenRotationGroups.has(blook.rotationGroup)) {
+      return false;
+    }
+
+    seenRotationGroups.add(blook.rotationGroup);
+    return true;
+  });
+}
+
 self.onmessage = (event: MessageEvent<SimulationWorkerInput>) => {
-  const { pack, blooks, tokens, dupesEnabled, targetRarity } = event.data;
+  const { pack, blooks: rawBlooks, tokens, dupesEnabled, targetRarity } = event.data;
+  const blooks = getEffectiveBlooks(rawBlooks);
   const pullCount = Math.max(
     0,
     calculateSimulationOpenCount(tokens, pack, dupesEnabled),

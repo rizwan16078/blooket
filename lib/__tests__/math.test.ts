@@ -251,6 +251,23 @@ describe("calculateBlookAttempts", () => {
     const blook = PACK_BLOOKS_MAP["space"][0];
     expect(calculateBlookAttempts(0, space, blook, false)).toBe(0);
   });
+
+  it("calculates attempts correctly when dupes are disabled", () => {
+    const space = getPackBySlug("space");
+    const blook = PACK_BLOOKS_MAP["space"][0]; // Uncommon Earth
+    // Space pack cost is 20, tokens 1000
+    // With dupes off, attempts should be exactly 1000 / 20 = 50
+    expect(calculateBlookAttempts(1000, space, blook, false)).toBe(50);
+  });
+
+  it("calculates attempts correctly when dupes are enabled", () => {
+    const space = getPackBySlug("space");
+    const blook = PACK_BLOOKS_MAP["space"][0]; // Uncommon Earth, sell value 5, drop rate 18.75%
+    // base cost (dupes enabled) = space.effectiveCost = 16.825
+    // expected attempts = 1000 / (16.825 + 5 * 0.1875) = 1000 / 17.7625 = 56.298...
+    const attempts = calculateBlookAttempts(1000, space, blook, true);
+    expect(attempts).toBeCloseTo(1000 / (space.effectiveCost + blook.sellValue * blook.dropRate), 4);
+  });
 });
 
 describe("calculateBlookProbability", () => {

@@ -33,11 +33,11 @@ export default function ChaseCalculatorInteractive() {
   const [selectedBlookId, setSelectedBlookId] = useState(CHASE_BLOOKS[0].id);
 
   const filteredBlooks = useMemo(() => {
-    if (!search) return CHASE_BLOOKS.slice(0, 24);
+    if (!search) return CHASE_BLOOKS;
     const q = search.toLowerCase();
     return CHASE_BLOOKS.filter((b) =>
       b.name.toLowerCase().includes(q),
-    ).slice(0, 24);
+    );
   }, [search]);
 
   const selectedBlook = useMemo(

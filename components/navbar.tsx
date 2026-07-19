@@ -24,6 +24,12 @@ const CALCULATOR_LINKS = [
     description: "Live drop rates for every pack",
   },
   {
+    href: "/calculators/simulator",
+    icon: "🎁",
+    label: "Pack Simulator",
+    description: "Open unlimited packs with real odds",
+  },
+  {
     href: "/calculators/roi",
     icon: "💰",
     label: "ROI Calculator",

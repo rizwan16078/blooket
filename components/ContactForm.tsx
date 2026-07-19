@@ -64,7 +64,7 @@ export default function ContactForm() {
                   key={t.value}
                   type="button"
                   onClick={() => setTopic(t.value)}
-                  className={`rounded-xl border px-3 py-3 text-center text-sm transition ${
+                  className={`rounded-xl border px-3 py-3 text-center text-sm transition last:col-span-2 sm:last:col-span-1 ${
                     topic === t.value
                       ? "border-violet-500/25 bg-violet-500/10 text-violet-400"
                       : "border-white/[0.06] bg-white/[0.02] text-white/50 hover:border-white/[0.1] hover:text-white/70"
@@ -120,7 +120,7 @@ export default function ContactForm() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="What's on your mind?"
               rows={5}
-              className="w-full resize-none rounded-2xl border-4 border-sky-100 bg-white px-4 py-4 text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-sky-300"
+              className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-base text-white placeholder:text-white/25 outline-none transition focus:border-violet-500/40"
               required
             />
           </div>

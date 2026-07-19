@@ -331,7 +331,6 @@ function BlookPickerPanel({
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search by name (e.g. King, Megalodon, Astronaut)"
             className="flex-1 bg-transparent text-sm text-white outline-none placeholder:text-slate-500"
-            autoFocus
           />
           {query ? (
             <button

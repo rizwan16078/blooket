@@ -48,22 +48,39 @@ function weightedPick(blooks: Blook[]): Blook {
   return blooks[blooks.length - 1];
 }
 
+function getEffectiveBlooks(blooks: Blook[]) {
+  const seenRotationGroups = new Set<string>();
+
+  return blooks.filter((blook) => {
+    if (!blook.rotationGroup) {
+      return true;
+    }
+
+    if (seenRotationGroups.has(blook.rotationGroup)) {
+      return false;
+    }
+
+    seenRotationGroups.add(blook.rotationGroup);
+    return true;
+  });
+}
+
 describe("weightedPick distribution", () => {
   const N = 10000;
 
-  it("Space pack — rarity distribution matches expected rates", () => {
-    const blooks = PACK_BLOOKS_MAP["space"];
+  it("Space pack — rarity distribution matches expected rates (deduplicated)", () => {
+    const blooks = getEffectiveBlooks(PACK_BLOOKS_MAP["space"]);
     const total = blooks.reduce((s, b) => s + b.dropRate, 0);
 
-    // Expected counts per rarity — weightedPick uses ALL blooks (no rotation dedup)
-    // So Chroma = 7 * 0.0005 = 0.0035 (all astronauts counted)
+    // Expected counts per rarity — using deduplicated active rotation list
+    // Chroma = 0.0005 (exactly 1 active astronaut color)
     const rarityOrder: Rarity[] = ["Uncommon", "Rare", "Epic", "Legendary", "Chroma"];
     const expectedRates: Record<string, number> = {
       Uncommon: 0.75,
       Rare: 0.20,
       Epic: 0.045,
       Legendary: 0.0045,
-      Chroma: 0.0035, // 7 astronauts × 0.0005 each
+      Chroma: 0.0005, // exactly 1 active astronaut (0.05%)
     };
 
     const observed: Record<string, number> = {};

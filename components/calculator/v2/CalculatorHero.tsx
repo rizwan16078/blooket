@@ -278,7 +278,7 @@ export default function CalculatorHero() {
           ) : activeTab === "simulate" ? (
             <SimulateTab />
           ) : activeTab === "collection" ? (
-            <CollectionTab />
+            <CollectionTab dupesEnabled={dupesEnabled} />
           ) : activeTab === "tier" ? (
             <TierTab />
           ) : (

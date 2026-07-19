@@ -572,6 +572,17 @@ input[type="number"] {
   animation: cyber-number-flash 0.4s ease-out;
 }
 
+/* ────────────────────────────────────────────────────────────
+   PROSE TABLE RESPONSIVENESS
+   Ensure markdown-generated prose tables scroll horizontally on mobile.
+   ──────────────────────────────────────────────────────────── */
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cyber-card-lift,
   .cyber-glow-breath,

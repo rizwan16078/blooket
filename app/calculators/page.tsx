@@ -56,6 +56,14 @@ const calculators: CalculatorCard[] = [
     icon: "📊",
   },
   {
+    title: "Pack Opening Simulator",
+    description:
+      "Open unlimited simulated packs with the real published drop rates. Feel the streaks, test your luck, and see what your tokens would actually pull — risk-free.",
+    href: "/calculators/simulator",
+    keywords: ["pack simulator", "pack opener", "opening simulator"],
+    icon: "🎁",
+  },
+  {
     title: "Token → Pack Converter",
     description:
       "Enter your token balance and instantly see how many packs you can open for every market pack, with and without duplicate sell-back.",
@@ -191,6 +199,14 @@ export default function CalculatorsPage() {
                 Chase Calculator
               </Link>
               {" "}gives you the exact token budget for a 50%, 90%, or 99% pull chance.
+            </p>
+            <p>
+              <strong className="text-white">Want to open packs without spending tokens?</strong>{" "}
+              The{" "}
+              <Link href="/calculators/simulator" className="text-emerald-400 hover:text-emerald-300">
+                Pack Opening Simulator
+              </Link>
+              {" "}rolls unlimited simulated packs with the real published drop rates.
             </p>
             <p>
               <strong className="text-white">Want the full interactive experience?</strong>{" "}

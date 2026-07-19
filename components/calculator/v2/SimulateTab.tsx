@@ -265,7 +265,14 @@ export default function SimulateTab() {
     setSimPackId(selectedPack);
     setOriginalTokens(tokens);
 
-    const blooks = getBlooksForPack(selectedPack) ?? [];
+    const rawBlooks = getBlooksForPack(selectedPack) ?? [];
+    const seenRotationGroups = new Set<string>();
+    const blooks = rawBlooks.filter((b) => {
+      if (!b.rotationGroup) return true;
+      if (seenRotationGroups.has(b.rotationGroup)) return false;
+      seenRotationGroups.add(b.rotationGroup);
+      return true;
+    });
     const currentPullCount = Math.floor(
       calculateOpenCount(tokens, pack, dupesEnabled),
     );
@@ -681,7 +688,10 @@ export default function SimulateTab() {
             }`}
           >
             <Sparkles className="h-4 w-4 shrink-0" />
-            <span className="truncate">Sell dupes & reopen ({remainingTokens.toLocaleString()} tkn)</span>
+            <span className="flex flex-wrap items-center justify-center gap-x-1 text-center">
+              <span>Sell dupes & reopen</span>
+              <span className="opacity-70">({remainingTokens.toLocaleString()} tkn)</span>
+            </span>
           </button>
           <button
             type="button"
@@ -694,14 +704,21 @@ export default function SimulateTab() {
             }`}
           >
             <RotateCw className="h-4 w-4 shrink-0" />
-            <span className="truncate">Sell all & reopen ({sellAllTokens.toLocaleString()} tkn)</span>
+            <span className="flex flex-wrap items-center justify-center gap-x-1 text-center">
+              <span>Sell all & reopen</span>
+              <span className="opacity-70">({sellAllTokens.toLocaleString()} tkn)</span>
+            </span>
           </button>
           <button
             type="button"
             onClick={handleSimulateAgain}
             className="w-full inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.04] hover:text-white"
           >
-            <RotateCw className="h-4 w-4 shrink-0" /> <span className="truncate">Simulate Again ({originalTokens.toLocaleString()} tkn)</span>
+            <RotateCw className="h-4 w-4 shrink-0" />
+            <span className="flex flex-wrap items-center justify-center gap-x-1 text-center">
+              <span>Simulate Again</span>
+              <span className="opacity-70">({originalTokens.toLocaleString()} tkn)</span>
+            </span>
           </button>
           <button
             type="button"

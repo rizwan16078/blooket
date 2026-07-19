@@ -254,7 +254,7 @@ export default function BlookLibrary({ initialBlookId = null }: BlookLibraryProp
                   onClick={() => router.push(`/blooks/${activeBlook.id}`)}
                   className="inline-flex h-12 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 text-sm font-bold text-white transition-all hover:bg-white/[0.06] active:scale-[0.97]"
                 >
-                  Open SEO Page
+                  View Blook Guide
                 </button>
               </div>
             </div>

@@ -3,15 +3,14 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog";
 import { guideEntries } from "@/data/guides";
 import { MISSPELLINGS } from "@/data/misspellings";
-import { BLOOKS, LAST_UPDATED } from "@/lib/constants";
+import { BLOOKS } from "@/lib/constants";
 import { PACKS } from "@/lib/packs";
 import { siteUrl } from "@/lib/site";
 
 // Default freshness stamp for entries that don't carry their own date.
-// Bumping LAST_UPDATED in lib/constants.ts cascades freshness to every
-// programmatic entry below, which helps Google re-crawl pages currently
-// stuck in "Discovered - currently not indexed".
-const DEFAULT_LASTMOD = LAST_UPDATED;
+// Must never move backwards relative to what production already serves —
+// Google discounts sitemap lastmod entirely if dates regress.
+const DEFAULT_LASTMOD = "2026-07-19";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -60,6 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${siteUrl}/calculators/pack-odds`,
       lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/calculators/simulator`,
+      lastModified: "2026-07-19",
       changeFrequency: "weekly",
       priority: 0.9,
     },
