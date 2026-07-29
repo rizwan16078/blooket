@@ -671,12 +671,12 @@ export const blogPosts: BlogPost[] = [
     content: (
       <div className="prose prose-invert prose-emerald max-w-none">
         <p>
-          You stare at the pack selection screen and freeze. Should you open Space, Aquatic, Medieval, or the new Aurora? They all promise Legendaries. They all cost differently. The math hidden behind those flashy thumbnails decides whether you waste 50,000 tokens or get exactly what you want. Here is the cross-pack comparison.
+          You stare at the pack selection screen and freeze. Should you open Space, Aquatic, Medieval, or Lunch? They all promise Legendaries. They all cost differently. The math hidden behind those flashy thumbnails decides whether you waste 50,000 tokens or get exactly what you want. Here is the cross-pack comparison.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Pack Efficiency Table</h2>
         <p>
-          Pack efficiency is not just about cost &mdash; it is about <strong>tokens per percentage point of Legendary chance</strong>. A 25-token pack with 0.08% Legendary rate is more efficient than a 20-token pack with 0.05%, even though the cheaper pack feels like a better deal.
+          Pack efficiency is not just about cost &mdash; it is about <strong>tokens per percentage point of Legendary chance</strong>. A 20-token pack with a 1.0% Legendary rate is far more efficient than a 25-token pack at 0.35%, even before you factor in the price difference. The table below ranks the best permanent packs for Legendary hunting, with the 90%-confidence token budget from the exact binomial formula.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
@@ -690,35 +690,41 @@ export const blogPosts: BlogPost[] = [
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4 text-emerald-400">Aurora</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4 text-emerald-400">0.08%</td>
-              <td className="py-3 px-4 text-emerald-400">~72,000</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Space (post-buff)</td>
+              <td className="py-3 px-4 text-emerald-400">Medieval (King)</td>
               <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4">0.06%</td>
-              <td className="py-3 px-4">~76,500</td>
+              <td className="py-3 px-4 text-emerald-400">1.0%</td>
+              <td className="py-3 px-4 text-emerald-400">~4,600</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aquatic</td>
-              <td className="py-3 px-4">22</td>
-              <td className="py-3 px-4 text-amber-400">0.05%</td>
-              <td className="py-3 px-4 text-amber-400">~92,000</td>
+              <td className="py-3 px-4">Lunch (Sandwich)</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4">0.65%</td>
+              <td className="py-3 px-4">~8,850</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Aquatic (Baby Shark)</td>
+              <td className="py-3 px-4">20</td>
+              <td className="py-3 px-4 text-amber-400">0.5%</td>
+              <td className="py-3 px-4 text-amber-400">~9,200</td>
+            </tr>
+            <tr className="border-b border-slate-800">
+              <td className="py-3 px-4">Space (Astronaut)</td>
+              <td className="py-3 px-4">20</td>
+              <td className="py-3 px-4 text-amber-400">0.45%</td>
+              <td className="py-3 px-4 text-amber-400">~10,200</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Medieval</td>
-              <td className="py-3 px-4">28</td>
-              <td className="py-3 px-4 text-red-400">0.04%</td>
-              <td className="py-3 px-4 text-red-400">~115,000</td>
+              <td className="py-3 px-4">Ice Monster (Yeti)</td>
+              <td className="py-3 px-4">25</td>
+              <td className="py-3 px-4 text-red-400">0.35%</td>
+              <td className="py-3 px-4 text-red-400">~16,425</td>
             </tr>
           </tbody>
         </table>
 
         <h3 className="text-xl font-bold mt-6 mb-3">When to Use Each Pack</h3>
         <p>
-          Use Aurora for the best Legendary efficiency. Use Space for the cheapest farming and broadest collection breadth. Use Aquatic if you want a specific Aquatic Blook. Avoid Medieval for Legendaries unless you specifically want a Medieval Blook.
+          Use Medieval for the best Legendary efficiency &mdash; the King's 1.0% rate is the highest of any permanent pack. Use Space for the cheapest farming and broadest collection breadth. Use Aquatic if you want the Megalodon or Baby Shark. Avoid the low-rate packs (Bot, Pirate, Dino at ~0.3%) for Legendary chasing unless you want a specific Blook from them.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -726,26 +732,26 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">The token-per-percent-Legendary metric is the only honest way to compare packs. Cost in isolation is meaningless. A 20-token pack with 0.04% rate costs you 100,000 tokens for 90% confidence. A 25-token pack with 0.08% costs you 72,000. The "cheaper" pack is actually 28% more expensive when you account for variance.</p>
+          <p className="text-slate-300 text-sm m-0">The token-per-percent-Legendary metric is the only honest way to compare packs. Cost in isolation is meaningless. Medieval's King (1.0%, 20 tokens) reaches 90% confidence for ~4,600 tokens, while Ice Monster's Yeti (0.35%, 25 tokens) costs ~16,425 for the same confidence. Same goal, roughly 3.5&times; the price &mdash; because the rate, not the sticker cost, dominates.</p>
         </div>
 
         <p>
-          Compare current pack details in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, see exact-token math in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, plan a chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, see ROI in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, browse the <Link href="/blog/blooket-space-pack-deep-dive" className="text-emerald-400 hover:text-emerald-300">Space Pack post</Link>, read the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link>, the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>, and check <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value rules</Link>.
+          Compare current pack details in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, see exact-token math in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, plan a chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, see ROI in the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, browse the <Link href="/blog/blooket-space-pack-deep-dive" className="text-emerald-400 hover:text-emerald-300">Space Pack post</Link>, read the <Link href="/blog/blooket-legendary-blooks-guide" className="text-emerald-400 hover:text-emerald-300">Legendary guide</Link>, the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link>, and check <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value rules</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the best Blooket pack to open?</p>
-            <p className="text-sm text-slate-300 mt-1">Aurora at 25 tokens with 0.08% Legendary rate is the most token-efficient for Legendary hunters. Space is cheapest for collection breadth.</p>
+            <p className="text-sm text-slate-300 mt-1">For Legendary hunters, the Medieval Pack (King at 1.0%, 20 tokens) is the most token-efficient of any permanent pack. Space is cheapest for collection breadth.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How do I compare pack value?</p>
-            <p className="text-sm text-slate-300 mt-1">Compare tokens-per-percent-Legendary, not pack cost in isolation. A pack with double the Legendary rate is worth paying ~25% more for.</p>
+            <p className="text-sm text-slate-300 mt-1">Compare tokens-per-percent-Legendary, not pack cost in isolation. A pack with double the Legendary rate is worth paying more for even at a higher token cost.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Did pack rates change recently?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes. Space buffed to 0.06% Legendary in May 2026. Aurora launched in February at 0.08%. See the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">update post</Link>.</p>
+            <p className="font-bold text-white">Which pack has the highest Legendary rate?</p>
+            <p className="text-sm text-slate-300 mt-1">The Medieval Pack &mdash; its King Legendary drops at 1.0%, the highest of any permanent pack. Lunch (Sandwich 0.65%) and Aquatic/Safari (0.5%) come next. See the <Link href="/blog/blooket-legendary-blooks-guide" className="text-emerald-400 hover:text-emerald-300">Legendary guide</Link>.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the cheapest Blooket pack?</p>
@@ -1607,111 +1613,6 @@ export const blogPosts: BlogPost[] = [
     )
   },
   {
-    slug: "blooket-update-may-2026",
-    title: "Blooket Update May 2026: New Packs, Blooks, and Drop Rate Changes",
-    excerpt: "The latest Blooket update brought new packs and adjusted drop rates for several existing boxes. Here is what changed and how it affects your strategy.",
-    date: "Apr 25, 2026",
-    publishedAt: "2026-04-25",
-    updatedAt: "2026-05-24",
-    category: "UPDATES",
-    hasCalculator: false,
-    imageUrl: "/images/blog/update-may.png",
-    sources: [
-      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
-      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
-      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
-    ],
-    tags: ["update", "new-packs", "drop-rates", "changes"],
-    author: { name: "Blooket Calculator Team" },
-    readTime: "3 min read",
-    views: 14700,
-    featured: true,
-    content: (
-      <div className="prose prose-invert prose-emerald max-w-none">
-        <p>
-          You logged in this week and your old farming routine suddenly felt off. Drop rates moved, two new packs landed, and the calculator numbers you memorized last month are now stale. Updates are stressful when you have a token budget. Here is exactly what shipped in the May 2026 patch and how to adjust your spending without wasting a single token.
-        </p>
-
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The New Packs</h2>
-        <p>
-          Two new boxes joined the rotation: the <strong>Aurora Pack</strong> at 25 tokens and the <strong>Cyber Pack</strong> at 30 tokens. Both contain new exclusive Legendaries and one new Chroma each. The headline change is that Aurora's Legendary rate sits at 0.08% &mdash; the highest of any current pack.
-        </p>
-
-        <table className="w-full text-left border-collapse my-6">
-          <thead>
-            <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Cost</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Legendary Rate</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Verdict</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aurora (NEW)</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4 text-emerald-400">0.08%</td>
-              <td className="py-3 px-4 text-emerald-400">Best Legendary value</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Cyber (NEW)</td>
-              <td className="py-3 px-4">30</td>
-              <td className="py-3 px-4 text-amber-400">0.05%</td>
-              <td className="py-3 px-4 text-amber-400">Cool Blooks, mid value</td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4">Space (Buffed)</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4 text-amber-400">0.06%</td>
-              <td className="py-3 px-4 text-amber-400">Now competitive again</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Drop Rate Adjustments</h2>
-        <p>
-          The Space Pack received a <strong>+0.01% Legendary buff</strong>, putting it back into the conversation. The Medieval Pack lost 0.5% on Rares. Common rates were unchanged across the board. None of the changes are huge in isolation, but compounded over thousands of pulls they shift which packs are mathematically optimal.
-        </p>
-
-        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
-          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
-            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
-            The Trench Truth
-          </h4>
-          <p className="text-slate-300 text-sm m-0">Aurora is now the cheapest path to a Legendary by token count. If you are saving for any Legendary (not a specific one), switch your farming target to Aurora. Old Space Pack calculations are obsolete &mdash; refresh the math on the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> before you spend.</p>
-        </div>
-
-        <p className="mt-6">
-          Compare every pack with the <Link href="/calculators/roi" className="text-emerald-400 hover:text-emerald-300">ROI tool</Link>, look up exact tokens with the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, plan farming with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, or read the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> for how we source rates.
-        </p>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
-        <div className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Did all pack drop rates change in May 2026?</p>
-            <p className="text-sm text-slate-300 mt-1">No &mdash; only Space (buffed) and Medieval (slightly nerfed). All other packs kept their pre-update rates. Aurora and Cyber are entirely new additions.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is the Aurora Pack worth opening?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes, if you want any Legendary. At 0.08% Legendary rate and 25-token cost, it is the most token-efficient Legendary pack right now. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> for exact numbers.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Will the old packs come back to old rates?</p>
-            <p className="text-sm text-slate-300 mt-1">Unlikely. Blooket rebalances rather than reverts. Treat the new rates as the new normal.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">How do I know the calculator uses the latest rates?</p>
-            <p className="text-sm text-slate-300 mt-1">Our drop rates are updated within 24 hours of every patch. See the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology</Link> page for the source-of-truth.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I dump my Space Pack tokens to chase Aurora?</p>
-            <p className="text-sm text-slate-300 mt-1">If your goal is any Legendary, yes. If you are chasing a specific Space-only Blook, keep farming Space. The buff makes it more efficient than before.</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
     slug: "blooket-hack-myths-debunked",
     title: "Blooket Hack Myths Debunked: Why Free Token Generators Are Scams",
     excerpt: "Every 'Blooket token generator' is a scam. Here is the technical explanation of why hacks do not work and what actually happens when you try them.",
@@ -2419,114 +2320,6 @@ export const blogPosts: BlogPost[] = [
     )
   },
   {
-    slug: "blooket-april-2026-update",
-    title: "Blooket April 2026 Update: New Game Modes and Balance Changes",
-    excerpt: "Blooket's April update added new game modes and rebalanced several existing ones. Here is what changed and how it affects your token farming strategy.",
-    date: "Apr 17, 2026",
-    publishedAt: "2026-04-17",
-    updatedAt: "2026-05-24",
-    category: "UPDATES",
-    hasCalculator: false,
-    imageUrl: "/images/blog/update-april.png",
-    sources: [
-      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
-      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
-      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
-    ],
-    tags: ["update", "game-modes", "balance", "changes"],
-    author: { name: "Blooket Calculator Team" },
-    readTime: "3 min read",
-    views: 9100,
-    featured: false,
-    content: (
-      <div className="prose prose-invert prose-emerald max-w-none">
-        <p>
-          The April 2026 patch reshuffled game-mode balance more than any update this year. If your Cafe and Factory routines feel slightly different, it is not your imagination. Drop rates moved, mode rewards changed, and a hidden mechanic was added. Here is the full breakdown of what shifted and what to do about it.
-        </p>
-
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What Changed</h2>
-        <p>
-          Three mode-level changes shipped: <strong>Cafe combo multipliers</strong> were buffed, <strong>Tower Defense token output</strong> was nerfed, and <strong>Crypto Hack</strong> received a new defense mechanic. The pack roster stayed the same, but token-earning velocity shifted across modes.
-        </p>
-
-        <table className="w-full text-left border-collapse my-6">
-          <thead>
-            <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Mode</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Pre-patch (tokens/min)</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Post-patch</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Cafe</td>
-              <td className="py-3 px-4">12</td>
-              <td className="py-3 px-4 text-emerald-400">13-14</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Factory</td>
-              <td className="py-3 px-4">12</td>
-              <td className="py-3 px-4">12 (unchanged)</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Tower Defense</td>
-              <td className="py-3 px-4">5</td>
-              <td className="py-3 px-4 text-red-400">3</td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4">Crypto Hack</td>
-              <td className="py-3 px-4">4</td>
-              <td className="py-3 px-4">4 (defense buffed)</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">The New Crypto Defense Mechanic</h3>
-        <p>
-          Setting a password in Crypto Hack now grants a 3-round shield that reduces hack success rate against you by 30%. This makes defense-heavy strategies viable for the first time since launch.
-        </p>
-
-        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
-          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
-            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
-            The Trench Truth
-          </h4>
-          <p className="text-slate-300 text-sm m-0">Cafe is now the unambiguous farming meta. Tower Defense should never be used for token farming &mdash; the patch dropped it from a 5-token-per-minute mode to a 3-token-per-minute mode. Switch your routines now if you have not already.</p>
-        </div>
-
-        <p className="mt-6">
-          Compare against the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link>, optimize Cafe runs with the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe guide</Link>, refresh your numbers in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, learn defense in the <Link href="/blog/blooket-crypto-hack-mode" className="text-emerald-400 hover:text-emerald-300">Crypto Hack post</Link>, then plan with the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link> or <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>.
-        </p>
-
-        <p className="mt-6 text-slate-300">Bottom line: The April 2026 patch made Cafe the unambiguous farming meta and dropped Tower Defense to last place. Crypto Hack now has a viable defense mechanic. Refresh your routine and your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator inputs</Link> &mdash; the pre-April math no longer applies.</p>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
-        <div className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">What changed in the April 2026 Blooket update?</p>
-            <p className="text-sm text-slate-300 mt-1">Cafe combo multipliers buffed, Tower Defense token output nerfed, and Crypto Hack received a 3-round defense shield mechanic.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is Tower Defense still worth playing?</p>
-            <p className="text-sm text-slate-300 mt-1">For fun, yes. For token farming, no &mdash; the patch dropped its tokens-per-minute from 5 to 3.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Did the April update change pack drop rates?</p>
-            <p className="text-sm text-slate-300 mt-1">No. Pack rates were unchanged. The May 2026 update was the rate-rebalance patch.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I change my farming routine?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes if you used Tower Defense or Crypto Hack. Cafe is now mathematically optimal.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Does the new Crypto defense mechanic stack?</p>
-            <p className="text-sm text-slate-300 mt-1">No. The 3-round shield resets each time you set a new password. You cannot stack multiple shields.</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
     slug: "blooket-epic-blooks-tier-list",
     title: "Blooket Epic Blooks Tier List: Ranked by Pull Difficulty and Value",
     excerpt: "Not all Epic Blooks are created equal. We ranked every Epic by how hard it is to pull and how much value it provides when you sell or keep it.",
@@ -2940,109 +2733,6 @@ export const blogPosts: BlogPost[] = [
     )
   },
   {
-    slug: "blooket-march-2026-update",
-    title: "Blooket March 2026 Update: Rarity System Overhaul and What It Means",
-    excerpt: "The March update overhauled Blooket's rarity system. Drop rates shifted across multiple packs. Here is the full breakdown of what changed.",
-    date: "Apr 12, 2026",
-    publishedAt: "2026-04-12",
-    updatedAt: "2026-05-24",
-    category: "UPDATES",
-    hasCalculator: false,
-    imageUrl: "/images/blog/update-march.png",
-    sources: [
-      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
-      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
-      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
-    ],
-    tags: ["update", "rarity", "overhaul", "drop-rates"],
-    author: { name: "Blooket Calculator Team" },
-    readTime: "4 min read",
-    views: 10300,
-    featured: false,
-    content: (
-      <div className="prose prose-invert prose-emerald max-w-none">
-        <p>
-          March 2026 was a quiet patch on the surface but a major one for token economics. Two pack costs were adjusted, the daily cap got a new rule, and the duplicate refund formula changed slightly. If you have not refreshed your math since March, here is what you need to know.
-        </p>
-
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Pack Cost Adjustments</h2>
-        <p>
-          The Aquatic Pack dropped from 25 tokens to 22 tokens. The Medieval Pack went the other direction, from 25 to 28 tokens. These are small numbers but they shift the cost-per-confidence math significantly over thousands of pulls.
-        </p>
-
-        <table className="w-full text-left border-collapse my-6">
-          <thead>
-            <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Pre-March Cost</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Post-March Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aquatic</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4 text-emerald-400">22</td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Medieval</td>
-              <td className="py-3 px-4">25</td>
-              <td className="py-3 px-4 text-red-400">28</td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4">Space</td>
-              <td className="py-3 px-4">20</td>
-              <td className="py-3 px-4">20 (unchanged)</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">The Refund Formula Tweak</h3>
-        <p>
-          Duplicate refunds for Rare and Epic Blooks were rounded up by 5 tokens each. Rare duplicates now refund 25 tokens (up from 20). Epic duplicates now refund 100 tokens (up from 95). This is a quiet buff to long-term grinders.
-        </p>
-
-        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
-          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
-            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
-            The Trench Truth
-          </h4>
-          <p className="text-slate-300 text-sm m-0">The Aquatic Pack at 22 tokens is now the cheapest Legendary-eligible pack in the game. If you are not chasing a specific Blook from another pack, switch to Aquatic for the best tokens-per-confidence ratio.</p>
-        </div>
-
-        <p className="mt-6">
-          Compare against <Link href="/blog/blooket-april-2026-update" className="text-emerald-400 hover:text-emerald-300">April</Link> and <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026</Link> updates, refresh prices in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse current packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, see Methodology updates in the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link>, or check the <Link href="/value-guide" className="text-emerald-400 hover:text-emerald-300">value guide</Link>.
-        </p>
-
-        <p className="mt-6 text-slate-300">Bottom line: March 2026 made Aquatic the cheapest Legendary-eligible pack and slightly buffed duplicate refunds for Rare and Epic Blooks. Refresh your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link> if you have not already &mdash; pre-March math is now stale.</p>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
-        <div className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">What changed in March 2026?</p>
-            <p className="text-sm text-slate-300 mt-1">Aquatic Pack reduced from 25 to 22 tokens. Medieval increased from 25 to 28. Rare and Epic duplicate refunds buffed by 5 tokens each.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is Aquatic the cheapest pack now?</p>
-            <p className="text-sm text-slate-300 mt-1">Among Legendary-eligible packs, yes. Space is still cheaper at 20 tokens but has no Legendary in some rotations.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Did drop rates change in March?</p>
-            <p className="text-sm text-slate-300 mt-1">No. The March patch only adjusted token economy. May 2026 was the rate-rebalance update.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I switch packs after the patch?</p>
-            <p className="text-sm text-slate-300 mt-1">If you are chasing &ldquo;any Legendary,&rdquo; switch to Aquatic for the lower cost. If you want a specific Blook, stick with its pack.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Are the new refund rates retroactive?</p>
-            <p className="text-sm text-slate-300 mt-1">No. Only future duplicate sales use the new rates. Already-sold duplicates are at old rates.</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
     slug: "blooket-host-vs-solo-mode",
     title: "Blooket Host vs Solo Mode: Which Earns More Tokens Per Minute?",
     excerpt: "Should you host a game or play solo? We timed both modes across 100 sessions to find the definitive answer for token farming efficiency.",
@@ -3440,109 +3130,6 @@ export const blogPosts: BlogPost[] = [
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Do Space Pack rates change with updates?</p>
             <p className="text-sm text-slate-300 mt-1">Yes. The May 2026 update buffed Space's Legendary rate from 0.05% to 0.06%. Always check the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for current rates.</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    slug: "blooket-february-2026-update",
-    title: "Blooket February 2026 Update: Event Blooks & Limited Packs",
-    excerpt: "The February update introduced seasonal event Blooks and limited-time packs. Here is what was added and what disappeared after the event ended.",
-    date: "Apr 7, 2026",
-    publishedAt: "2026-04-07",
-    updatedAt: "2026-05-24",
-    category: "UPDATES",
-    hasCalculator: false,
-    imageUrl: "/images/blog/update-feb.png",
-    sources: [
-      { label: "Blooket Help Center", href: "https://help.blooket.com/hc/en-us" },
-      { label: "Blooket Help: How to Earn Tokens/XP", href: "https://help.blooket.com/hc/en-us/articles/16293484738839-Earning-Tokens-XP" },
-      { label: "Blooket Help: How to Collect Blooks", href: "https://help.blooket.com/hc/en-us/articles/16620639672599-How-to-Collect-Blooks" },
-    ],
-    tags: ["update", "seasonal", "event", "limited-time"],
-    author: { name: "Blooket Calculator Team" },
-    readTime: "3 min read",
-    views: 7600,
-    featured: false,
-    content: (
-      <div className="prose prose-invert prose-emerald max-w-none">
-        <p>
-          The February 2026 update was Blooket's biggest balance patch of Q1. New game modes shipped, two packs were added, and the duplicate refund formula got its first major rewrite since launch. If you have been playing on autopilot, your numbers are now stale. Here is the full breakdown.
-        </p>
-
-        <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">What Shipped</h2>
-        <p>
-          Three major changes: <strong>Crypto Hack</strong> launched as a new mode, the <strong>Aurora Pack</strong> was added at 25 tokens with a 0.08% Legendary rate, and the duplicate refund formula was simplified to flat per-rarity values (no more pack-specific variations).
-        </p>
-
-        <table className="w-full text-left border-collapse my-6">
-          <thead>
-            <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Change</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Impact</th>
-              <th className="py-3 px-4 font-bold text-slate-200">Action Required</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Crypto Hack mode added</td>
-              <td className="py-3 px-4">New farming option</td>
-              <td className="py-3 px-4">Read <Link href="/blog/blooket-crypto-hack-mode" className="text-emerald-400 hover:text-emerald-300">strategy guide</Link></td>
-            </tr>
-            <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aurora Pack launched</td>
-              <td className="py-3 px-4 text-emerald-400">Best Legendary value</td>
-              <td className="py-3 px-4">Switch farming target</td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4">Refund formula simplified</td>
-              <td className="py-3 px-4">More predictable</td>
-              <td className="py-3 px-4">Refresh calculations</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">The Refund Simplification</h3>
-        <p>
-          Pre-February, duplicate refunds varied slightly by pack. Now every Common refunds exactly 5 tokens, every Uncommon 10, every Rare 25, every Epic 100, every Legendary 500 &mdash; regardless of pack origin. This makes calculations cleaner and removes a common source of confusion.
-        </p>
-
-        <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
-          <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
-            <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
-            The Trench Truth
-          </h4>
-          <p className="text-slate-300 text-sm m-0">The Aurora Pack at 25 tokens with 0.08% Legendary rate became the new meta the day this patch shipped. If you were grinding Space Pack for Legendaries, switch to Aurora unless you specifically want a Space-exclusive Blook.</p>
-        </div>
-
-        <p className="mt-6">
-          Compare against later updates: <Link href="/blog/blooket-march-2026-update" className="text-emerald-400 hover:text-emerald-300">March</Link>, <Link href="/blog/blooket-april-2026-update" className="text-emerald-400 hover:text-emerald-300">April</Link>, and <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026</Link>. Run new calculations in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, see refund details in the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">refund post</Link>, or browse current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
-        </p>
-
-        <p className="mt-6 text-slate-300">Bottom line: February 2026 introduced Crypto Hack mode and the Aurora Pack &mdash; both still meta as of late May. Always re-run your <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator inputs</Link> after major patches; pre-Feb refund math is now outdated.</p>
-
-        <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
-        <div className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">What was new in the February 2026 update?</p>
-            <p className="text-sm text-slate-300 mt-1">Crypto Hack game mode, Aurora Pack, and a simplified flat duplicate refund system.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is the Aurora Pack still meta?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes as of late May 2026. It remains the best Legendary-rate-per-token pack in active rotation.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Did the refund changes nerf any Blooks?</p>
-            <p className="text-sm text-slate-300 mt-1">No. The new flat values are equal to or better than the old pack-specific values across the board.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Are old February calculations still accurate?</p>
-            <p className="text-sm text-slate-300 mt-1">Refund-related ones, yes. Pack-comparison ones may be slightly off due to the May 2026 rate update.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I have switched to Aurora immediately?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes if you were chasing any Legendary. No if you wanted a specific older-pack Blook.</p>
           </div>
         </div>
       </div>

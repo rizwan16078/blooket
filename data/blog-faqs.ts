@@ -18,13 +18,13 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
   "what-is-the-rarest-blook": [
     { question: "What is the rarest Blook you can actually pull?", answer: "Chromas at 0.02% drop rate (1 in 5,000 pulls). Mysticals are rarer but cannot be pulled from packs at all." },
     { question: "How many tokens to get a Chroma?", answer: "No. Mysticals are event-exclusive awards only. No pack contains them, regardless of token spend." },
-    { question: "Can I get a Mystical Blook from a pack?", answer: "Legendaries are 0.05% drop rate (rare but achievable). Chromas are 0.02% (4x rarer) and are visual variants of standard Blooks." },
+    { question: "Can I get a Mystical Blook from a pack?", answer: "No — Mysticals only come from events. For pack pulls, Legendaries range 0.2%–1.0% and Chromas 0.02%–0.08%; Chromas are the rarest pullable tier and are visual variants of standard Blooks." },
   ],
   "is-blooket-calculator-accurate": [
     { question: "Is the Blooket Calculator 100% accurate?", answer: "Probability calculations are mathematically exact via the binomial formula. The simulator uses Monte Carlo with 10,000 runs for 99.5%+ accuracy." },
     { question: "Does the calculator account for duplicate refunds?", answer: "Yes. Toggle the duplicate refund switch and it recalculates effective token cost based on expected duplicate sell values." },
     { question: "Where do the drop rates come from?", answer: "Variance. The calculator gives 90% confidence intervals, not guarantees. 10% of users will need more tokens than the “safe” estimate." },
-    { question: "Why do my actual results differ from the calculator?", answer: "Yes. We refresh drop rates within 24 hours of every update. The May 2026 Space Pack buff was live the day it shipped." },
+    { question: "Why do my actual results differ from the calculator?", answer: "Variance. Each pull is independent, so about 10% of players need more than the 90%-confidence estimate. We also re-verify drop rates against the Blooket Wiki and community sources and refresh within 24 hours of any change." },
   ],
   "how-to-get-blooket-calculator": [
     { question: "Is the Blooket Calculator free?", answer: "Yes, completely free. No downloads, no browser extensions, no sign-up required. Just go to the calculator and start planning." },
@@ -41,9 +41,9 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Does Gold Quest count toward the daily token cap?", answer: "Yes. The 500-token daily limit applies across all modes including Gold Quest." },
   ],
   "blooket-pack-odds-comparison": [
-    { question: "What is the best Blooket pack to open?", answer: "Aurora at 25 tokens with 0.08% Legendary rate is the most token-efficient for Legendary hunters. Space is cheapest for collection breadth." },
-    { question: "How do I compare pack value?", answer: "Compare tokens-per-percent-Legendary, not pack cost in isolation. A pack with double the Legendary rate is worth paying ~25% more for." },
-    { question: "Did pack rates change recently?", answer: "Space at 20 tokens. Cheapest doesn't mean most efficient — the math depends on what you want." },
+    { question: "What is the best Blooket pack to open?", answer: "For Legendary hunters, the Medieval Pack (King at 1.0%) is the most token-efficient of any permanent pack. Space is cheapest at 20 tokens and best for collection breadth." },
+    { question: "How do I compare pack value?", answer: "Compare tokens-per-percent-Legendary, not pack cost in isolation. A pack with double the Legendary rate is worth paying more for even at a higher token cost." },
+    { question: "Which pack has the highest Legendary rate?", answer: "The Medieval Pack — its King Legendary drops at 1.0%, the highest of any permanent pack. Lunch (Sandwich 0.65%) and Aquatic/Safari (0.5%) come next." },
   ],
   "blooket-cafe-mode-guide": [
     { question: "Is Cafe the fastest farming mode in Blooket?", answer: "Yes. At 13-14 tokens per minute, Cafe edges out Factory and crushes Gold Quest. The combo system is the key differentiator." },
@@ -87,22 +87,17 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Does Battle Royale count toward the daily token cap?", answer: "Yes. All Blooket modes contribute to the same 500-token daily ceiling." },
   ],
   "blooket-chroma-blooks-complete-list": [
-    { question: "What is the drop rate for Chroma Blooks?", answer: "0.02% per pull. That is a 1-in-5,000 chance every time you open a pack." },
+    { question: "What is the drop rate for Chroma Blooks?", answer: "It ranges from 0.02% to 0.08% depending on the specific Chroma. The rarest (like Ice Crab and Rainbow Panda) are 0.02% — a 1-in-5,000 chance per open — while Ice Slime is 0.08%." },
     { question: "How many tokens to guarantee a Chroma?", answer: "There is no guarantee. For a 90% chance at a specific Chroma, plan on ~287,500 tokens." },
     { question: "Are Chromas more powerful than regular Blooks?", answer: "No. Chromas are visual variants only. Stats and game functionality are identical to base versions." },
     { question: "Can I trade for Chromas?", answer: "No. Blooket does not have a player-to-player trading system. Every Chroma must be pulled." },
   ],
   "blooket-legendary-blooks-guide": [
-    { question: "What is the drop rate for Legendary Blooks?", answer: "0.04% to 0.08% depending on the pack. Aurora has the highest at 0.08%. The average across all packs is 0.05%." },
-    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on 72,000-115,000 tokens depending on the pack." },
-    { question: "What is the cheapest pack for Legendaries?", answer: "Aurora at 25 tokens with a 0.08% rate. Best Legendary value in the current meta." },
-    { question: "Are Legendaries the rarest Blooks?", answer: "No. Chromas (0.02%) are rarer than Legendaries. Mysticals are unobtainable from packs at all." },
+    { question: "What is the drop rate for Legendary Blooks?", answer: "0.2% to 1.0% depending on the pack. The Medieval King is highest at 1.0%; the Aquatic Megalodon is lowest at 0.2%. Most sit around 0.3–0.5%." },
+    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on ~6,400 tokens for the Medieval King up to ~25,300 for the Aquatic Megalodon, depending on the pack." },
+    { question: "What is the cheapest pack for Legendaries?", answer: "The Medieval Pack. Its King drops at 1.0% for 20 tokens — the best Legendary value of any permanent pack." },
+    { question: "Are Legendaries the rarest Blooks?", answer: "No. Chromas (0.02%–0.08%) are rarer than Legendaries. Mysticals are unobtainable from packs at all." },
     { question: "Can I sell a duplicate Legendary?", answer: "Yes. A duplicate Legendary refunds 500 tokens, equivalent to 20 standard 25-token packs." },
-  ],
-  "blooket-update-may-2026": [
-    { question: "Did all pack drop rates change in May 2026?", answer: "No — only Space (buffed) and Medieval (slightly nerfed). All other packs kept their pre-update rates. Aurora and Cyber are entirely new additions." },
-    { question: "Is the Aurora Pack worth opening?", answer: "Unlikely. Blooket rebalances rather than reverts. Treat the new rates as the new normal." },
-    { question: "Will the old packs come back to old rates?", answer: "If your goal is any Legendary, yes. If you are chasing a specific Space-only Blook, keep farming Space. The buff makes it more efficient than before." },
   ],
   "blooket-hack-myths-debunked": [
     { question: "Do Blooket token generators actually work?", answer: "No. Every single “token generator” site is a scam designed to steal your login credentials." },
@@ -152,13 +147,6 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Does turning off animations actually help?", answer: "Yes. Disabling animations cuts round time by ~10% with no loss in functionality." },
     { question: "Can I hide tokens from students?", answer: "Not from their dashboards, but you can set Blooket to play without rewards mode. Useful for purely educational sessions." },
   ],
-  "blooket-april-2026-update": [
-    { question: "What changed in the April 2026 Blooket update?", answer: "Cafe combo multipliers buffed, Tower Defense token output nerfed, and Crypto Hack received a 3-round defense shield mechanic." },
-    { question: "Is Tower Defense still worth playing?", answer: "For fun, yes. For token farming, no — the patch dropped its tokens-per-minute from 5 to 3." },
-    { question: "Did the April update change pack drop rates?", answer: "No. Pack rates were unchanged. The May 2026 update was the rate-rebalance patch." },
-    { question: "Should I change my farming routine?", answer: "Yes if you used Tower Defense or Crypto Hack. Cafe is now mathematically optimal." },
-    { question: "Does the new Crypto defense mechanic stack?", answer: "No. The 3-round shield resets each time you set a new password. You cannot stack multiple shields." },
-  ],
   "blooket-epic-blooks-tier-list": [
     { question: "What is the drop rate for Epic Blooks?", answer: "1% per pull on average. For 90% confidence at a specific Epic, plan on ~230 pulls (5,750 tokens)." },
     { question: "What is the rarest Epic in Blooket?", answer: "Rotated-out event Epics like Halloween 2023 exclusives. They are unobtainable now and functionally rarer than current Legendaries." },
@@ -186,13 +174,6 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "What is the safe number of pulls for an Epic?", answer: "230 pulls for 90% confidence. 460 pulls for 99% confidence. Plan accordingly." },
     { question: "Why do streamers always pull rares?", answer: "Selection bias. You watch the streams where they pulled a rare. The 99% of attempts where they pulled nothing never got recorded." },
   ],
-  "blooket-march-2026-update": [
-    { question: "What changed in March 2026?", answer: "Aquatic Pack reduced from 25 to 22 tokens. Medieval increased from 25 to 28. Rare and Epic duplicate refunds buffed by 5 tokens each." },
-    { question: "Is Aquatic the cheapest pack now?", answer: "Among Legendary-eligible packs, yes. Space is still cheaper at 20 tokens but has no Legendary in some rotations." },
-    { question: "Did drop rates change in March?", answer: "No. The March patch only adjusted token economy. May 2026 was the rate-rebalance update." },
-    { question: "Should I switch packs after the patch?", answer: "If you are chasing “any Legendary,” switch to Aquatic for the lower cost. If you want a specific Blook, stick with its pack." },
-    { question: "Are the new refund rates retroactive?", answer: "No. Only future duplicate sales use the new rates. Already-sold duplicates are at old rates." },
-  ],
   "blooket-host-vs-solo-mode": [
     { question: "Is hosted or solo mode faster for tokens?", answer: "Hosted is faster overall (14 tokens/min vs 11 for solo) but solo has no queue times." },
     { question: "Should I host my own game to farm?", answer: "Yes. Self-hosting on one device and joining from another gets you hosted-game speed without competing against strangers." },
@@ -215,17 +196,10 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Do Commons have any in-game advantage?", answer: "No. Rarity affects collection prestige and sell value only. Game performance is identical across all rarities." },
   ],
   "blooket-space-pack-deep-dive": [
-    { question: "Is the Space Pack worth opening?", answer: "Yes for new players (cheapest pack at 20 tokens). Less efficient for Legendary chasers compared to Aurora." },
-    { question: "What is the Astronaut drop rate?", answer: "0.06% per pull as of the May 2026 buff. Approximately 76,500 tokens for 90% confidence." },
-    { question: "Is the Rainbow Astronaut harder than the regular Astronaut?", answer: "Yes, dramatically. 0.02% Chroma rate vs 0.06% Legendary rate. Roughly 4x harder to pull." },
-    { question: "Should I open Space or Aurora?", answer: "Aurora for Legendary efficiency (0.08% rate at 25 tokens). Space for cheapest farming and collection breadth." },
-  ],
-  "blooket-february-2026-update": [
-    { question: "What was new in the February 2026 update?", answer: "Crypto Hack game mode, Aurora Pack, and a simplified flat duplicate refund system." },
-    { question: "Is the Aurora Pack still meta?", answer: "Yes as of late May 2026. It remains the best Legendary-rate-per-token pack in active rotation." },
-    { question: "Did the refund changes nerf any Blooks?", answer: "No. The new flat values are equal to or better than the old pack-specific values across the board." },
-    { question: "Are old February calculations still accurate?", answer: "Refund-related ones, yes. Pack-comparison ones may be slightly off due to the May 2026 rate update." },
-    { question: "Should I have switched to Aurora immediately?", answer: "Yes if you were chasing any Legendary. No if you wanted a specific older-pack Blook." },
+    { question: "Is the Space Pack worth opening?", answer: "Yes — at 20 tokens it is one of the cheapest packs, and the Astronaut Legendary (0.45%) is a mid-tier, achievable chase. Great for new players and collection breadth." },
+    { question: "What is the Astronaut drop rate?", answer: "0.45% per pull. For a 90% chance you need roughly 510 pulls (~10,200 tokens) before duplicate refunds." },
+    { question: "Is the Colored Astronaut harder than the regular Astronaut?", answer: "Yes. The Colored Astronaut Chromas drop at 0.05% each — about 9x rarer than the 0.45% Astronaut Legendary." },
+    { question: "Which pack is best for Legendary efficiency?", answer: "The Medieval Pack (King at 1.0%) is the most efficient Legendary pack. Space is better for cheap farming and collection breadth than for Legendary chasing." },
   ],
   "blooket-aquatic-pack-odds": [
     { question: "What is the Megalodon drop rate in the Blooket Aquatic Pack?", answer: "0.2% per pack open. It is a Legendary-tier Blook that appears in the same rarity window as the Baby Shark (0.5%). Combined Legendary odds are approximately 0.7%." },

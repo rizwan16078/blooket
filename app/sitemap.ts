@@ -10,7 +10,7 @@ import { siteUrl } from "@/lib/site";
 // Default freshness stamp for entries that don't carry their own date.
 // Must never move backwards relative to what production already serves —
 // Google discounts sitemap lastmod entirely if dates regress.
-const DEFAULT_LASTMOD = "2026-07-19";
+const DEFAULT_LASTMOD = "2026-07-30";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -64,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/calculators/simulator`,
-      lastModified: "2026-07-19",
+      lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.9,
     },

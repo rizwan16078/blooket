@@ -1,6 +1,10 @@
 import type { Blook, PackRecord, Rarity } from "@/types";
 
-export const LAST_UPDATED = "2026-06-15";
+// Site-wide freshness stamp. Drives every visible "Last updated / last
+// reviewed" label. Bump only after re-verifying the drop-rate dataset against
+// the cited sources (Blooket Wiki + community references). Last verified
+// 2026-07-30: all pack costs and Epic/Legendary/Chroma rates matched sources.
+export const LAST_UPDATED = "2026-07-30";
 
 export const SELL_VALUES: Record<Rarity, number> = {
   Common: 2,

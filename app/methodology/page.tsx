@@ -50,7 +50,7 @@ export default function MethodologyPage() {
           where the data comes from, and where we deliberately refuse to overclaim.
         </p>
         <ContentMeta
-          updatedAt="2026-05-24"
+          updatedAt="2026-07-30"
           sources={[
             {
               label: "Blooket Help: How to Collect Blooks",
@@ -65,7 +65,7 @@ export default function MethodologyPage() {
               href: "https://blooket.fandom.com/wiki/Packs",
             },
           ]}
-          note="Pack tables on this site were last refreshed on May 3, 2026. Methodology and trust documentation were updated on May 24, 2026."
+          note="Pack drop-rate tables were last verified on July 30, 2026 against the Blooket Wiki and community drop-rate references. Methodology and trust documentation were last reviewed on July 30, 2026."
         />
       </header>
 
