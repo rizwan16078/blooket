@@ -1532,44 +1532,44 @@ export const blogPosts: BlogPost[] = [
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Legendary Drop Rate Truth</h2>
         <p>
-          Legendaries drop at <strong>0.05% per pull on average</strong>, with some pack-specific variance. The Aurora Pack now has the highest at 0.08%; the Medieval Pack sits at 0.04%. For a 90% chance at any Legendary, you need roughly <strong>4,600 pulls</strong>.
+          Legendaries range from <strong>0.2% to 1.0% per pull</strong> depending on the pack. The Medieval Pack has the highest at 1.0% (the King); the Aquatic Megalodon is lowest at 0.2%. For a 90% chance at the King, you need roughly <strong>230 pulls (~4,600 tokens)</strong>; lower-rate Legendaries cost proportionally more.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
           <thead>
             <tr className="border-b border-slate-700">
-              <th className="py-3 px-4 font-bold text-slate-200">Pack</th>
+              <th className="py-3 px-4 font-bold text-slate-200">Pack (Legendary)</th>
               <th className="py-3 px-4 font-bold text-slate-200">Legendary Rate</th>
               <th className="py-3 px-4 font-bold text-slate-200">Tokens for 90%</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aurora</td>
-              <td className="py-3 px-4 text-emerald-400">0.08%</td>
-              <td className="py-3 px-4 text-emerald-400">~72,000</td>
+              <td className="py-3 px-4">Medieval (King)</td>
+              <td className="py-3 px-4 text-emerald-400">1.0%</td>
+              <td className="py-3 px-4 text-emerald-400">~4,600</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Space</td>
-              <td className="py-3 px-4 text-emerald-400">0.06%</td>
-              <td className="py-3 px-4">~76,500</td>
+              <td className="py-3 px-4">Lunch (Sandwich)</td>
+              <td className="py-3 px-4 text-emerald-400">0.65%</td>
+              <td className="py-3 px-4">~8,850</td>
             </tr>
             <tr className="border-b border-slate-800">
-              <td className="py-3 px-4">Aquatic</td>
-              <td className="py-3 px-4 text-amber-400">0.05%</td>
-              <td className="py-3 px-4">~92,000</td>
+              <td className="py-3 px-4">Space (Astronaut)</td>
+              <td className="py-3 px-4 text-amber-400">0.45%</td>
+              <td className="py-3 px-4">~10,200</td>
             </tr>
             <tr>
-              <td className="py-3 px-4">Medieval</td>
-              <td className="py-3 px-4 text-red-400">0.04%</td>
-              <td className="py-3 px-4 text-red-400">~115,000</td>
+              <td className="py-3 px-4">Aquatic (Megalodon)</td>
+              <td className="py-3 px-4 text-red-400">0.2%</td>
+              <td className="py-3 px-4 text-red-400">~23,000</td>
             </tr>
           </tbody>
         </table>
 
         <h3 className="text-xl font-bold mt-6 mb-3">The Save-Up Strategy</h3>
         <p>
-          Never start opening with less than the 90% confidence threshold. The median (50%) is a coin-flip and half of all players walk away empty-handed. Save methodically &mdash; 500 tokens daily for 144 days gets you to 72,000 tokens for the Aurora Pack.
+          Never start opening with less than the 90% confidence threshold. The median (50%) is a coin-flip and half of all players walk away empty-handed. Save methodically &mdash; at the 500-token daily cap, about 10 days covers the ~4,600 tokens for a 90% King chase, while a 0.35% Yeti chase (~16,425 tokens) takes roughly a month.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -1577,28 +1577,28 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">Pack-specific Legendaries are non-overlapping. Pulling Aurora's Legendary will never give you the Space Astronaut. Pick your target Blook BEFORE farming. The cheapest Legendary is currently the Aurora exclusive due to the 0.08% rate.</p>
+          <p className="text-slate-300 text-sm m-0">Pack-specific Legendaries are non-overlapping. Pulling the Medieval King will never give you the Space Astronaut. Pick your target Blook BEFORE farming. The cheapest Legendary to land is currently the Medieval King, thanks to its class-leading 1.0% rate.</p>
         </div>
 
         <p className="mt-6">
           Plan exact tokens with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, browse <Link href="/blooks/legendary" className="text-emerald-400 hover:text-emerald-300">all Legendaries</Link>, compare packs in the <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">pack hub</Link>, learn farming tactics in the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token guide</Link>, or run scenarios in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
         </p>
 
-        <p className="mt-6 text-slate-300">Bottom line: Legendaries are the realistic endgame goal for most players. The Aurora Pack offers the best Legendary efficiency at 0.08% rate. Save 72,000 tokens, then commit to the chase &mdash; never start opening below the 90% confidence threshold. <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">Run the math</Link> first.</p>
+        <p className="mt-6 text-slate-300">Bottom line: Legendaries are the realistic endgame goal for most players. The Medieval Pack offers the best Legendary efficiency at a 1.0% rate. Save the ~4,600-token 90% budget for the King, then commit to the chase &mdash; never start opening below the 90% confidence threshold. <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">Run the math</Link> first.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the drop rate for Legendary Blooks?</p>
-            <p className="text-sm text-slate-300 mt-1">0.04% to 0.08% depending on the pack. Aurora has the highest at 0.08%. The average across all packs is 0.05%.</p>
+            <p className="text-sm text-slate-300 mt-1">0.2% to 1.0% depending on the pack. The Medieval King is highest at 1.0%; the Aquatic Megalodon is lowest at 0.2%. Most sit around 0.3–0.5%.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How many tokens for a guaranteed Legendary?</p>
-            <p className="text-sm text-slate-300 mt-1">There is no guarantee. For a 90% chance, plan on 72,000-115,000 tokens depending on the pack.</p>
+            <p className="text-sm text-slate-300 mt-1">There is no guarantee. For a 90% chance, plan on ~4,600 tokens for the Medieval King up to ~23,000 for the Aquatic Megalodon, depending on the pack.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the cheapest pack for Legendaries?</p>
-            <p className="text-sm text-slate-300 mt-1">Aurora at 25 tokens with a 0.08% rate. Best Legendary value in the current meta.</p>
+            <p className="text-sm text-slate-300 mt-1">The Medieval Pack. Its King drops at 1.0% for 20 tokens — the best Legendary value of any permanent pack.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Are Legendaries the rarest Blooks?</p>
@@ -1887,7 +1887,7 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">Pack-exclusive Uncommons can become collector items if their pack rotates out. Always keep one of each, even when their stat value is low. The Aurora Pack's Uncommon Sparrow, for example, will be unobtainable if Aurora rotates.</p>
+          <p className="text-slate-300 text-sm m-0">Pack-exclusive Uncommons can become collector items if their pack rotates out. Always keep one of each, even when their stat value is low. The Blizzard Pack's Uncommons, for example, become unobtainable when the seasonal pack leaves the market after winter.</p>
         </div>
 
         <p className="mt-6">
@@ -2366,12 +2366,12 @@ export const blogPosts: BlogPost[] = [
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">A-Tier</td>
-              <td className="py-3 px-4">Aurora Phoenix, Cyber Mainframe</td>
-              <td className="py-3 px-4">New pack exclusives</td>
+              <td className="py-3 px-4">Kraken (Pirate), Mantis (Bug)</td>
+              <td className="py-3 px-4">Current pack exclusives</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-amber-400">B-Tier</td>
-              <td className="py-3 px-4">Space Galaxy, Aquatic Whale</td>
+              <td className="py-3 px-4">Spaceship (Space), Dolphin (Aquatic)</td>
               <td className="py-3 px-4">Active rotation</td>
             </tr>
             <tr>
@@ -2691,7 +2691,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 className="text-xl font-bold mt-6 mb-3">Why Your Luck Feels Bad</h3>
         <p>
-          Confirmation bias plus independent events equals universal frustration. Players remember bad streaks vividly and forget good ones. The math says 10% of all players who chase a 0.05% Legendary at &ldquo;90% safe&rdquo; will still walk away empty-handed. That feels like getting cheated, even though the system is fair.
+          Confirmation bias plus independent events equals universal frustration. Players remember bad streaks vividly and forget good ones. The math says 10% of all players who chase a 0.45% Legendary at &ldquo;90% safe&rdquo; will still walk away empty-handed. That feels like getting cheated, even though the system is fair.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -3069,30 +3069,30 @@ export const blogPosts: BlogPost[] = [
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Space Pack Drop Rates</h2>
         <p>
-          Space rolls Common 60%, Uncommon 20%, Rare 10%, Epic 1.5%, Legendary 0.06%, Chroma 0.02%. The Legendary rate received a buff in May 2026 (up from 0.05%), making Space competitive with newer packs again.
+          Space rolls roughly Uncommon 75% (four Uncommons at 18.75% each), Rare 20% (two Rares at 10%), Epic 4.5% (the Spaceship), Legendary 0.45% (the Astronaut), and Chroma 0.05% each for the rotating Colored Astronauts. These rates are verified against the Blooket Wiki and community references.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
             <h4 className="text-emerald-400 font-bold mb-1">Astronaut</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.06%</p>
-            <p className="text-sm text-slate-300">The flagship Legendary. ~76,500 tokens for 90% confidence.</p>
+            <p className="text-2xl font-bold text-white mb-2">0.45%</p>
+            <p className="text-sm text-slate-300">The flagship Legendary. ~10,200 tokens (about 510 pulls) for 90% confidence.</p>
           </div>
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-fuchsia-400 font-bold mb-1">Rainbow Astronaut</h4>
-            <p className="text-2xl font-bold text-white mb-2">0.02%</p>
-            <p className="text-sm text-slate-300">The Chroma variant. ~287,500 tokens for 90% confidence.</p>
+            <h4 className="text-fuchsia-400 font-bold mb-1">Colored Astronaut</h4>
+            <p className="text-2xl font-bold text-white mb-2">0.05%</p>
+            <p className="text-sm text-slate-300">The rotating Chromas (seven colors). ~92,000 tokens for a specific one at 90% confidence.</p>
           </div>
           <div className="bg-slate-900 p-5 rounded-lg border border-slate-800">
-            <h4 className="text-amber-400 font-bold mb-1">Galaxy</h4>
-            <p className="text-2xl font-bold text-white mb-2">1.5%</p>
-            <p className="text-sm text-slate-300">The Epic. ~3,800 tokens for 90% confidence.</p>
+            <h4 className="text-amber-400 font-bold mb-1">Spaceship</h4>
+            <p className="text-2xl font-bold text-white mb-2">4.5%</p>
+            <p className="text-sm text-slate-300">The Epic. ~1,020 tokens for 90% confidence.</p>
           </div>
         </div>
 
         <h3 className="text-xl font-bold mt-6 mb-3">When to Switch</h3>
         <p>
-          If you are not chasing a Space-exclusive Blook, switch to the Aurora Pack (25 tokens, 0.08% Legendary rate). Aurora has better Legendary efficiency and produces collection variety. Read the <Link href="/blog/blooket-update-may-2026" className="text-emerald-400 hover:text-emerald-300">May 2026 update</Link> for the full comparison.
+          If you are chasing raw Legendary efficiency, the Medieval Pack (King at 1.0%, 20 tokens) reaches 90% confidence for ~4,600 tokens versus ~10,200 for the Astronaut. Switch to Medieval unless you specifically want a Space Blook. Read the <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">pack odds comparison</Link> for the full breakdown.
         </p>
 
         <div className="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-xl my-8">
@@ -3100,36 +3100,36 @@ export const blogPosts: BlogPost[] = [
             <span className="bg-emerald-500/20 px-2 py-1 rounded text-xs">PRO TIP</span>
             The Trench Truth
           </h4>
-          <p className="text-slate-300 text-sm m-0">Space is the optimal &ldquo;starter farm&rdquo; pack but not optimal long-term. New players should grind Space for collection breadth, then switch to Aurora once they own most Space exclusives. The transition point is usually around 200 pulls.</p>
+          <p className="text-slate-300 text-sm m-0">Space is the optimal &ldquo;starter farm&rdquo; pack but not the most efficient Legendary source. New players should grind Space for collection breadth, then switch to Medieval (King at 1.0%) once they own most Space exclusives. The transition point is usually around 200 pulls.</p>
         </div>
 
         <p className="mt-6">
           Run exact-token math in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">calculator</Link>, browse <Link href="/blooks/complete-list" className="text-emerald-400 hover:text-emerald-300">all Space Blooks</Link>, plan a Legendary chase with the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link>, compare with <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">all packs</Link>, see <Link href="/guides/blooket-drop-rates" className="text-emerald-400 hover:text-emerald-300">drop rates</Link>, then check current <Link href="/packs" className="text-emerald-400 hover:text-emerald-300">packs</Link>.
         </p>
 
-        <p className="mt-6 text-slate-300">Bottom line: Space remains the cheapest pack in Blooket but is no longer the most efficient for Legendaries. New players should grind Space for breadth; veteran chasers should pivot to Aurora once they own most Space exclusives. Run <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">side-by-side comparisons</Link> before committing.</p>
+        <p className="mt-6 text-slate-300">Bottom line: Space remains one of the cheapest packs in Blooket but is not the most efficient for Legendaries &mdash; Medieval's King (1.0%) is. New players should grind Space for breadth; Legendary chasers should target Medieval. Run <Link href="/calculators/pack-odds" className="text-emerald-400 hover:text-emerald-300">side-by-side comparisons</Link> before committing.</p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">FAQ</h3>
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Is the Space Pack worth opening?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes for new players (cheapest pack at 20 tokens). Less efficient for Legendary chasers compared to Aurora.</p>
+            <p className="text-sm text-slate-300 mt-1">Yes for new players (one of the cheapest packs at 20 tokens). Less efficient for Legendary chasers than Medieval (King at 1.0%).</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the Astronaut drop rate?</p>
-            <p className="text-sm text-slate-300 mt-1">0.06% per pull as of the May 2026 buff. Approximately 76,500 tokens for 90% confidence.</p>
+            <p className="text-sm text-slate-300 mt-1">0.45% per pull. Approximately 10,200 tokens (about 510 pulls) for 90% confidence.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Is the Rainbow Astronaut harder than the regular Astronaut?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes, dramatically. 0.02% Chroma rate vs 0.06% Legendary rate. Roughly 4x harder to pull.</p>
+            <p className="font-bold text-white">Is the Colored Astronaut harder than the regular Astronaut?</p>
+            <p className="text-sm text-slate-300 mt-1">Yes. The Colored Astronaut Chromas drop at 0.05% each — about 9x rarer than the 0.45% Astronaut Legendary.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
-            <p className="font-bold text-white">Should I open Space or Aurora?</p>
-            <p className="text-sm text-slate-300 mt-1">Aurora for Legendary efficiency (0.08% rate at 25 tokens). Space for cheapest farming and collection breadth.</p>
+            <p className="font-bold text-white">Should I open Space or Medieval?</p>
+            <p className="text-sm text-slate-300 mt-1">Medieval for Legendary efficiency (King at 1.0%, 20 tokens). Space for cheapest farming and collection breadth.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Do Space Pack rates change with updates?</p>
-            <p className="text-sm text-slate-300 mt-1">Yes. The May 2026 update buffed Space's Legendary rate from 0.05% to 0.06%. Always check the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for current rates.</p>
+            <p className="text-sm text-slate-300 mt-1">Blooket occasionally rebalances packs, but Space's current rates (Astronaut 0.45%, Colored Astronauts 0.05%) are verified against the Blooket Wiki. Always check the <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300">methodology page</Link> for the latest.</p>
           </div>
         </div>
       </div>

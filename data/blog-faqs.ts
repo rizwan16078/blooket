@@ -94,7 +94,7 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
   ],
   "blooket-legendary-blooks-guide": [
     { question: "What is the drop rate for Legendary Blooks?", answer: "0.2% to 1.0% depending on the pack. The Medieval King is highest at 1.0%; the Aquatic Megalodon is lowest at 0.2%. Most sit around 0.3–0.5%." },
-    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on ~6,400 tokens for the Medieval King up to ~25,300 for the Aquatic Megalodon, depending on the pack." },
+    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on ~6,400 tokens for the Medieval King up to ~23,000 for the Aquatic Megalodon, depending on the pack." },
     { question: "What is the cheapest pack for Legendaries?", answer: "The Medieval Pack. Its King drops at 1.0% for 20 tokens — the best Legendary value of any permanent pack." },
     { question: "Are Legendaries the rarest Blooks?", answer: "No. Chromas (0.02%–0.08%) are rarer than Legendaries. Mysticals are unobtainable from packs at all." },
     { question: "Can I sell a duplicate Legendary?", answer: "Yes. A duplicate Legendary refunds 500 tokens, equivalent to 20 standard 25-token packs." },
