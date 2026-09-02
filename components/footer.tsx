@@ -3,7 +3,17 @@ import Link from "next/link";
 import { PACKS } from "@/lib/packs";
 import { siteName } from "@/lib/site";
 
+// Every entry here renders in server HTML. The games, token grinder and
+// extension pages are only linked from the navbar's client-side dropdown and
+// mobile menu, so before they were added here no crawler could reach them —
+// they were absent from the sitemap too, making them fully orphaned.
 const RESOURCES = [
+  { href: "/games", label: "Blooket Mini Games" },
+  { href: "/games/blookle", label: "Blookle Word Game" },
+  { href: "/games/guess-the-blook", label: "Guess the Blook" },
+  { href: "/games/rarity-quiz", label: "Rarity Quiz" },
+  { href: "/calculators/token-grinder", label: "Token Grinder" },
+  { href: "/extension", label: "Chrome Extension" },
   { href: "/guides", label: "Guides & Glossary" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/methodology", label: "Methodology" },

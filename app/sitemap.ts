@@ -15,7 +15,11 @@ const DEFAULT_LASTMOD = "2026-07-30";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `${siteUrl}/`,
+      // No trailing slash: the homepage <link rel="canonical"> emits
+      // `${siteUrl}` exactly. Declaring `${siteUrl}/` here advertised a URL
+      // whose own canonical pointed somewhere else, which is a contradictory
+      // signal on a domain that is already struggling to get indexed.
+      url: siteUrl,
       lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly",
       priority: 1,
@@ -91,6 +95,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: DEFAULT_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/calculators/token-grinder`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    // Games and the extension are the only assets here that competing Blooket
+    // calculator sites do not also have, which makes them the most plausible
+    // link and share magnets on the domain. They were missing from both the
+    // sitemap and every server-rendered link, so no crawler could find them.
+    {
+      url: `${siteUrl}/games`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/games/blookle`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/games/guess-the-blook`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/games/rarity-quiz`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/extension`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteUrl}/value-guide`,
