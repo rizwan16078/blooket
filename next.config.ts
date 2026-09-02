@@ -170,6 +170,14 @@ const nextConfig: NextConfig = {
       { source: '/blooket-token-calculator', destination: '/calculators/token-converter', permanent: true },
       { source: '/blooket-simulator', destination: '/', permanent: true },
       { source: '/blooket-pack-simulator', destination: '/', permanent: true },
+      // Removed 2026-07-30: four blog posts describing fabricated Blooket
+      // "updates" (non-existent Aurora/Cyber packs, fictional rate rebalances
+      // that contradicted the verified drop-rate data). 301 to the real
+      // changelog so any inbound links / crawler references land on live content.
+      { source: '/blog/blooket-update-may-2026', destination: '/updates', permanent: true },
+      { source: '/blog/blooket-april-2026-update', destination: '/updates', permanent: true },
+      { source: '/blog/blooket-march-2026-update', destination: '/updates', permanent: true },
+      { source: '/blog/blooket-february-2026-update', destination: '/updates', permanent: true },
     ];
   },
   images: {

@@ -94,7 +94,7 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
   ],
   "blooket-legendary-blooks-guide": [
     { question: "What is the drop rate for Legendary Blooks?", answer: "0.2% to 1.0% depending on the pack. The Medieval King is highest at 1.0%; the Aquatic Megalodon is lowest at 0.2%. Most sit around 0.3–0.5%." },
-    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on ~6,400 tokens for the Medieval King up to ~23,000 for the Aquatic Megalodon, depending on the pack." },
+    { question: "How many tokens for a guaranteed Legendary?", answer: "There is no guarantee. For a 90% chance, plan on ~4,600 tokens for the Medieval King up to ~23,000 for the Aquatic Megalodon, depending on the pack." },
     { question: "What is the cheapest pack for Legendaries?", answer: "The Medieval Pack. Its King drops at 1.0% for 20 tokens — the best Legendary value of any permanent pack." },
     { question: "Are Legendaries the rarest Blooks?", answer: "No. Chromas (0.02%–0.08%) are rarer than Legendaries. Mysticals are unobtainable from packs at all." },
     { question: "Can I sell a duplicate Legendary?", answer: "Yes. A duplicate Legendary refunds 500 tokens, equivalent to 20 standard 25-token packs." },
@@ -203,7 +203,7 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
   ],
   "blooket-aquatic-pack-odds": [
     { question: "What is the Megalodon drop rate in the Blooket Aquatic Pack?", answer: "0.2% per pack open. It is a Legendary-tier Blook that appears in the same rarity window as the Baby Shark (0.5%). Combined Legendary odds are approximately 0.7%." },
-    { question: "How many tokens do I need to guarantee the Megalodon?", answer: "Nothing guarantees it — probability never reaches 100%. At 90% confidence you need approximately 25,300 tokens (1,151 opens at 22 tokens each)." },
+    { question: "How many tokens do I need to guarantee the Megalodon?", answer: "Nothing guarantees it — probability never reaches 100%. At 90% confidence you need approximately 23,000 tokens (1,151 opens at 20 tokens each)." },
     { question: "Is the Aquatic Pack worth opening for the Megalodon?", answer: "Only if you specifically want the Megalodon. For general Legendary hunting the Medieval Pack (King at 1.0%) or Safari Pack (Lion at 0.5%) cost fewer tokens per Legendary pull." },
     { question: "How much does Megalodon sell for?", answer: "250 tokens. This is the highest sell value in the Aquatic Pack and makes duplicate Megalodon pulls extremely valuable for your token balance." },
   ],
@@ -214,7 +214,7 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Is Rainbow Panda worth chasing?", answer: "That's personal. It is one of the rarest Blooks in the game and carries real prestige. Mathematically, the minimum serious budget is 69,000+ tokens. If that number is outside your farming capacity, a more accessible Chroma may be a better target." },
   ],
   "blooket-legendary-token-cost": [
-    { question: "How many tokens does it take to get a Legendary in Blooket?", answer: "It depends entirely on which Legendary you are chasing. The King from Medieval Pack is the cheapest at ~6,400 tokens for 90% confidence. The Megalodon is the most expensive at ~25,300 tokens for 90%." },
+    { question: "How many tokens does it take to get a Legendary in Blooket?", answer: "It depends entirely on which Legendary you are chasing. The King from Medieval Pack is the cheapest at ~4,600 tokens for 90% confidence. The Megalodon is the most expensive at ~23,000 tokens for 90%." },
     { question: "What is the easiest Legendary to get in Blooket?", answer: "The King from Medieval Pack. Its 1.0% drop rate is the highest of any Legendary in a standard permanent pack, making it the most token-efficient Legendary chase in the game." },
     { question: "Should I target the 50% or 90% confidence budget?", answer: "Always the 90%. The 50% number is a coin flip — half the players who save only that much will walk away with nothing. Save to 90% confidence and treat the extra tokens as insurance." },
     { question: "Do duplicate refunds significantly lower Legendary costs?", answer: "Yes — by approximately 25–30% on a gross basis. Over 450+ pack opens for a 90% Lion chase, that's roughly 2,300 tokens back in your wallet if you sell all duplicates." },
@@ -227,8 +227,8 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "Is \"just one more pack\" ever a good strategy?", answer: "Mathematically, no. \"One more pack\" adds exactly one pull's worth of probability — the same 0.2% or 0.5% or whatever the fixed rate is. It is never a special tipping point. Plan with budgets, not feelings." },
   ],
   "blooket-beginner-guide-first-legendary": [
-    { question: "What is the easiest Legendary to get as a Blooket beginner?", answer: "The King from the Medieval Pack. Its 1.0% drop rate is the highest of any permanent Legendary, requiring roughly 6,400 tokens for a 90% chance — about 22 days at 300 tokens per day." },
-    { question: "How long does it take to get a Legendary in Blooket?", answer: "22–84 days depending on your target Legendary and daily token earnings. The King is the fastest at ~22 days (300 tokens/day). Megalodon is slowest at ~84 days." },
+    { question: "What is the easiest Legendary to get as a Blooket beginner?", answer: "The King from the Medieval Pack. Its 1.0% drop rate is the highest of any permanent Legendary, requiring roughly 4,600 tokens for a 90% chance — about 15 days at 300 tokens per day." },
+    { question: "How long does it take to get a Legendary in Blooket?", answer: "15–77 days depending on your target Legendary and daily token earnings. The King is the fastest at ~15 days (300 tokens/day). Megalodon is slowest at ~77 days." },
     { question: "What is the Blooket daily token cap?", answer: "500 tokens from gameplay per day. The cap resets at midnight EST. Optimized Cafe sessions hit this limit in about 28 minutes. Casual play typically yields 150–300 tokens per day." },
     { question: "Should beginners open packs immediately or save tokens?", answer: "Save first. Pick a Legendary target, find its 90% confidence token number in the chase calculator, and don't open packs until you hit that balance. Opening packs with random leftover tokens is the fastest way to feel like the game is rigged." },
     { question: "What is the duplicate sell mechanic and why does it matter?", answer: "Any duplicate Blook can be sold for tokens. Commons refund 5, Uncommons 10, Rares 25, Epics 100, Legendaries 500. Over a full Legendary chase, these refunds reduce your real spend by 25–30%. Never skip selling duplicates." },
@@ -251,7 +251,7 @@ export const blogFaqs: Record<string, BlogFaqEntry[]> = {
     { question: "What does the Blooket Market do?", answer: "The Market lets you sell duplicate blooks back for tokens at fixed prices by rarity: Common = 5, Uncommon = 10, Rare = 25, Epic = 100, Legendary = 500 tokens." },
     { question: "Should I sell all my duplicate blooks?", answer: "Yes — confirmed duplicates have no gameplay value beyond their sell price. Sell every verified duplicate to recover tokens. Keep exactly one of each blook for collection and game customization purposes." },
     { question: "Can you buy specific blooks in the Blooket Market?", answer: "No. The Market is sell-only — you cannot buy specific blooks. The only way to obtain blooks is through pack opening. The Market is strictly for liquidating duplicates back into tokens." },
-    { question: "How much do duplicate refunds reduce your pack costs?", answer: "Across a full Legendary chase, duplicate refunds typically cover 25–30% of gross token spend. On a 90%-confidence King chase (~6,412 gross tokens), that is approximately 1,500–1,900 tokens recovered through Market sales." },
+    { question: "How much do duplicate refunds reduce your pack costs?", answer: "Across a full Legendary chase, duplicate refunds typically cover 25–30% of gross token spend. On a 90%-confidence King chase (~4,600 gross tokens), that is approximately 1,100–1,150 tokens recovered through Market sales." },
     { question: "What happens if I accidentally sell a Legendary blook?", answer: "It is gone — permanently removed from your collection. You receive 500 tokens and there is no undo. Always verify a blook is a confirmed duplicate before selling anything above Rare rarity." },
   ],
   "blooket-ice-monster-pack-odds": [

@@ -256,7 +256,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Hierarchy of Rarity</h2>
         <p>
-          Blooket uses a standard gacha-style tier system. Uncommons hover around 15%, Rares drop to 5%, Epics plummet to 1%, and Legendaries sit at a miserable 0.05%. But that is not the bottom. The true rarest pull-able Blooks are the <strong>Chromas</strong>, and the absolute rarest in existence are the <strong>Mysticals</strong>.
+          Blooket uses a standard gacha-style tier system. Uncommons hover around 15–19%, Rares around 6–10%, Epics land between 2% and 5%, and Legendaries sit between 0.2% and 1.0% depending on the pack. But that is not the bottom. The true rarest pull-able Blooks are the <strong>Chromas</strong> (0.02%–0.08%), and the absolute rarest in existence are the <strong>Mysticals</strong>.
         </p>
 
         <table className="w-full text-left border-collapse my-6">
@@ -323,7 +323,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the difference between Legendary and Chroma?</p>
-            <p className="text-sm text-slate-300 mt-1">Legendaries are 0.05% drop rate (rare but achievable). Chromas are 0.02% (4x rarer) and are visual variants of standard Blooks.</p>
+            <p className="text-sm text-slate-300 mt-1">Legendaries range 0.2%–1.0% (rare but achievable). Chromas (0.02%–0.08%) are the rarest pullable tier and are visual variants of standard Blooks.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Why does my luck feel so much worse than the math?</p>
@@ -1766,7 +1766,7 @@ export const blogPosts: BlogPost[] = [
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Basic math (1+1)</td>
               <td className="py-3 px-4 text-emerald-400">~1s</td>
-              <td className="py-3 px-4 text-emerald-400">~13</td>
+              <td className="py-3 px-4 text-emerald-400">~9</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Vocabulary</td>
@@ -3196,7 +3196,7 @@ export const blogPosts: BlogPost[] = [
               <td className="py-3 px-4 text-emerald-400">Megalodon</td>
               <td className="py-3 px-4 text-emerald-400">0.2%</td>
               <td className="py-3 px-4 text-emerald-400">~7,612 tkn</td>
-              <td className="py-3 px-4 text-emerald-400">~25,300 tkn</td>
+              <td className="py-3 px-4 text-emerald-400">~23,000 tkn</td>
             </tr>
           </tbody>
         </table>
@@ -3210,7 +3210,7 @@ export const blogPosts: BlogPost[] = [
           Reaching a 50% chance of Megalodon requires <strong>346 pack opens — roughly 7,612 tokens</strong>. That sounds manageable until you realize it means there is still a coin-flip chance you walk away empty. Half of all players who save that much leave without the Blook.
         </p>
         <p>
-          The 90% confidence target — the number where 9 out of 10 players succeed — is <strong>1,151 pack opens, costing approximately 25,300 tokens</strong>. At the 500-token daily cap that's about <strong>51 days of consistent farming</strong>. The math doesn't lie; it just stings.
+          The 90% confidence target — the number where 9 out of 10 players succeed — is <strong>1,151 pack opens, costing approximately 23,000 tokens</strong>. At the 500-token daily cap that's about <strong>51 days of consistent farming</strong>. The math doesn't lie; it just stings.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">Why Megalodon Is Actually a Special Case</h3>
@@ -3242,7 +3242,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How many tokens do I need to guarantee the Megalodon?</p>
-            <p className="text-sm text-slate-300 mt-1">Nothing guarantees it — probability never reaches 100%. At 90% confidence you need approximately 25,300 tokens (1,151 opens at 22 tokens each).</p>
+            <p className="text-sm text-slate-300 mt-1">Nothing guarantees it — probability never reaches 100%. At 90% confidence you need approximately 23,000 tokens (1,151 opens at 20 tokens each).</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">Is the Aquatic Pack worth opening for the Megalodon?</p>
@@ -3409,7 +3409,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Why "Drop Rate" Alone Doesn't Tell You the Cost</h2>
         <p>
-          A 1% Legendary in a 28-token pack is cheaper per-Legendary than a 0.5% Legendary in a 20-token pack. Pack cost matters as much as drop rate. The correct metric is <strong>tokens per percentage point of Legendary probability</strong> — and almost nobody is calculating this.
+          A 1% Legendary in a 20-token pack is cheaper per-Legendary than a 0.5% Legendary in a 20-token pack. Pack cost matters as much as drop rate. The correct metric is <strong>tokens per percentage point of Legendary probability</strong> — and almost nobody is calculating this.
         </p>
         <p>
           The table below uses the binomial formula <strong>P(X ≥ 1) = 1 − (1 − p)ⁿ</strong>. The 50% column is the point where half of all players succeed; the 90% column is the budget where 9 in 10 players succeed. Always plan to the 90% number.
@@ -3428,10 +3428,10 @@ export const blogPosts: BlogPost[] = [
           <tbody>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">King (Medieval)</td>
-              <td className="py-3 px-4">28 tkn</td>
+              <td className="py-3 px-4">20 tkn</td>
               <td className="py-3 px-4 text-emerald-400">1.0%</td>
-              <td className="py-3 px-4 text-emerald-400">~1,932</td>
-              <td className="py-3 px-4 text-emerald-400">~6,412</td>
+              <td className="py-3 px-4 text-emerald-400">~1,380</td>
+              <td className="py-3 px-4 text-emerald-400">~4,600</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Lion (Safari)</td>
@@ -3459,18 +3459,18 @@ export const blogPosts: BlogPost[] = [
               <td className="py-3 px-4">22 tkn</td>
               <td className="py-3 px-4 text-red-400">0.2%</td>
               <td className="py-3 px-4 text-red-400">~7,612</td>
-              <td className="py-3 px-4 text-red-400">~25,300</td>
+              <td className="py-3 px-4 text-red-400">~23,000</td>
             </tr>
           </tbody>
         </table>
 
         <p>
-          The King's gap over every other Legendary is decisive. At 1.0% from a 28-token pack, you can hit a 90% King chance for <strong>6,412 tokens</strong> — less than 13 days of full daily farming. The Megalodon at 0.2% costs four times as many tokens for the same confidence level. If your only goal is "own a Legendary as fast as possible," Medieval is the answer.
+          The King's gap over every other Legendary is decisive. At 1.0% from a 20-token pack, you can hit a 90% King chance for <strong>4,600 tokens</strong> — under 10 days of full daily farming. The Megalodon at 0.2% costs five times as many tokens for the same confidence level. If your only goal is "own a Legendary as fast as possible," Medieval is the answer.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">The Error That's Everywhere Online</h2>
         <p>
-          Multiple competitor pages and forum posts list Blooket pack costs as <strong>500 tokens</strong>. This is not a typo — it is a persistent copy-paste error that inflates estimated costs by 25x. Standard permanent packs cost 20–28 tokens per pull. If a guide tells you to save 50,000 tokens for a Legendary at 1%, the math behind that number is broken. Verify every figure in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
+          Multiple competitor pages and forum posts list Blooket pack costs as <strong>500 tokens</strong>. This is not a typo — it is a persistent copy-paste error that inflates estimated costs by 25x. Standard permanent packs cost 20–25 tokens per pull. If a guide tells you to save 50,000 tokens for a Legendary at 1%, the math behind that number is broken. Verify every figure in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">main calculator</Link>.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">How Duplicate Refunds Change the Budget</h3>
@@ -3494,7 +3494,7 @@ export const blogPosts: BlogPost[] = [
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How many tokens does it take to get a Legendary in Blooket?</p>
-            <p className="text-sm text-slate-300 mt-1">It depends entirely on which Legendary you are chasing. The King from Medieval Pack is the cheapest at ~6,400 tokens for 90% confidence. The Megalodon is the most expensive at ~25,300 tokens for 90%.</p>
+            <p className="text-sm text-slate-300 mt-1">It depends entirely on which Legendary you are chasing. The King from Medieval Pack is the cheapest at ~4,600 tokens for 90% confidence. The Megalodon is the most expensive at ~23,000 tokens for 90%.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the easiest Legendary to get in Blooket?</p>
@@ -3696,8 +3696,8 @@ export const blogPosts: BlogPost[] = [
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">King</td>
               <td className="py-3 px-4">Medieval</td>
-              <td className="py-3 px-4 text-emerald-400">~6,400</td>
-              <td className="py-3 px-4 text-emerald-400">~22 days</td>
+              <td className="py-3 px-4 text-emerald-400">~4,600</td>
+              <td className="py-3 px-4 text-emerald-400">~15 days</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4">Lion</td>
@@ -3720,8 +3720,8 @@ export const blogPosts: BlogPost[] = [
             <tr>
               <td className="py-3 px-4 text-red-400">Megalodon</td>
               <td className="py-3 px-4">Aquatic</td>
-              <td className="py-3 px-4 text-red-400">~25,300</td>
-              <td className="py-3 px-4 text-red-400">~84 days</td>
+              <td className="py-3 px-4 text-red-400">~23,000</td>
+              <td className="py-3 px-4 text-red-400">~77 days</td>
             </tr>
           </tbody>
         </table>
@@ -3735,7 +3735,7 @@ export const blogPosts: BlogPost[] = [
           Most new players open packs, see a duplicate, feel disappointed, and move on. They are leaving tokens on the table. Every duplicate Blook can be <strong>sold for tokens</strong>. The sell values scale with rarity — a duplicate Rare refunds 25 tokens (the full cost of a pull). A duplicate Epic refunds 100 tokens.
         </p>
         <p>
-          Over a full Legendary chase, these refunds reduce your actual token spend by <strong>25–30%</strong>. For a King chase at 6,400 gross tokens, you are realistically spending closer to 4,500 net tokens if you sell every duplicate. That is 6 fewer farming days. Never miss a duplicate sell.
+          Over a full Legendary chase, these refunds reduce your actual token spend by <strong>25–30%</strong>. For a King chase at 4,600 gross tokens, you are realistically spending closer to 3,450 net tokens if you sell every duplicate. That is about 2 fewer farming days. Never miss a duplicate sell.
         </p>
 
         <h3 className="text-xl font-bold mt-6 mb-3">Which Pack Should a Beginner Open First?</h3>
@@ -3743,7 +3743,7 @@ export const blogPosts: BlogPost[] = [
           Medieval Pack. Full stop.
         </p>
         <p>
-          The King has a 1.0% Legendary drop rate — the highest of any Legendary in a standard permanent pack. The Medieval Pack at 28 tokens costs slightly more per pull than Space or Safari, but its per-Legendary efficiency is unmatched. If your only goal is to own your first Legendary as a new player, Medieval is the correct answer and the math is not close.
+          The King has a 1.0% Legendary drop rate — the highest of any Legendary in a standard permanent pack. The Medieval Pack costs 20 tokens per pull — the same as Space or Safari, but its per-Legendary efficiency is unmatched. If your only goal is to own your first Legendary as a new player, Medieval is the correct answer and the math is not close.
         </p>
         <p>
           Once you own the King, your second target becomes a personal choice. Use the <Link href="/calculators/chase" className="text-emerald-400 hover:text-emerald-300">chase calculator</Link> to compare any Legendary token cost, read the <Link href="/blog/blooket-pack-odds-comparison" className="text-emerald-400 hover:text-emerald-300">pack odds comparison post</Link> for a broader pack analysis, and check the <Link href="/blog/blooket-legendary-token-cost" className="text-emerald-400 hover:text-emerald-300">full legendary token cost table</Link> to plan your roadmap.
@@ -3759,7 +3759,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 className="text-xl font-bold mt-6 mb-3">The Fastest Way to Farm Tokens as a Beginner</h3>
         <p>
-          Two words: Cafe mode. It is the highest tokens-per-minute mode in Blooket (~13 tokens/min) and requires no special setup. Host a game, join from another device or browser tab, run basic-math questions for 5 minutes, repeat. Four rounds hits the 500-token daily cap in about 28 minutes. Do this every day for 22 days and you will own your first Legendary Blook.
+          Two words: Cafe mode. It is the highest tokens-per-minute mode in Blooket (~13 tokens/min) and requires no special setup. Host a game, join from another device or browser tab, run basic-math questions for 5 minutes, repeat. Four rounds hits the 500-token daily cap in about 28 minutes. Do this every day for about 15 days and you will own your first Legendary Blook.
         </p>
         <p>
           For deeper farming optimization, read the <Link href="/blog/blooket-cafe-mode-guide" className="text-emerald-400 hover:text-emerald-300">Cafe mode guide</Link>, the <Link href="/blog/blooket-factory-mode-optimization" className="text-emerald-400 hover:text-emerald-300">Factory mode guide</Link>, and the <Link href="/guides/blooket-tokens" className="text-emerald-400 hover:text-emerald-300">token strategy hub</Link>. Once you have your first Legendary, the <Link href="/blog/blooket-duplicate-refund-explained" className="text-emerald-400 hover:text-emerald-300">duplicate refund guide</Link> teaches you how to make your entire collection work for your future pulls.
@@ -3769,11 +3769,11 @@ export const blogPosts: BlogPost[] = [
         <div className="space-y-4">
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the easiest Legendary to get as a Blooket beginner?</p>
-            <p className="text-sm text-slate-300 mt-1">The King from the Medieval Pack. Its 1.0% drop rate is the highest of any permanent Legendary, requiring roughly 6,400 tokens for a 90% chance — about 22 days at 300 tokens per day.</p>
+            <p className="text-sm text-slate-300 mt-1">The King from the Medieval Pack. Its 1.0% drop rate is the highest of any permanent Legendary, requiring roughly 4,600 tokens for a 90% chance — about 15 days at 300 tokens per day.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How long does it take to get a Legendary in Blooket?</p>
-            <p className="text-sm text-slate-300 mt-1">22–84 days depending on your target Legendary and daily token earnings. The King is the fastest at ~22 days (300 tokens/day). Megalodon is slowest at ~84 days.</p>
+            <p className="text-sm text-slate-300 mt-1">15–77 days depending on your target Legendary and daily token earnings. The King is the fastest at ~15 days (300 tokens/day). Megalodon is slowest at ~77 days.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What is the Blooket daily token cap?</p>
@@ -4162,17 +4162,17 @@ export const blogPosts: BlogPost[] = [
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">How the Market Changes Your Legendary Budget</h2>
         <p>
-          Every Legendary cost figure you see online is a gross number — raw token spend before duplicate refunds. Here is how the Market plays out on a King chase (Medieval Pack, 1.0% Legendary, 28 tokens/pull, 90% confidence):
+          Every Legendary cost figure you see online is a gross number — raw token spend before duplicate refunds. Here is how the Market plays out on a King chase (Medieval Pack, 1.0% Legendary, 20 tokens/pull, 90% confidence):
         </p>
         <ul>
           <li><strong>Pulls needed at 90%:</strong> ~229 pulls</li>
-          <li><strong>Gross token cost:</strong> 229 × 28 = ~6,412 tokens</li>
-          <li><strong>Duplicate refund per pull:</strong> ~7 tokens (25% of pack cost)</li>
-          <li><strong>Total refunds over 229 pulls:</strong> ~1,603 tokens</li>
-          <li><strong>Net cost:</strong> ~4,809 tokens</li>
+          <li><strong>Gross token cost:</strong> 229 × 20 = ~4,600 tokens</li>
+          <li><strong>Duplicate refund per pull:</strong> ~5 tokens (25% of pack cost)</li>
+          <li><strong>Total refunds over 229 pulls:</strong> ~1,145 tokens</li>
+          <li><strong>Net cost:</strong> ~3,435 tokens</li>
         </ul>
         <p>
-          That is nearly 1,600 tokens back — over three full days of farming — recovered through consistent Market sales. Enable the duplicate refund toggle in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> to apply this to any target blook.
+          That is nearly 1,600 tokens back — over two full days of farming — recovered through consistent Market sales. Enable the duplicate refund toggle in the <Link href="/" className="text-emerald-400 hover:text-emerald-300">Blooket calculator</Link> to apply this to any target blook.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-emerald-400">Which Packs Give the Best Market Return?</h2>
@@ -4199,7 +4199,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">How much do duplicate refunds reduce your pack costs?</p>
-            <p className="text-sm text-slate-300 mt-1">Across a full Legendary chase, duplicate refunds typically cover 25–30% of gross token spend. On a 90%-confidence King chase (~6,412 gross tokens), that is approximately 1,500–1,900 tokens recovered through Market sales.</p>
+            <p className="text-sm text-slate-300 mt-1">Across a full Legendary chase, duplicate refunds typically cover 25–30% of gross token spend. On a 90%-confidence King chase (~4,600 gross tokens), that is approximately 1,100–1,150 tokens recovered through Market sales.</p>
           </div>
           <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
             <p className="font-bold text-white">What happens if I accidentally sell a Legendary blook?</p>
@@ -4422,10 +4422,10 @@ export const blogPosts: BlogPost[] = [
           <tbody>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">King (Medieval)</td>
-              <td className="py-3 px-4">28 tkn</td>
+              <td className="py-3 px-4">20 tkn</td>
               <td className="py-3 px-4 text-emerald-400">1.0%</td>
-              <td className="py-3 px-4 text-emerald-400">~6,412</td>
-              <td className="py-3 px-4 text-emerald-400">~13</td>
+              <td className="py-3 px-4 text-emerald-400">~4,600</td>
+              <td className="py-3 px-4 text-emerald-400">~9</td>
             </tr>
             <tr className="border-b border-slate-800">
               <td className="py-3 px-4 text-emerald-400">Sandwich (Lunch)</td>
