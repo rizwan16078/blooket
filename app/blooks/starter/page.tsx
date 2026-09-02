@@ -66,7 +66,7 @@ export default function StarterBlooksPage() {
             Starter Blooks
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Blooket Starter Blooks
+            Blooket Starter Blooks{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               What you get before opening any pack
             </span>

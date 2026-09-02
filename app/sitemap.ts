@@ -12,6 +12,25 @@ import { siteUrl } from "@/lib/site";
 // Google discounts sitemap lastmod entirely if dates regress.
 const DEFAULT_LASTMOD = "2026-07-30";
 
+/**
+ * Whether the 179 individual /blooks/[id] pages are advertised in the sitemap.
+ *
+ * Off, deliberately. As of the 2026-09-03 audit Google had discovered 271 URLs
+ * and indexed 14, with "Discovered – currently not indexed" flat for three
+ * months — the classic signature of a domain whose crawl budget is exhausted
+ * before it reaches anything that matters. Blook detail pages are the cheapest
+ * thing to give up: they are templated (median 34% pairwise overlap), and not
+ * one of them appears in Bing's top 37 pages by impressions even though Bing
+ * has all of them indexed. They earn nothing even when they rank.
+ *
+ * The pages stay live, indexable, and internally linked from /packs,
+ * /value-guide, the rarity hubs and /html-sitemap, so crawlers can still reach
+ * them — they simply stop competing with money pages for the crawl budget.
+ * Flip this back to true once Search Console shows indexed pages climbing
+ * past ~60, which is the signal that budget is no longer the constraint.
+ */
+const INCLUDE_BLOOK_DETAIL_PAGES = false;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -142,6 +161,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    // Open, licensed CSV/JSON of every drop rate. Datasets attract citations
+    // and links in a way an interactive calculator does not, which is the one
+    // thing this domain is short of.
+    {
+      url: `${siteUrl}/dataset`,
+      lastModified: DEFAULT_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: `${siteUrl}/blooks/chroma`,
       lastModified: DEFAULT_LASTMOD,
@@ -238,12 +266,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.88,
     })),
-    ...BLOOKS.map((blook) => ({
-      url: `${siteUrl}/blooks/${blook.id}`,
-      lastModified: DEFAULT_LASTMOD,
-      changeFrequency: "weekly" as const,
-      priority: 0.75,
-    })),
+    ...(INCLUDE_BLOOK_DETAIL_PAGES
+      ? BLOOKS.map((blook) => ({
+          url: `${siteUrl}/blooks/${blook.id}`,
+          lastModified: DEFAULT_LASTMOD,
+          changeFrequency: "weekly" as const,
+          priority: 0.75,
+        }))
+      : []),
     ...blogPosts.map((post) => ({
       url: `${siteUrl}/blog/${post.slug}`,
       lastModified: post.updatedAt,

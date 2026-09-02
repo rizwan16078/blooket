@@ -149,7 +149,7 @@ export default function FAQPage() {
             FAQ
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Blooket FAQ
+            Blooket FAQ{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               Every question answered
             </span>

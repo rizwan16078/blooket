@@ -72,7 +72,7 @@ export default async function BlooksPage({ searchParams }: BlooksPageProps) {
           Blook Library
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Blooket Blook Library
+          Blooket Blook Library{" "}
           <span className="mt-2 block text-xl font-medium text-violet-300">
             All Rarities, Drop Rates &amp; Sell Values
           </span>

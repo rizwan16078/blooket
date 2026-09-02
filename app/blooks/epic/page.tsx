@@ -56,7 +56,7 @@ export default function EpicBlooksPage() {
             Rarity Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Epic Blooks
+            All Epic Blooks{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               The fourth-rarest tier — above Rare, below Legendary
             </span>

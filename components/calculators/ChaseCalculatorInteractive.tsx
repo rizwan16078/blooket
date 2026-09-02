@@ -68,7 +68,7 @@ export default function ChaseCalculatorInteractive() {
           Chase Calculator
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Blooket Chase Calculator
+          Blooket Chase Calculator{" "}
           <span className="mt-2 block text-xl font-medium text-violet-300">
             Token budgets for specific blook targets
           </span>

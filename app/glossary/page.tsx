@@ -189,7 +189,7 @@ export default function GlossaryPage() {
             Glossary
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Blooket Glossary
+            Blooket Glossary{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               Every term, stat &amp; mechanic explained
             </span>

@@ -56,7 +56,7 @@ export default function LegendaryBlooksPage() {
             Rarity Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Legendary Blooks
+            All Legendary Blooks{" "}
             <span className="mt-2 block text-xl font-medium text-amber-300">
               The top chase targets before Chroma
             </span>

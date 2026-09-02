@@ -122,7 +122,7 @@ export default function PackExperiencePage({
                     Blooket calculator
                   </p>
                   <h1 className="max-w-3xl font-sans text-5xl font-black tracking-wide text-white sm:text-6xl lg:text-7xl">
-                    {contentPack.name} Pack
+                    {contentPack.name} Pack{" "}
                     <span className="mt-2 block text-3xl text-violet-300 sm:text-4xl lg:text-5xl">
                       Odds Calculator
                     </span>

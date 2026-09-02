@@ -1,3 +1,8 @@
+import {
+  DATASET_CSV_PATH,
+  DATASET_JSON_PATH,
+  DATASET_LICENSE_URL,
+} from "@/lib/dataset";
 import type { Blook, PackRecord } from "@/types";
 
 type BuildPacksPageSchemaOptions = {
@@ -62,8 +67,24 @@ function buildPackTableSchema(
       name: siteName,
       url: siteUrl,
     },
-    license: `${siteUrl}/terms`,
+    // These tables are the same figures published at /dataset, so they carry
+    // the same CC BY 4.0 licence rather than the site's general terms page.
+    // distribution is what turns a Dataset block from a description of data
+    // into something a crawler can actually fetch and cite.
+    license: DATASET_LICENSE_URL,
     isAccessibleForFree: true,
+    distribution: [
+      {
+        "@type": "DataDownload",
+        encodingFormat: "text/csv",
+        contentUrl: `${siteUrl}${DATASET_CSV_PATH}`,
+      },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "application/json",
+        contentUrl: `${siteUrl}${DATASET_JSON_PATH}`,
+      },
+    ],
     numberOfItems: blooks.length,
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     keywords: [

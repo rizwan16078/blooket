@@ -119,7 +119,7 @@ export default function CalculatorsPage() {
             Calculator Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Blooket Calculators
+            All Blooket Calculators{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               One hub, six tools, zero guesswork
             </span>

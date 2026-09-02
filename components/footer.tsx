@@ -8,6 +8,7 @@ import { siteName } from "@/lib/site";
 // mobile menu, so before they were added here no crawler could reach them —
 // they were absent from the sitemap too, making them fully orphaned.
 const RESOURCES = [
+  { href: "/dataset", label: "Open Drop Rate Dataset" },
   { href: "/games", label: "Blooket Mini Games" },
   { href: "/games/blookle", label: "Blookle Word Game" },
   { href: "/games/guess-the-blook", label: "Guess the Blook" },

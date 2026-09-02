@@ -59,7 +59,7 @@ export default function GamesHubPage() {
           Mini Games
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Blooket Mini Games
+          Blooket Mini Games{" "}
           <span className="mt-2 block text-xl font-medium text-violet-300">
             Test your Blooket knowledge
           </span>

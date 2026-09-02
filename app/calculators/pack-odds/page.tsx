@@ -104,7 +104,7 @@ export default function PackOddsPage() {
             Pack Odds Calculator
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Blooket Pack Odds
+            Blooket Pack Odds{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               Live drop rates for every market pack
             </span>

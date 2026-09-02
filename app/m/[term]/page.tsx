@@ -90,7 +90,7 @@ export default async function MisspellingPage({ params }: MisspellingPageProps) 
             Blooket Calculator
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            {capitalized} Calculator
+            {capitalized} Calculator{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               Blooket Pack Odds & Drop Rates
             </span>

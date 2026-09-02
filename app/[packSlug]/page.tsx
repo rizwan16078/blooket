@@ -34,11 +34,33 @@ export async function generateMetadata({
     return {};
   }
 
-  const legPct = (matchedPack.dropRates.legendary * 100).toFixed(2);
-  const chromaPct = (matchedPack.dropRates.chroma * 100).toFixed(2);
   const cost = matchedPack.costPerPull;
-  const title = `${matchedPack.name} Pack Odds 2026 — Drop Rates & Free Calculator`;
-  const description = `${matchedPack.name} Pack: ${legPct}% Legendary, ${chromaPct}% Chroma drop rates, ${cost}-token cost. Exact odds, sell values, and chase math — free Blooket calculator 2026 →`;
+
+  // Name the actual chase blooks in the title. All 16 pack pages previously
+  // shared the suffix "Odds 2026 — Drop Rates & Free Calculator", so they
+  // rendered as 16 interchangeable blue links and several drew 300-700 Bing
+  // impressions at a 0% click-through. People search for the blook, not the
+  // pack, and the competitor winning this SERP names them too.
+  const chaseBlooks = matchedPack.featuredBlooks
+    .filter((blook) => blook.rarity === "Chroma" || blook.rarity === "Legendary")
+    .sort((a, b) => a.dropRate - b.dropRate)
+    .map((blook) => blook.name);
+
+  const namedChase = chaseBlooks.slice(0, 2).join(" & ");
+  const title = namedChase
+    ? `${matchedPack.name} Pack Odds — ${namedChase} Drop Rates`
+    : `${matchedPack.name} Pack Odds — Every Blook & Drop Rate`;
+
+  // Lead the description with the rarest thing in the pack and what it costs
+  // to actually get it: the two numbers a searcher is weighing.
+  const rarest = chaseBlooks[0];
+  const rarestRate = matchedPack.featuredBlooks
+    .filter((blook) => blook.name === rarest)
+    .map((blook) => (blook.dropRate * 100).toFixed(2))[0];
+  const description = rarest
+    ? `${rarest} drops at ${rarestRate}% from the ${matchedPack.name} Pack (${cost} tokens). See every blook's exact odds, sell value, and how many packs you need at 50%, 90% and 99%.`
+    : `Every ${matchedPack.name} Pack blook with exact drop rates, sell values, and the packs you need at 50%, 90% and 99% confidence. ${cost} tokens per opening.`;
+
   const canonical = `${siteUrl}${matchedPack.route}`;
 
   return {

@@ -49,7 +49,7 @@ export default function TokenConverterInteractive() {
           Token Converter
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Token → Pack Converter
+          Token → Pack Converter{" "}
           <span className="mt-2 block text-xl font-medium text-violet-300">
             How many packs can your tokens buy?
           </span>

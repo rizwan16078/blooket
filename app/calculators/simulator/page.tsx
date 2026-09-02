@@ -101,7 +101,7 @@ export default function PackOpeningSimulatorPage() {
             Pack Opening Simulator
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Blooket Pack Opening Simulator
+            Blooket Pack Opening Simulator{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               Open unlimited packs with real drop rates — free, no account
             </span>

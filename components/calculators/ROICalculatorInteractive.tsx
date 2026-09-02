@@ -77,7 +77,7 @@ export default function ROICalculatorInteractive() {
           ROI Calculator
         </p>
         <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-          Blooket Pack ROI
+          Blooket Pack ROI{" "}
           <span className="mt-2 block text-xl font-medium text-violet-300">
             Which pack gives the best return per token?
           </span>

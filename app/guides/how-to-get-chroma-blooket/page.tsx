@@ -106,7 +106,7 @@ export default function HowToGetChromaPage() {
             Strategy Guide
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            How to Get a Chroma in Blooket
+            How to Get a Chroma in Blooket{" "}
             <span className="mt-2 block text-xl font-medium text-teal-300">
               7 proven strategies ranked by token efficiency
             </span>

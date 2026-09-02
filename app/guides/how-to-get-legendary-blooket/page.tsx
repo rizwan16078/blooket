@@ -85,7 +85,7 @@ export default function HowToGetLegendaryPage() {
             Strategy Guide
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            How to Get Legendary Blooks in Blooket
+            How to Get Legendary Blooks in Blooket{" "}
             <span className="mt-2 block text-xl font-medium text-amber-300">
               Pack comparison & drop math for Legendary hunting
             </span>

@@ -50,7 +50,7 @@ export default function BestBlooketCalculatorPage() {
             Why This Calculator
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            Best Blooket Calculator
+            Best Blooket Calculator{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               What makes this one different
             </span>

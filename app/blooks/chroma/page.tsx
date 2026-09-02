@@ -56,7 +56,7 @@ export default function ChromaBlooksPage() {
             Rarity Hub
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Chroma Blooks
+            All Chroma Blooks{" "}
             <span className="mt-2 block text-xl font-medium text-teal-300">
               The rarest pulls you can get from packs
             </span>

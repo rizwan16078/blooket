@@ -61,7 +61,7 @@ export default function CompleteBlookListPage() {
             Complete Library
           </p>
           <h1 className="font-sans text-4xl font-black tracking-wide text-white sm:text-5xl">
-            All Blooks in Blooket
+            All Blooks in Blooket{" "}
             <span className="mt-2 block text-xl font-medium text-violet-300">
               172 blooks — complete visual library
             </span>
